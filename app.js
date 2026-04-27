@@ -173,8 +173,7 @@
 
   const trustItems = [
     [icon.gift, "Freeプランでお試し可能"],
-    [icon.card, "より多機能なProプラン/Premiumプランもあり"],
-    [icon.checkCircle, "いつでも解約OK"],
+    [icon.checkCircle, "より多機能なProプラン/Ultraプランも"],
   ];
 
   function renderMiniFlow() {
@@ -287,7 +286,7 @@
             
             </p>
             <p class="hero__body">
-              Macウィンドウを切り替える手間や、<br />
+              Macのウィンドウを切り替える手間や、<br />
               ペースト用ショートカットを覚えなくても、<br />
               スマホからコピー履歴をペーストできます。
               
@@ -430,7 +429,7 @@
               いつものコピペをもっとスムーズにします。<br />
               Mac横のクリップボードで作業が快適に。
             </p>
-            <strong>新たなクリップボード体験を始めよう。</strong>
+            <strong>新たなクリップボードを体験しよう。</strong>
           </div>
           <div class="final-cta__action">
             <a class="download-button download-button--light" href="#" data-wip-download-trigger aria-label="Mac版SideClipをダウンロード">
@@ -578,6 +577,46 @@
       active = (active + 1) % Math.max(flowItems.length, 1);
       setActive(active);
     }, 1700);
+  }
+
+  function initHeroTitleFit() {
+    const h1 = document.querySelector("#hero-title");
+    if (!h1) return;
+    const accentLine = h1.querySelector(".hero__accent--single-line");
+
+    const minPx = 11;
+    const tolerance = 2;
+
+    function overflows() {
+      const w = h1.clientWidth + tolerance;
+      if (h1.scrollWidth > w) return true;
+      if (accentLine && accentLine.scrollWidth > w) return true;
+      return false;
+    }
+
+    function fit() {
+      h1.style.fontSize = "";
+      if (!h1.isConnected) return;
+      void h1.offsetWidth;
+      let px = parseFloat(window.getComputedStyle(h1).fontSize);
+      if (Number.isNaN(px)) return;
+      while (px >= minPx && overflows()) {
+        px -= 1;
+        h1.style.fontSize = `${px}px`;
+      }
+    }
+
+    const run = () => window.requestAnimationFrame(fit);
+    run();
+    window.addEventListener("resize", run);
+    window.addEventListener("orientationchange", run);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(run);
+    }
+    const wrap = h1.closest(".hero__content");
+    if (wrap && typeof ResizeObserver !== "undefined") {
+      new ResizeObserver(run).observe(wrap);
+    }
   }
 
   function initHeroParallax() {
@@ -830,6 +869,7 @@
     document.querySelector("#root").innerHTML = renderApp();
     initReveal();
     initFlowCycle();
+    initHeroTitleFit();
     initHeroParallax();
     initInteractiveCards();
     initConceptVideoEmbed();

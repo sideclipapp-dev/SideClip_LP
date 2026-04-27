@@ -165,6 +165,8 @@ img {
   z-index: 1;
   width: min(100%, 640px);
   padding: clamp(20px, 3vw, 36px) var(--section-pad-x) clamp(20px, 3vw, 40px);
+  container-type: inline-size;
+  container-name: hero-copy;
 }
 
 .brand {
@@ -183,10 +185,18 @@ img {
 
 .hero h1 {
   margin: 0 0 19px;
+  max-width: 100%;
   font-size: var(--fs-title-lg);
   line-height: 1.42;
   font-weight: var(--heading-weight);
-  letter-spacing: -0.4px;
+  letter-spacing: -0.038em;
+}
+
+@supports (font-size: 1cqw) {
+  .hero h1 {
+    /* ベース縮尺（JSの initHeroTitleFit で最終調整） */
+    font-size: min(2.1rem, max(0.58rem, calc(92cqw / 17.5)));
+  }
 }
 
 .hero__accent {
@@ -195,6 +205,7 @@ img {
 
 .hero__accent--single-line {
   white-space: nowrap;
+  font-size: inherit;
 }
 
 .hero__lead,
@@ -1542,7 +1553,6 @@ img {
 
   .hero h1 {
     margin-top: 0;
-    font-size: 30px;
   }
 
   .mini-flow {
@@ -1789,15 +1799,6 @@ img {
 }
 
 @media (max-width: 390px) {
-  .hero h1 {
-    font-size: 27px;
-  }
-
-  .hero__accent--single-line {
-    font-size: clamp(14px, 3.85vw, 22px);
-    letter-spacing: -0.045em;
-  }
-
   .hero__lead,
   .hero__body,
   .hero__promise,
