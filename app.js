@@ -1,0 +1,757 @@
+(function () {
+  const ASSET_VERSION = "20260427-0220";
+  const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
+
+  // Visual assets are centralized so replacement only needs this block.
+  const syncDataLineRail = `
+    <div class="sync-line-rail" aria-hidden="true">
+      <svg class="sync-line-svg" viewBox="0 0 100 14" preserveAspectRatio="none" focusable="false">
+        <line x1="0.25" y1="7" x2="99.75" y2="7" class="sync-line-solid" vector-effect="non-scaling-stroke" />
+      </svg>
+      <span class="sync-packet sync-packet--fwd" style="animation-delay: 0s"></span>
+      <span class="sync-packet sync-packet--fwd" style="animation-delay: 1.45s"></span>
+      <span class="sync-packet sync-packet--rev" style="animation-delay: 0.35s"></span>
+      <span class="sync-packet sync-packet--rev" style="animation-delay: 1.75s"></span>
+    </div>`;
+
+  const ASSETS = {
+    heroMain: "./assets/hero-visual-main.png",
+    heroMainFallback: "./assets/hero-visual.png",
+    stepCopy: `./assets/step-copy.png?v=${ASSET_VERSION}`,
+    stepAdd: `./assets/step-add.png?v=${ASSET_VERSION}`,
+    stepTap: `./assets/step-tap.png?v=${ASSET_VERSION}`,
+    stepPaste: `./assets/step-paste.png?v=${ASSET_VERSION}`,
+    featureHistory: `./assets/feature-panel-history.png?v=${ASSET_VERSION}`,
+    featureFavorite: `./assets/feature-panel-favorite.png?v=${ASSET_VERSION}`,
+    featureTodo: `./assets/feature-panel-todo.png?v=${ASSET_VERSION}`,
+    featureScan: `./assets/feature-panel-scan.png?v=${ASSET_VERSION}`,
+  };
+
+  const icon = {
+    download: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 3v11m0 0 4-4m-4 4-4-4M5 18h14" />
+      </svg>
+    `,
+    eye: `
+      <svg viewBox="0 0 24 24"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" /><circle cx="12" cy="12" r="3" /></svg>
+    `,
+    tap: `
+      <svg viewBox="0 0 24 24"><path d="M10 14.5V5.7a1.7 1.7 0 1 1 3.4 0V12l.7-.7a1.5 1.5 0 0 1 2.1 2.1L13 16.6c-.7.7-1.2 1.7-1.2 2.7v1.2" /><path d="M7.2 11.4 5.7 9.9a1.5 1.5 0 0 1 2.1-2.1l2.2 2.2" /><path d="M5 3.5 3.8 2.3M19.5 4.5l1.2-1.2M4 17l-1.5 1M18.7 18.8l1.4 1" /></svg>
+    `,
+    media: `
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="10" height="8" rx="1.5" /><rect x="12" y="12" width="9" height="8" rx="1.5" /><path d="M6 16h4M16 7h3M7 8h2M15 16h3" /></svg>
+    `,
+    lock: `
+      <svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /><path d="M12 14v2.5" /></svg>
+    `,
+    gift: `
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12v8H4v-8M2 7h20v5H2zM12 22V7M12 7H8.5a2.5 2.5 0 1 1 2.5-2.5V7Zm0 0h3.5A2.5 2.5 0 1 0 13 4.5V7Z" /></svg>
+    `,
+    card: `
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 10h18M7 15h5" /></svg>
+    `,
+    checkCircle: `
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="m8 12 2.6 2.7L16.5 8" /></svg>
+    `,
+    laptopFlow: `
+      <svg viewBox="0 0 48 40" aria-hidden="true">
+        <rect x="8" y="7" width="32" height="21" rx="1.8" />
+        <path d="M4 33h40" />
+        <path d="M20 28h8" />
+      </svg>
+    `,
+    clipboardFlow: `
+      <svg viewBox="0 0 40 44" aria-hidden="true">
+        <rect x="9" y="3" width="22" height="36" rx="3.5" />
+        <path d="M16 8h8" />
+        <path d="M15 15h2M21 15h5" />
+        <path d="M15 21h2M21 21h5" />
+        <path d="M15 27h2M21 27h5" />
+      </svg>
+    `,
+    tapFlow: `
+      <svg viewBox="0 0 44 44" aria-hidden="true">
+        <path d="M21 6.5v17" />
+        <path d="M21 6.5a4 4 0 0 1 8 0V22" />
+        <path d="M29 18.5a3.8 3.8 0 0 1 7.6 0v7.1c0 7.2-4 11.4-11.2 11.4h-4.7a8 8 0 0 1-6.5-3.4l-6-8.4a3.1 3.1 0 0 1 4.8-3.9l5.1 5.2" />
+        <path d="M14 5.7 11.5 3.2M35 8l2.8-2.3M8.2 15.4H4.5" />
+      </svg>
+    `,
+    checkFlow: `
+      <svg viewBox="0 0 44 44" aria-hidden="true">
+        <circle cx="22" cy="22" r="18.5" />
+        <path d="m13.7 22.5 5.4 5.4 11.2-12.1" />
+      </svg>
+    `,
+  };
+
+  const miniFlow = [
+    [icon.laptopFlow, "Macでコピー", ""],
+    [icon.clipboardFlow, "スマホに追加", ""],
+    [icon.tapFlow, "タップ", "flow-icon--svg-tap"],
+    [icon.checkFlow, "Macに即ペースト", "flow-icon--svg-check"],
+  ];
+
+  const steps = [
+    {
+      number: "1",
+      title: "Macでコピー",
+      image: ASSETS.stepCopy,
+      alt: "Macでテキストをコピーする画面",
+    },
+    {
+      number: "2",
+      title: "スマホにカードが<br />自動追加",
+      image: ASSETS.stepAdd,
+      alt: "スマホにコピー履歴カードが追加される画面",
+    },
+    {
+      number: "3",
+      title: "必要なカードをタップ",
+      image: ASSETS.stepTap,
+      alt: "スマホのカードをタップする画面",
+    },
+    {
+      number: "4",
+      title: "Macに即ペースト",
+      image: ASSETS.stepPaste,
+      alt: "Macへ即座にペーストされる画面",
+    },
+  ];
+
+  const benefits = [
+    {
+      icon: icon.eye,
+      title: "横目でサッと確認",
+      text: "スマホに常時表示。<br />必要な情報をすぐに<br />見つけられる。",
+    },
+    {
+      icon: icon.tapFlow,
+      title: "Tap to Paste",
+      text: "ワンタップで<br />即座にペースト。<br />ウィンドウ切替不要。",
+    },
+    {
+      icon: icon.media,
+      title: "テキスト・画像・動画に対応",
+      text: "あらゆるコピー履歴を<br />スマホで管理。<br />スクショも動画もOK。",
+    },
+    {
+      icon: icon.lock,
+      title: "ローカル同期で安心",
+      text: "ローカル同期でデータは<br />外部に送信されません。<br />安全・高速。",
+    },
+  ];
+
+  const features = [
+    {
+      title: "クリップボード履歴",
+      image: ASSETS.featureHistory,
+      alt: "クリップボード履歴画面",
+      text: "コピーした内容を自動で保存。<br />テキスト・画像・リンク・動画まで<br />まとめて確認できます。",
+    },
+    {
+      title: "Favorite（お気に入り）",
+      image: ASSETS.featureFavorite,
+      alt: "お気に入り保存画面",
+      text: "重要なクリップはスワイプで保存。<br />いつでもすぐ呼び出せます。",
+    },
+    {
+      title: "Todoモード",
+      image: ASSETS.featureTodo,
+      alt: "Todoモード画面",
+      text: "コピー内容をそのままToDo化。<br />完了するまで見失いません。<br /><small>（Pro / Premium）</small>",
+    },
+    {
+      title: "SCANでMacをキャプチャ",
+      image: ASSETS.featureScan,
+      alt: "MacをキャプチャするSCAN画面",
+      text: "スマホからMac画面を即キャプチャ。<br />そのまま履歴に同期されます。",
+    },
+  ];
+
+  const trustItems = [
+    [icon.gift, "無料でお試し"],
+    [icon.card, "クレジットカード不要"],
+    [icon.checkCircle, "いつでも解約OK"],
+  ];
+
+  function renderMiniFlow() {
+    return miniFlow
+      .map(([svg, label, extraClass], index) => {
+        const item = `
+          <li data-flow-index="${index}">
+            <span class="flow-icon flow-icon--svg ${extraClass}" aria-hidden="true">${svg}</span>
+            <span>${label}</span>
+          </li>
+        `;
+        return index < miniFlow.length - 1 ? `${item}<li class="flow-arrow" aria-hidden="true">→</li>` : item;
+      })
+      .join("");
+  }
+
+  function renderSteps() {
+    return steps
+      .map(
+        (step, index) => `
+          <li class="step-card interactive-card" data-step-index="${index}">
+            <h3><span>${step.number}</span>${step.title}</h3>
+            <img src="${step.image}" alt="${step.alt}" />
+          </li>
+        `
+      )
+      .join("");
+  }
+
+  function renderBenefits() {
+    return benefits
+      .map(
+        (benefit, index) => `
+          <article class="benefit-item interactive-card">
+            <div class="round-icon" aria-hidden="true">
+              ${benefit.icon}
+            </div>
+            <h3>${benefit.title}</h3>
+            <p>${benefit.text}</p>
+          </article>
+        `
+      )
+      .join("");
+  }
+
+  function renderFeatures() {
+    return features
+      .map(
+        (feature) => `
+          <article class="feature-card interactive-card">
+            <h3>${feature.title}</h3>
+            <p>${feature.text}</p>
+            <button
+              type="button"
+              class="feature-card__panel feature-zoom-trigger"
+              data-feature-image-src="${feature.image}"
+              data-feature-image-alt="${feature.alt}"
+              aria-label="${feature.title} の画像を拡大表示"
+            >
+              <img src="${feature.image}" alt="${feature.alt}" loading="lazy" decoding="async" />
+            </button>
+          </article>
+        `
+      )
+      .join("");
+  }
+
+  function renderTrustItems() {
+    return trustItems
+      .map(
+        ([svg, label]) => `
+          <li>
+            ${svg}
+            ${label}
+          </li>
+        `
+      )
+      .join("");
+  }
+
+  function renderApp() {
+    return `
+      <main class="page-shell">
+        <section class="hero" aria-labelledby="hero-title">
+          <img
+            class="hero__visual"
+            src="${ASSETS.heroMain}"
+            alt="MacとスマホでSideClipを使うイメージ"
+            onerror="this.onerror=null;this.src='${ASSETS.heroMainFallback}';"
+          />
+          <div class="hero__veil" aria-hidden="true"></div>
+          <div class="hero__content reveal is-visible">
+            <a class="brand" href="#" aria-label="SideClip">
+              <span>Side</span><strong>Clip</strong>
+            </a>
+            <h1 id="hero-title">Macのコピー履歴を、<br />手元の画面へ。</h1>
+            <p class="hero__lead">
+              SideClipは、スマホやタブレットを<br />
+              「常時表示できるクリップボード」に変える<br />
+              Macアプリです。
+            </p>
+            <p class="hero__body">
+              履歴ウィンドウでMac画面を圧迫せず、<br />
+              スマホを横に置くだけで使えます。
+            </p>
+            <p class="hero__promise">
+              作業の流れを止めずに、<br />
+              必要な履歴へすぐ戻れます。
+            </p>
+            <ul class="hero-kpis" aria-label="SideClipで得られる効果">
+              <li>画面切替を最小化</li>
+              <li>貼り付け操作をワンタップ化</li>
+              <li>履歴アクセスを高速化</li>
+            </ul>
+            <ol class="mini-flow" aria-label="SideClipの流れ">
+              ${renderMiniFlow()}
+            </ol>
+            <a class="download-button" href="#download" aria-label="Mac版SideClipを無料でダウンロード">
+              ${icon.download}
+              無料でダウンロード
+            </a>
+            <p class="os-note">macOS 12.0以降に対応</p>
+          </div>
+        </section>
+
+        <section id="concept-video" class="concept-video reveal" aria-labelledby="concept-video-title">
+          <div class="concept-video__copy">
+            <h2 id="concept-video-title">コンセプト動画で<br />SideClipを体験</h2>
+            <p>1分でわかる、新しいクリップボード体験。</p>
+            <a href="#concept-video" aria-label="動画を見る（約30秒）">動画を見る（約30秒）</a>
+          </div>
+          <div class="concept-video__visual" aria-label="コンセプト動画（YouTube）">
+            <div class="concept-video__embed concept-video__embed--poster">
+              <button type="button" class="concept-video__facade" aria-label="コンセプト動画を再生する（約30秒・YouTube）">
+                <img
+                  class="concept-video__poster"
+                  src="https://i.ytimg.com/vi/${CONCEPT_VIDEO_YT_ID}/maxresdefault.jpg"
+                  alt=""
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                  fetchpriority="low"
+                />
+                <span class="concept-video__facade-ring" aria-hidden="true">
+                  <svg class="concept-video__facade-triangle" viewBox="0 0 24 24" width="28" height="28" focusable="false">
+                    <polygon points="8,5 8,19 19,12" fill="currentColor" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="tap-section" aria-labelledby="tap-title">
+          <div class="tap-section__reveal reveal">
+            <div class="section-copy section-copy--tap">
+              <h2 id="tap-title">指先ひとつの <span>「Tap to Paste」</span></h2>
+              <p>
+                スマホ画面に並んだカードを<wbr />ワンタップするだけで、<br class="desktop-break" /><br class="mobile-break" />
+                そのデータがMacのカーソル位置へ<wbr />即座にペーストされます。<br class="desktop-break" /><br class="mobile-break" />
+                ウィンドウ切り替えを減らし、<br class="mobile-break" />入力作業に集中できます。
+              </p>
+            </div>
+            <ol class="steps" aria-label="Tap to Pasteの4ステップ">
+              ${renderSteps()}
+            </ol>
+          </div>
+        </section>
+
+        <section class="benefits" aria-labelledby="benefits-title">
+          <div class="benefits__reveal reveal">
+            <div class="section-copy">
+              <h2 id="benefits-title">作業の流れを、止めない。</h2>
+              <p>
+                必要な情報を、視線移動だけで取り出せます。<br />
+                コピー履歴の確認と貼り付けを、<br />
+                ひとつの流れで完了できます。
+              </p>
+            </div>
+            <div class="benefit-grid">
+              ${renderBenefits()}
+            </div>
+          </div>
+        </section>
+
+        <section class="features" aria-labelledby="features-title">
+          <div class="features__reveal reveal">
+            <h2 id="features-title">SideClipの主な機能</h2>
+            <div class="feature-grid">
+              ${renderFeatures()}
+            </div>
+          </div>
+        </section>
+
+        <section class="local-sync" aria-labelledby="local-title">
+          <div class="local-sync__reveal reveal">
+            <div class="local-sync__text">
+              <h2 id="local-title">クラウド不使用。<br />完全ローカル同期。</h2>
+              <p>
+                同一Wi-Fiネットワーク内のローカル通信のみ。<br />
+                データは外部サーバーに送信されません。
+              </p>
+              <ul class="trust-facts" aria-label="信頼性に関する補足情報">
+                <li><strong>保存先:</strong> 端末ローカルのみ</li>
+                <li><strong>通信範囲:</strong> 同一ネットワーク内で完結</li>
+                <li><strong>サポート:</strong> 導入ガイドと問い合わせ窓口を用意</li>
+              </ul>
+              <div class="sync-tags" aria-label="SideClipの同期特性">
+                <span>高速</span>
+                <span>安全</span>
+                <span>プライベート</span>
+              </div>
+            </div>
+            <div class="sync-graphic" aria-hidden="true">
+              <div class="sync-graphic__row">
+                ${syncDataLineRail}
+                <div class="device device--laptop"></div>
+                <div class="sync-center">
+                  <svg class="shield" viewBox="0 0 24 24">
+                    <path d="M12 2.5 20 6v5.4c0 5-3.4 8.7-8 10.1-4.6-1.4-8-5.1-8-10.1V6l8-3.5Z" />
+                    <path d="m8.3 12 2.3 2.3 5.1-5.4" />
+                  </svg>
+                  <svg class="wifi" viewBox="0 0 24 24">
+                    <path d="M3.6 9.2a13.2 13.2 0 0 1 16.8 0" />
+                    <path d="M6.8 12.8a8.2 8.2 0 0 1 10.4 0" />
+                    <path d="M9.9 16.2a3.3 3.3 0 0 1 4.2 0" />
+                    <circle cx="12" cy="20" r="1.15" />
+                  </svg>
+                </div>
+                <div class="device device--phone"></div>
+              </div>
+              <p>ローカルWi-Fiで直接同期</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="final-cta reveal" id="download" aria-labelledby="cta-title">
+          <div class="final-cta__copy">
+            <h2 id="cta-title">クリップボードの概念を、変える。</h2>
+            <p>
+              SideClipは、履歴を探す時間を減らし、<br />
+              いつもの作業をもっとスムーズにします。<br />
+              Macの横に、すぐ使える履歴を。
+            </p>
+            <strong>SideClipを、今日から。</strong>
+          </div>
+          <div class="final-cta__action">
+            <a class="download-button download-button--light" href="#">
+              ${icon.download}
+              Mac版をダウンロード
+            </a>
+            <p>macOS 12.0以降に対応</p>
+            <nav class="cta-links" aria-label="補助リンク">
+              <a class="is-primary" href="#concept-video">デモ動画</a>
+              <a href="#features-title">主な機能</a>
+              <a href="#local-title">ローカル同期</a>
+            </nav>
+          </div>
+          <ul class="trust-list" aria-label="利用条件">
+            ${renderTrustItems()}
+          </ul>
+        </section>
+
+        <div class="feature-lightbox" id="feature-lightbox" aria-hidden="true">
+          <div class="feature-lightbox__dialog" role="dialog" aria-modal="true" aria-label="機能紹介画像の拡大表示">
+            <button type="button" class="feature-lightbox__close" aria-label="拡大表示を閉じる">×</button>
+            <img class="feature-lightbox__image" src="" alt="" />
+          </div>
+        </div>
+      </main>
+    `;
+  }
+
+  function initReveal() {
+    const revealNodes = document.querySelectorAll(".reveal");
+    const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!("IntersectionObserver" in window)) {
+      revealNodes.forEach((target) => target.classList.add("is-visible"));
+      return;
+    }
+
+    if (shouldReduceMotion) {
+      revealNodes.forEach((target) => target.classList.add("is-visible"));
+      return;
+    }
+
+    const REVEAL_ENTER_RATIO = 0.1;
+    const REVEAL_EXIT_RATIO = 0.04;
+    const REVEAL_EXIT_DEBOUNCE_MS = 280;
+    const revealHideTimers = new WeakMap();
+    const revealThresholds = Array.from({ length: 21 }, (_, i) => i * 0.05);
+
+    function cancelRevealHide(el) {
+      const id = revealHideTimers.get(el);
+      if (id != null) {
+        window.clearTimeout(id);
+        revealHideTimers.delete(el);
+      }
+    }
+
+    function scheduleRevealHide(el) {
+      cancelRevealHide(el);
+      const id = window.setTimeout(() => {
+        revealHideTimers.delete(el);
+        el.classList.remove("is-visible");
+      }, REVEAL_EXIT_DEBOUNCE_MS);
+      revealHideTimers.set(el, id);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const latestByTarget = new Map();
+        for (const entry of entries) {
+          latestByTarget.set(entry.target, entry);
+        }
+        latestByTarget.forEach((entry) => {
+          const el = entry.target;
+          if (el.classList.contains("hero__content")) return;
+
+          const ratio = entry.intersectionRatio;
+          const isShown = el.classList.contains("is-visible");
+
+          if (ratio >= REVEAL_ENTER_RATIO) {
+            cancelRevealHide(el);
+            el.classList.add("is-visible");
+            return;
+          }
+
+          if (isShown && (ratio <= REVEAL_EXIT_RATIO || !entry.isIntersecting)) {
+            scheduleRevealHide(el);
+          }
+        });
+      },
+      { threshold: revealThresholds, rootMargin: "0px 0px 14% 0px" }
+    );
+
+    revealNodes.forEach((target) => {
+      if (!target.classList.contains("hero__content")) {
+        observer.observe(target);
+      }
+    });
+
+    window.setTimeout(() => {
+      document.querySelectorAll(".reveal:not(.is-visible)").forEach((target) => {
+        if (!target.classList.contains("hero__content")) {
+          target.classList.add("is-visible");
+        }
+      });
+    }, 3200);
+  }
+
+  function initFlowCycle() {
+    const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (shouldReduceMotion) return;
+
+    const flowItems = [...document.querySelectorAll("[data-flow-index]")];
+    const stepItems = [...document.querySelectorAll("[data-step-index]")];
+    let active = 0;
+
+    function setActive(index) {
+      flowItems.forEach((item, itemIndex) => item.classList.toggle("is-active", itemIndex === index));
+      stepItems.forEach((item, itemIndex) => item.classList.toggle("is-active", itemIndex === index));
+    }
+
+    setActive(active);
+    window.setInterval(() => {
+      active = (active + 1) % Math.max(flowItems.length, 1);
+      setActive(active);
+    }, 1700);
+  }
+
+  function initHeroParallax() {
+    const hero = document.querySelector(".hero");
+    if (!hero) return;
+
+    hero.addEventListener("pointermove", (event) => {
+      const rect = hero.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      hero.style.setProperty("--hero-x", `${x * 10}px`);
+      hero.style.setProperty("--hero-y", `${y * 8}px`);
+      hero.style.setProperty("--hero-scale", "1.012");
+    });
+
+    hero.addEventListener("pointerleave", () => {
+      hero.style.setProperty("--hero-x", "0px");
+      hero.style.setProperty("--hero-y", "0px");
+      hero.style.setProperty("--hero-scale", "1");
+    });
+  }
+
+  function initInteractiveCards() {
+    const cards = document.querySelectorAll(".interactive-card");
+    cards.forEach((card) => {
+      card.addEventListener("pointermove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        card.style.setProperty("--card-rotate-x", `${y * -3}deg`);
+        card.style.setProperty("--card-rotate-y", `${x * 3}deg`);
+      });
+
+      card.addEventListener("pointerleave", () => {
+        card.style.setProperty("--card-rotate-x", "0deg");
+        card.style.setProperty("--card-rotate-y", "0deg");
+      });
+    });
+  }
+
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href="#download"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const target = document.querySelector("#download");
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  }
+
+  function initConceptVideoEmbed() {
+    const wrap = document.querySelector(".concept-video__embed--poster");
+    if (!wrap) return;
+
+    const embedUrl =
+      "https://www.youtube-nocookie.com/embed/" +
+      CONCEPT_VIDEO_YT_ID +
+      "?autoplay=1&modestbranding=1&rel=0&playsinline=1";
+
+    function loadIframe() {
+      if (wrap.dataset.loaded === "1") return;
+      wrap.dataset.loaded = "1";
+      wrap.classList.remove("concept-video__embed--poster");
+      wrap.innerHTML = "";
+      const iframe = document.createElement("iframe");
+      iframe.width = "560";
+      iframe.height = "315";
+      iframe.src = embedUrl;
+      iframe.title = "SideClip コンセプト動画";
+      iframe.setAttribute("frameborder", "0");
+      iframe.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+      iframe.allowFullscreen = true;
+      wrap.appendChild(iframe);
+    }
+
+    wrap.querySelector(".concept-video__facade")?.addEventListener("click", loadIframe);
+
+    document.querySelectorAll('a[href="#concept-video"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        document.querySelector("#concept-video")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        loadIframe();
+      });
+    });
+  }
+
+
+  function initFeatureImageLightbox() {
+    const lightbox = document.querySelector("#feature-lightbox");
+    if (!lightbox) return;
+
+    const dialog = lightbox.querySelector(".feature-lightbox__dialog");
+    const closeButton = lightbox.querySelector(".feature-lightbox__close");
+    const image = lightbox.querySelector(".feature-lightbox__image");
+    const triggers = document.querySelectorAll(".feature-zoom-trigger");
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("has-feature-lightbox");
+    }
+
+    function openLightbox(src, alt) {
+      image.src = src;
+      image.alt = alt;
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("has-feature-lightbox");
+    }
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        openLightbox(trigger.dataset.featureImageSrc || "", trigger.dataset.featureImageAlt || "");
+      });
+    });
+
+    ["touchstart", "touchend", "click"].forEach((eventName) => {
+      dialog?.addEventListener(eventName, (event) => {
+        event.stopPropagation();
+      });
+    });
+
+    ["touchstart", "touchend", "click"].forEach((eventName) => {
+      closeButton?.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        closeLightbox();
+      });
+    });
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        event.preventDefault();
+        closeLightbox();
+      }
+    });
+
+    ["touchstart", "touchend"].forEach((eventName) => {
+      lightbox.addEventListener(eventName, (event) => {
+        event.stopPropagation();
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+        closeLightbox();
+      }
+    });
+  }
+
+  function initHashScroll() {
+    if (!window.location.hash) return;
+    window.requestAnimationFrame(() => {
+      const target = document.querySelector(window.location.hash);
+      if (target) target.scrollIntoView({ block: "start" });
+    });
+  }
+
+  function initSyncLineRailLayout() {
+    const row = document.querySelector(".sync-graphic__row");
+    if (!row) return;
+
+    function updateSyncLineRailLayout() {
+      const laptop = row.querySelector(".device--laptop");
+      const phone = row.querySelector(".device--phone");
+      if (!laptop || !phone) return;
+      const rr = row.getBoundingClientRect();
+      const lr = laptop.getBoundingClientRect();
+      const pr = phone.getBoundingClientRect();
+      const cxL = lr.left + lr.width / 2 - rr.left;
+      const cxP = pr.left + pr.width / 2 - rr.left;
+      const x0 = Math.min(cxL, cxP);
+      const x1 = Math.max(cxL, cxP);
+      row.style.setProperty("--sync-line-left", `${Math.round(x0 * 100) / 100}px`);
+      row.style.setProperty("--sync-line-w", `${Math.round((x1 - x0) * 100) / 100}px`);
+    }
+
+    const run = () => window.requestAnimationFrame(updateSyncLineRailLayout);
+
+    run();
+    window.addEventListener("resize", run);
+    window.addEventListener("load", run);
+    if (typeof ResizeObserver !== "undefined") {
+      new ResizeObserver(run).observe(row);
+    }
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(run);
+    }
+  }
+
+  function mount() {
+    document.querySelector("#root").innerHTML = renderApp();
+    initReveal();
+    initFlowCycle();
+    initHeroParallax();
+    initInteractiveCards();
+    initSmoothScroll();
+    initConceptVideoEmbed();
+    initFeatureImageLightbox();
+    initSyncLineRailLayout();
+    initHashScroll();
+  }
+
+  document.addEventListener("DOMContentLoaded", mount);
+})();
