@@ -88,7 +88,7 @@
 
   const miniFlow = [
     [icon.laptopFlow, "Macで<br />コピー", ""],
-    [icon.clipboardFlow, "スマホに<br />追加", ""],
+    [icon.clipboardFlow, "スマホに<br />自動追加", ""],
     [icon.tapFlow, "スマホを<br />タップ", "flow-icon--svg-tap"],
     [icon.checkFlow, "Macに<br />即ペースト", "flow-icon--svg-check"],
   ];
@@ -124,7 +124,7 @@
     {
       icon: icon.eye,
       title: "横目でサッと確認",
-      text: "スマホに常時表示。<br />必要な情報をすぐに<br />見つけられる。",
+      text: "スマホに常時表示。<br />必要なコピー履歴をすぐに<br />見つけられます。",
     },
     {
       icon: icon.tapFlow,
@@ -133,13 +133,13 @@
     },
     {
       icon: icon.media,
-      title: "テキスト・画像・動画に対応",
-      text: "あらゆるコピー履歴を<br />スマホで管理。<br />スクショも動画もOK。",
+      title: "テキスト・画像に対応",
+      text: "あらゆるコピー履歴を<br />スマホで管理。<br />スクショも画像もOK。",
     },
     {
       icon: icon.lock,
       title: "ローカル同期で安心",
-      text: "ローカル同期でデータは<br />外部に送信されません。<br />安全・高速。",
+      text: "クリップボード履歴データは<br />外部に送信されません。<br />安全かつ高速。",
     },
   ];
 
@@ -160,20 +160,20 @@
       title: "Todoモード",
       image: ASSETS.featureTodo,
       alt: "Todoモード画面",
-      text: "コピー内容をそのままToDo化。<br />完了するまで見失いません。<br /><small>（Pro / Premium）</small>",
+      text: "コピー内容をそのままToDo化。<br />完了するまで見失いません。<br /><small>（Pro / Ultraプラン）</small>",
     },
     {
       title: "SCANでMacをキャプチャ",
       image: ASSETS.featureScan,
       alt: "MacをキャプチャするSCAN画面",
-      text: "スマホからMac画面を即キャプチャ。<br />そのまま履歴に同期されます。",
+      text: "スマホからMac画面を即キャプチャ。<br />そのまま履歴に同期されます。<br /><small>（Pro / Ultraプラン）</small>",
     },
   ];
 
   const trustItems = [
-    [icon.gift, "無料でお試し"],
-    [icon.card, "クレジットカード不要"],
-    [icon.checkCircle, "いつでも解約OK"],
+    [icon.gift, "Freeプランでお試し可能。"],
+    [icon.card, "より多機能なProプラン/Premiumプランもあり。"],
+    [icon.checkCircle, "いつでも解約OK。<br />解約してもデータは残ります。"],
   ];
 
   function renderMiniFlow() {
@@ -278,15 +278,12 @@
             <p class="hero__body">
               Mac画面を切り替える手間や、<br />
               ペースト用ショートカットを覚えなくても、<br />
-              横においたスマホからペーストしたいコピー履歴を<br />
+              スマホからコピー履歴を<br />
               タップするだけでペーストできます。
             </p>
-            <p class="hero__promise">
-              作業の流れを止めずに、<br />
-              コピー履歴へすぐアクセスできます。
-            </p>
+            
             <ul class="hero-kpis" aria-label="SideClipで得られる効果">
-              <li>Macの画面切り替えを最小化</li>
+              <li>Mac画面の切り替えを最小化</li>
               <li>コピー履歴を常時表示</li>
               <li>スマホ画面をタップでペースト</li>
             </ul>
@@ -303,9 +300,9 @@
 
         <section id="concept-video" class="concept-video reveal" aria-labelledby="concept-video-title">
           <div class="concept-video__copy">
-            <h2 id="concept-video-title">コンセプト動画で<br />SideClipを体験</h2>
-            <p>1分でわかる、新しいクリップボード体験。</p>
-            <a href="#concept-video" aria-label="動画を見る（約30秒）">動画を見る（約30秒）</a>
+            <h2 id="concept-video-title">コンセプト動画で<br />SideClipを知る</h2>
+            <p>30秒でわかる、常時表示のコピペ体験</p>
+            
           </div>
           <div class="concept-video__visual" aria-label="コンセプト動画（YouTube）">
             <div class="concept-video__embed concept-video__embed--poster">
@@ -377,12 +374,12 @@
               <h2 id="local-title">クラウド不使用。<br />完全ローカル同期。</h2>
               <p>
                 同一Wi-Fiネットワーク内のローカル通信のみ。<br />
-                データは外部サーバーに送信されません。
+                コピー履歴データはインターネットに送信されません。
               </p>
               <ul class="trust-facts" aria-label="信頼性に関する補足情報">
-                <li><strong>保存先:</strong> 端末ローカルのみ</li>
-                <li><strong>通信範囲:</strong> 同一ネットワーク内で完結</li>
-                <li><strong>サポート:</strong> 導入ガイドと問い合わせ窓口を用意</li>
+                <li><strong>保存先:</strong> Macローカルフォルダ内</li>
+                <li><strong>通信範囲:</strong> 同一Wi-Fiネットワーク内で完結</li>
+                <li><strong>セキュリティ対策:</strong><br />Webブラウザ証明書・トークン認証</li>
               </ul>
               <div class="sync-tags" aria-label="SideClipの同期特性">
                 <span>高速</span>
@@ -418,8 +415,8 @@
             <h2 id="cta-title">クリップボードの概念を、変える。</h2>
             <p>
               SideClipは、履歴を探す時間を減らし、<br />
-              いつもの作業をもっとスムーズにします。<br />
-              Macの横に、すぐ使える履歴を。
+              いつものコピペをもっとスムーズにします。<br />
+              Macの横に、すぐ使えるコピー履歴を。
             </p>
             <strong>SideClipを、今日から。</strong>
           </div>
@@ -428,7 +425,7 @@
               ${icon.download}
               Mac版をダウンロード
             </a>
-            <p>macOS 12.0以降に対応</p>
+            <p>Apple Silicon搭載のMacに対応</p>
             <nav class="cta-links" aria-label="補助リンク">
               <a class="is-primary" href="#concept-video">デモ動画</a>
               <a href="#features-title">主な機能</a>
