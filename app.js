@@ -1,6 +1,7 @@
 (function () {
   const ASSET_VERSION = "20260427-0220";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
+  const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
 
   // Visual assets are centralized so replacement only needs this block.
   const syncDataLineRail = `
@@ -171,9 +172,9 @@
   ];
 
   const trustItems = [
-    [icon.gift, "Freeプランでお試し可能。"],
-    [icon.card, "より多機能なProプラン/Premiumプランもあり。"],
-    [icon.checkCircle, "いつでも解約OK。<br />解約してもデータは残ります。"],
+    [icon.gift, "Freeプランでお試し可能"],
+    [icon.card, "より多機能なProプラン/Premiumプランもあり"],
+    [icon.checkCircle, "いつでも解約OK"],
   ];
 
   function renderMiniFlow() {
@@ -258,12 +259,15 @@
     return `
       <main class="page-shell">
         <section class="hero" aria-labelledby="hero-title">
-          <img
-            class="hero__visual"
-            src="${ASSETS.heroMain}"
-            alt="MacとスマホでSideClipを使うイメージ"
-            onerror="this.onerror=null;this.src='${ASSETS.heroMainFallback}';"
-          />
+          <div class="hero__visual-wrap">
+            <img
+              class="hero__visual"
+              src="${ASSETS.heroMain}"
+              alt="MacとスマホでSideClipを使うイメージ"
+              onerror="this.onerror=null;this.src='${ASSETS.heroMainFallback}';"
+            />
+            <div class="hero__visual-fade" aria-hidden="true"></div>
+          </div>
           <div class="hero__veil" aria-hidden="true"></div>
           <div class="hero__content reveal is-visible">
             <a class="brand" href="#" aria-label="SideClip">
@@ -276,21 +280,21 @@
               に変えるMac用アプリです。
             </p>
             <p class="hero__body">
-              Mac画面を切り替える手間や、<br />
+              Macウィンドウを切り替える手間や、<br />
               ペースト用ショートカットを覚えなくても、<br />
-              スマホからコピー履歴を<br />
-              タップするだけでペーストできます。
+              スマホからコピー履歴をペーストできます。
+              
             </p>
             
             <ul class="hero-kpis" aria-label="SideClipで得られる効果">
-              <li>Mac画面の切り替えを最小化</li>
-              <li>コピー履歴を常時表示</li>
-              <li>スマホ画面をタップでペースト</li>
+              <li>コピペ作業の効率化</li>
+              <li>クリップボード履歴の常時表示</li>
+              <li>スマホアプリのインストール不要</li>
             </ul>
             <ol class="mini-flow" aria-label="SideClipの流れ">
               ${renderMiniFlow()}
             </ol>
-            <a class="download-button" href="#download" aria-label="Mac版SideClipを無料でダウンロード">
+            <a class="download-button" href="#" data-wip-download-trigger aria-label="Mac版SideClipを無料でダウンロード">
               ${icon.download}
               無料でダウンロード
             </a>
@@ -332,9 +336,9 @@
             <div class="section-copy section-copy--tap">
               <h2 id="tap-title">指先ひとつの <span>「Tap to Paste」</span></h2>
               <p>
-                スマホ画面に並んだカードを<wbr />ワンタップするだけで、<br class="desktop-break" /><br class="mobile-break" />
+                スマホ画面に並んだカードを<wbr />タップするだけで、<br class="desktop-break" /><br class="mobile-break" />
                 そのデータがMacのカーソル位置へ<wbr />即座にペーストされます。<br class="desktop-break" /><br class="mobile-break" />
-                ウィンドウ切り替えを減らし、<br class="mobile-break" />入力作業に集中できます。
+                Macのウィンドウ切り替えを減らし、<br class="mobile-break" />入力作業に集中できます。
               </p>
             </div>
             <ol class="steps" aria-label="Tap to Pasteの4ステップ">
@@ -371,15 +375,16 @@
         <section class="local-sync" aria-labelledby="local-title">
           <div class="local-sync__reveal reveal">
             <div class="local-sync__text">
-              <h2 id="local-title">クラウド不使用。<br />完全ローカル同期。</h2>
+              <h2 id="local-title">クラウド不使用。<br />完全ローカル同期で<br />安全かつ高速。</h2>
               <p>
                 同一Wi-Fiネットワーク内のローカル通信のみ。<br />
-                コピー履歴データはインターネットに送信されません。
+                コピー履歴データはインターネットに送信されません。<br />
+                スマホアプリのインストール不要でWebブラウザで動作します。
               </p>
               <ul class="trust-facts" aria-label="信頼性に関する補足情報">
                 <li><strong>保存先:</strong> Macローカルフォルダ内</li>
                 <li><strong>通信範囲:</strong> 同一Wi-Fiネットワーク内で完結</li>
-                <li><strong>セキュリティ対策:</strong><br />Webブラウザ証明書・トークン認証</li>
+                <li><strong>セキュリティ対策:</strong><br />Webブラウザ証明書・トークン認証(QRコード読み取り)</li>
               </ul>
               <div class="sync-tags" aria-label="SideClipの同期特性">
                 <span>高速</span>
@@ -414,14 +419,14 @@
           <div class="final-cta__copy">
             <h2 id="cta-title">クリップボードの概念を、変える。</h2>
             <p>
-              SideClipは、履歴を探す時間を減らし、<br />
+              SideClipは、コピー履歴を探す時間を減らし、<br />
               いつものコピペをもっとスムーズにします。<br />
-              Macの横に、すぐ使えるコピー履歴を。
+              Mac横のクリップボードで作業が快適に。
             </p>
             <strong>SideClipを、今日から。</strong>
           </div>
           <div class="final-cta__action">
-            <a class="download-button download-button--light" href="#">
+            <a class="download-button download-button--light" href="#" data-wip-download-trigger aria-label="Mac版SideClipをダウンロード">
               ${icon.download}
               Mac版をダウンロード
             </a>
@@ -441,6 +446,28 @@
           <div class="feature-lightbox__dialog" role="dialog" aria-modal="true" aria-label="機能紹介画像の拡大表示">
             <button type="button" class="feature-lightbox__close" aria-label="拡大表示を閉じる">×</button>
             <img class="feature-lightbox__image" src="" alt="" />
+          </div>
+        </div>
+
+        <div class="wip-download-modal" id="wip-download-modal" aria-hidden="true">
+          <div
+            class="wip-download-modal__dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="wip-download-desc"
+          >
+            <button type="button" class="wip-download-modal__close" aria-label="閉じる">×</button>
+            <p id="wip-download-desc" class="wip-download-modal__text">
+              ただいま絶賛アプリ開発中です。もうしばらくお待ちください。<br />
+              開発の進捗は、Xアカウントを参照してください。
+            </p>
+            <a
+              class="wip-download-modal__xlink"
+              href="${WIP_DOWNLOAD_X_URL}"
+              target="_blank"
+              rel="noopener noreferrer"
+              >SideClip 開発アカウント（X）を開く</a>
+            <button type="button" class="wip-download-modal__dismiss">閉じる</button>
           </div>
         </div>
       </main>
@@ -584,17 +611,6 @@
     });
   }
 
-  function initSmoothScroll() {
-    document.querySelectorAll('a[href="#download"]').forEach((link) => {
-      link.addEventListener("click", (event) => {
-        const target = document.querySelector("#download");
-        if (!target) return;
-        event.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    });
-  }
-
   function initConceptVideoEmbed() {
     const wrap = document.querySelector(".concept-video__embed--poster");
     if (!wrap) return;
@@ -699,6 +715,72 @@
     });
   }
 
+  function initDownloadWipModal() {
+    const modal = document.querySelector("#wip-download-modal");
+    if (!modal) return;
+
+    const dialog = modal.querySelector(".wip-download-modal__dialog");
+    const closeBtn = modal.querySelector(".wip-download-modal__close");
+    const dismissBtn = modal.querySelector(".wip-download-modal__dismiss");
+    const triggers = document.querySelectorAll("[data-wip-download-trigger]");
+
+    function closeModal() {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("has-wip-download-modal");
+    }
+
+    function openModal() {
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("has-wip-download-modal");
+      closeBtn?.focus();
+    }
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        openModal();
+      });
+    });
+
+    ["touchstart", "touchend", "click"].forEach((eventName) => {
+      dialog?.addEventListener(eventName, (event) => {
+        event.stopPropagation();
+      });
+    });
+
+    [closeBtn, dismissBtn].forEach((btn) => {
+      if (!btn) return;
+      ["touchstart", "touchend", "click"].forEach((eventName) => {
+        btn.addEventListener(eventName, (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          closeModal();
+        });
+      });
+    });
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        event.preventDefault();
+        closeModal();
+      }
+    });
+
+    ["touchstart", "touchend"].forEach((eventName) => {
+      modal.addEventListener(eventName, (event) => {
+        event.stopPropagation();
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modal.classList.contains("is-open")) {
+        closeModal();
+      }
+    });
+  }
+
   function initHashScroll() {
     if (!window.location.hash) return;
     window.requestAnimationFrame(() => {
@@ -745,9 +827,9 @@
     initFlowCycle();
     initHeroParallax();
     initInteractiveCards();
-    initSmoothScroll();
     initConceptVideoEmbed();
     initFeatureImageLightbox();
+    initDownloadWipModal();
     initSyncLineRailLayout();
     initHashScroll();
   }
