@@ -146,28 +146,28 @@
 
   const features = [
     {
-      title: "クリップボード履歴",
+      title: `<h2>クリップボード履歴</h2>`,
       image: ASSETS.featureHistory,
       alt: "クリップボード履歴画面",
-      text: "コピーした内容を自動で保存。<br />テキスト・画像・リンク・動画まで<br />まとめて確認できます。",
+      text: "コピーした内容を自動で保存。<br />テキスト・画像・リンクなどを<br />まとめて確認できます。",
     },
     {
-      title: "Favorite（お気に入り）",
+      title: `<h2>Favorite（お気に入り）</h2>`,
       image: ASSETS.featureFavorite,
       alt: "お気に入り保存画面",
       text: "重要なクリップはスワイプで保存。<br />いつでもすぐ呼び出せます。",
     },
     {
-      title: "Todoモード",
+      title: `<h2>Todoモード</h2>`,
       image: ASSETS.featureTodo,
       alt: "Todoモード画面",
       text: "コピー内容をそのままToDo化。<br />完了するまで見失いません。<br /><small>（Pro / Ultraプラン）</small>",
     },
     {
-      title: "SCANでMacをキャプチャ",
+      title: `<h2>SCANでMacをキャプチャ</h2>`,  
       image: ASSETS.featureScan,
       alt: "MacをキャプチャするSCAN画面",
-      text: "スマホからMac画面を即キャプチャ。<br />そのまま履歴に同期されます。<br /><small>（Pro / Ultraプラン）</small>",
+      text: "スマホからMac画面をスクショ。<br />範囲指定するだけでクリップボード履歴に同期されます。<br /><small>（Pro / Ultraプラン）</small>",
     },
   ];
 
