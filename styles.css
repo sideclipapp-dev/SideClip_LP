@@ -141,6 +141,10 @@ img {
   letter-spacing: -0.4px;
 }
 
+.hero__accent {
+  color: var(--blue);
+}
+
 .hero__lead,
 .hero__body,
 .hero__promise {
@@ -189,10 +193,10 @@ img {
 
 .mini-flow {
   display: grid;
-  grid-template-columns: 45px 21px 45px 21px 45px 21px 60px;
+  grid-template-columns: minmax(56px, 1fr) 18px minmax(56px, 1fr) 18px minmax(56px, 1fr) 18px minmax(72px, 1.2fr);
   align-items: end;
   gap: 0;
-  width: min(100%, 392px);
+  width: min(100%, 420px);
   margin: 17px 0 0;
   padding: 0;
   list-style: none;
@@ -1391,8 +1395,8 @@ img {
   }
 
   .mini-flow {
-    width: min(100%, 320px);
-    grid-template-columns: 1fr 18px 1fr 18px 1fr 18px 1.2fr;
+    width: min(100%, 360px);
+    grid-template-columns: minmax(52px, 1fr) 16px minmax(52px, 1fr) 16px minmax(52px, 1fr) 16px minmax(68px, 1.2fr);
     margin-left: 0;
   }
 
