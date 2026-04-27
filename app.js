@@ -87,10 +87,10 @@
   };
 
   const miniFlow = [
-    [icon.laptopFlow, "Macでコピー", ""],
-    [icon.clipboardFlow, "スマホに追加", ""],
-    [icon.tapFlow, "タップ", "flow-icon--svg-tap"],
-    [icon.checkFlow, "Macに即ペースト", "flow-icon--svg-check"],
+    [icon.laptopFlow, "Macで<br />コピー", ""],
+    [icon.clipboardFlow, "スマホに<br />追加", ""],
+    [icon.tapFlow, "スマホを<br />タップ", "flow-icon--svg-tap"],
+    [icon.checkFlow, "Macに<br />即ペースト", "flow-icon--svg-check"],
   ];
 
   const steps = [
@@ -269,24 +269,26 @@
             <a class="brand" href="#" aria-label="SideClip">
               <span>Side</span><strong>Clip</strong>
             </a>
-            <h1 id="hero-title">Macのコピー履歴を、<br />手元の画面へ。</h1>
+            <h1 id="hero-title">Macのコピー履歴を、<br />画面の「<span class="hero__accent">外</span>」へ。</h1>
             <p class="hero__lead">
-              SideClipは、スマホやタブレットを<br />
-              「常時表示できるクリップボード」に変える<br />
-              Macアプリです。
+              スマホやタブレットを<br />
+              「<span class="hero__accent">コピー履歴の常時表示デバイス</span>」<br />
+              に変えるMac用アプリです。
             </p>
             <p class="hero__body">
-              履歴ウィンドウでMac画面を圧迫せず、<br />
-              スマホを横に置くだけで使えます。
+              Mac画面を切り替える手間や、<br />
+              ペースト用ショートカットを覚えなくても、<br />
+              横においたスマホからペーストしたいコピー履歴を<br />
+              タップするだけでペーストできます。
             </p>
             <p class="hero__promise">
               作業の流れを止めずに、<br />
-              必要な履歴へすぐ戻れます。
+              コピー履歴へすぐアクセスできます。
             </p>
             <ul class="hero-kpis" aria-label="SideClipで得られる効果">
-              <li>画面切替を最小化</li>
-              <li>貼り付け操作をワンタップ化</li>
-              <li>履歴アクセスを高速化</li>
+              <li>Macの画面切り替えを最小化</li>
+              <li>コピー履歴を常時表示</li>
+              <li>スマホ画面をタップでペースト</li>
             </ul>
             <ol class="mini-flow" aria-label="SideClipの流れ">
               ${renderMiniFlow()}
@@ -295,7 +297,7 @@
               ${icon.download}
               無料でダウンロード
             </a>
-            <p class="os-note">macOS 12.0以降に対応</p>
+            <p class="os-note">Apple Silicon搭載のMacに対応</p>
           </div>
         </section>
 
