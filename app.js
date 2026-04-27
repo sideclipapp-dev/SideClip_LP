@@ -438,7 +438,7 @@
             </a>
             <p>Apple Silicon搭載のMacに対応</p>
             <nav class="cta-links" aria-label="補助リンク">
-              <a class="is-primary" href="#concept-video">デモ動画</a>
+              <a class="is-primary" href="#concept-video">コンセプト動画</a>
               <a href="#features-title">主な機能</a>
               <a href="#local-title">ローカル同期</a>
             </nav>
