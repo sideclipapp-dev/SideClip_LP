@@ -1,5 +1,5 @@
 (function () {
-  const ASSET_VERSION = "20260427-0220";
+  const ASSET_VERSION = "20260428-features-mapfix";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
 
@@ -16,16 +16,16 @@
     </div>`;
 
   const ASSETS = {
-    heroMain: "./assets/hero-visual-main.png",
-    heroMainFallback: "./assets/hero-visual.png",
+    heroMain: `./assets/hero-banner.png?v=${ASSET_VERSION}`,
+    heroMainFallback: `./assets/hero-banner.jpg?v=${ASSET_VERSION}`,
     stepCopy: `./assets/step-copy.png?v=${ASSET_VERSION}`,
     stepAdd: `./assets/step-add.png?v=${ASSET_VERSION}`,
     stepTap: `./assets/step-tap.png?v=${ASSET_VERSION}`,
     stepPaste: `./assets/step-paste.png?v=${ASSET_VERSION}`,
-    featureHistory: `./assets/feature-panel-history.png?v=${ASSET_VERSION}`,
-    featureFavorite: `./assets/feature-panel-favorite.png?v=${ASSET_VERSION}`,
-    featureTodo: `./assets/feature-panel-todo.png?v=${ASSET_VERSION}`,
-    featureScan: `./assets/feature-panel-scan.png?v=${ASSET_VERSION}`,
+    featureHistory: `./assets/feature-panel-history.jpg?v=${ASSET_VERSION}`,
+    featureFavorite: `./assets/feature-panel-favorite.jpg?v=${ASSET_VERSION}`,
+    featureTodo: `./assets/feature-panel-todo.jpg?v=${ASSET_VERSION}`,
+    featureScan: `./assets/feature-panel-scan.jpg?v=${ASSET_VERSION}`,
   };
 
   const icon = {
@@ -259,25 +259,32 @@
     return `
       <main class="page-shell">
         <section class="hero" aria-labelledby="hero-title">
-          <div class="hero__visual-wrap">
-            <img
-              class="hero__visual"
-              src="${ASSETS.heroMain}"
-              alt="MacとスマホでSideClipを使うイメージ"
-              onerror="this.onerror=null;this.src='${ASSETS.heroMainFallback}';"
-            />
-            <div class="hero__visual-fade" aria-hidden="true"></div>
-          </div>
-          <div class="hero__veil" aria-hidden="true"></div>
-          <div class="hero__content reveal is-visible">
-            <a class="brand" href="#" aria-label="SideClip">
+          <header class="hero__header">
+            <a class="brand hero__brand" href="#" aria-label="SideClip">
               <span>Side</span><strong>Clip</strong>
             </a>
-            <h1 id="hero-title">Macのコピー履歴を、<br />画面の「<span class="hero__accent">外</span>」へ。</h1>
+          </header>
+          <div class="hero__banner">
+            <div class="hero__visual-wrap">
+              <img
+                class="hero__visual"
+                src="${ASSETS.heroMain}"
+                width="2172"
+                height="724"
+                sizes="(max-width: 2172px) 100vw, 2172px"
+                alt="MacとスマホでSideClipを使うイメージ"
+                fetchpriority="high"
+                decoding="async"
+                onerror="this.onerror=null;this.src='${ASSETS.heroMainFallback}';"
+              />
+            </div>
+          </div>
+          <div class="hero__content reveal is-visible">
+            <h1 id="hero-title">スマホやタブレットを、<br /><span class="hero__accent hero__accent--single-line">クリップボード拡張ディスプレイに。</span></h1>
             <p class="hero__lead">
-              スマホやタブレットを<br />
-              「<span class="hero__accent">コピー履歴の常時表示デバイス</span>」<br />
-              に変えるMac用アプリです。
+              Mac用SideClipアプリをインストールして、<br />
+              スマホでQRコードを読み込むだけ。<br />
+            
             </p>
             <p class="hero__body">
               Macウィンドウを切り替える手間や、<br />
@@ -423,7 +430,7 @@
               いつものコピペをもっとスムーズにします。<br />
               Mac横のクリップボードで作業が快適に。
             </p>
-            <strong>SideClipを、今日から。</strong>
+            <strong>新たなクリップボード体験を始めよう。</strong>
           </div>
           <div class="final-cta__action">
             <a class="download-button download-button--light" href="#" data-wip-download-trigger aria-label="Mac版SideClipをダウンロード">
@@ -583,13 +590,11 @@
       const y = (event.clientY - rect.top) / rect.height - 0.5;
       hero.style.setProperty("--hero-x", `${x * 10}px`);
       hero.style.setProperty("--hero-y", `${y * 8}px`);
-      hero.style.setProperty("--hero-scale", "1.012");
     });
 
     hero.addEventListener("pointerleave", () => {
       hero.style.setProperty("--hero-x", "0px");
       hero.style.setProperty("--hero-y", "0px");
-      hero.style.setProperty("--hero-scale", "1");
     });
   }
 
