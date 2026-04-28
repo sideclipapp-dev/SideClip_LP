@@ -261,7 +261,7 @@ img {
   align-items: end;
   gap: 0;
   width: min(100%, 420px);
-  margin: 17px 0 0;
+  margin: 10px 0 18px;
   padding: 0;
   list-style: none;
   color: #17325b;
@@ -1558,7 +1558,7 @@ img {
   .mini-flow {
     width: min(100%, 360px);
     grid-template-columns: minmax(52px, 1fr) 16px minmax(52px, 1fr) 16px minmax(52px, 1fr) 16px minmax(68px, 1.2fr);
-    margin-left: 0;
+    margin: 8px 0 14px;
   }
 
   .download-button,

@@ -152,7 +152,7 @@
       text: "コピーした内容を自動で保存。<br />テキスト・画像・リンクなどを<br />まとめて確認できます。",
     },
     {
-      title: `<h2>Favorite（Keep）</h2>`,
+      title: `<h2>Favorite（Keep）モード</h2>`,
       image: ASSETS.featureFavorite,
       alt: "お気に入り保存画面",
       text: "重要なクリップはスワイプで保存。<br />あなた専用のお気に入りコピペ集を作成できます。<br />よく使うカラーコード・コマンドスニペットなどお好みで。",
@@ -167,7 +167,7 @@
       title: `<h2>瞬時にMacをスクショ</h2>`,  
       image: ASSETS.featureScan,
       alt: "MacをキャプチャするSCAN画面",
-      text: "スマホの'SCAN'ボタンをタップすると<br />Mac画面がスクショ撮影モードに。<br />範囲指定するだけでクリップボード履歴にスクショが<br />自動同期されます。<br /><small>（Pro / Ultraプラン）</small>",
+      text: "スマホの'SCAN'ボタンをタップすると<br />Mac画面がスクショ撮影モードに。<br />範囲指定するだけでクリップボード履歴にスクショが<br />カードとして自動同期されます。<br /><small>（Pro / Ultraプラン）</small>",
     },
   ];
 
@@ -280,6 +280,9 @@
           </div>
           <div class="hero__content reveal is-visible">
             <h1 id="hero-title">スマホやタブレットを、<br /><span class="hero__accent hero__accent--single-line">クリップボード拡張ディスプレイに。</span></h1>
+            <ol class="mini-flow" aria-label="SideClipの流れ">
+              ${renderMiniFlow()}
+            </ol>
             <p class="hero__lead">
               Mac用SideClipアプリをインストールして、<br />
               スマホでQRコードを読み込むだけ。<br />
@@ -297,9 +300,6 @@
               <li>クリップボード履歴の常時表示</li>
               <li>スマホアプリのインストール不要</li>
             </ul>
-            <ol class="mini-flow" aria-label="SideClipの流れ">
-              ${renderMiniFlow()}
-            </ol>
             <a class="download-button" href="#" data-wip-download-trigger aria-label="Mac版SideClipを無料でダウンロード">
               <!-- ${icon.download} -->
               開発者の"X(Twitter)"をチェック
