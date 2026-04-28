@@ -152,22 +152,22 @@
       text: "コピーした内容を自動で保存。<br />テキスト・画像・リンクなどを<br />まとめて確認できます。",
     },
     {
-      title: `<h2>Favorite（お気に入り）</h2>`,
+      title: `<h2>Favorite（Keep）</h2>`,
       image: ASSETS.featureFavorite,
       alt: "お気に入り保存画面",
-      text: "重要なクリップはスワイプで保存。<br />いつでもすぐ呼び出せます。",
+      text: "重要なクリップはスワイプで保存。<br />あなた専用のお気に入りコピペ集を作成できます。<br />よく使うカラーコード・コマンドスニペットなどお好みで。",
     },
     {
       title: `<h2>Todoモード</h2>`,
       image: ASSETS.featureTodo,
       alt: "Todoモード画面",
-      text: "コピー内容をそのままToDo化。<br />完了するまで見失いません。<br /><small>（Pro / Ultraプラン）</small>",
+      text: "コピー履歴カードをスワイプするだけで、そのままToDo化。<br />Todoアプリへ切り替えてペーストすら不要。<br />優先度設定するとカードの色が変わって一目瞭然。<br />UltraプランはApple純正リマインダーアプリとも連携可能。<br /><small>（Pro / Ultraプラン）</small>",
     },
     {
-      title: `<h2>SCANでMacをキャプチャ</h2>`,  
+      title: `<h2>瞬時にMacをスクショ</h2>`,  
       image: ASSETS.featureScan,
       alt: "MacをキャプチャするSCAN画面",
-      text: "スマホからMac画面をスクショ。<br />範囲指定するだけでクリップボード履歴に同期されます。<br /><small>（Pro / Ultraプラン）</small>",
+      text: "スマホの'SCAN'ボタンをタップすると<br />Mac画面がスクショ撮影モードに。<br />範囲指定するだけでクリップボード履歴にスクショが<br />自動同期されます。<br /><small>（Pro / Ultraプラン）</small>",
     },
   ];
 
@@ -301,8 +301,8 @@
               ${renderMiniFlow()}
             </ol>
             <a class="download-button" href="#" data-wip-download-trigger aria-label="Mac版SideClipを無料でダウンロード">
-              ${icon.download}
-              無料でダウンロード
+              <!-- ${icon.download} -->
+              開発者の"X(Twitter)"をチェック
             </a>
             <p class="os-note">Apple Silicon搭載のMacに対応</p>
           </div>
@@ -358,9 +358,9 @@
             <div class="section-copy">
               <h2 id="benefits-title">作業の流れを、止めない。</h2>
               <p>
-                必要な情報を、視線移動だけで取り出せます。<br />
-                コピー履歴の確認と貼り付けを、<br />
-                ひとつの流れで完了できます。
+                スマホに常時表示のコピー履歴リストは、<br />タッチ操作で非常にスムーズに動作します。<br />
+                コピー履歴の確認からペーストまで、<br />
+                直感的な操作で完了できます。
               </p>
             </div>
             <div class="benefit-grid">
@@ -388,7 +388,7 @@
                 スマホアプリのインストール不要でWebブラウザで動作します。
               </p>
               <ul class="trust-facts" aria-label="信頼性に関する補足情報">
-                <li><strong>保存先:</strong> Macローカルフォルダ内</li>
+                <li><strong>保存先:</strong> MacローカルのSideClipフォルダ内</li>
                 <li><strong>通信範囲:</strong> 同一Wi-Fiネットワーク内で完結</li>
                 <li><strong>セキュリティ対策:</strong><br />Webブラウザ証明書・トークン認証(QRコード読み取り)</li>
               </ul>
@@ -433,8 +433,8 @@
           </div>
           <div class="final-cta__action">
             <a class="download-button download-button--light" href="#" data-wip-download-trigger aria-label="Mac版SideClipをダウンロード">
-              ${icon.download}
-              Mac版をダウンロード
+              <!-- ${icon.download} -->
+              開発者の"X(Twitter)"をチェック
             </a>
             <p>Apple Silicon搭載のMacに対応</p>
             <nav class="cta-links" aria-label="補助リンク">
@@ -465,7 +465,7 @@
             <button type="button" class="wip-download-modal__close" aria-label="閉じる">×</button>
             <p id="wip-download-desc" class="wip-download-modal__text">
               ただいま絶賛アプリ開発中です。もうしばらくお待ちください。<br />
-              開発の進捗は、Xアカウントを参照してください。
+              開発の進捗は、開発者の"X(Twitter)"をチェックしてください。
             </p>
             <a
               class="wip-download-modal__xlink"

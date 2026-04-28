@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 独自ドメイン運用時は loc を https://あなたのドメイン/ に差し替え -->
+  <url>
+    <loc>https://sideclipapp-dev.github.io/SideClip_LP/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
