@@ -1,5 +1,5 @@
 (function () {
-  const ASSET_VERSION = "20260428-features-mapfix";
+  const ASSET_VERSION = "20260429-usage-scenes";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
 
@@ -26,6 +26,7 @@
     featureFavorite: `./assets/feature-panel-favorite.jpg?v=${ASSET_VERSION}`,
     featureTodo: `./assets/feature-panel-todo.jpg?v=${ASSET_VERSION}`,
     featureScan: `./assets/feature-panel-scan.jpg?v=${ASSET_VERSION}`,
+    usageScenes: `./assets/usage-scenes.jpg?v=${ASSET_VERSION}`,
   };
 
   const icon = {
@@ -382,6 +383,22 @@
             <div class="feature-grid">
               ${renderFeatures()}
             </div>
+          </div>
+        </section>
+
+        <section class="usage-scenes" aria-labelledby="usage-scenes-title">
+          <div class="usage-scenes__reveal reveal">
+            <h2 id="usage-scenes-title">具体的な使用シーン</h2>
+            <figure class="usage-scenes__figure">
+              <img
+                src="${ASSETS.usageScenes}"
+                width="2752"
+                height="1536"
+                alt="SideClipの具体的な使用シーン"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
           </div>
         </section>
 

@@ -979,6 +979,39 @@ img {
   overflow: hidden;
 }
 
+.usage-scenes {
+  min-height: 0;
+  padding: clamp(28px, 3.4vw, 46px) var(--section-pad-x) clamp(24px, 3vw, 40px);
+  background: #f8fcff;
+}
+
+.usage-scenes__reveal {
+  width: 100%;
+}
+
+.usage-scenes h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.usage-scenes__figure {
+  margin: clamp(14px, 1.9vw, 24px) auto 0;
+  width: min(100%, 1200px);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #dfebf6;
+  box-shadow: 0 14px 28px rgba(14, 54, 96, 0.1);
+  background: #fff;
+}
+
+.usage-scenes__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .has-wip-download-modal {
   overflow: hidden;
 }
@@ -1706,6 +1739,10 @@ img {
   }
 
   .features {
+    padding: 38px 22px;
+  }
+
+  .usage-scenes {
     padding: 38px 22px;
   }
 
