@@ -413,7 +413,7 @@
 
         <section class="local-sync" aria-labelledby="local-title">
           <div class="local-sync__reveal reveal">
-            <h2 id="local-title" class="local-sync__heading">大事なコピー履歴を、外に出さない。<br /><span class="local-sync__title-nowrap">完全ローカル同期で安全かつ高速。</span></h2>
+            <h2 id="local-title" class="local-sync__heading">大事なコピー履歴は、<br />クラウドに出さない。<br /><span class="local-sync__title-nowrap">ローカル通信で安全かつ高速。</span></h2>
             <div class="sync-graphic" aria-hidden="true">
               <div class="sync-graphic__row">
                 ${syncDataLineRail}
@@ -447,9 +447,8 @@
                   <strong>🔐セキュリティ対策の詳細:</strong>
                   <ul class="trust-subfacts" aria-label="セキュリティ対策の詳細">
                     <li>・<strong>Webブラウザ証明書</strong><span class="trust-subfacts__detail">✅️ Macとスマホ/タブレット間で証明書を交換することによって、<br />　暗号化されたセキュリティの高いHTTPS通信を使用します。</span></li>
-                    <li>・<strong>トークン認証(QRコード読み取り)</strong><span class="trust-subfacts__detail">✅️ 同じWi-Fiにつながる同僚や家族のデバイスからはアクセスできないようになっています。<br />　　QRコードを読み取ったスマホ/タブレットのみMacと同期可能な安全設計。
-                    <br />　　※ トークン認証設定をOFFにして、同じWi-Fiにつながる複数デバイスからアクセス可能にすることも可能です。
-                    <br />　　※ トークンを含むURLを共有すると、同じWi-Fiにつながる複数デバイスからアクセス可能になります。</span></li>
+                    <li>・<strong>トークン認証(QRコード読み取り)</strong><span class="trust-subfacts__detail">✅️ 同じWi-Fiにつながる同僚や家族の端末からはアクセスできないようになっています。<br />　　QRコードを読み取った端末のみ接続可能な安全設計。
+                    <br />　　※ トークンを含むURLを共有もしくは、トークン認証設定をOFFにすると、<br />　　　　同じWi-Fiにつながる複数端末からアクセス可能。
                   </ul>
                 </li>
               </ul>
