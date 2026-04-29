@@ -1131,6 +1131,16 @@ img {
   color: #0d549f;
 }
 
+.trust-subfacts {
+  margin: 8px 0 0;
+  padding: 0 0 0 16px;
+  list-style: none;
+}
+
+.trust-subfacts li + li {
+  margin-top: 6px;
+}
+
 .sync-tags {
   display: flex;
   flex-wrap: wrap;

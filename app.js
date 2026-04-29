@@ -395,9 +395,17 @@
                 スマホアプリのインストール不要でWebブラウザで動作します。
               </p>
               <ul class="trust-facts" aria-label="信頼性に関する補足情報">
-                <li><strong>保存先:</strong> MacローカルのSideClipフォルダ内</li>
+                <li><strong>コピー履歴の保存先:</strong> MacローカルのSideClipフォルダ内</li>
                 <li><strong>通信範囲:</strong> 同一Wi-Fiネットワーク内で完結</li>
-                <li><strong>セキュリティ対策:</strong><br />Webブラウザ証明書・トークン認証(QRコード読み取り)</li>
+                <li>
+                  <strong>セキュリティ対策:</strong>
+                  <ul class="trust-subfacts" aria-label="セキュリティ対策の詳細">
+                    <li>・<strong>Webブラウザ証明書</strong><br />Macとスマホ/タブレット間で証明書を交換することによって、暗号化されたセキュリティの高いHTTPS通信を使用します。</li>
+                    <li>・<strong>トークン認証(QRコード読み取り)</strong><br />同じWi-Fiにつながる同僚や家族のデバイスからはアクセスできないようになっています。<br />QRコードを読み取ったスマホ/タブレットのみMacと同期可能な安全設計。</li>
+                    <li>※ トークン認証設定をOFFにして、同じWi-Fiにつながる複数デバイスからアクセス可能にすることも可能です。</li>
+                    <li>※ トークンを含むURLを共有すると、同じWi-Fiにつながる複数デバイスからアクセス可能になります。</li>
+                  </ul>
+                </li>
               </ul>
               <div class="sync-tags" aria-label="SideClipの同期特性">
                 <span>高速</span>
