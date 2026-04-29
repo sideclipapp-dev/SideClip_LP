@@ -1,5 +1,5 @@
 (function () {
-  const ASSET_VERSION = "20260429-usage-scenes";
+  const ASSET_VERSION = "20260430-usage-scene-jp";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
 
@@ -26,7 +26,7 @@
     featureFavorite: `./assets/feature-panel-favorite.jpg?v=${ASSET_VERSION}`,
     featureTodo: `./assets/feature-panel-todo.jpg?v=${ASSET_VERSION}`,
     featureScan: `./assets/feature-panel-scan.jpg?v=${ASSET_VERSION}`,
-    usageScenes: `./assets/usage-scenes.jpg?v=${ASSET_VERSION}`,
+    usageScenes: `./assets/使用シーン.jpg?v=${ASSET_VERSION}`,
   };
 
   const icon = {
@@ -147,25 +147,25 @@
 
   const features = [
     {
-      title: `<h2>クリップボード履歴</h2>`,
+      title: "クリップボード履歴",
       image: ASSETS.featureHistory,
       alt: "クリップボード履歴画面",
       text: "コピーした内容を自動で保存。<br />クラウドを介さないので瞬時に表示されます。<br />テキスト・画像・リンクなどを<br />まとめて確認できます。<br />一定以上溜まったカードは自動で削除されます。",
     },
     {
-      title: `<h2>Favorite（Keep)</h2>`,
+      title: "Favorite（Keep)",
       image: ASSETS.featureFavorite,
       alt: "お気に入り保存画面",
       text: "重要なクリップはスワイプし、<br />価値あるデータだけ保持。<br />あなた専用のお気に入りコピペ集を作成できます。<br />よく使う定型文・画像・AIプロンプト・<br />カラーコード・コマンドスニペットなどお好みで。",
     },
     {
-      title: `<h2>Todoモード</h2>`,
+      title: "Todoモード",
       image: ASSETS.featureTodo,
       alt: "Todoモード画面",
       text: "コピー履歴カードをスワイプするだけ。<br />そのままTodo化。<br />Todoアプリへ切り替えてペーストすら不要。<br />優先度設定するとカードの色が変わって一目瞭然。<br />Ultraプランは、Apple純正リマインダーアプリと同期可能。<br /><small>（Pro / Ultraプラン）</small>",
     },
     {
-      title: `<h2>瞬時にMacをスクショ</h2>`,  
+      title: "瞬時にMacをスクショ",
       image: ASSETS.featureScan,
       alt: "MacをキャプチャするSCAN画面",
       text: "スマホの'SCAN'ボタンをタップすると、<br />Mac画面がスクショ撮影モードに。<br />範囲指定するだけでクリップボード履歴にスクショが<br />カードとして自動同期されます。<br /><small>（Pro / Ultraプラン）</small>",
@@ -232,9 +232,16 @@
               class="feature-card__panel feature-zoom-trigger"
               data-feature-image-src="${feature.image}"
               data-feature-image-alt="${feature.alt}"
-              aria-label="${feature.title} の画像を拡大表示"
+              aria-label="${feature.title}の画像を拡大表示"
             >
-              <img src="${feature.image}" alt="${feature.alt}" loading="lazy" decoding="async" />
+              <img
+                src="${feature.image}"
+                srcset="${feature.image} 1x, ${feature.image} 2x"
+                sizes="(max-width: 680px) 100vw, 50vw"
+                alt="${feature.alt}"
+                loading="lazy"
+                decoding="async"
+              />
             </button>
           </article>
         `
@@ -269,6 +276,7 @@
               <img
                 class="hero__visual"
                 src="${ASSETS.heroMain}"
+                srcset="${ASSETS.heroMain} 1x, ${ASSETS.heroMain} 2x"
                 width="2172"
                 height="724"
                 sizes="(max-width: 2172px) 100vw, 2172px"
@@ -287,15 +295,14 @@
             <p class="hero__lead">
               Macでコピー・スクショした内容が、<br />
               瞬時にスマホ/タブレットの画面にカードリストとして常時表示されます。<br />
-              カードをタップするだけで、Macの選択中のカーソル位置へ即座にペースト。
-              <br />
-              Macのウィンドウ切り替え不要・ペースト用ショートカットを覚えなくてもOK。<br />
+              カードをタップするだけで、Macの選択中のカーソル位置へ即座にペースト。<br />
+              Macのウィンドウ切り替え不要・ペースト用ショートカットを覚えなくてもOK。
             </p>
 
 
             <p class="hero__body">
               使い方は、Mac用SideClipアプリをインストールして、<br />
-              スマホのカメラでQRコードを読み込むだけ。<br />アプリ起動中は、Macのメニューバーにアイコンが表示され、<br />スマホと繋いでいなくてもコピー履歴が溜まります。<br />
+              スマホのカメラでQRコードを読み込むだけ。専用アプリは不要です。<br />アプリ起動中は、Macのメニューバーにアイコンが表示され、<br />スマホと繋いでいなくてもコピー履歴が溜まります。<br />
 
             </p>
 
@@ -305,9 +312,9 @@
               <li>スマホアプリのインストール不要</li>
               <li>MacとiPhone/iPad/Androidがつながる</li>
             </ul>
-            <a class="download-button" href="#" data-wip-download-trigger aria-label="Mac版SideClipを無料でダウンロード">
+            <a class="download-button" href="#" data-wip-download-trigger aria-label="SideClipの開発状況を見る">
               <!-- ${icon.download} -->
-              開発者の"X(Twitter)"をチェック
+              開発状況を見る
             </a>
             <p class="os-note">Apple Silicon搭載のMacに対応</p>
           </div>
@@ -392,6 +399,8 @@
             <figure class="usage-scenes__figure">
               <img
                 src="${ASSETS.usageScenes}"
+                srcset="${ASSETS.usageScenes} 1x, ${ASSETS.usageScenes} 2x"
+                sizes="(max-width: 1200px) 100vw, 1200px"
                 width="2752"
                 height="1536"
                 alt="SideClipの具体的な使用シーン"
@@ -404,32 +413,7 @@
 
         <section class="local-sync" aria-labelledby="local-title">
           <div class="local-sync__reveal reveal">
-            <div class="local-sync__text">
-              <h2 id="local-title">クラウド不使用。<br />完全ローカル同期で<br />安全かつ高速。</h2>
-              <p>
-                同一Wi-Fiネットワーク内のローカル通信のみ。<br />
-                コピー履歴データはインターネットに送信されません。<br />
-                スマホアプリのインストール不要でWebブラウザで動作します。
-              </p>
-              <ul class="trust-facts" aria-label="信頼性に関する補足情報">
-                <li><strong>コピー履歴の保存先:</strong> MacローカルのSideClipフォルダ内</li>
-                <li><strong>通信範囲:</strong> 同一Wi-Fiネットワーク内で完結</li>
-                <li>
-                  <strong>セキュリティ対策:</strong>
-                  <ul class="trust-subfacts" aria-label="セキュリティ対策の詳細">
-                    <li>・<strong>Webブラウザ証明書</strong><br />Macとスマホ/タブレット間で証明書を交換することによって、暗号化されたセキュリティの高いHTTPS通信を使用します。</li>
-                    <li>・<strong>トークン認証(QRコード読み取り)</strong><br />同じWi-Fiにつながる同僚や家族のデバイスからはアクセスできないようになっています。<br />QRコードを読み取ったスマホ/タブレットのみMacと同期可能な安全設計。</li>
-                    <li>※ トークン認証設定をOFFにして、同じWi-Fiにつながる複数デバイスからアクセス可能にすることも可能です。</li>
-                    <li>※ トークンを含むURLを共有すると、同じWi-Fiにつながる複数デバイスからアクセス可能になります。</li>
-                  </ul>
-                </li>
-              </ul>
-              <div class="sync-tags" aria-label="SideClipの同期特性">
-                <span>高速</span>
-                <span>安全</span>
-                <span>プライベート</span>
-              </div>
-            </div>
+            <h2 id="local-title" class="local-sync__heading">大事なコピー履歴を、外に出さない。<br /><span class="local-sync__title-nowrap">完全ローカル同期で安全かつ高速。</span></h2>
             <div class="sync-graphic" aria-hidden="true">
               <div class="sync-graphic__row">
                 ${syncDataLineRail}
@@ -450,6 +434,31 @@
               </div>
               <p>ローカルWi-Fiで直接同期</p>
             </div>
+            <div class="local-sync__text">
+              <p>
+                SideClipはクラウドを使わず、コピー履歴をあなたのMac内に保存します。<br />
+                スマホやタブレットとの同期も、同じWi-Fi内のローカル通信だけで完結します。<br />
+                外部サーバーを経由しないため、コピー履歴がSideClipのクラウドに送信されることはありません。<br /><br />
+                接続にはQRコードによるトークン認証を使用し、認証済みの端末だけがコピー履歴にアクセスできます。<br />
+                さらに通信はHTTPSで暗号化されるため、同じWi-Fi上の端末でも、認証されていない端末からはアクセスできません。
+              </p>
+              <ul class="trust-facts" aria-label="信頼性に関する補足情報">
+                <li>
+                  <strong>🔐セキュリティ対策の詳細:</strong>
+                  <ul class="trust-subfacts" aria-label="セキュリティ対策の詳細">
+                    <li>・<strong>Webブラウザ証明書</strong><span class="trust-subfacts__detail">✅️ Macとスマホ/タブレット間で証明書を交換することによって、<br />　暗号化されたセキュリティの高いHTTPS通信を使用します。</span></li>
+                    <li>・<strong>トークン認証(QRコード読み取り)</strong><span class="trust-subfacts__detail">✅️ 同じWi-Fiにつながる同僚や家族のデバイスからはアクセスできないようになっています。<br />　　QRコードを読み取ったスマホ/タブレットのみMacと同期可能な安全設計。
+                    <br />　　※ トークン認証設定をOFFにして、同じWi-Fiにつながる複数デバイスからアクセス可能にすることも可能です。
+                    <br />　　※ トークンを含むURLを共有すると、同じWi-Fiにつながる複数デバイスからアクセス可能になります。</span></li>
+                  </ul>
+                </li>
+              </ul>
+              <div class="sync-tags" aria-label="SideClipの同期特性">
+                <span>高速</span>
+                <span>安全</span>
+                <span>プライベート</span>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -464,9 +473,9 @@
             <strong>新たなクリップボードを体験しよう。</strong>
           </div>
           <div class="final-cta__action">
-            <a class="download-button download-button--light" href="#" data-wip-download-trigger aria-label="Mac版SideClipをダウンロード">
+            <a class="download-button download-button--light" href="#" data-wip-download-trigger aria-label="SideClipの開発状況を見る">
               <!-- ${icon.download} -->
-              開発者の"X(Twitter)"をチェック
+              開発状況を見る
             </a>
             <p>Apple Silicon搭載のMacに対応</p>
             <nav class="cta-links" aria-label="補助リンク">
@@ -726,6 +735,48 @@
   }
 
 
+  function getFocusableElements(container) {
+    if (!container) return [];
+    return [...container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])')].filter(
+      (el) => !el.hasAttribute("disabled") && el.getAttribute("aria-hidden") !== "true"
+    );
+  }
+
+  function trapFocusInDialog(event, dialog) {
+    if (event.key !== "Tab" || !dialog) return;
+    const focusables = getFocusableElements(dialog);
+    if (focusables.length === 0) {
+      event.preventDefault();
+      return;
+    }
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    const active = document.activeElement;
+    if (event.shiftKey && active === first) {
+      event.preventDefault();
+      last.focus();
+      return;
+    }
+    if (!event.shiftKey && active === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  function setPageInertState(enabled) {
+    const page = document.querySelector("main.page-shell");
+    if (!page) return;
+    const modalIds = new Set(["feature-lightbox", "wip-download-modal"]);
+    [...page.children].forEach((child) => {
+      const shouldKeepInteractive = modalIds.has(child.id);
+      if (!enabled || shouldKeepInteractive) {
+        child.removeAttribute("inert");
+        return;
+      }
+      child.setAttribute("inert", "");
+    });
+  }
+
   function initFeatureImageLightbox() {
     const lightbox = document.querySelector("#feature-lightbox");
     if (!lightbox) return;
@@ -734,26 +785,35 @@
     const closeButton = lightbox.querySelector(".feature-lightbox__close");
     const image = lightbox.querySelector(".feature-lightbox__image");
     const triggers = document.querySelectorAll(".feature-zoom-trigger");
+    let lastFocusedElement = null;
 
     function closeLightbox() {
       lightbox.classList.remove("is-open");
       lightbox.setAttribute("aria-hidden", "true");
       document.body.classList.remove("has-feature-lightbox");
+      setPageInertState(false);
+      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+        lastFocusedElement.focus();
+      }
+      lastFocusedElement = null;
     }
 
-    function openLightbox(src, alt) {
+    function openLightbox(src, alt, opener) {
+      lastFocusedElement = opener || document.activeElement;
       image.src = src;
       image.alt = alt;
       lightbox.classList.add("is-open");
       lightbox.setAttribute("aria-hidden", "false");
       document.body.classList.add("has-feature-lightbox");
+      setPageInertState(true);
+      closeButton?.focus();
     }
 
     triggers.forEach((trigger) => {
       trigger.addEventListener("click", (event) => {
         event.preventDefault();
         event.stopPropagation();
-        openLightbox(trigger.dataset.featureImageSrc || "", trigger.dataset.featureImageAlt || "");
+        openLightbox(trigger.dataset.featureImageSrc || "", trigger.dataset.featureImageAlt || "", trigger);
       });
     });
 
@@ -785,9 +845,13 @@
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+      if (!lightbox.classList.contains("is-open")) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
         closeLightbox();
+        return;
       }
+      trapFocusInDialog(event, dialog);
     });
   }
 
@@ -799,24 +863,32 @@
     const closeBtn = modal.querySelector(".wip-download-modal__close");
     const dismissBtn = modal.querySelector(".wip-download-modal__dismiss");
     const triggers = document.querySelectorAll("[data-wip-download-trigger]");
+    let lastFocusedElement = null;
 
     function closeModal() {
       modal.classList.remove("is-open");
       modal.setAttribute("aria-hidden", "true");
       document.body.classList.remove("has-wip-download-modal");
+      setPageInertState(false);
+      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+        lastFocusedElement.focus();
+      }
+      lastFocusedElement = null;
     }
 
-    function openModal() {
+    function openModal(opener) {
+      lastFocusedElement = opener || document.activeElement;
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
       document.body.classList.add("has-wip-download-modal");
+      setPageInertState(true);
       closeBtn?.focus();
     }
 
     triggers.forEach((trigger) => {
       trigger.addEventListener("click", (event) => {
         event.preventDefault();
-        openModal();
+        openModal(trigger);
       });
     });
 
@@ -851,16 +923,27 @@
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && modal.classList.contains("is-open")) {
+      if (!modal.classList.contains("is-open")) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
         closeModal();
+        return;
       }
+      trapFocusInDialog(event, dialog);
     });
   }
 
   function initHashScroll() {
     if (!window.location.hash) return;
     window.requestAnimationFrame(() => {
-      const target = document.querySelector(window.location.hash);
+      let hashId = "";
+      try {
+        hashId = decodeURIComponent(window.location.hash.slice(1));
+      } catch (_) {
+        hashId = window.location.hash.slice(1);
+      }
+      if (!hashId) return;
+      const target = document.getElementById(hashId);
       if (target) target.scrollIntoView({ block: "start" });
     });
   }

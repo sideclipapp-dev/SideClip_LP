@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# サイトマップURLは公開URL（独自ドメイン運用時は https://あなたのドメイン/sitemap.xml に差し替え）
-Sitemap: https://sideclipapp-dev.github.io/SideClip_LP/sitemap.xml
+Sitemap: https://sideclip.app/sitemap.xml
