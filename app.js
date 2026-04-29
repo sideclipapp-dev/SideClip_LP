@@ -1,5 +1,5 @@
 (function () {
-  const ASSET_VERSION = "20260430-usage-scene-jp";
+  const ASSET_VERSION = "20260430-usage-scene-png";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
 
@@ -26,7 +26,7 @@
     featureFavorite: `./assets/feature-panel-favorite.jpg?v=${ASSET_VERSION}`,
     featureTodo: `./assets/feature-panel-todo.jpg?v=${ASSET_VERSION}`,
     featureScan: `./assets/feature-panel-scan.jpg?v=${ASSET_VERSION}`,
-    usageScenes: `./assets/使用シーン.jpg?v=${ASSET_VERSION}`,
+    usageScenes: `./assets/具体シーン.png?v=${ASSET_VERSION}`,
   };
 
   const icon = {
@@ -294,7 +294,7 @@
             </ol>
             <p class="hero__lead">
               Macでコピー・スクショした内容が、<br />
-              瞬時にスマホ/タブレットの画面にカードリストとして常時表示されます。<br />
+              スマホ/タブレットの画面にカードとして追加されます。<br />
               カードをタップするだけで、Macの選択中のカーソル位置へ即座にペースト。<br />
               Macのウィンドウ切り替え不要・ペースト用ショートカットを覚えなくてもOK。
             </p>
@@ -302,7 +302,7 @@
 
             <p class="hero__body">
               使い方は、Mac用SideClipアプリをインストールして、<br />
-              スマホのカメラでQRコードを読み込むだけ。専用アプリは不要です。<br />アプリ起動中は、Macのメニューバーにアイコンが表示され、<br />スマホと繋いでいなくてもコピー履歴が溜まります。<br />
+              スマホのカメラでQRコードを読み込むだけ。専用アプリは不要です。<br />アプリ起動中は、Macのメニューバーにアイコン表示され、<br />スマホと繋いでいなくてもコピー履歴が溜まります。<br />
 
             </p>
 
@@ -358,7 +358,7 @@
                 <span class="tap-emphasis">キーボードの拡張デバイス</span>のような感覚で、<wbr />使い方は無限大。<br class="desktop-break" /><br class="mobile-break" />
                 Macのウィンドウ切り替えを減らし、<br class="mobile-break" />集中して作業効率を上げましょう。<br />
                 <br class="mobile-break" />
-                仕事でもプライベートでも、コピペを多用する方に、<br class="mobile-break" />新しいコピペ体験を提供します。<br class="mobile-break" /><br class="mobile-break" />
+                コピペを多用する全ての方に、<br class="mobile-break" />新しいコピペ体験を提供します。<br class="mobile-break" /><br class="mobile-break" />
 
               </p>
             </div>
@@ -401,8 +401,8 @@
                 src="${ASSETS.usageScenes}"
                 srcset="${ASSETS.usageScenes} 1x, ${ASSETS.usageScenes} 2x"
                 sizes="(max-width: 1200px) 100vw, 1200px"
-                width="2752"
-                height="1536"
+                width="1672"
+                height="941"
                 alt="SideClipの具体的な使用シーン"
                 loading="lazy"
                 decoding="async"
