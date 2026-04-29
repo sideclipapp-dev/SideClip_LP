@@ -286,15 +286,15 @@
             <p class="hero__lead">
               Macでコピー・スクショした内容が、<br />
               瞬時にスマホ画面にカードリストとして整理されます。<br />
-              Macで選択中のカーソル位置へ、ワンタップでペーストできます。
+              カードをタップするだけで、Macの選択中のカーソル位置へ即座にペースト。
               <br />
-              Macのウィンドウ切り替えやペースト用ショートカットを覚えなくてもOK。
+              Macのウィンドウ切り替え不要・ペースト用ショートカットを覚えなくてもOK。<br />
             </p>
 
 
             <p class="hero__body">
               使い方は、Mac用SideClipアプリをインストールして、<br />
-              スマホのカメラでQRコードを読み込むだけ。<br />
+              スマホのカメラでQRコードを読み込むだけ。<br />アプリ起動中は、Macのメニューバーにアイコンが表示され、<br />スマホと繋いでいなくてもコピー履歴が溜まります。<br />
 
             </p>
 
@@ -346,9 +346,12 @@
             <div class="section-copy section-copy--tap">
               <h2 id="tap-title">指先ひとつの <span>「Tap to Paste」</span></h2>
               <p>
-                スマホ画面に並んだカードを<wbr />タップするだけで、<br class="desktop-break" /><br class="mobile-break" />
-                そのデータがMacのカーソル位置へ<wbr />即座にペーストされます。<br class="desktop-break" /><br class="mobile-break" />
-                Macのウィンドウ切り替えを減らし、<br class="mobile-break" />入力作業に集中できます。
+                スマホ画面に並んだカードを<wbr />タップするだけ。<br class="desktop-break" /><br class="mobile-break" />
+                <span class="tap-emphasis">キーボードの拡張デバイス</span>のような感覚で、<wbr />使い方は無限大。<br class="desktop-break" /><br class="mobile-break" />
+                Macのウィンドウ切り替えを減らし、<br class="mobile-break" />集中して作業効率を上げましょう。<br />
+                <br class="mobile-break" />
+                仕事でもプライベートでも、コピペを多用する方に、<br class="mobile-break" />新しいコピペ体験を提供します。<br class="mobile-break" /><br class="mobile-break" />
+
               </p>
             </div>
             <ol class="steps" aria-label="Tap to Pasteの4ステップ">

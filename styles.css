@@ -669,6 +669,13 @@ img {
   margin-top: 16px;
 }
 
+.tap-emphasis {
+  color: var(--blue-strong);
+  font-weight: 850;
+  font-size: 1.06em;
+  letter-spacing: 0.01em;
+}
+
 .steps {
   --steps-gap: clamp(18px, 2.1vw, 28px);
   position: relative;
