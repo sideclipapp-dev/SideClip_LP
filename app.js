@@ -448,7 +448,7 @@
                   <ul class="trust-subfacts" aria-label="セキュリティ対策の詳細">
                     <li>・<strong>Webブラウザ証明書</strong><span class="trust-subfacts__detail">✅️ Macとスマホ/タブレット間で証明書を交換することによって、<br />　暗号化されたセキュリティの高いHTTPS通信を使用します。</span></li>
                     <li>・<strong>トークン認証(QRコード読み取り)</strong><span class="trust-subfacts__detail">✅️ 同じWi-Fiにつながる同僚や家族の端末からはアクセスできないようになっています。<br />　　QRコードを読み取った端末のみ接続可能な安全設計。
-                    <br />　　※ トークンを含むURLを共有もしくは、トークン認証設定をOFFにすると、<br />　　　　同じWi-Fiにつながる複数端末からアクセス可能。
+                    <br />　　※ トークンを含むURLを共有するか、トークン認証設定OFFにすると、<br />　　　　同じWi-Fiにつながる複数端末からアクセス可能。
                   </ul>
                 </li>
               </ul>
