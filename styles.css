@@ -184,7 +184,7 @@ img {
 }
 
 .hero h1 {
-  margin: 0 0 19px;
+  margin: 0 0 clamp(10px, 2.2vw, 16px);
   max-width: 100%;
   font-size: var(--fs-title-lg);
   line-height: 1.42;
@@ -261,7 +261,7 @@ img {
   align-items: end;
   gap: 0;
   width: min(100%, 420px);
-  margin: 10px 0 18px;
+  margin: 0 0 clamp(18px, 3.2vw, 28px);
   padding: 0;
   list-style: none;
   color: #17325b;
@@ -1553,12 +1553,13 @@ img {
 
   .hero h1 {
     margin-top: 0;
+    margin-bottom: clamp(8px, 2vw, 12px);
   }
 
   .mini-flow {
     width: min(100%, 360px);
     grid-template-columns: minmax(52px, 1fr) 16px minmax(52px, 1fr) 16px minmax(52px, 1fr) 16px minmax(68px, 1.2fr);
-    margin: 8px 0 14px;
+    margin: 0 0 clamp(14px, 4vw, 22px);
   }
 
   .download-button,

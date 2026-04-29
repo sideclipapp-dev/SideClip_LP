@@ -284,21 +284,25 @@
               ${renderMiniFlow()}
             </ol>
             <p class="hero__lead">
-              Mac用SideClipアプリをインストールして、<br />
-              スマホでQRコードを読み込むだけ。<br />
-            
-            </p>
-            <p class="hero__body">
               Macのウィンドウを切り替える手間や、<br />
               ペースト用ショートカットを覚えなくても、<br />
-              スマホからコピー履歴をペーストできます。
+              Macでコピー・スクショした内容を<br />
+              スマホのリストからコピー履歴をペーストできます。
               
             </p>
-            
+
+
+            <p class="hero__body">
+              使い方は、Mac用SideClipアプリをインストールして、<br />
+              スマホのカメラでQRコードを読み込むだけ。<br />
+
+            </p>
+
             <ul class="hero-kpis" aria-label="SideClipで得られる効果">
               <li>コピペ作業の効率化</li>
               <li>クリップボード履歴の常時表示</li>
               <li>スマホアプリのインストール不要</li>
+              <li>MacとiPhone/iPad/Androidがつながる</li>
             </ul>
             <a class="download-button" href="#" data-wip-download-trigger aria-label="Mac版SideClipを無料でダウンロード">
               <!-- ${icon.download} -->
