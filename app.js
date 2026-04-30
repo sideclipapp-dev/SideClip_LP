@@ -265,12 +265,12 @@
   function renderApp() {
     return `
       <main class="page-shell">
+        <header class="hero__header">
+          <a class="brand hero__brand" href="#" aria-label="SideClip">
+            <span>Side</span><strong>Clip</strong>
+          </a>
+        </header>
         <section class="hero" aria-labelledby="hero-title">
-          <header class="hero__header">
-            <a class="brand hero__brand" href="#" aria-label="SideClip">
-              <span>Side</span><strong>Clip</strong>
-            </a>
-          </header>
           <div class="hero__banner">
             <div class="hero__visual-wrap">
               <img
@@ -287,41 +287,42 @@
               />
             </div>
           </div>
-          <div class="hero__content reveal is-visible">
-            <h1 id="hero-title">スマホやタブレットを、<br /><span class="hero__accent hero__accent--single-line">クリップボード拡張ディスプレイに。</span></h1>
-            <ol class="mini-flow" aria-label="SideClipの流れ">
-              ${renderMiniFlow()}
-            </ol>
-            <p class="hero__lead">
-              Macでコピー・スクショした内容が、<br />
-              スマホ/タブレットの画面にカードとして追加されます。<br />
-              カードをタップすると、Macのカーソル位置へ即ペースト。<br />
-            </p>
-             <p class="hero__body">
-              💻️ Macのウィンドウ切り替え不要。<br />⌨️ ペースト用ショートカットを覚えなくてもOK。
-
-            </p>
-
-            <p class="hero__body">
-              使い方は、Mac用SideClipアプリを起動して、<br />
-              スマホのカメラでQRコードを読み込むだけ。<br />スマホ側の専用アプリは不要です。<br />
-
-            </p>
-
-            <ul class="hero-kpis" aria-label="SideClipで得られる効果">
-              <li>コピペ作業の効率化</li>
-              <li>クリップボード履歴の常時表示</li>
-              <li>スマホアプリのインストール不要</li>
-              <li>MacとiPhone/iPad/Android端末がつながる</li>
-            </ul>
-            <a class="download-button" href="#" data-wip-download-trigger aria-label="SideClipの開発状況を見る">
-              <!-- ${icon.download} -->
-              開発状況を見る
-            </a>
-            <p class="os-note">Apple Silicon搭載のMacに対応</p>
-          </div>
         </section>
 
+        <div class="content-overlay">
+        <div class="hero__content reveal is-visible">
+          <h1 id="hero-title">スマホやタブレットを、<br /><span class="hero__accent hero__accent--single-line">クリップボード拡張ディスプレイに。</span></h1>
+          <ol class="mini-flow" aria-label="SideClipの流れ">
+            ${renderMiniFlow()}
+          </ol>
+          <p class="hero__lead">
+            Macでコピー・スクショした内容が、<br />
+            スマホ/タブレットの画面にカードとして追加されます。<br />
+            カードをタップすると、Macのカーソル位置へ即ペースト。<br />
+          </p>
+           <p class="hero__body">
+            💻️ Macのウィンドウ切り替え不要。<br />⌨️ ペースト用ショートカットを覚えなくてもOK。
+
+          </p>
+
+          <p class="hero__body">
+            使い方は、Mac用SideClipアプリを起動して、<br />
+            スマホのカメラでQRコードを読み込むだけ。<br />スマホ側の専用アプリは不要です。<br />
+
+          </p>
+
+          <ul class="hero-kpis" aria-label="SideClipで得られる効果">
+            <li>コピペ作業の効率化</li>
+            <li>クリップボード履歴の常時表示</li>
+            <li>スマホアプリのインストール不要</li>
+            <li>MacとiPhone/iPad/Android端末がつながる</li>
+          </ul>
+          <a class="download-button" href="#" data-wip-download-trigger aria-label="SideClipの開発状況を見る">
+            <!-- ${icon.download} -->
+            開発状況を見る
+          </a>
+          <p class="os-note">Apple Silicon搭載のMacに対応</p>
+        </div>
         <section id="concept-video" class="concept-video reveal" aria-labelledby="concept-video-title">
           <div class="concept-video__copy">
             <h2 id="concept-video-title">コンセプト動画で<br />SideClipを知る</h2>
@@ -484,7 +485,7 @@
                     <ul class="faq__bullets">
                       <li>
                         <strong>Mac：</strong><br />
-                        macOS 15以上のM系（Apple Silicon）で動作確認をしております。
+                        macOS 26以上のM系（Apple Silicon）で動作確認をしております。
                       </li>
                       <li>
                         <strong>スマホ・タブレット：</strong><br />
@@ -574,6 +575,7 @@
             ${renderTrustItems()}
           </ul>
         </section>
+        </div>
 
         <div class="feature-lightbox" id="feature-lightbox" aria-hidden="true">
           <div class="feature-lightbox__dialog" role="dialog" aria-modal="true" aria-label="画像の拡大表示">
