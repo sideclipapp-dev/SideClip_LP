@@ -312,7 +312,7 @@
             <a href="#usage-scenes-title" data-section-menu-link>具体的な使用シーン</a>
             <a href="#local-title" data-section-menu-link>安全かつ高速な理由</a>
             <a href="#faq" data-section-menu-link>FAQ</a>
-            <a href="#download" data-section-menu-link>SideClipで始める</a>
+            <a href="#download" data-section-menu-link>新たなクリップボード体験を始める</a>
           </nav>
         </div>
 

@@ -1970,39 +1970,43 @@ img {
   }
 
   .hero {
-    min-height: 0;
+    min-height: calc(68px + min(100vw, 2172px) * 0.3333);
   }
 
   .hero__header {
     left: 0;
     transform: none;
     width: 100%;
-    position: relative;
-    top: auto;
+    position: fixed;
+    top: 0;
     padding-inline: 24px;
   }
 
   .section-drawer {
-    display: none;
+    display: block;
+  }
+
+  .section-drawer__panel {
+    top: 0;
+    width: min(78vw, 360px);
+    min-width: 240px;
+    height: 100dvh;
+    padding-top: 16px;
   }
 
   .hero__banner {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    z-index: 1;
-    width: 100%;
+    position: fixed;
+    top: 68px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: min(100%, 2172px);
     margin-top: 0;
   }
 
   .content-overlay {
-    z-index: 0;
+    z-index: 3;
     margin-top: 0;
-  }
-
-  .content-overlay::before {
-    display: none;
   }
 
   .content-overlay > .hero__content {
