@@ -110,11 +110,15 @@
 
         function trackConsentChoice(status) {
           if (typeof gtag !== 'function') return;
-          gtag('event', 'consent_choice', {
-            consent_status: status,
-            consent_method: 'banner',
-            page_path: location.pathname
-          });
+          window.setTimeout(function() {
+            gtag('event', 'consent_choice', {
+              consent_status: status,
+              consent_method: 'banner',
+              page_path: location.pathname,
+              debug_mode: true,
+              transport_type: 'beacon'
+            });
+          }, 350);
         }
 
         function hideBanner() {
