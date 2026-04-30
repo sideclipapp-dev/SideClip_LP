@@ -108,6 +108,15 @@
           });
         }
 
+        function trackConsentChoice(status) {
+          if (typeof gtag !== 'function') return;
+          gtag('event', 'consent_choice', {
+            consent_status: status,
+            consent_method: 'banner',
+            page_path: location.pathname
+          });
+        }
+
         function hideBanner() {
           if (banner) banner.style.display = 'none';
         }
@@ -131,6 +140,7 @@
           acceptButton.addEventListener('click', function() {
             localStorage.setItem(CONSENT_KEY, 'accepted');
             applyConsent(true);
+            trackConsentChoice('accepted');
             if (typeof gtag === 'function') {
               gtag('event', 'page_view', {
                 page_location: location.href,
@@ -146,6 +156,7 @@
           rejectButton.addEventListener('click', function() {
             localStorage.setItem(CONSENT_KEY, 'rejected');
             applyConsent(false);
+            trackConsentChoice('rejected');
             hideBanner();
           });
         }
