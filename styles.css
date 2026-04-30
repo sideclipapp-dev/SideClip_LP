@@ -1515,7 +1515,7 @@ img {
   border-bottom: 1px solid var(--line);
   font-size: clamp(0.82rem, 1.35vw, 0.92rem);
   font-weight: var(--heading-weight);
-  color: var(--muted);
+  color: var(--blue);
   letter-spacing: 0.02em;
 }
 

@@ -476,7 +476,7 @@
             <h2 id="faq-title" class="faq__title">FAQ</h2>
 
             <div class="faq__group">
-              <h3 class="faq__group-title">基本情報・導入について</h3>
+              <h3 class="faq__group-title">導入について</h3>
               <div class="faq__list-wrap">
                 <details class="faq__item">
                   <summary class="faq__summary">対応しているOSやデバイスを教えてください。</summary>
@@ -499,17 +499,14 @@
                   <summary class="faq__summary">無料で利用できますか？有料プランとの違いは何ですか？</summary>
                   <div class="faq__answer">
                     <p>Freeプランで基本機能は無料でご利用いただけます。<br />有料プランの前にご自身の環境で動作確認をお勧めいたします。</p>
-                    <p>Proプラン・Ultraプランは、より便利な機能が解放されます。</p>
-                    <p>
-                      詳しくはアプリインストール後、スマホ側画面に表示されるメニュー内の「プラン」をご確認ください。
-                    </p>
+                    <p>Proプラン・Ultraプランは、より便利な機能が解放されます。<br />詳しくはアプリインストール後、スマホ側画面に表示されるメニュー内の「プラン」をご確認ください。</p>
                   </div>
                 </details>
               </div>
             </div>
 
             <div class="faq__group">
-              <h3 class="faq__group-title">使い方・機能について</h3>
+              <h3 class="faq__group-title">使い方・制限について</h3>
               <div class="faq__list-wrap">
                 <details class="faq__item">
                   <summary class="faq__summary">保存できるデータの種類やサイズに制限はありますか？</summary>
@@ -531,6 +528,17 @@
                     <p>詳しくは、アプリインストール後のメニュー内「プラン」からご確認ください。</p>
                     <p>
                       上限を超えた古いデータから自動削除されますが、「Favorite（お気に入り）」に登録したデータは自動削除されません。
+                    </p>
+                  </div>
+                </details>
+                <details class="faq__item">
+                  <summary class="faq__summary">スマホテザリングのWi-Fiでも使えますか？</summary>
+                  <div class="faq__answer">
+                    <p>
+                      使えますが、Wi-Fi通信の速度が遅いため、コピペの反映が少し遅くなります。
+                    </p>
+                    <p>
+                      通信速度の早いWi-Fiネットワークの方が動作が早く、快適にご利用いただけます。
                     </p>
                   </div>
                 </details>
