@@ -295,7 +295,7 @@
             <p class="hero__lead">
               Macでコピー・スクショした内容が、<br />
               スマホ/タブレットの画面にカードとして追加されます。<br />
-              カードをタップするだけで、Macのカーソル位置に即座にペースト。<br />
+              カードをタップすると、Macのカーソル位置に即にペースト。<br />
             </p>
              <p class="hero__body">
               💻️ Macのウィンドウ切り替え不要。<br />⌨️ ペースト用ショートカットを覚えなくてもOK。
@@ -303,8 +303,8 @@
             </p>
 
             <p class="hero__body">
-              使い方は、Mac用SideClipアプリをインストールして、<br />
-              スマホのカメラでQRコードを読み込むだけ。<br />スマホ側は、専用アプリは不要です。<br />
+              使い方は、Mac用SideClipアプリを起動して、<br />
+              スマホのカメラでQRコードを読み込むだけ。<br />スマホ側の専用アプリは不要です。<br />
 
             </p>
 
@@ -312,7 +312,7 @@
               <li>コピペ作業の効率化</li>
               <li>クリップボード履歴の常時表示</li>
               <li>スマホアプリのインストール不要</li>
-              <li>MacとiPhone/iPad/Androidがつながる</li>
+              <li>MacとiPhone/iPad/Android端末がつながる</li>
             </ul>
             <a class="download-button" href="#" data-wip-download-trigger aria-label="SideClipの開発状況を見る">
               <!-- ${icon.download} -->
