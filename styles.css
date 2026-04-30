@@ -15,6 +15,7 @@
   --fs-body: clamp(0.88rem, 1.45vw, 0.95rem);
   --fs-caption: clamp(0.74rem, 1.2vw, 0.82rem);
   --fs-section-title: 28px;
+  --header-height: 54px;
   --section-pad-x: clamp(24px, 5vw, 68px);
   --section-pad-y: clamp(22px, 3vw, 38px);
   --hero-content-pad-top: clamp(20px, 3vw, 36px);
@@ -70,7 +71,7 @@ img {
 .hero {
   position: relative;
   z-index: 1;
-  min-height: calc(68px + min(100vw, 2172px) * 0.3333);
+  min-height: calc(var(--header-height) + min(100vw, 2172px) * 0.3333);
   background: #fff;
   overflow: visible;
 }
@@ -88,7 +89,7 @@ img {
   justify-content: space-between;
   width: min(100%, 2172px);
   box-sizing: border-box;
-  padding-block: clamp(10px, 1.8vw, 14px);
+  padding-block: clamp(7px, 1.3vw, 10px);
   padding-inline: var(--section-pad-x);
   background:
     linear-gradient(
@@ -133,9 +134,9 @@ img {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
-  width: 40px;
-  height: 40px;
+  gap: 4px;
+  width: 32px;
+  height: 32px;
   padding: 0;
   border: 0;
   border-radius: 8px;
@@ -145,7 +146,7 @@ img {
 
 .hero__menu-button span {
   display: block;
-  width: 20px;
+  width: 16px;
   height: 2px;
   margin: 0 auto;
   border-radius: 999px;
@@ -171,12 +172,12 @@ img {
 
 .section-drawer__panel {
   position: absolute;
-  top: 68px;
+  top: var(--header-height);
   right: 0;
   width: min(34vw, 420px);
   min-width: 280px;
   max-width: 92vw;
-  height: calc(100dvh - 68px);
+  height: calc(100dvh - var(--header-height));
   padding: 18px 16px 22px;
   background: rgba(255, 255, 255, 0.97);
   border-left: 1px solid #d6e6f5;
@@ -240,7 +241,7 @@ img {
 
 .hero__banner {
   position: fixed;
-  top: 68px;
+  top: var(--header-height);
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -341,7 +342,7 @@ img {
 .brand {
   display: inline-flex;
   align-items: center;
-  font-size: 39px;
+  font-size: 32px;
   font-weight: var(--heading-weight);
   line-height: 1;
   letter-spacing: -1px;
@@ -1970,7 +1971,7 @@ img {
   }
 
   .hero {
-    min-height: calc(68px + min(100vw, 2172px) * 0.3333);
+    min-height: calc(var(--header-height) + min(100vw, 2172px) * 0.3333);
   }
 
   .hero__header {
@@ -1996,7 +1997,7 @@ img {
 
   .hero__banner {
     position: fixed;
-    top: 68px;
+    top: var(--header-height);
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
@@ -2030,7 +2031,7 @@ img {
   }
 
   .brand {
-    font-size: 34px;
+    font-size: 28px;
   }
 
   .hero h1 {
