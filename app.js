@@ -344,7 +344,7 @@
             <li>スマホアプリのインストール不要</li>
             <li>MacとiPhone/iPad/Android端末がつながる</li>
           </ul>
-          <a class="download-button" href="#" data-wip-download-trigger aria-label="SideClipの開発状況を見る">
+          <a class="download-button" href="#" data-wip-download-trigger data-cta-id="hero_download_status" data-cta-section="hero" aria-label="SideClipの開発状況を見る">
             <!-- ${icon.download} -->
             開発状況を見る
           </a>
@@ -358,7 +358,7 @@
           </div>
           <div class="concept-video__visual" aria-label="コンセプト動画（YouTube）">
             <div class="concept-video__embed concept-video__embed--poster">
-              <button type="button" class="concept-video__facade" aria-label="コンセプト動画を再生する（約30秒・YouTube）">
+              <button type="button" class="concept-video__facade" data-cta-id="concept_video_play" data-cta-section="concept_video" aria-label="コンセプト動画を再生する（約30秒・YouTube）">
                 <img
                   class="concept-video__poster"
                   src="https://i.ytimg.com/vi/${CONCEPT_VIDEO_YT_ID}/maxresdefault.jpg"
@@ -586,7 +586,7 @@
             <strong>新たなクリップボードを体験しよう。</strong>
           </div>
           <div class="final-cta__action">
-            <a class="download-button download-button--light" href="#" data-wip-download-trigger aria-label="SideClipの開発状況を見る">
+            <a class="download-button download-button--light" href="#" data-wip-download-trigger data-cta-id="final_download_status" data-cta-section="final_cta" aria-label="SideClipの開発状況を見る">
               <!-- ${icon.download} -->
               開発状況を見る
             </a>
@@ -838,7 +838,15 @@
       wrap.appendChild(iframe);
     }
 
-    wrap.querySelector(".concept-video__facade")?.addEventListener("click", loadIframe);
+    wrap.querySelector(".concept-video__facade")?.addEventListener("click", (event) => {
+      const trigger = event.currentTarget;
+      trackCtaClick({
+        ctaId: trigger?.dataset?.ctaId || "concept_video_play",
+        ctaText: "コンセプト動画を再生する",
+        section: trigger?.dataset?.ctaSection || "concept_video"
+      });
+      loadIframe();
+    });
 
     document.querySelectorAll('a[href="#concept-video"]').forEach((link) => {
       link.addEventListener("click", (event) => {
@@ -1003,6 +1011,11 @@
     triggers.forEach((trigger) => {
       trigger.addEventListener("click", (event) => {
         event.preventDefault();
+        trackCtaClick({
+          ctaId: trigger.dataset.ctaId || "download_status",
+          ctaText: (trigger.textContent || "").trim(),
+          section: trigger.dataset.ctaSection || "unknown"
+        });
         openModal(trigger);
       });
     });
@@ -1050,6 +1063,16 @@
 
   function scrollToPageTop({ smooth = false } = {}) {
     window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
+  }
+
+  function trackCtaClick({ ctaId, ctaText, section }) {
+    if (typeof gtag !== "function") return;
+    gtag("event", "cta_click", {
+      cta_id: ctaId || "unknown",
+      cta_text: ctaText || "",
+      section: section || "unknown",
+      page_path: location.pathname
+    });
   }
 
   function alignTargetTopWithViewport(target, { smooth = false } = {}) {
