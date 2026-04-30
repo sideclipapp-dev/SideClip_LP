@@ -516,7 +516,8 @@ img {
 .features h2,
 .local-sync h2,
 .final-cta h2 {
-  margin: 0;
+  margin-block: 0;
+  margin-inline: auto;
   color: var(--ink);
   font-weight: var(--heading-weight);
   letter-spacing: 0;
@@ -532,7 +533,7 @@ img {
 }
 
 .section-copy p {
-  margin: 17px 0 0;
+  margin: 17px auto 0;
   color: #203552;
   font-size: var(--fs-body);
   line-height: 1.78;
@@ -663,6 +664,15 @@ img {
   min-height: 475px;
   padding: clamp(30px, 4vw, 52px) var(--section-pad-x) 0;
   background: linear-gradient(180deg, #f9fbfd 0%, #fff 20%, #fff 100%);
+}
+
+.tap-section .section-copy--tap {
+  text-align: center;
+}
+
+.tap-section .section-copy--tap h2,
+.tap-section .section-copy--tap p {
+  text-align: center;
 }
 
 .section-copy--tap p {
