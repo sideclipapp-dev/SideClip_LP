@@ -302,7 +302,7 @@
 
             <p class="hero__body">
               使い方は、Mac用SideClipアプリをインストールして、<br />
-              スマホのカメラでQRコードを読み込むだけ。専用アプリは不要です。<br />アプリ起動中は、Macのメニューバーにアイコン表示され、<br />スマホと繋いでいなくてもコピー履歴が溜まります。<br />
+              スマホのカメラでQRコードを読み込むだけ。<br />専用アプリは不要です。<br />アプリ起動中は、Macのメニューバーにアイコン表示され、<br />スマホと繋いでいなくてもコピー履歴が溜まります。<br />
 
             </p>
 
@@ -397,16 +397,24 @@
           <div class="usage-scenes__reveal reveal">
             <h2 id="usage-scenes-title">具体的な使用シーン</h2>
             <figure class="usage-scenes__figure">
-              <img
-                src="${ASSETS.usageScenes}"
-                srcset="${ASSETS.usageScenes} 1x, ${ASSETS.usageScenes} 2x"
-                sizes="(max-width: 1200px) 100vw, 1200px"
-                width="1672"
-                height="941"
-                alt="SideClipの具体的な使用シーン"
-                loading="lazy"
-                decoding="async"
-              />
+              <button
+                type="button"
+                class="usage-scenes__panel feature-zoom-trigger"
+                data-feature-image-src="${ASSETS.usageScenes}"
+                data-feature-image-alt="SideClipの具体的な使用シーン"
+                aria-label="具体的な使用シーンの画像を拡大表示"
+              >
+                <img
+                  src="${ASSETS.usageScenes}"
+                  srcset="${ASSETS.usageScenes} 1x, ${ASSETS.usageScenes} 2x"
+                  sizes="(max-width: 1200px) 100vw, 1200px"
+                  width="1672"
+                  height="941"
+                  alt="SideClipの具体的な使用シーン"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
             </figure>
           </div>
         </section>
@@ -448,7 +456,7 @@
                   <ul class="trust-subfacts" aria-label="セキュリティ対策の詳細">
                     <li>・<strong>Webブラウザ証明書</strong><span class="trust-subfacts__detail">✅️ Macとスマホ/タブレット間で証明書を交換することによって、<br />　暗号化されたセキュリティの高いHTTPS通信を使用します。</span></li>
                     <li>・<strong>トークン認証(QRコード読み取り)</strong><span class="trust-subfacts__detail">✅️ 同じWi-Fiにつながる同僚や家族の端末からはアクセスできないようになっています。<br />　　QRコードを読み取った端末のみ接続可能な安全設計。
-                    <br />　　※ トークンを含むURLを共有するか、トークン認証設定OFFにすると、<br />　　　　同じWi-Fiにつながる複数端末からアクセス可能。
+                    <br />　　※ トークン含みURLを共有するか、トークン認証設定OFFにすると、<br />　　　　同じWi-Fiにつながる複数端末からアクセス可能。
                   </ul>
                 </li>
               </ul>
@@ -489,7 +497,7 @@
         </section>
 
         <div class="feature-lightbox" id="feature-lightbox" aria-hidden="true">
-          <div class="feature-lightbox__dialog" role="dialog" aria-modal="true" aria-label="機能紹介画像の拡大表示">
+          <div class="feature-lightbox__dialog" role="dialog" aria-modal="true" aria-label="画像の拡大表示">
             <button type="button" class="feature-lightbox__close" aria-label="拡大表示を閉じる">×</button>
             <img class="feature-lightbox__image" src="" alt="" />
           </div>
