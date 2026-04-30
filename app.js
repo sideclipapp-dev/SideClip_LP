@@ -269,6 +269,18 @@
           <a class="brand hero__brand" href="#" aria-label="SideClip">
             <span>Side</span><strong>Clip</strong>
           </a>
+          <button
+            type="button"
+            class="hero__menu-button"
+            aria-label="セクションメニューを開く"
+            aria-controls="section-drawer"
+            aria-expanded="false"
+            data-section-menu-trigger
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </header>
         <section class="hero" aria-labelledby="hero-title">
           <div class="hero__banner">
@@ -288,6 +300,21 @@
             </div>
           </div>
         </section>
+
+        <div class="section-drawer" id="section-drawer" aria-hidden="true">
+          <button type="button" class="section-drawer__backdrop" aria-label="メニューを閉じる" data-section-menu-close></button>
+          <nav class="section-drawer__panel" aria-label="ページ内セクション">
+            <button type="button" class="section-drawer__close" aria-label="メニューを閉じる" data-section-menu-close>×</button>
+            <a href="#hero-title" data-section-menu-link>トップ</a>
+            <a href="#concept-video" data-section-menu-link>コンセプト動画</a>
+            <a href="#tap-title" data-section-menu-link>Tap to Paste</a>
+            <a href="#features-title" data-section-menu-link>主な機能</a>
+            <a href="#usage-scenes-title" data-section-menu-link>具体的な使用シーン</a>
+            <a href="#local-title" data-section-menu-link>安全かつ高速な理由</a>
+            <a href="#faq" data-section-menu-link>FAQ</a>
+            <a href="#download" data-section-menu-link>SideClipで始める</a>
+          </nav>
+        </div>
 
         <div class="content-overlay">
         <div class="hero__content reveal is-visible">
@@ -816,7 +843,7 @@
     document.querySelectorAll('a[href="#concept-video"]').forEach((link) => {
       link.addEventListener("click", (event) => {
         event.preventDefault();
-        document.querySelector("#concept-video")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        alignTargetTopWithViewport(resolveHashScrollTarget("concept-video"), { smooth: true });
         loadIframe();
       });
     });
@@ -1021,6 +1048,41 @@
     });
   }
 
+  function scrollToPageTop({ smooth = false } = {}) {
+    window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
+  }
+
+  function alignTargetTopWithViewport(target, { smooth = false } = {}) {
+    if (!target) return;
+    const headerEl = document.querySelector(".hero__header");
+    let headerOffset = 0;
+    if (headerEl) {
+      const pos = window.getComputedStyle(headerEl).position;
+      if (pos === "fixed") {
+        headerOffset = Math.round(headerEl.getBoundingClientRect().height);
+      }
+    }
+    const base = Math.round(target.getBoundingClientRect().top + window.scrollY);
+    const y = Math.max(0, base - headerOffset);
+    window.scrollTo({ top: y, behavior: smooth ? "smooth" : "auto" });
+  }
+
+  function resolveHashScrollTarget(hashId) {
+    const byId = document.getElementById(hashId);
+    const resolvers = {
+      "concept-video": () => document.getElementById("concept-video"),
+      "tap-title": () => document.querySelector(".tap-section"),
+      "benefits-title": () => document.querySelector(".benefits"),
+      "features-title": () => document.querySelector(".features"),
+      "usage-scenes-title": () => document.querySelector(".usage-scenes"),
+      "local-title": () => document.querySelector(".local-sync"),
+      faq: () => document.getElementById("faq"),
+      download: () => document.getElementById("download"),
+    };
+    const pick = resolvers[hashId] ? resolvers[hashId]() : null;
+    return pick || byId;
+  }
+
   function initHashScroll() {
     if (!window.location.hash) return;
     window.requestAnimationFrame(() => {
@@ -1031,8 +1093,103 @@
         hashId = window.location.hash.slice(1);
       }
       if (!hashId) return;
-      const target = document.getElementById(hashId);
-      if (target) target.scrollIntoView({ block: "start" });
+      if (hashId === "hero-title") {
+        scrollToPageTop({ smooth: false });
+        return;
+      }
+      const target = resolveHashScrollTarget(hashId);
+      alignTargetTopWithViewport(target, { smooth: false });
+    });
+  }
+
+  function initCtaNavHashLinks() {
+    const nav = document.querySelector(".cta-links");
+    if (!nav) return;
+    nav.addEventListener("click", (event) => {
+      const link = event.target.closest('a[href^="#"]');
+      if (!link) return;
+      const href = link.getAttribute("href");
+      if (!href || href === "#" || href === "#concept-video") return;
+      event.preventDefault();
+      const hashId = href.slice(1);
+      if (!hashId) return;
+      alignTargetTopWithViewport(resolveHashScrollTarget(hashId), { smooth: true });
+      if (history.replaceState) {
+        history.replaceState(null, "", href);
+      }
+    });
+  }
+
+  function initSectionDrawer() {
+    const drawer = document.querySelector("#section-drawer");
+    const trigger = document.querySelector("[data-section-menu-trigger]");
+    if (!drawer || !trigger) return;
+
+    const closeButtons = drawer.querySelectorAll("[data-section-menu-close]");
+    const navLinks = drawer.querySelectorAll("[data-section-menu-link]");
+
+    function openDrawer() {
+      drawer.classList.add("is-open");
+      drawer.setAttribute("aria-hidden", "false");
+      trigger.setAttribute("aria-expanded", "true");
+      document.body.classList.add("has-section-drawer");
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove("is-open");
+      drawer.setAttribute("aria-hidden", "true");
+      trigger.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("has-section-drawer");
+    }
+
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      if (drawer.classList.contains("is-open")) {
+        closeDrawer();
+        return;
+      }
+      openDrawer();
+    });
+
+    closeButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        closeDrawer();
+      });
+    });
+
+    const DRAWER_SCROLL_DELAY_MS = 320;
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const href = link.getAttribute("href");
+        if (!href || href.charAt(0) !== "#") return;
+        event.preventDefault();
+        const hashId = href.slice(1);
+        if (!hashId) return;
+        closeDrawer();
+        window.setTimeout(() => {
+          if (hashId === "hero-title") {
+            scrollToPageTop({ smooth: true });
+          } else {
+            const target = resolveHashScrollTarget(hashId);
+            alignTargetTopWithViewport(target, { smooth: true });
+          }
+          if (history.replaceState) {
+            history.replaceState(null, "", href);
+          } else {
+            window.location.hash = href;
+          }
+        }, DRAWER_SCROLL_DELAY_MS);
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!drawer.classList.contains("is-open")) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeDrawer();
+      }
     });
   }
 
@@ -1078,6 +1235,8 @@
     initConceptVideoEmbed();
     initFeatureImageLightbox();
     initDownloadWipModal();
+    initCtaNavHashLinks();
+    initSectionDrawer();
     initSyncLineRailLayout();
     initHashScroll();
   }
