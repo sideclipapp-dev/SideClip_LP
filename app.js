@@ -458,7 +458,7 @@
                   <ul class="trust-subfacts" aria-label="セキュリティ対策の詳細">
                     <li>・<strong>Webブラウザ証明書</strong><span class="trust-subfacts__detail">✅️ Macとスマホ/タブレット間で証明書を交換することによって、<br />　暗号化されたセキュリティの高いHTTPS通信を使用します。</span></li>
                     <li>・<strong>トークン認証(QRコード読み取り)</strong><span class="trust-subfacts__detail">✅️ 同じWi-Fiにつながる同僚や家族の端末からはアクセスできないようになっています。<br />　　QRコードを読み取った端末のみ接続可能な安全設計。
-                    <br />　　※ トークン含みURLを共有するか、トークン認証設定OFFにすると、<br />　　　　同じWi-Fiにつながる複数端末からアクセス可能。
+                    <br />　　※ トークン含みURLを共有するか、トークン認証設定OFFにすると、<br />　　　　同じWi-Fiにつながる複数端末からアクセス可能になります。
                   </ul>
                 </li>
               </ul>
@@ -466,6 +466,74 @@
                 <span>高速</span>
                 <span>安全</span>
                 <span>プライベート</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="faq reveal" id="faq" aria-labelledby="faq-title">
+          <div class="faq__inner">
+            <h2 id="faq-title" class="faq__title">FAQ</h2>
+
+            <div class="faq__group">
+              <h3 class="faq__group-title">基本情報・導入について</h3>
+              <div class="faq__list-wrap">
+                <details class="faq__item">
+                  <summary class="faq__summary">対応しているOSやデバイスを教えてください。</summary>
+                  <div class="faq__answer">
+                    <ul class="faq__bullets">
+                      <li>
+                        <strong>Mac：</strong><br />
+                        macOS 15以上のM系（Apple Silicon）で動作確認をしております。
+                      </li>
+                      <li>
+                        <strong>スマホ・タブレット：</strong><br />
+                        iOS/Android/iPadOSなど、Webブラウザが動けば基本的に動作します。<br />
+                        <span class="faq__note">（端末の性能により動作が重くなる場合もあります）</span><br />
+                        <span class="faq__note">セキュリティのためにも、最新バージョンのブラウザをご使用ください。</span>
+                      </li>
+                    </ul>
+                  </div>
+                </details>
+                <details class="faq__item">
+                  <summary class="faq__summary">無料で利用できますか？有料プランとの違いは何ですか？</summary>
+                  <div class="faq__answer">
+                    <p>Freeプランで基本機能は無料でご利用いただけます。<br />有料プランの前にご自身の環境で動作確認をお勧めいたします。</p>
+                    <p>Proプラン・Ultraプランは、より便利な機能が解放されます。</p>
+                    <p>
+                      詳しくはアプリインストール後、スマホ側画面に表示されるメニュー内の「プラン」をご確認ください。
+                    </p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <div class="faq__group">
+              <h3 class="faq__group-title">使い方・機能について</h3>
+              <div class="faq__list-wrap">
+                <details class="faq__item">
+                  <summary class="faq__summary">保存できるデータの種類やサイズに制限はありますか？</summary>
+                  <div class="faq__answer">
+                    <p>
+                      あります。SideClipのコピー履歴データの肥大化防止と、動作が重くならないように以下の制限をかけています（アプリアップデートで変更する場合もあります）。
+                    </p>
+                    <ul class="faq__bullets">
+                      <li>プレーンテキスト：1コピー 50KB まで</li>
+                      <li>画像（JPG/PNG/TIFFなど）：1画像 10MB まで</li>
+                      <li>その他のファイル：対象外（カードが生成されません）</li>
+                    </ul>
+                  </div>
+                </details>
+                <details class="faq__item">
+                  <summary class="faq__summary">保存できるカードの上限はありますか？</summary>
+                  <div class="faq__answer">
+                    <p>あります。プランによって保存上限が異なります。</p>
+                    <p>詳しくは、アプリインストール後のメニュー内「プラン」からご確認ください。</p>
+                    <p>
+                      上限を超えた古いデータから自動削除されますが、「Favorite（お気に入り）」に登録したデータは自動削除されません。
+                    </p>
+                  </div>
+                </details>
               </div>
             </div>
           </div>
@@ -491,6 +559,7 @@
               <a class="is-primary" href="#concept-video">コンセプト動画</a>
               <a href="#features-title">主な機能</a>
               <a href="#local-title">ローカル同期</a>
+              <a href="#faq">よくある質問</a>
             </nav>
           </div>
           <ul class="trust-list" aria-label="利用条件">
