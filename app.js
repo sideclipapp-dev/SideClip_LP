@@ -502,6 +502,29 @@
                 />
               </button>
             </figure>
+            <div class="usage-scenes__cases">
+              <article class="usage-scenes__case">
+                <p class="usage-scenes__case-badge">💻 開発者・プログラマー</p>
+                <h3 class="usage-scenes__case-title">頻繁に使うコードやコマンドを、手元にストック。</h3>
+                <p class="usage-scenes__case-text">
+                  「よく使うPythonやJavaScriptのコードスニペット、複雑なGitコマンドなどをスマホ画面に並べて管理。エディタとブラウザを行き来してコピペを繰り返す無駄な時間をゼロにし、コーディングに集中できます。」
+                </p>
+              </article>
+              <article class="usage-scenes__case">
+                <p class="usage-scenes__case-badge">🤖 AIツール（LLM）活用</p>
+                <h3 class="usage-scenes__case-title">AIへのプロンプト入力を、もっと直感的に。</h3>
+                <p class="usage-scenes__case-text">
+                  「ChatGPTやClaudeなどを使用する際、ベースとなる指示文やよく使う条件指定（プロンプト）をスマホ側に用意。状況に合わせてワンタップで流し込めるため、AIとの対話が圧倒的にスムーズになります。」
+                </p>
+              </article>
+              <article class="usage-scenes__case">
+                <p class="usage-scenes__case-badge">📦 フリマアプリ・ECサイト出品者</p>
+                <h3 class="usage-scenes__case-title">繰り返しの出品作業やメッセージ返信を爆速化。</h3>
+                <p class="usage-scenes__case-text">
+                  「メルカリやヤフオクなどでの出品時に使う『商品説明のテンプレート』や、購入者への『お礼・発送連絡の定型文』をSideClipに保存。スマホからサクサク貼り付けられるので、副業や事務作業の効率が劇的に上がります。」
+                </p>
+              </article>
+            </div>
           </div>
         </section>
 

@@ -1299,6 +1299,48 @@ img {
   filter: brightness(1.02) contrast(0.92) saturate(0.9);
 }
 
+.usage-scenes__cases {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2vw, 20px);
+  width: min(100%, 720px);
+  margin: clamp(22px, 2.8vw, 32px) auto 0;
+}
+
+.usage-scenes__case {
+  margin: 0;
+  padding: clamp(16px, 2.2vw, 22px) clamp(16px, 2.4vw, 22px);
+  border: 1px solid #dfebf6;
+  border-radius: var(--radius-card);
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(14, 54, 96, 0.06);
+}
+
+.usage-scenes__case-badge {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: var(--fs-caption);
+  line-height: 1.45;
+  font-weight: var(--heading-weight);
+}
+
+.usage-scenes__case-title {
+  margin: 0 0 10px;
+  color: var(--blue);
+  font-size: clamp(0.92rem, 1.55vw, 1.05rem);
+  line-height: 1.4;
+  font-weight: var(--heading-weight);
+  letter-spacing: 0;
+}
+
+.usage-scenes__case-text {
+  margin: 0;
+  color: #253955;
+  font-size: var(--fs-body);
+  line-height: 1.75;
+  font-weight: var(--text-weight);
+}
+
 .has-wip-download-modal {
   overflow: hidden;
 }
@@ -2279,6 +2321,15 @@ img {
 
   .usage-scenes__figure {
     width: 100%;
+  }
+
+  .usage-scenes__cases {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .usage-scenes__case {
+    padding: 14px 14px 16px;
   }
 
   .feature-grid {
