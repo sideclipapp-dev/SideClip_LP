@@ -310,7 +310,7 @@
             <a href="#concept-video" data-section-menu-link>コンセプト動画</a>
             <a href="#tap-title" data-section-menu-link>Tap to Paste</a>
             <a href="#clipboard-shift-title" data-section-menu-link>他のクリップボードマネージャーとの違い</a>
-            <a href="#features-title" data-section-menu-link>主な機能</a>
+            <a href="#features-title" data-section-menu-link>SideClipの主な機能</a>
             <a href="#usage-scenes-title" data-section-menu-link>具体的な使用シーン</a>
             <a href="#local-title" data-section-menu-link>安全かつ高速な理由</a>
             <a href="#faq" data-section-menu-link>FAQ</a>
@@ -650,7 +650,8 @@
             <p>Apple Silicon搭載のMacに対応</p>
             <nav class="cta-links" aria-label="補助リンク">
               <a class="is-primary" href="#concept-video">コンセプト動画</a>
-              <a href="#features-title">主な機能</a>
+              <a href="#features-title">SideClipの主な機能</a>
+              <a href="#usage-scenes-title">具体的な使用シーン</a>
               <a href="#local-title">ローカル同期</a>
               <a href="#faq">よくある質問</a>
             </nav>
