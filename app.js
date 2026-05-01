@@ -324,6 +324,9 @@
           <ol class="mini-flow" aria-label="SideClipの流れ">
             ${renderMiniFlow()}
           </ol>
+          <p class="hero__hook">「さっきコピーしたデータ、もう一度コピーしなきゃ」<br />「さっきコピーしたデータ、どこだっけ？」</p>
+          <p class="hero__hook">あなたは、そんな経験ありませんか？<br />1日に何回コピペしますか？</p>
+          <p class="hero__hook">コピペを多用する全ての方に、新しいコピペ体験を提供します。</p>
           <p class="hero__lead">
             Macでコピー・スクショした内容が、<br />
             スマホ/タブレットの画面にカードとして追加されます。<br />

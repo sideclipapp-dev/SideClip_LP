@@ -378,6 +378,16 @@ img {
   font-size: inherit;
 }
 
+.hero__hook {
+  margin: 0 0 clamp(12px, 1.8vw, 17px);
+  color: var(--ink);
+  font-size: clamp(1.1rem, 2.35vw, 1.32rem);
+  line-height: 1.42;
+  font-weight: var(--heading-weight);
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
 .hero__lead,
 .hero__body,
 .hero__promise {
@@ -2380,6 +2390,12 @@ img {
 }
 
 @media (max-width: 390px) {
+  .hero__hook {
+    font-size: clamp(14px, 4.2vw, 16px);
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+  }
+
   .hero__lead,
   .hero__body,
   .hero__promise,
