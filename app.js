@@ -27,6 +27,7 @@
     featureTodo: `./assets/feature-panel-todo.jpg?v=${ASSET_VERSION}`,
     featureScan: `./assets/feature-panel-scan.jpg?v=${ASSET_VERSION}`,
     usageScenes: `./assets/具体シーン.png?v=${ASSET_VERSION}`,
+    clipboardDifference: `./assets/違い.jpeg?v=${ASSET_VERSION}`,
   };
 
   const icon = {
@@ -168,7 +169,7 @@
       title: "瞬時にMacをスクショ",
       image: ASSETS.featureScan,
       alt: "MacをキャプチャするSCAN画面",
-      text: "スマホの'SCAN'ボタンをタップすると、<br />Mac画面がスクショ撮影モードに。<br />範囲指定するだけでクリップボード履歴にスクショが<br />カードとして自動同期されます。<br /><small>（Pro / Ultraプラン）</small>",
+      text: "スマホの'SCAN'ボタンをタップすると、<br />Mac画面がスクショ撮影モードに。<br />範囲指定するだけでクリップボード履歴にスクショが<br />カードとして自動同期されます。<br />スマホをスクショリモコンに。<br /><small>（Pro / Ultraプラン）</small>",
     },
   ];
 
@@ -308,6 +309,7 @@
             <a href="#hero-title" data-section-menu-link>トップ</a>
             <a href="#concept-video" data-section-menu-link>コンセプト動画</a>
             <a href="#tap-title" data-section-menu-link>Tap to Paste</a>
+            <a href="#clipboard-shift-title" data-section-menu-link>横に置くクリップボード</a>
             <a href="#features-title" data-section-menu-link>主な機能</a>
             <a href="#usage-scenes-title" data-section-menu-link>具体的な使用シーン</a>
             <a href="#local-title" data-section-menu-link>安全かつ高速な理由</a>
@@ -318,7 +320,7 @@
 
         <div class="content-overlay">
         <div class="hero__content reveal is-visible">
-          <h1 id="hero-title">スマホやタブレットを、<br /><span class="hero__accent hero__accent--single-line">クリップボード拡張ディスプレイに。</span></h1>
+          <h1 id="hero-title">スマホやタブレットを、<br /><span class="hero__accent hero__accent--single-line">“横に置くクリップボード画面”に。</span></h1>
           <ol class="mini-flow" aria-label="SideClipの流れ">
             ${renderMiniFlow()}
           </ol>
@@ -410,6 +412,61 @@
             </div>
             <div class="benefit-grid">
               ${renderBenefits()}
+            </div>
+          </div>
+        </section>
+
+        <section class="clipboard-shift" aria-labelledby="clipboard-shift-title">
+          <div class="clipboard-shift__reveal reveal">
+            <h2 id="clipboard-shift-title" class="clipboard-shift__title">
+              呼び出すクリップボードから、<br />
+              横に置くクリップボードへ
+            </h2>
+            <figure class="clipboard-shift__figure">
+              <button
+                type="button"
+                class="clipboard-shift__panel feature-zoom-trigger"
+                data-feature-image-src="${ASSETS.clipboardDifference}"
+                data-feature-image-alt="呼び出すクリップボードと横に置くクリップボードの違い"
+                aria-label="呼び出すクリップボードと横に置くクリップボードの違いの画像を拡大表示"
+              >
+                <img
+                  src="${ASSETS.clipboardDifference}"
+                  srcset="${ASSETS.clipboardDifference} 1x, ${ASSETS.clipboardDifference} 2x"
+                  sizes="(max-width: 1200px) 100vw, 1200px"
+                  width="2752"
+                  height="1536"
+                  alt="呼び出すクリップボードと横に置くクリップボードの違い"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
+            </figure>
+            <div class="clipboard-shift__prose">
+              <p>
+                多くのクリップボードマネージャーは、ホットキーで呼び出す検索窓や、<br />
+                Mac画面上に一時的に表示されるポップアップとして動作します。
+              </p>
+              <p>もちろん、それらは強力です。</p>
+              <p>
+                ただし、使うたびに画面を切り替えたり、ペースト用ショートカットを忘れたり、<br />
+                小さな集中の途切れが発生します。
+              </p>
+              <p>SideClipは、その発想を少し変えました。</p>
+              <p>
+                コピー履歴をMac画面の中に閉じ込めて「呼び出す」のではなく、<br />
+                スマホやタブレットを「横に置いて常時表示」のクリップボード画面として使います。
+              </p>
+              <p>
+                コピーしたテキスト、リンク、画像などは、同じWi-Fi内で自動同期。<br />
+                手元の端末に一覧表示され、必要なものをタップするだけで貼り付けられます。
+              </p>
+              <p>
+                探す、思い出す、呼び出す。 その負担を減らして、コピー＆ペーストをもっと直感的に。
+              </p>
+              <p>
+                SideClipは、クリップボードを“操作するもの”から、“横に置いて使うもの”へ変えます。
+              </p>
             </div>
           </div>
         </section>
@@ -1096,6 +1153,7 @@
       "concept-video": () => document.getElementById("concept-video"),
       "tap-title": () => document.querySelector(".tap-section"),
       "benefits-title": () => document.querySelector(".benefits"),
+      "clipboard-shift-title": () => document.querySelector(".clipboard-shift"),
       "features-title": () => document.querySelector(".features"),
       "usage-scenes-title": () => document.querySelector(".usage-scenes"),
       "local-title": () => document.querySelector(".local-sync"),
