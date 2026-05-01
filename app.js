@@ -320,13 +320,13 @@
 
         <div class="content-overlay">
         <div class="hero__content reveal is-visible">
+          <p class="hero__hook">「さっきコピーしたデータ、もう一度コピーしなきゃ」<br />「さっきコピーしたデータ、どこだっけ？」</p>
+          <p class="hero__hook">あなたは、そんな経験ありませんか？<br />1日に何回コピペしますか？</p>
+          <p class="hero__hook">コピペを多用する全ての方に、<br />新しいコピペ体験を提供します。</p>
           <h1 id="hero-title">スマホやタブレットを、<br /><span class="hero__accent hero__accent--single-line">“横に置くクリップボード画面”に。</span></h1>
           <ol class="mini-flow" aria-label="SideClipの流れ">
             ${renderMiniFlow()}
           </ol>
-          <p class="hero__hook">「さっきコピーしたデータ、もう一度コピーしなきゃ」<br />「さっきコピーしたデータ、どこだっけ？」</p>
-          <p class="hero__hook">あなたは、そんな経験ありませんか？<br />1日に何回コピペしますか？</p>
-          <p class="hero__hook">コピペを多用する全ての方に、<br />新しいコピペ体験を提供します。</p>
           <p class="hero__lead">
             Macでコピー・スクショした内容が、<br />
             スマホ/タブレットの画面にカードとして追加されます。<br />
