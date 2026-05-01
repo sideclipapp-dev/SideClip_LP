@@ -323,7 +323,7 @@
           <p class="hero__hook">「さっきコピーしたデータ、もう一度コピーしなきゃ」<br />「さっきコピーしたデータ、どこだっけ？」</p>
           <p class="hero__hook">あなたは、そんな経験ありませんか？<br />1日に何回コピペしますか？</p>
           <p class="hero__hook">コピペを多用する全ての方に、<br />新しいコピペ体験を提供します。</p>
-          <h1 id="hero-title">スマホやタブレットを、<br /><span class="hero__accent hero__accent--single-line">“横に置くクリップボード画面”に。</span></h1>
+          <h1 id="hero-title">コピペ画面の切り替えは、もう不要。<br />スマホやタブレットを、<br /><span class="hero__accent hero__accent--single-line">“横に置くクリップボード画面”に。</span></h1>
           <ol class="mini-flow" aria-label="SideClipの流れ">
             ${renderMiniFlow()}
           </ol>
@@ -345,9 +345,9 @@
             <li>スマホアプリのインストール不要</li>
             <li>MacとiPhone/iPad/Android端末がつながる</li>
           </ul>
-          <a class="download-button" href="#" data-wip-download-trigger data-cta-id="hero_download_status" data-cta-section="hero" aria-label="SideClipの開発状況を見る">
+          <a class="download-button" href="#" data-wip-download-trigger data-cta-id="hero_download_status" data-cta-section="hero" aria-label="SideClipの開発状況をチェック">
             <!-- ${icon.download} -->
-            開発状況を見る
+            開発状況をチェック
           </a>
           <p class="os-note">Apple Silicon搭載のMacに対応</p>
         </div>
@@ -448,7 +448,7 @@
               </p>
               <p>もちろん、それらは強力です。</p>
               <p>
-                ただし、使うたびに画面を切り替えたり、<br />ペースト用ショートカットを忘れたり、<br />
+                ただし、使うたびに画面を切り替えたり、<br />ペースト用ショートカットを忘れてしまったり、<br />
                 小さな集中の途切れが発生します。
               </p>
               <p>SideClipは、その発想を少し変えました。</p>
@@ -642,9 +642,9 @@
             <strong>新たなクリップボードを体験しよう。</strong>
           </div>
           <div class="final-cta__action">
-            <a class="download-button download-button--light" href="#" data-wip-download-trigger data-cta-id="final_download_status" data-cta-section="final_cta" aria-label="SideClipの開発状況を見る">
+            <a class="download-button download-button--light" href="#" data-wip-download-trigger data-cta-id="final_download_status" data-cta-section="final_cta" aria-label="SideClipの開発状況をチェック">
               <!-- ${icon.download} -->
-              開発状況を見る
+              開発状況をチェック
             </a>
             <p>Apple Silicon搭載のMacに対応</p>
             <nav class="cta-links" aria-label="補助リンク">
