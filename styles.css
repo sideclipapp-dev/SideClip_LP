@@ -10,7 +10,7 @@
   --radius-card: 14px;
   --heading-weight: 800;
   --text-weight: 700;
-  --fs-title-lg: clamp(1.75rem, 2.9vw, 2.1rem);
+  --fs-title-lg: clamp(1.62rem, 2.65vw, 1.95rem);
   --fs-title-md: clamp(1.4rem, 2.2vw, 1.65rem);
   --fs-body: clamp(0.88rem, 1.45vw, 0.95rem);
   --fs-caption: clamp(0.74rem, 1.2vw, 0.82rem);
@@ -362,10 +362,18 @@ img {
   letter-spacing: -0.038em;
 }
 
+.hero__title-line {
+  display: block;
+}
+
+.hero__title-line--nowrap {
+  white-space: nowrap;
+}
+
 @supports (font-size: 1cqw) {
   .hero h1 {
     /* ベース縮尺（JSの initHeroTitleFit で最終調整） */
-    font-size: min(2.1rem, max(0.58rem, calc(92cqw / 17.5)));
+    font-size: min(1.95rem, max(0.54rem, calc(88cqw / 18)));
   }
 }
 
@@ -379,13 +387,12 @@ img {
 }
 
 .hero__hook {
-  margin: 0 0 clamp(12px, 1.8vw, 17px);
+  margin: 0 0 clamp(10px, 1.6vw, 15px);
   color: var(--ink);
-  font-size: clamp(1.1rem, 2.35vw, 1.32rem);
+  font-size: clamp(1.02rem, 2.05vw, 1.18rem);
   line-height: 1.42;
   font-weight: var(--heading-weight);
-  letter-spacing: -0.03em;
-  text-wrap: balance;
+  letter-spacing: -0.035em;
 }
 
 .hero__lead,
@@ -1317,11 +1324,37 @@ img {
 }
 
 .usage-scenes__case-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin: 0 0 10px;
   color: var(--muted);
   font-size: var(--fs-caption);
   line-height: 1.45;
   font-weight: var(--heading-weight);
+}
+
+.usage-scenes__case-badge-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  color: var(--blue);
+}
+
+.usage-scenes__case-badge-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.usage-scenes__case-badge-label {
+  min-width: 0;
 }
 
 .usage-scenes__case-title {
@@ -2167,6 +2200,12 @@ img {
     margin-bottom: clamp(8px, 2vw, 12px);
   }
 
+  .hero__hook {
+    font-size: clamp(12.5px, 3.25vw, 14px);
+    line-height: 1.48;
+    letter-spacing: -0.04em;
+  }
+
   .mini-flow {
     width: min(100%, 360px);
     grid-template-columns: minmax(52px, 1fr) 16px minmax(52px, 1fr) 16px minmax(52px, 1fr) 16px minmax(68px, 1.2fr);
@@ -2442,9 +2481,9 @@ img {
 
 @media (max-width: 390px) {
   .hero__hook {
-    font-size: clamp(14px, 4.2vw, 16px);
-    line-height: 1.45;
-    letter-spacing: -0.02em;
+    font-size: clamp(11.5px, 3.35vw, 13px);
+    line-height: 1.5;
+    letter-spacing: -0.04em;
   }
 
   .hero__lead,

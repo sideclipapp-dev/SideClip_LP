@@ -57,6 +57,25 @@
     checkCircle: `
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="m8 12 2.6 2.7L16.5 8" /></svg>
     `,
+    usageCaseDev: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="5" y="5" width="14" height="10" rx="1.5" />
+        <path d="M4 17h16" />
+        <path d="M8 8h8M8 11h5" />
+      </svg>
+    `,
+    usageCaseLlm: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="6" y="3" width="12" height="18" rx="2" />
+        <path d="M9 7h6M9 10h6M9 13h4M9 16h5" />
+      </svg>
+    `,
+    usageCaseShop: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 10h12l1.5 11H4.5L6 10Z" />
+        <path d="M9 10V8a3 3 0 0 1 6 0v2" />
+      </svg>
+    `,
     laptopFlow: `
       <svg viewBox="0 0 48 40" aria-hidden="true">
         <rect x="8" y="7" width="32" height="21" rx="1.8" />
@@ -323,7 +342,7 @@
           <p class="hero__hook">「さっきコピーしたデータ、もう一度コピーしなきゃ」<br />「さっきコピーしたデータ、どこだっけ？」</p>
           <p class="hero__hook">あなたは、そんな経験ありませんか？<br />1日に何回コピペしますか？</p>
           <p class="hero__hook">コピペを多用する全ての方に、<br />新しいコピペ体験を提供します。</p>
-          <h1 id="hero-title">コピペ画面の切り替えは、もう不要。<br />スマホやタブレットを、<br /><span class="hero__accent hero__accent--single-line">“横に置くクリップボード画面”に。</span></h1>
+          <h1 id="hero-title"><span class="hero__title-line hero__title-line--nowrap">コピペ画面の切り替えは、もう不要。</span><br />スマホやタブレットを、<br /><span class="hero__accent hero__accent--single-line">“横に置くクリップボード画面”に。</span></h1>
           <ol class="mini-flow" aria-label="SideClipの流れ">
             ${renderMiniFlow()}
           </ol>
@@ -389,7 +408,6 @@
                 <span class="tap-emphasis">キーボードの拡張デバイス</span>のような感覚で、<wbr />使い方は無限大。<br class="desktop-break" /><br class="mobile-break" />
                 Macのウィンドウ切り替えを減らし、<br class="mobile-break" />集中して作業効率を上げましょう。<br />
                 <br class="mobile-break" />
-                コピペを多用する全ての方に、<br class="mobile-break" />新しいコピペ体験を提供します。<br class="mobile-break" /><br class="mobile-break" />
 
               </p>
             </div>
@@ -504,21 +522,30 @@
             </figure>
             <div class="usage-scenes__cases">
               <article class="usage-scenes__case">
-                <p class="usage-scenes__case-badge">💻 開発者・プログラマー</p>
+                <p class="usage-scenes__case-badge">
+                  <span class="usage-scenes__case-badge-icon" aria-hidden="true">${icon.usageCaseDev}</span>
+                  <span class="usage-scenes__case-badge-label">開発者・プログラマー向け</span>
+                </p>
                 <h3 class="usage-scenes__case-title">頻繁に使うコードやコマンドを、手元にストック。</h3>
                 <p class="usage-scenes__case-text">
-                  よく使うPythonやJavaScriptのコードスニペット、複雑なGitコマンドなどをスマホ画面に並べて管理。<br />エディタとブラウザを行き来してコピペを繰り返す無駄な時間をゼロにし、コーディングに集中できます。
+                  よく使うPythonやJavaScriptのコードスニペット、Gitコマンドなどをスマホ画面に並べて管理。<br />エディタとブラウザを行き来してコピペを繰り返す無駄な時間をゼロにし、コーディングに集中できます。
                 </p>
               </article>
               <article class="usage-scenes__case">
-                <p class="usage-scenes__case-badge">🤖 AIツール（LLM）活用</p>
+                <p class="usage-scenes__case-badge">
+                  <span class="usage-scenes__case-badge-icon" aria-hidden="true">${icon.usageCaseLlm}</span>
+                  <span class="usage-scenes__case-badge-label">AIツール（LLM）活用者向け</span>
+                </p>
                 <h3 class="usage-scenes__case-title">AIへのプロンプト入力を、もっと直感的に。</h3>
                 <p class="usage-scenes__case-text">
-                  ChatGPTやClaudeなどを使用する際、ベースとなる指示文やよく使う条件指定（プロンプト）をスマホ側に用意。<br />状況に合わせてワンタップで流し込めるため、AIとの対話が圧倒的にスムーズになります。
+                  ChatGPTやClaudeなどを使用する際、ベースとなる指示文やよく使うプロンプトをSideClipのお気に入りに保存。<br />状況に合わせてワンタップで流し込めるため、AIとの対話が圧倒的にスムーズになります。
                 </p>
               </article>
               <article class="usage-scenes__case">
-                <p class="usage-scenes__case-badge">📦 フリマアプリ・ECサイト出品者</p>
+                <p class="usage-scenes__case-badge">
+                  <span class="usage-scenes__case-badge-icon" aria-hidden="true">${icon.usageCaseShop}</span>
+                  <span class="usage-scenes__case-badge-label">フリマアプリ・ECサイト出品者向け</span>
+                </p>
                 <h3 class="usage-scenes__case-title">繰り返しの出品作業やメッセージ返信を爆速化。</h3>
                 <p class="usage-scenes__case-text">
                   メルカリやヤフオクなどでの出品時に使う『商品説明のテンプレート』や、購入者への『お礼・発送連絡の定型文』をSideClipに保存。<br />スマホからサクサク貼り付けられるので、副業や事務作業の効率が劇的に上がります。
