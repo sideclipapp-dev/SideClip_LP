@@ -368,6 +368,7 @@ img {
 
 .hero__title-line--nowrap {
   white-space: nowrap;
+  margin-bottom: clamp(-34px, -0.72em, -10px);
 }
 
 @supports (font-size: 1cqw) {

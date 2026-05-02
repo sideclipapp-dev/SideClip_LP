@@ -356,7 +356,7 @@
           <p class="hero__lead">
             Macでコピー・スクショした内容が、<br />
             スマホ/タブレットの画面にカードとして追加され、<br />コピー・スクショ履歴リストとして常時表示されます。<br />
-            カードをタップすると、Macのカーソル位置へ即ペースト。<br />
+            カードをタップで、Macのカーソル位置へ即ペースト。<br />
           </p>
 
           <p class="hero__body">
@@ -413,7 +413,7 @@
               <p>
                 スマホ画面に並んだカードを<wbr />タップするだけ。<br class="desktop-break" /><br class="mobile-break" />
                 <span class="tap-emphasis">キーボードの拡張デバイス</span>のような感覚で、<wbr />使い方は無限大。<br class="desktop-break" /><br class="mobile-break" />
-                あなたは、1日に何回コピペ・スクショをしますか？<br />Macのウィンドウ切り替えを減らし、<br class="mobile-break" />集中して作業効率を上げましょう。
+                1日に何回コピペ・スクショをしますか？<br />Macのウィンドウ切り替えを減らし、<br class="mobile-break" />集中して作業効率を上げましょう。
                 <br class="mobile-break" />
 
               </p>
