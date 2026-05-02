@@ -1542,6 +1542,35 @@ img {
   color: #0d549f;
 }
 
+.trust-facts strong.trust-facts__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.trust-facts__title-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  color: #0d549f;
+}
+
+.trust-facts__title-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.trust-facts__title-text {
+  min-width: 0;
+}
+
 .trust-subfacts {
   margin: 8px 0 0;
   padding: 0 0 0 16px;
@@ -1807,7 +1836,8 @@ img {
   margin: 0;
   transform: translateX(-50%);
   color: #17325b;
-  font-size: 12px;
+  font-size: clamp(13px, 1.55vw, 16px);
+  line-height: 1.25;
   font-weight: 850;
   text-align: center;
 }
