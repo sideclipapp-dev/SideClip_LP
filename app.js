@@ -531,31 +531,31 @@
               <article class="usage-scenes__case">
                 <p class="usage-scenes__case-badge">
                   <span class="usage-scenes__case-badge-icon" aria-hidden="true">${icon.usageCaseDev}</span>
-                  <span class="usage-scenes__case-badge-label">開発者・プログラマー向け</span>
+                  <span class="usage-scenes__case-badge-label">開発者・プログラマー</span>
                 </p>
                 <h3 class="usage-scenes__case-title">頻繁に使うコードやコマンドを、手元にストック。</h3>
                 <p class="usage-scenes__case-text">
-                  よく使うコードスニペット、Gitコマンドなどをスマホ画面に並べて管理。<br />エディタとブラウザを行き来してコピペを繰り返す無駄な時間をゼロにし、コーディングに集中できます。
+                  生成AIによりコードを書くことは減ったかもしれませんが、コピペ操作は増えてませんか？<br />よく使うプロンプト・コードスニペット・Gitコマンドなどをスマホ画面に並べて管理。<br />エディタとブラウザを行き来してコピペを繰り返す無駄な時間をゼロにし、コーディングに集中できます。
                 </p>
               </article>
               <article class="usage-scenes__case">
                 <p class="usage-scenes__case-badge">
                   <span class="usage-scenes__case-badge-icon" aria-hidden="true">${icon.usageCaseLlm}</span>
-                  <span class="usage-scenes__case-badge-label">AIツール（LLM）活用者向け</span>
+                  <span class="usage-scenes__case-badge-label">AIツール（LLM）活用者</span>
                 </p>
                 <h3 class="usage-scenes__case-title">AIへのプロンプト入力を、もっと直感的に。</h3>
                 <p class="usage-scenes__case-text">
-                  ChatGPTやClaudeなどを使用する際、よく使うプロンプトをSideClipのお気に入りに保存。<br />AIとの対話が圧倒的にスムーズになります。
+                  AIを使い始めてコピペの回数が増大した方へ。<br />ChatGPT・Claude・Geminiなどを使用する際、よく使うプロンプトをSideClipのお気に入りに保存。<br />AIとの対話が圧倒的にスムーズになります。
                 </p>
               </article>
               <article class="usage-scenes__case">
                 <p class="usage-scenes__case-badge">
                   <span class="usage-scenes__case-badge-icon" aria-hidden="true">${icon.usageCaseShop}</span>
-                  <span class="usage-scenes__case-badge-label">フリマアプリ・ECサイト出品者向け</span>
+                  <span class="usage-scenes__case-badge-label">フリマ・オークション・ECサイト出品者</span>
                 </p>
                 <h3 class="usage-scenes__case-title">繰り返しの出品作業やメッセージ返信を爆速化。</h3>
                 <p class="usage-scenes__case-text">
-                  出品時の『商品説明のテンプレート』や、購入者への『お礼・発送連絡の定型文』をSideClipに保存。<br />スマホからサクサク貼り付けられるので、副業や事務作業の効率が劇的に上がります。
+                  せどりなどで、大量に商品を入荷・出品・発送される方へ。<br />出品時の『商品説明のテンプレート』や、購入者への『お礼・発送連絡の定型文』をSideClipに保存。<br />スマホからサクサク貼り付けられるので、副業や事務作業の効率が劇的に上がります。<br />コピペ効率を上げて、収益ももっと上げていきましょう！
                 </p>
               </article>
             </div>
