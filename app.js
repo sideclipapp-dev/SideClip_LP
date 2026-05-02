@@ -767,11 +767,30 @@
       return;
     }
 
-    const REVEAL_ENTER_RATIO = 0.1;
+    /* transform による見かけの位置ずれでも交差しやすいよう、やや低めにする */
+    const REVEAL_ENTER_RATIO = 0.05;
     const REVEAL_EXIT_RATIO = 0.04;
-    const REVEAL_EXIT_DEBOUNCE_MS = 280;
+    /* observer の rootMargin bottom 22% と同じ比率（フォールバックで画面外まで一括表示しないため） */
+    const REVEAL_ROOT_MARGIN_BOTTOM_FRAC = 0.22;
+    /* 表示開始遅延 + 短い揺り戻しでもすぐ消えないよう少し長めに */
+    const REVEAL_EXIT_DEBOUNCE_MS = 450;
+    /* 初回ペイント後に付与するまでの待ち（CSS transition-delay は使わない） */
+    const REVEAL_START_DELAY_MS = 220;
     const revealHideTimers = new WeakMap();
+    const revealEnterTimers = new WeakMap();
+    /** 遅いスクロールで queueRevealVisible が連打されても、予約を最初の1回に固定する */
+    const revealShowArm = new WeakSet();
     const revealThresholds = Array.from({ length: 21 }, (_, i) => i * 0.05);
+
+    /** IO の root（ビューポート＋下マージン）と同程度か — 画面外ブロックに is-visible を付けない */
+    function revealLikelyIntersectsObserverRoot(el) {
+      const r = el.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight || 0;
+      const vw = window.innerWidth || document.documentElement.clientWidth || 0;
+      if (vh <= 0) return false;
+      const rootBottom = vh * (1 + REVEAL_ROOT_MARGIN_BOTTOM_FRAC);
+      return r.bottom > 0 && r.top < rootBottom && r.right > 0 && r.left < vw;
+    }
 
     function cancelRevealHide(el) {
       const id = revealHideTimers.get(el);
@@ -781,7 +800,45 @@
       }
     }
 
+    function cancelRevealEnter(el) {
+      revealShowArm.delete(el);
+      const id = revealEnterTimers.get(el);
+      if (id != null) {
+        window.clearTimeout(id);
+        revealEnterTimers.delete(el);
+      }
+    }
+
+    function queueRevealVisible(el) {
+      if (!el || el.classList.contains("hero__content")) return;
+      if (el.classList.contains("is-visible")) return;
+      /* 既に表示予約中なら再スケジュールしない（遅スクロールで遅延が永遠に延びない） */
+      if (revealShowArm.has(el) || revealEnterTimers.has(el)) return;
+      revealShowArm.add(el);
+      cancelRevealHide(el);
+
+      const run = () => {
+        if (!el.isConnected) return;
+        if (el.classList.contains("is-visible")) return;
+        void el.offsetWidth;
+        el.classList.add("is-visible");
+      };
+
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          if (!revealShowArm.has(el)) return;
+          const id = window.setTimeout(() => {
+            revealEnterTimers.delete(el);
+            revealShowArm.delete(el);
+            run();
+          }, REVEAL_START_DELAY_MS);
+          revealEnterTimers.set(el, id);
+        });
+      });
+    }
+
     function scheduleRevealHide(el) {
+      cancelRevealEnter(el);
       cancelRevealHide(el);
       const id = window.setTimeout(() => {
         revealHideTimers.delete(el);
@@ -805,7 +862,7 @@
 
           if (ratio >= REVEAL_ENTER_RATIO) {
             cancelRevealHide(el);
-            el.classList.add("is-visible");
+            queueRevealVisible(el);
             return;
           }
 
@@ -814,20 +871,26 @@
           }
         });
       },
-      { threshold: revealThresholds, rootMargin: "0px 0px 14% 0px" }
+      {
+        threshold: revealThresholds,
+        rootMargin: `0px 0px ${REVEAL_ROOT_MARGIN_BOTTOM_FRAC * 100}% 0px`,
+      }
     );
 
-    revealNodes.forEach((target) => {
-      if (!target.classList.contains("hero__content")) {
-        observer.observe(target);
-      }
+    window.requestAnimationFrame(() => {
+      revealNodes.forEach((target) => {
+        if (!target.classList.contains("hero__content")) {
+          observer.observe(target);
+        }
+      });
     });
 
     window.setTimeout(() => {
       document.querySelectorAll(".reveal:not(.is-visible)").forEach((target) => {
-        if (!target.classList.contains("hero__content")) {
-          target.classList.add("is-visible");
-        }
+        if (target.classList.contains("hero__content")) return;
+        /* 全セクション一括は遅スクロールで「もう表示済み」になりアニメが消えるため、交差見込みのみ */
+        if (!revealLikelyIntersectsObserverRoot(target)) return;
+        queueRevealVisible(target);
       });
     }, 3200);
   }
