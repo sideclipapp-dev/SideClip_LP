@@ -340,7 +340,7 @@
         <div class="content-overlay">
         <div class="hero__content reveal is-visible">
           <p class="hero__hook">「さっきコピーしたデータ、もう一度コピーしなきゃ」<br />「さっきコピーしたデータ、どこだっけ？」</p>
-          <p class="hero__hook">あなたは、そんな経験ありませんか？<br />1日に何回コピペしますか？</p>
+          <p class="hero__hook">あなたは、そんな経験ありませんか？</p>
           <p class="hero__hook">コピペを多用する全ての方に、新しいコピペ体験を提供します。</p>
           <h1 id="hero-title"><span class="hero__title-line hero__title-line--nowrap">コピペ画面の切り替えは、もう不要。</span><br />スマホやタブレットを、<br /><span class="hero__accent hero__accent--single-line">“横に置くクリップボード画面”に。</span></h1>
           <ol class="mini-flow" aria-label="SideClipの流れ">
@@ -406,7 +406,7 @@
               <p>
                 スマホ画面に並んだカードを<wbr />タップするだけ。<br class="desktop-break" /><br class="mobile-break" />
                 <span class="tap-emphasis">キーボードの拡張デバイス</span>のような感覚で、<wbr />使い方は無限大。<br class="desktop-break" /><br class="mobile-break" />
-                Macのウィンドウ切り替えを減らし、<br class="mobile-break" />集中して作業効率を上げましょう。<br />
+                あなたは、1日に何回コピペ・スクショをしますか？<br />Macのウィンドウ切り替えを減らし、<br class="mobile-break" />集中して作業効率を上げましょう。
                 <br class="mobile-break" />
 
               </p>
@@ -462,7 +462,7 @@
             <div class="clipboard-shift__prose">
               <p>
                 多くのクリップボードマネージャーは、<br />ホットキーで呼び出す検索窓や、<br />
-                Mac画面上に一時的に表示されるポップアップとして動作します。
+                一時的にポップアップがMac画面に表示されます。
               </p>
               <p>もちろん、それらは強力です。</p>
               <p>
@@ -482,7 +482,7 @@
                 探す、思い出す、呼び出す。<br />その負担を減らして、コピー＆ペーストをもっと直感的に。
               </p>
               <p>
-                SideClipは、クリップボードを“操作するもの”から、“横に置いて使うもの”へ変えます。
+                SideClipは、クリップボードを“操作するもの”から、<br />“横に置いて使うもの”へ変えます。
               </p>
             </div>
           </div>
@@ -538,7 +538,7 @@
                 </p>
                 <h3 class="usage-scenes__case-title">AIへのプロンプト入力を、もっと直感的に。</h3>
                 <p class="usage-scenes__case-text">
-                  ChatGPTやClaudeなどを使用する際、ベースとなる指示文やよく使うプロンプトをSideClipのお気に入りに保存。<br />状況に合わせてワンタップで流し込めるため、AIとの対話が圧倒的にスムーズになります。
+                  ChatGPTやClaudeなどを使用する際、よく使うプロンプトをSideClipのお気に入りに保存。<br />AIとの対話が圧倒的にスムーズになります。
                 </p>
               </article>
               <article class="usage-scenes__case">
@@ -548,7 +548,7 @@
                 </p>
                 <h3 class="usage-scenes__case-title">繰り返しの出品作業やメッセージ返信を爆速化。</h3>
                 <p class="usage-scenes__case-text">
-                  メルカリやヤフオクなどでの出品時に使う『商品説明のテンプレート』や、購入者への『お礼・発送連絡の定型文』をSideClipに保存。<br />スマホからサクサク貼り付けられるので、副業や事務作業の効率が劇的に上がります。
+                  出品時の『商品説明のテンプレート』や、購入者への『お礼・発送連絡の定型文』をSideClipに保存。<br />スマホからサクサク貼り付けられるので、副業や事務作業の効率が劇的に上がります。
                 </p>
               </article>
             </div>
