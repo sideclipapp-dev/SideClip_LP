@@ -1971,6 +1971,11 @@ img {
   white-space: normal;
 }
 
+.final-cta .final-cta__line--nowrap {
+  display: block;
+  white-space: nowrap;
+}
+
 .final-cta__copy p {
   margin: 12px 0 0;
   font-size: var(--fs-body);
@@ -2454,6 +2459,14 @@ img {
 
   .final-cta__action {
     margin-top: 24px;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(17px, 5.1vw, 24px);
+  }
+
+  .final-cta__copy strong {
+    font-size: clamp(16px, 4.6vw, 22px);
   }
 
   .cta-links {

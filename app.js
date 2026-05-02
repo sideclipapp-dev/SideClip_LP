@@ -341,7 +341,7 @@
         <div class="hero__content reveal is-visible">
           <p class="hero__hook">「さっきコピーしたデータ、もう一度コピーしなきゃ」<br />「さっきコピーしたデータ、どこだっけ？」</p>
           <p class="hero__hook">あなたは、そんな経験ありませんか？<br />1日に何回コピペしますか？</p>
-          <p class="hero__hook">コピペを多用する全ての方に、<br />新しいコピペ体験を提供します。</p>
+          <p class="hero__hook">コピペを多用する全ての方に、新しいコピペ体験を提供します。</p>
           <h1 id="hero-title"><span class="hero__title-line hero__title-line--nowrap">コピペ画面の切り替えは、もう不要。</span><br />スマホやタブレットを、<br /><span class="hero__accent hero__accent--single-line">“横に置くクリップボード画面”に。</span></h1>
           <ol class="mini-flow" aria-label="SideClipの流れ">
             ${renderMiniFlow()}
@@ -683,13 +683,13 @@
 
         <section class="final-cta reveal" id="download" aria-labelledby="cta-title">
           <div class="final-cta__copy">
-            <h2 id="cta-title">クリップボードの概念を、変える。</h2>
+            <h2 id="cta-title"><span class="final-cta__line--nowrap">クリップボードの概念を、変える。</span></h2>
             <p>
               SideClipは、コピー履歴を探す時間を減らし、<br />
               いつものコピペをもっとスムーズにします。<br />
               Mac横のクリップボードで作業が快適に。
             </p>
-            <strong>新たなクリップボードを体験しよう。</strong>
+            <strong><span class="final-cta__line--nowrap">新たなクリップボードを体験しよう。</span></strong>
           </div>
           <div class="final-cta__action">
             <a class="download-button download-button--light" href="#" data-wip-download-trigger data-cta-id="final_download_status" data-cta-section="final_cta" aria-label="SideClipの開発状況をチェック">
@@ -880,6 +880,49 @@
     if (wrap && typeof ResizeObserver !== "undefined") {
       new ResizeObserver(run).observe(wrap);
     }
+  }
+
+  function initFinalCtaCopyFit() {
+    const copy = document.querySelector("#download .final-cta__copy");
+    if (!copy) return;
+    const h2 = copy.querySelector("#cta-title");
+    const punch = copy.querySelector("strong");
+    const targets = [h2, punch].filter(Boolean);
+    const minPx = 10;
+    const tolerance = 2;
+
+    function fitEl(el) {
+      el.style.fontSize = "";
+      if (!el.isConnected) return;
+      void el.offsetWidth;
+      let px = parseFloat(window.getComputedStyle(el).fontSize);
+      if (Number.isNaN(px)) return;
+      while (px >= minPx && el.scrollWidth > el.clientWidth + tolerance) {
+        px -= 1;
+        el.style.fontSize = `${px}px`;
+      }
+    }
+
+    function run() {
+      for (const el of targets) {
+        el.style.fontSize = "";
+      }
+      if (!copy.isConnected) return;
+      void copy.offsetWidth;
+      for (const el of targets) {
+        fitEl(el);
+      }
+    }
+
+    const schedule = () => window.requestAnimationFrame(run);
+    schedule();
+    window.addEventListener("resize", schedule);
+    window.addEventListener("orientationchange", schedule);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(schedule);
+    }
+    if (typeof ResizeObserver !== "undefined") {
+      new ResizeObserver(schedule).observe(copy);    }
   }
 
   function initHeroParallax() {
@@ -1361,6 +1404,7 @@
     initReveal();
     initFlowCycle();
     initHeroTitleFit();
+    initFinalCtaCopyFit();
     initHeroParallax();
     initInteractiveCards();
     initConceptVideoEmbed();
