@@ -366,8 +366,7 @@
           </p>
 
           <ul class="hero-kpis" aria-label="SideClipで得られる効果">
-            <li>コピペ作業の効率化</li>
-            <li>クリップボード履歴の常時表示</li>
+            <li>Mac用アプリ</li>
             <li>スマホアプリのインストール不要</li>
             <li>MacとiPhone/iPad/Android端末がつながる</li>
           </ul>
