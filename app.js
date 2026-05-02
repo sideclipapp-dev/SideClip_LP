@@ -346,7 +346,7 @@
 
         <div class="content-overlay">
         <div class="hero__content reveal is-visible">
-          <p class="hero__hook">「さっきコピーしたデータ、もう一度コピーしなきゃ」<br />「さっきコピーしたデータ、どこだっけ？」</p>
+          <p class="hero__hook"><br />「さっきコピーしたデータ、もう一度コピーしなきゃ」<br />「さっきコピーしたデータ、どこだっけ？」</p>
           <p class="hero__hook">あなたは、そんな経験ありませんか？</p>
           <p class="hero__hook">コピペを多用する全ての方に、新しいコピペ体験を。</p>
           <h1 id="hero-title"><span class="hero__title-line hero__title-line--nowrap">コピペ画面の切り替えは、もう不要。</span><br />スマホやタブレットを、<br /><span class="hero__accent hero__accent--single-line">“横に置くクリップボード画面”に。</span></h1>
@@ -535,7 +535,7 @@
                 </p>
                 <h3 class="usage-scenes__case-title">頻繁に使うコードやコマンドを、手元にストック。</h3>
                 <p class="usage-scenes__case-text">
-                  よく使うPythonやJavaScriptのコードスニペット、Gitコマンドなどをスマホ画面に並べて管理。<br />エディタとブラウザを行き来してコピペを繰り返す無駄な時間をゼロにし、コーディングに集中できます。
+                  よく使うコードスニペット、Gitコマンドなどをスマホ画面に並べて管理。<br />エディタとブラウザを行き来してコピペを繰り返す無駄な時間をゼロにし、コーディングに集中できます。
                 </p>
               </article>
               <article class="usage-scenes__case">

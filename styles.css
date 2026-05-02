@@ -18,8 +18,9 @@
   --header-height: 54px;
   --section-pad-x: clamp(24px, 5vw, 68px);
   --section-pad-y: clamp(22px, 3vw, 38px);
-  /* ヒーロー先頭コピーと半透明オーバーレイの間 — content-overlay::before の基準にも使用 */
-  --hero-content-pad-top: clamp(30px, 4vw, 50px);
+  /* ヒーロー先頭コピーとオーバーレイの位置 — .content-overlay::after の top にも使用 */
+  /* 以前の目安からさらに約 30px 詰める（下限は可読性のため 4px） */
+  --hero-content-pad-top: clamp(4px, calc(3.1vw - 30px), 8px);
   --mobile-card-padding: 12px;
   --mobile-card-title-size: 13px;
   --mobile-card-body-size: 11px;
@@ -309,7 +310,15 @@ img {
   bottom: 0;
   pointer-events: none;
   z-index: 0;
-  background: #fff;
+  /* 不透明白の開始を一段階フェザーし、::before との境を目立たなくする */
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.78) 0,
+    rgba(255, 255, 255, 0.9) clamp(40px, 7vw, 88px),
+    rgba(255, 255, 255, 0.97) clamp(96px, 14vw, 180px),
+    #fff clamp(140px, 22vw, 260px),
+    #fff 100%
+  );
 }
 
 .content-overlay::before {
@@ -318,16 +327,24 @@ img {
   left: 0;
   right: 0;
   top: 0;
-  height: clamp(240px, 32vw, 360px);
+  /* フェードが最後まで解けるよう少し長めに */
+  height: clamp(300px, 42vw, 480px);
   pointer-events: none;
   z-index: 1;
+  /* 平坦区間をやめ、上はほぼ透過からゆるやかに白へ */
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.68) 0%,
-    rgba(255, 255, 255, 0.68) var(--hero-content-pad-top),
-    rgba(255, 255, 255, 0.82) calc(var(--hero-content-pad-top) + 80px),
-    rgba(255, 255, 255, 0.94) calc(var(--hero-content-pad-top) + 160px),
-    #fff calc(var(--hero-content-pad-top) + 260px)
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.04) 8%,
+    rgba(255, 255, 255, 0.12) 16%,
+    rgba(255, 255, 255, 0.26) 28%,
+    rgba(255, 255, 255, 0.44) 40%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.74) 60%,
+    rgba(255, 255, 255, 0.86) 72%,
+    rgba(255, 255, 255, 0.93) 84%,
+    rgba(255, 255, 255, 0.97) 94%,
+    #fff 100%
   );
 }
 
