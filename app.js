@@ -293,9 +293,16 @@
     return `
       <main class="page-shell">
         <header class="hero__header">
-          <a class="brand hero__brand" href="#" aria-label="SideClip">
-            <span>Side</span><strong>Clip</strong>
-          </a>
+          <div class="hero__header-brand">
+            <a class="brand hero__brand" href="#" aria-label="SideClip（Macのクリップボードアプリ）">
+              <span>Side</span><strong>Clip</strong>
+            </a>
+            <p class="hero__tagline" title="Clipboard app for Mac" aria-hidden="true">
+              <span class="hero__tagline__full" lang="en">Clipboard app for Mac</span>
+              <span class="hero__tagline__mid" lang="en">Clipboard for Mac</span>
+              <span class="hero__tagline__mini" lang="en">for Mac</span>
+            </p>
+          </div>
           <button
             type="button"
             class="hero__menu-button"
