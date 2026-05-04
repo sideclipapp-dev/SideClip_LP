@@ -254,12 +254,12 @@ img {
   margin: 0;
 }
 
-/* ヘッダー内の補足（幅に応じて表記を切り替え、極狭時のみ省略） */
+/* ヘッダー内の補足（常に「Clipboard app for Mac」— app を省略しない） */
 .hero__tagline {
   margin: 0;
   min-width: 0;
   flex: 1 1 auto;
-  font-size: clamp(10.5px, 1.25vw, 13.5px);
+  font-size: clamp(9.5px, 1.15vw + 0.25rem, 13.5px);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: 0.02em;
@@ -269,27 +269,10 @@ img {
   text-overflow: ellipsis;
 }
 
-.hero__tagline__full,
-.hero__tagline__mid,
-.hero__tagline__mini {
-  display: none;
-}
-
-@media (min-width: 560px) {
-  .hero__tagline__full {
-    display: inline;
-  }
-}
-
-@media (max-width: 559.98px) and (min-width: 400px) {
-  .hero__tagline__mid {
-    display: inline;
-  }
-}
-
-@media (max-width: 399.98px) {
-  .hero__tagline__mini {
-    display: inline;
+@media (max-width: 480px) {
+  .hero__tagline {
+    font-size: clamp(9px, 2.35vw, 11.5px);
+    letter-spacing: 0.01em;
   }
 }
 

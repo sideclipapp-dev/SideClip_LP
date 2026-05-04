@@ -298,9 +298,7 @@
               <span>Side</span><strong>Clip</strong>
             </a>
             <p class="hero__tagline" title="Clipboard app for Mac" aria-hidden="true">
-              <span class="hero__tagline__full" lang="en">Clipboard app for Mac</span>
-              <span class="hero__tagline__mid" lang="en">Clipboard for Mac</span>
-              <span class="hero__tagline__mini" lang="en">for Mac</span>
+              <span lang="en">Clipboard app for Mac</span>
             </p>
           </div>
           <button
