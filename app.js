@@ -344,9 +344,8 @@
 
         <div class="content-overlay">
         <div class="hero__content reveal is-visible">
-          <p class="hero__hook"><br />「さっきコピーしたデータ、もう一度コピーしなきゃ」<br />「さっきコピーしたデータ、どこだっけ？」</p>
-          <p class="hero__hook">あなたは、そんな経験ありませんか？</p>
-          <p class="hero__hook">コピペを多用する全ての方に、新しいコピペ体験を。</p>
+          <p class="hero__hook"><br />「さっきコピーしたデータ、どこだっけ？」<br />「もう一度コピーしなきゃ」</p>
+          <p class="hero__hook">コピペが増えるほど、画面の行き来が重なります。</p>
           <h1 id="hero-title"><span class="hero__title-line hero__title-line--nowrap">コピペ画面の切り替えは、もう不要。</span><br />スマホやタブレットを、<br /><span class="hero__accent hero__accent--single-line">“横に置くクリップボード画面”に。</span></h1>
           <ol class="mini-flow" aria-label="SideClipの流れ">
             ${renderMiniFlow()}
@@ -479,10 +478,6 @@
                 スマホやタブレットを「横に置いて常時表示」のクリップボード画面として使います。
               </p>
               <p>
-                コピーしたテキスト・リンク・画像などは、同じWi-Fi内で自動同期。<br />
-                手元の端末に一覧表示され、必要なものをタップするだけで貼り付けられます。
-              </p>
-              <p>
                 探す、思い出す、呼び出す。<br />その負担を減らして、コピー＆ペーストをもっと直感的に。
               </p>
               <p>
@@ -552,7 +547,7 @@
                 </p>
                 <h3 class="usage-scenes__case-title">繰り返しの出品作業やメッセージ返信を爆速化。</h3>
                 <p class="usage-scenes__case-text">
-                  せどりなどで、大量に商品を入荷・出品・発送される方へ。<br />出品時の『商品説明のテンプレート』や、購入者への『お礼・発送連絡の定型文』をSideClipに保存。<br />スマホからサクサク貼り付けられるので、副業や事務作業の効率が劇的に上がります。<br />コピペ効率を上げて、収益ももっと上げていきましょう！
+                  せどりなどで、大量に商品を入荷・出品・発送される方へ。<br />出品時の『商品説明のテンプレート』や、購入者への『お礼・発送連絡の定型文』をSideClipに保存。<br />スマホからサクサク貼り付けられるので、副業や事務作業の効率が劇的に上がります。<br />コピペ効率を上げて、収益も上げましょう！
                 </p>
               </article>
             </div>
