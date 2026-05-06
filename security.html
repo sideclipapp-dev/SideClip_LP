@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SideClip | セキュリティ対策の詳細</title>
+    <meta
+      name="description"
+      content="SideClipのローカル同期におけるHTTPS通信・トークン認証（QRコード）などのセキュリティ対策について説明します。"
+    />
+    <link rel="canonical" href="https://sideclip.app/security.html" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <article class="doc-page">
+        <header class="doc-page__header">
+          <a href="./" class="doc-page__back">← SideClip トップへ戻る</a>
+          <h1>セキュリティ対策の詳細</h1>
+        </header>
+
+        <p class="doc-page__lead">
+          接続にはQRコードによるトークン認証を使用し、認証済みの端末だけがコピー履歴にアクセスできます。<br />
+          さらに通信はHTTPSで暗号化されるため、同じWi-Fi上の端末でも、認証されていない端末からはアクセスできません。
+        </p>
+
+        <section aria-labelledby="security-cert-heading">
+          <h2 id="security-cert-heading">Webブラウザ証明書</h2>
+          <p>
+            Macとスマホ／タブレット間で証明書を交換することによって、暗号化されたセキュリティの高いHTTPS通信を使用します。
+          </p>
+        </section>
+
+        <section aria-labelledby="security-token-heading">
+          <h2 id="security-token-heading">トークン認証（QRコード読み取り）</h2>
+          <p>
+            同じWi-Fiにつながる同僚や家族の端末からはアクセスできないようになっています。<br />
+            QRコードを読み取った端末のみ接続可能な安全設計です。
+          </p>
+          <p class="doc-page__note">
+            ※ トークン含みURLを共有するか、トークン認証設定OFFにすると、同じWi-Fiにつながる複数端末からアクセス可能になります。
+          </p>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

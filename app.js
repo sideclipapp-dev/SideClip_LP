@@ -48,13 +48,6 @@
     lock: `
       <svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /><path d="M12 14v2.5" /></svg>
     `,
-    trustFactsLock: `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="5" y="10" width="14" height="10" rx="2" />
-        <path d="M8 10V7a4 4 0 0 1 8 0v3" />
-        <path d="M12 14v2.5" />
-      </svg>
-    `,
     gift: `
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12v8H4v-8M2 7h20v5H2zM12 22V7M12 7H8.5a2.5 2.5 0 1 1 2.5-2.5V7Zm0 0h3.5A2.5 2.5 0 1 0 13 4.5V7Z" /></svg>
     `,
@@ -593,23 +586,11 @@
               <p>
                 SideClipはクラウドを使わず、コピー履歴をあなたのMac内に保存します。<br />
                 スマホやタブレットとの同期も、同じWi-Fi内のローカル通信だけで完結します。<br />
-                外部サーバーを経由しないため、コピー履歴がSideClipのクラウドに送信されることはありません。<br /><br />
-                接続にはQRコードによるトークン認証を使用し、認証済みの端末だけがコピー履歴にアクセスできます。<br />
-                さらに通信はHTTPSで暗号化されるため、同じWi-Fi上の端末でも、認証されていない端末からはアクセスできません。
+                外部サーバーを経由しないため、コピー履歴がSideClipのクラウドに送信されることはありません。
               </p>
-              <ul class="trust-facts" aria-label="信頼性に関する補足情報">
-                <li>
-                  <strong class="trust-facts__title">
-                    <span class="trust-facts__title-icon" aria-hidden="true">${icon.trustFactsLock}</span>
-                    <span class="trust-facts__title-text">セキュリティ対策の詳細:</span>
-                  </strong>
-                  <ul class="trust-subfacts" aria-label="セキュリティ対策の詳細">
-                    <li>・<strong>Webブラウザ証明書</strong><span class="trust-subfacts__detail">✅️ Macとスマホ/タブレット間で証明書を交換することによって、<br />　暗号化されたセキュリティの高いHTTPS通信を使用します。</span></li>
-                    <li>・<strong>トークン認証(QRコード読み取り)</strong><span class="trust-subfacts__detail">✅️ 同じWi-Fiにつながる同僚や家族の端末からはアクセスできないようになっています。<br />　　QRコードを読み取った端末のみ接続可能な安全設計。
-                    <br />　　※ トークン含みURLを共有するか、トークン認証設定OFFにすると、<br />　　　　同じWi-Fiにつながる複数端末からアクセス可能になります。
-                  </ul>
-                </li>
-              </ul>
+              <p class="local-sync__detail-link">
+                <a href="./security.html">セキュリティ対策の詳細を見る</a>
+              </p>
               <div class="sync-tags" aria-label="SideClipの同期特性">
                 <span>高速</span>
                 <span>安全</span>
