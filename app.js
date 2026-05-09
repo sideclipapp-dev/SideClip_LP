@@ -1,7 +1,8 @@
 (function () {
-  const ASSET_VERSION = "20260430-usage-scene-png";
+  const ASSET_VERSION = "20260510-lp-hero-banner";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
+  const PRE_REGISTRATION_FORM_URL = "https://forms.gle/KbNn5T3TBVz459HBA";
 
   // Visual assets are centralized so replacement only needs this block.
   const syncDataLineRail = `
@@ -16,7 +17,7 @@
     </div>`;
 
   const ASSETS = {
-    heroMain: `./assets/hero-banner.png?v=${ASSET_VERSION}`,
+    heroMain: `./assets/LP_hero_banner.png?v=${ASSET_VERSION}`,
     heroMainFallback: `./assets/hero-banner.jpg?v=${ASSET_VERSION}`,
     stepCopy: `./assets/step-copy.png?v=${ASSET_VERSION}`,
     stepAdd: `./assets/step-add.png?v=${ASSET_VERSION}`,
@@ -309,19 +310,86 @@
         </header>
         <section class="hero" aria-labelledby="hero-title">
           <div class="hero__banner">
-            <div class="hero__visual-wrap">
-              <img
-                class="hero__visual"
-                src="${ASSETS.heroMain}"
-                srcset="${ASSETS.heroMain} 1x, ${ASSETS.heroMain} 2x"
-                width="2172"
-                height="724"
-                sizes="(max-width: 2172px) 100vw, 2172px"
-                alt="MacとスマホでSideClipを使うイメージ"
-                fetchpriority="high"
-                decoding="async"
-                onerror="this.onerror=null;this.src='${ASSETS.heroMainFallback}';"
-              />
+            <div class="hero__banner-stack">
+              <div class="hero__banner-motion">
+                <div class="hero__visual-wrap">
+                  <img
+                    class="hero__visual"
+                    src="${ASSETS.heroMain}"
+                    srcset="${ASSETS.heroMain} 1x, ${ASSETS.heroMain} 2x"
+                    width="2172"
+                    height="724"
+                    sizes="(max-width: 2172px) 100vw, 2172px"
+                    alt="MacとスマホでSideClipを使うイメージ"
+                    fetchpriority="high"
+                    decoding="async"
+                    onerror="this.onerror=null;this.src='${ASSETS.heroMainFallback}';"
+                  />
+                </div>
+                <div class="hero__banner-overlay" aria-label="SideClipの紹介">
+                  <p class="hero__banner-overlay-lead hero__banner-overlay-line hero__banner-overlay-line--lead">
+                    Macのコピー履歴を、<br />画面の<span class="hero__banner-accent">「外」</span>へ。
+                  </p>
+                  <p class="hero__banner-overlay-sub hero__banner-overlay-line hero__banner-overlay-line--sub">
+                    スマホが常時表示のクリップボード拡張デバイスに。
+                  </p>
+                  <ul class="hero__banner-pills" aria-label="主な特長">
+                    <li class="hero__banner-pill">
+                      <span class="hero__banner-pill-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="24" height="24" focusable="false" fill="none" aria-hidden="true">
+                          <rect x="5.25" y="2.75" width="13.5" height="19.5" rx="2.75" stroke="currentColor" stroke-width="1.45" />
+                          <line x1="9.5" y1="20.35" x2="14.5" y2="20.35" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" opacity="0.45" />
+                          <rect x="8.1" y="7.35" width="7.8" height="9.4" rx="1.05" stroke="currentColor" stroke-width="1.35" />
+                          <path d="M8.1 9.85h2.35l.75-1.15" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                          <line x1="10.35" y1="12.15" x2="14.55" y2="12.15" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                          <line x1="10.35" y1="14.05" x2="14.2" y2="14.05" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                          <line x1="10.35" y1="15.9" x2="13.5" y2="15.9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                        </svg>
+                      </span>
+                      <span>常時表示</span>
+                    </li>
+                    <li class="hero__banner-pill">
+                      <span class="hero__banner-pill-icon hero__banner-pill-icon--tapflow" aria-hidden="true">
+                        ${icon.tapFlow}
+                      </span>
+                      <span>Tap to Paste</span>
+                    </li>
+                    <li class="hero__banner-pill">
+                      <span class="hero__banner-pill-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="24" height="24" focusable="false" fill="none" aria-hidden="true">
+                          <path
+                            d="M7.35 9.2a5.35 5.35 0 0 1 9.3-3.7"
+                            stroke="currentColor"
+                            stroke-width="1.45"
+                            stroke-linecap="round"
+                          />
+                          <path
+                            d="M5.85 7.35V10h2.85"
+                            stroke="currentColor"
+                            stroke-width="1.45"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M16.65 14.8a5.35 5.35 0 0 1-9.3 3.7"
+                            stroke="currentColor"
+                            stroke-width="1.45"
+                            stroke-linecap="round"
+                          />
+                          <path
+                            d="M18.15 16.65V14h-2.85"
+                            stroke="currentColor"
+                            stroke-width="1.45"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </span>
+                      <span>ローカル同期</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -369,9 +437,9 @@
             <li>スマホアプリのインストール不要</li>
             <li>MacとiPhone/iPad/Android端末がつながる</li>
           </ul>
-          <a class="download-button" href="#" data-wip-download-trigger data-cta-id="hero_download_status" data-cta-section="hero" aria-label="SideClipの開発状況をチェック">
+          <a class="download-button" href="#" data-wip-download-trigger data-cta-id="hero_download_status" data-cta-section="hero" aria-label="事前登録特典で、Ultraプラン3か月無料クーポンプレゼント">
             <!-- ${icon.download} -->
-            開発状況をチェック
+            事前登録特典で<br />Ultraプラン3か月無料<br />クーポンプレゼント
           </a>
           <p class="os-note">Apple Silicon搭載のMacに対応</p>
         </div>
@@ -684,9 +752,9 @@
             <strong><span class="final-cta__line--nowrap">新たなクリップボードを体験しよう。</span></strong>
           </div>
           <div class="final-cta__action">
-            <a class="download-button download-button--light" href="#" data-wip-download-trigger data-cta-id="final_download_status" data-cta-section="final_cta" aria-label="SideClipの開発状況をチェック">
+            <a class="download-button download-button--light" href="#" data-wip-download-trigger data-cta-id="final_download_status" data-cta-section="final_cta" aria-label="事前登録特典で、Ultraプラン3か月無料クーポンプレゼント">
               <!-- ${icon.download} -->
-              開発状況をチェック
+              事前登録特典で<br />Ultraプラン3か月無料<br />クーポンプレゼント
             </a>
             <p>Apple Silicon搭載のMacに対応</p>
             <nav class="cta-links" aria-label="補助リンク">
@@ -722,6 +790,12 @@
               ただいま絶賛アプリ開発中です。もうしばらくお待ちください。<br />
               開発の進捗は、開発者の"X(Twitter)"をチェックしてください。
             </p>
+            <a
+              class="wip-download-modal__formlink"
+              href="${PRE_REGISTRATION_FORM_URL}"
+              target="_blank"
+              rel="noopener noreferrer"
+              >事前登録（Googleフォーム）</a>
             <a
               class="wip-download-modal__xlink"
               href="${WIP_DOWNLOAD_X_URL}"
@@ -989,6 +1063,45 @@
     }
     if (typeof ResizeObserver !== "undefined") {
       new ResizeObserver(schedule).observe(copy);    }
+  }
+
+  function initHeroBannerHeadlineScroll() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const hero = document.querySelector(".hero");
+    const banner = document.querySelector(".hero__banner");
+    if (!hero || !banner) return;
+
+    function sync(entry) {
+      const pastHero =
+        !entry.isIntersecting && entry.boundingClientRect.bottom < 0;
+      banner.classList.toggle("hero__banner--headline-out", pastHero);
+    }
+
+    if (!("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (!entry) return;
+      sync(entry);
+    }, {
+      threshold: 0,
+      root: null,
+      rootMargin: "0px",
+    });
+    observer.observe(hero);
+  }
+
+  function initHeroBannerEnter() {
+    const banner = document.querySelector(".hero__banner");
+    if (!banner) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      banner.classList.add("hero__banner--entered");
+      return;
+    }
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        banner.classList.add("hero__banner--entered");
+      });
+    });
   }
 
   function initHeroParallax() {
@@ -1472,6 +1585,8 @@
     initHeroTitleFit();
     initFinalCtaCopyFit();
     initHeroParallax();
+    initHeroBannerEnter();
+    initHeroBannerHeadlineScroll();
     initInteractiveCards();
     initConceptVideoEmbed();
     initFeatureImageLightbox();
