@@ -1789,7 +1789,17 @@ img {
   word-break: break-all;
 }
 
-/* 利用規約・プライバシーポリシー・セキュリティ等：LP先頭（ヒーダー）のトーンに合わせた背景と章のグルーピング */
+.legal-hub__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legal-hub__list li + li {
+  margin-top: 10px;
+}
+
+/* 利用規約・プライバシーポリシー等：LP先頭（ヒーダー）のトーンに合わせた背景と章のグルーピング */
 main.page-shell:has(> article.doc-page) {
   background: linear-gradient(
     168deg,

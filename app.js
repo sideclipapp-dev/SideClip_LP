@@ -328,7 +328,7 @@
 
         <div class="section-drawer" id="section-drawer" aria-hidden="true">
           <button type="button" class="section-drawer__backdrop" aria-label="メニューを閉じる" data-section-menu-close></button>
-          <nav class="section-drawer__panel" aria-label="ページ内セクション">
+          <nav class="section-drawer__panel" aria-label="ページメニュー">
             <button type="button" class="section-drawer__close" aria-label="メニューを閉じる" data-section-menu-close>×</button>
             <a href="#hero-title" data-section-menu-link>トップ</a>
             <a href="#concept-video" data-section-menu-link>コンセプト動画</a>
@@ -339,6 +339,7 @@
             <a href="#local-title" data-section-menu-link>安全かつ高速な理由</a>
             <a href="#faq" data-section-menu-link>FAQ</a>
             <a href="#download" data-section-menu-link>新たなクリップボード体験を始める</a>
+            <a href="#site-legal-footer" data-section-menu-link>ポリシー・規約</a>
           </nav>
         </div>
 
@@ -728,11 +729,13 @@
           </div>
         </div>
 
-        <footer class="site-footer" role="contentinfo">
+        <footer class="site-footer" id="site-legal-footer" role="contentinfo">
           <nav class="site-footer__nav" aria-label="サイト情報">
             <a href="./terms.html" target="_blank" rel="noopener noreferrer">利用規約</a>
             <span class="site-footer__sep" aria-hidden="true">·</span>
             <a href="./privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
+            <span class="site-footer__sep" aria-hidden="true">·</span>
+            <a href="./tokushoho.html" target="_blank" rel="noopener noreferrer">特定商取引法に基づく表記</a>
           </nav>
         </footer>
       </main>
