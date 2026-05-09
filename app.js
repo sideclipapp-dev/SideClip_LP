@@ -690,12 +690,12 @@
               <a href="#features-title">SideClipの主な機能</a>
               <a href="#usage-scenes-title">具体的な使用シーン</a>
               <a href="#local-title">ローカル同期</a>
-              <a href="#faq">よくある質問</a>
+
             </nav>
+            <ul class="trust-list" aria-label="利用条件">
+              ${renderTrustItems()}
+            </ul>
           </div>
-          <ul class="trust-list" aria-label="利用条件">
-            ${renderTrustItems()}
-          </ul>
         </section>
         </div>
 
@@ -727,6 +727,14 @@
             <button type="button" class="wip-download-modal__dismiss">閉じる</button>
           </div>
         </div>
+
+        <footer class="site-footer" role="contentinfo">
+          <nav class="site-footer__nav" aria-label="サイト情報">
+            <a href="./terms.html" target="_blank" rel="noopener noreferrer">利用規約</a>
+            <span class="site-footer__sep" aria-hidden="true">·</span>
+            <a href="./privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
+          </nav>
+        </footer>
       </main>
     `;
   }

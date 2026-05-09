@@ -1719,7 +1719,11 @@ img {
   font-size: var(--fs-title-md);
   line-height: 1.35;
   font-weight: var(--heading-weight);
-  color: #0d549f;
+  color: var(--blue);
+}
+
+.doc-page--terms h2 {
+  font-variant-numeric: tabular-nums;
 }
 
 .doc-page p {
@@ -1730,6 +1734,31 @@ img {
   font-weight: var(--text-weight);
 }
 
+.doc-page p.doc-page__last-updated {
+  margin: 8px 0 0;
+  font-size: 9.5px;
+  line-height: 1.45;
+  font-weight: var(--text-weight);
+  color: #c8ced6;
+}
+
+/* グローバル a { color: inherit; text-decoration: none } を上書きし、本文中のリンクを判別しやすくする */
+.doc-page a:not(.doc-page__back) {
+  color: var(--blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+.doc-page a:not(.doc-page__back):hover {
+  color: var(--blue-strong);
+  text-decoration-thickness: 2px;
+}
+
+.doc-page section > p + p {
+  margin-top: 0.65em;
+}
+
 .doc-page__note {
   margin-top: 14px;
   padding: 12px 14px;
@@ -1738,6 +1767,144 @@ img {
   border: 1px solid var(--line);
   color: var(--muted);
   font-size: 11.6px;
+}
+
+.doc-page section > ul,
+.doc-page section > ol {
+  margin: 10px 0 0;
+  padding-left: 1.25em;
+  color: #203552;
+  font-size: 12.4px;
+  line-height: 1.8;
+  font-weight: var(--text-weight);
+}
+
+.doc-page section > ul > li + li,
+.doc-page section > ol > li + li {
+  margin-top: 6px;
+}
+
+.doc-page code {
+  font-size: 0.95em;
+  word-break: break-all;
+}
+
+/* 利用規約・プライバシーポリシー・セキュリティ等：LP先頭（ヒーダー）のトーンに合わせた背景と章のグルーピング */
+main.page-shell:has(> article.doc-page) {
+  background: linear-gradient(
+    168deg,
+    #fbfdff 0%,
+    #eaf2fa 40%,
+    #d9e9f6 82%,
+    #c8dff2 100%
+  );
+  min-height: 100dvh;
+  padding: clamp(12px, 2.5vw, 22px) clamp(10px, 3vw, 28px) clamp(28px, 5vw, 52px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+main.page-shell:has(> article.doc-page) > article.doc-page {
+  max-width: 760px;
+  margin-inline: auto;
+  padding: clamp(26px, 4.2vw, 48px) clamp(18px, 3.5vw, 32px) clamp(36px, 5vw, 56px);
+  border-radius: clamp(14px, 2.2vw, 20px);
+  background: rgba(255, 255, 255, 0.93);
+  border: 1px solid rgba(160, 200, 232, 0.82);
+  box-shadow:
+    0 14px 44px rgba(10, 52, 100, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px) saturate(118%);
+  -webkit-backdrop-filter: blur(10px) saturate(118%);
+}
+
+main.page-shell:has(> article.doc-page) > article.doc-page .doc-page__header {
+  margin-bottom: clamp(14px, 2.5vw, 22px);
+  padding-bottom: clamp(12px, 2vw, 18px);
+  border-bottom: 1px solid rgba(160, 200, 232, 0.55);
+}
+
+main.page-shell > article.doc-page section {
+  margin-top: clamp(18px, 2.8vw, 26px);
+  padding: clamp(16px, 2.4vw, 22px) clamp(14px, 2.2vw, 20px);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 247, 253, 0.98) 100%);
+  border: 1px solid rgba(210, 230, 245, 0.95);
+  box-shadow: 0 6px 18px rgba(14, 48, 88, 0.06);
+}
+
+main.page-shell > article.doc-page section:first-of-type {
+  margin-top: 0;
+}
+
+main.page-shell > article.doc-page section h2 {
+  margin: 0 0 clamp(10px, 1.6vw, 14px);
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(180, 210, 235, 0.65);
+}
+
+/* 前文（リード）：章ブロックと同系のパネルでグルーピング（利用規約・PP・セキュリティ共通） */
+main.page-shell > article.doc-page > p.doc-page__lead {
+  margin-top: clamp(4px, 1vw, 10px);
+  margin-bottom: clamp(20px, 3vw, 28px);
+  padding: clamp(16px, 2.4vw, 22px) clamp(14px, 2.2vw, 20px);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 247, 253, 0.98) 100%);
+  border: 1px solid rgba(210, 230, 245, 0.95);
+  box-shadow: 0 6px 18px rgba(14, 48, 88, 0.06);
+}
+
+/* 利用規約：禁止事項など (1)(2) 形式のリスト */
+main.page-shell > article.doc-page ol.terms-bracket-list {
+  list-style: none;
+  counter-reset: terms-bracket;
+  margin-top: 12px;
+  padding-left: 0;
+}
+
+main.page-shell > article.doc-page ol.terms-bracket-list > li {
+  counter-increment: terms-bracket;
+  margin-top: 8px;
+}
+
+main.page-shell > article.doc-page ol.terms-bracket-list > li:first-child {
+  margin-top: 0;
+}
+
+main.page-shell > article.doc-page ol.terms-bracket-list > li::before {
+  content: "(" counter(terms-bracket) ") ";
+  font-weight: var(--heading-weight);
+}
+
+.site-footer {
+  padding: clamp(20px, 3vw, 28px) var(--section-pad-x) clamp(28px, 4vw, 40px);
+  border-top: 1px solid var(--line);
+  background: #f7fbff;
+}
+
+.site-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 10px;
+  font-size: 12.4px;
+  font-weight: var(--text-weight);
+}
+
+.site-footer__nav a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.site-footer__nav a:hover {
+  color: var(--blue-strong);
+}
+
+.site-footer__sep {
+  color: var(--muted);
+  user-select: none;
 }
 
 .trust-facts {
@@ -2201,14 +2368,24 @@ img {
 
 .final-cta {
   position: relative;
-  min-height: 207px;
+  display: grid;
+  grid-template-columns: minmax(0, min(100%, 540px)) minmax(260px, 320px);
+  grid-template-rows: auto;
+  align-items: start;
+  justify-content: space-between;
+  column-gap: clamp(20px, 3vw, 40px);
+  min-height: 0;
+  min-width: 0;
   padding: clamp(30px, 3.8vw, 54px) var(--section-pad-x) clamp(22px, 2.6vw, 34px);
   background: linear-gradient(135deg, #073e95 0%, #0867ce 65%, #1688f2 100%);
   color: #fff;
 }
 
 .final-cta__copy {
-  width: min(100%, 540px);
+  grid-column: 1;
+  width: 100%;
+  max-width: 540px;
+  min-width: 0;
 }
 
 .final-cta h2 {
@@ -2239,10 +2416,15 @@ img {
 }
 
 .final-cta__action {
-  position: absolute;
-  top: clamp(34px, 3.2vw, 52px);
-  right: var(--section-pad-x);
-  width: min(100%, 320px);
+  position: static;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  grid-column: 2;
+  width: 100%;
+  max-width: 320px;
+  min-width: 0;
+  justify-self: end;
   text-align: center;
 }
 
@@ -2306,9 +2488,10 @@ img {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  align-items: flex-start;
-  width: min(100%, 320px);
-  margin: 18px 0 0 auto;
+  align-items: flex-end;
+  width: 100%;
+  min-width: 0;
+  margin: clamp(14px, 2.4vw, 20px) 0 0;
   padding: 0;
   list-style: none;
   color: #eaf5ff;
@@ -2318,6 +2501,7 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  max-width: 100%;
   font-size: 11px;
   font-weight: var(--heading-weight);
   white-space: nowrap;
@@ -2703,17 +2887,41 @@ img {
   }
 
   .final-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     padding: 34px 28px 28px;
+  }
+
+  .final-cta__copy {
+    grid-column: unset;
+    grid-row: unset;
+    max-width: none;
+    width: 100%;
   }
 
   .final-cta__copy,
   .final-cta__action {
-    position: static;
     width: 100%;
   }
 
   .final-cta__action {
+    grid-column: unset;
+    grid-row: unset;
+    justify-self: stretch;
+    flex: 1 1 auto;
     margin-top: 24px;
+    margin-left: 0;
+    max-width: none;
+  }
+
+  .trust-list {
+    align-items: flex-start;
+    margin-top: 24px;
+  }
+
+  .trust-list li {
+    max-width: none;
   }
 
   .final-cta h2 {
@@ -2736,14 +2944,6 @@ img {
 
   .download-button--light {
     width: 100%;
-  }
-
-  .trust-list {
-    position: static;
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
-    margin-top: 24px;
   }
 }
 
