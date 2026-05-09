@@ -176,7 +176,7 @@
       title: "Favorite（お気に入り)",
       image: ASSETS.featureFavorite,
       alt: "お気に入り保存画面",
-      text: "重要なクリップはスワイプし、<br />価値あるデータだけ保持。<br />あなた専用のお気に入りコピペ集を作成できます。",
+      text: "重要なクリップはスワイプし、価値あるデータだけ保持。<br />あなた専用のお気に入りコピペ集を作成できます。",
     },
     {
       title: "Todoモード",
@@ -188,7 +188,7 @@
       title: "瞬時にMacをスクショ",
       image: ASSETS.featureScan,
       alt: "MacをキャプチャするSCAN画面",
-      text: "スマホの「SCAN」ボタンで、<br />Macのスクショをリモート起動。<br />範囲指定するとクリップボード履歴にスクショが<br />カードとして自動同期されます。<br /><small>（Pro / Ultraプラン）</small>",
+      text: "スマホの「SCAN」ボタンで、Macのスクショをリモート起動。<br />範囲指定するとクリップボード履歴にスクショが<br />カードとして自動同期されます。<br /><small>（Pro / Ultraプラン）</small>",
     },
   ];
 
@@ -469,7 +469,7 @@
                 多くのクリップボードマネージャーは、使うたびにMacの画面内で「呼び出す」必要があります。
               </p>
               <p>
-                画面の切り替え・ウィンドウの重なりで、集中が途切れてしまったり、<br />ペースト用ショートカットを忘れてしまったり…
+                画面の切り替え・ウィンドウの重なりで、集中が途切れてしまったり、ペースト用ショートカットを忘れてしまったり…
               </p>
               <p class="clipboard-shift__emphasis">SideClipは、発想を変えました。</p>
               <p>
@@ -492,6 +492,9 @@
             <div class="feature-grid">
               ${renderFeatures()}
             </div>
+            <p class="features__plan-note">
+              まずは<strong class="features__plan-note-free">Freeプラン</strong>から。コピペなど基本機能が使えて無料です。<br />さらにコピー履歴の保存件数アップやTodoモードなど、作業をさらに加速させる<span class="features__plan-note-paid"><span class="features__plan-note-tier">Pro / Ultra</span>プラン</span>もご用意しています。
+            </p>
           </div>
         </section>
 
@@ -737,6 +740,7 @@
             <span class="site-footer__sep" aria-hidden="true">·</span>
             <a href="./tokushoho.html" target="_blank" rel="noopener noreferrer">特定商取引法に基づく表記</a>
           </nav>
+          <p class="site-footer__copyright">© 2026 SideClip. All rights reserved.</p>
         </footer>
       </main>
     `;

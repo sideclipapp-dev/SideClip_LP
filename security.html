@@ -18,8 +18,10 @@
     <main class="page-shell">
       <article class="doc-page">
         <header class="doc-page__header">
-          <a href="./" class="doc-page__back">← SideClip トップへ戻る</a>
-          <h1>セキュリティ対策の詳細</h1>
+          <div class="doc-page__header-text">
+            <h1>セキュリティ対策の詳細</h1>
+          </div>
+          <a href="./index.html" class="doc-page__top-return">トップへ戻る</a>
         </header>
 
         <p class="doc-page__lead">
@@ -40,9 +42,31 @@
             同じWi-Fiにつながる同僚や家族の端末からはアクセスできないようになっています。<br />
             QRコードを読み取った端末のみ接続可能な安全設計です。
           </p>
-          <p class="doc-page__note">
-            ※ トークン含みURLを共有するか、トークン認証設定OFFにすると、同じWi-Fiにつながる複数端末からアクセス可能になります。
-          </p>
+          <figure class="doc-page__security-figure">
+            <img
+              src="./assets/security-qr-pairing.png"
+              alt="MacとスマートフォンがQRコードによる認証を経由し、HTTPSで暗号化された通信で接続するイメージ図"
+              width="1600"
+              height="797"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <div class="doc-page__note-block">
+            <p class="doc-page__note">
+              ※ トークン含みURLを共有するか、トークン認証設定OFFにすると、同じWi-Fiにつながる複数端末からアクセス可能になります。
+            </p>
+            <figure class="doc-page__security-figure">
+              <img
+                src="./assets/security-shared-wifi.png"
+                alt="トークン共有または認証OFFのとき、同じWi-Fi上のノートPC・スマートフォン・タブレットなど複数端末から同じサービスに接続できるイメージ図"
+                width="800"
+                height="533"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
         </section>
       </article>
     </main>
