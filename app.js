@@ -679,13 +679,13 @@
                     <ul class="faq__bullets">
                       <li>
                         <strong>Mac：</strong><br />
-                        macOS 26以上のM系（Apple Silicon）で動作確認をしております。
+                        macOS 26以上のM系（Apple Silicon）で開発・動作確認をしております。
                       </li>
                       <li>
                         <strong>スマホ・タブレット：</strong><br />
                         iOS/Android/iPadOSなど、Webブラウザが動けば基本的に動作します。<br />
                         <span class="faq__note">（端末の性能により動作が重くなる場合もあります）</span><br />
-                        <span class="faq__note">セキュリティのためにも、最新バージョンのブラウザをご使用ください。</span>
+                        <span class="faq__note">Safari/Chromeで開発・動作確認済み。<br />最新バージョンのブラウザをご使用ください。<br />セキュリティのためにも、最新バージョンのブラウザをご使用ください。</span>
                       </li>
                     </ul>
                   </div>
