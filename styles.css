@@ -2975,6 +2975,12 @@ main.page-shell > article.doc-page--terms section ol.terms-sublist:has(> li:only
     padding-block: clamp(12px, 2.5cqw, 22px);
   }
 
+  /* スマホ幅：ヒーロー3ボタンを見た目80%（左揃え維持） */
+  .hero__banner-pills {
+    transform: scale(0.8);
+    transform-origin: left center;
+  }
+
   .content-overlay {
     z-index: 3;
     margin-top: 0;
