@@ -788,14 +788,15 @@
             <button type="button" class="wip-download-modal__close" aria-label="閉じる">×</button>
             <p id="wip-download-desc" class="wip-download-modal__text">
               ただいま絶賛アプリ開発中です。もうしばらくお待ちください。<br />
-              開発の進捗は、開発者の"X(Twitter)"をチェックしてください。
+              開発の進捗は、開発者の"X(Twitter)"をチェックしてください。<br />
+              事前登録で、Ultraプラン3か月無料クーポンプレゼント🎁（先着5名様限定）
             </p>
             <a
               class="wip-download-modal__formlink"
               href="${PRE_REGISTRATION_FORM_URL}"
               target="_blank"
               rel="noopener noreferrer"
-              >事前登録してクーポンGET</a>
+              >事前登録（Googleフォーム）</a>
             <a
               class="wip-download-modal__xlink"
               href="${WIP_DOWNLOAD_X_URL}"
