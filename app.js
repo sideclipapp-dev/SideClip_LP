@@ -437,9 +437,9 @@
             <li>スマホアプリのインストール不要</li>
             <li>MacとiPhone/iPad/Android端末がつながる</li>
           </ul>
-          <a class="download-button" href="#" data-wip-download-trigger data-cta-id="hero_download_status" data-cta-section="hero" aria-label="事前登録特典で、Ultraプラン3か月無料クーポンプレゼント">
+          <a class="download-button" href="#" data-wip-download-trigger data-cta-id="hero_download_status" data-cta-section="hero" aria-label="事前登録特典で、Ultraプラン3か月無料クーポンをプレゼント">
             <!-- ${icon.download} -->
-            事前登録で<br />Ultraプラン3か月無料<br />クーポンプレゼント
+            事前登録で<br />Ultraプラン3か月無料<br />クーポンをプレゼント
           </a>
           <p class="download-microcopy">※現在リリース準備中</p>
           <p class="os-note">Apple Silicon搭載のMacに対応</p>
@@ -753,9 +753,9 @@
             <strong><span class="final-cta__line--nowrap">新たなクリップボードを体験しよう。</span></strong>
           </div>
           <div class="final-cta__action">
-            <a class="download-button download-button--light" href="#" data-wip-download-trigger data-cta-id="final_download_status" data-cta-section="final_cta" aria-label="事前登録で、Ultraプラン3か月無料クーポンプレゼント">
+            <a class="download-button download-button--light" href="#" data-wip-download-trigger data-cta-id="final_download_status" data-cta-section="final_cta" aria-label="事前登録で、Ultraプラン3か月無料クーポンをプレゼント">
               <!-- ${icon.download} -->
-              事前登録で<br />Ultraプラン3か月無料<br />クーポンプレゼント
+              事前登録で<br />Ultraプラン3か月無料<br />クーポンをプレゼント
             </a>
             <p class="download-microcopy">※現在リリース準備中</p>
             <p>Apple Silicon搭載のMacに対応</p>
@@ -791,7 +791,7 @@
             <p id="wip-download-desc" class="wip-download-modal__text">
               ただいま絶賛アプリ開発中です。もうしばらくお待ちください。<br />
               開発の進捗は、開発者の"X(Twitter)"をチェックしてください。<br />
-              事前登録で、Ultraプラン3か月無料クーポンプレゼント🎁（先着5名様限定）
+              事前登録で、Ultraプラン3か月無料クーポンをプレゼント🎁（先着5名様限定）
             </p>
             <a
               class="wip-download-modal__formlink"
