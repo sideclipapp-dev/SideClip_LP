@@ -338,6 +338,10 @@ img {
   max-width: none;
   overflow: visible;
   pointer-events: none;
+  /* 見出し／サブ／ピルで継承先がブレないよう html と同一スタックを明示 */
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", system-ui, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 .hero__banner-overlay-lead {
@@ -355,7 +359,8 @@ img {
   padding: 0;
   font-size: clamp(14px, 1.12cqw + 0.48rem, 21px);
   line-height: 1.5;
-  font-weight: 500;
+  /* 500 だと環境によってはリード・ピルと別書体に見えるため、同ファミリー内で中間ウェイトに */
+  font-weight: 600;
   letter-spacing: -0.03em;
   color: #001d42;
   white-space: nowrap;
