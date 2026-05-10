@@ -44,6 +44,9 @@ html {
   font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", system-ui, sans-serif;
   letter-spacing: 0;
   scroll-padding-top: 0;
+  /* iOS Safari の小さな文字の自動拡大を抑え、PC と近いタイポにする */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -939,6 +942,9 @@ img {
   font-weight: 600;
   color: #5a6a85;
   letter-spacing: 0.02em;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", system-ui, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 /* ヒーロー：インラインボタンと同じ左端にブロックを揃える */
@@ -3083,6 +3089,20 @@ main.page-shell > article.doc-page--terms section ol.terms-sublist:has(> li:only
   .download-microcopy,
   .os-note {
     width: min(100%, 292px);
+  }
+
+  /* ヒーロー CTA 列：幅を揃えたうえでブロックごと中央寄せし、注釈とボタンの中心を一致させる */
+  .hero__content > .download-button,
+  .hero__content > .download-microcopy,
+  .hero__content > .os-note {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 狭い画面では clamp 下限で 10px になりがちなので PC 上限の 11px に合わせる */
+  .hero__content .download-microcopy,
+  .final-cta__action .download-microcopy {
+    font-size: 11px;
   }
 
   .tap-section,
