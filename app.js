@@ -331,7 +331,7 @@
                     Macのコピー履歴を、<br />画面の<span class="hero__banner-accent">「外」</span>へ。
                   </p>
                   <p class="hero__banner-overlay-sub hero__banner-overlay-line hero__banner-overlay-line--sub">
-                    スマホをコピペ履歴の<br />常時表示拡張デバイスに。
+                    スマホを常時表示のクリップボード拡張デバイスに。
                   </p>
                   <ul class="hero__banner-pills" aria-label="主な特長">
                     <li class="hero__banner-pill">
