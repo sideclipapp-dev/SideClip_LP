@@ -2975,9 +2975,9 @@ main.page-shell > article.doc-page--terms section ol.terms-sublist:has(> li:only
     padding-block: clamp(12px, 2.5cqw, 22px);
   }
 
-  /* スマホ幅：ヒーロー3ボタンを見た目80%（左揃え維持） */
+  /* スマホ幅：ヒーロー3ボタンをさらに80%（前段の80%に対して 0.8×0.8 ≒ 64%） */
   .hero__banner-pills {
-    transform: scale(0.8);
+    transform: scale(0.64);
     transform-origin: left center;
   }
 
