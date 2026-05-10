@@ -439,7 +439,7 @@
           </ul>
           <a class="download-button" href="#" data-wip-download-trigger data-cta-id="hero_download_status" data-cta-section="hero" aria-label="事前登録特典で、Ultraプラン3か月無料クーポンプレゼント">
             <!-- ${icon.download} -->
-            事前登録特典で<br />Ultraプラン3か月無料<br />クーポンプレゼント
+            事前登録で<br />Ultraプラン3か月無料<br />クーポンプレゼント
           </a>
           <p class="os-note">Apple Silicon搭載のMacに対応</p>
         </div>
@@ -752,7 +752,7 @@
             <strong><span class="final-cta__line--nowrap">新たなクリップボードを体験しよう。</span></strong>
           </div>
           <div class="final-cta__action">
-            <a class="download-button download-button--light" href="#" data-wip-download-trigger data-cta-id="final_download_status" data-cta-section="final_cta" aria-label="事前登録特典で、Ultraプラン3か月無料クーポンプレゼント">
+            <a class="download-button download-button--light" href="#" data-wip-download-trigger data-cta-id="final_download_status" data-cta-section="final_cta" aria-label="事前登録で、Ultraプラン3か月無料クーポンプレゼント">
               <!-- ${icon.download} -->
               事前登録特典で<br />Ultraプラン3か月無料<br />クーポンプレゼント
             </a>
