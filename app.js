@@ -795,7 +795,7 @@
               href="${PRE_REGISTRATION_FORM_URL}"
               target="_blank"
               rel="noopener noreferrer"
-              >事前登録（Googleフォーム）</a>
+              >事前登録してクーポンGET</a>
             <a
               class="wip-download-modal__xlink"
               href="${WIP_DOWNLOAD_X_URL}"
