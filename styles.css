@@ -927,6 +927,31 @@ img {
   stroke-linejoin: round;
 }
 
+.download-microcopy {
+  display: block;
+  margin: 5px 0 0;
+  width: 232px;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: clamp(10px, 2.35vw, 11px);
+  line-height: 1.35;
+  font-weight: 600;
+  color: #5a6a85;
+  letter-spacing: 0.02em;
+}
+
+/* ヒーロー：インラインボタンと同じ左端にブロックを揃える */
+.hero__content > .download-button {
+  display: flex;
+}
+
+.hero__content > .download-microcopy,
+.hero__content > .os-note {
+  margin-left: 0;
+  margin-right: auto;
+}
+
 .os-note {
   margin: 9px 0 0;
   width: 232px;
@@ -2796,6 +2821,18 @@ main.page-shell > article.doc-page--terms section ol.terms-sublist:has(> li:only
   color: #e9f4ff;
 }
 
+.final-cta__action .download-microcopy {
+  width: 100%;
+  max-width: 100%;
+  margin: 5px 0 0;
+  text-align: center;
+  font-size: clamp(10px, 2.35vw, 11px);
+  line-height: 1.35;
+  font-weight: 600;
+  color: rgba(233, 244, 255, 0.78);
+  align-self: stretch;
+}
+
 .cta-links {
   display: flex;
   flex-wrap: wrap;
@@ -3043,6 +3080,7 @@ main.page-shell > article.doc-page--terms section ol.terms-sublist:has(> li:only
   }
 
   .download-button,
+  .download-microcopy,
   .os-note {
     width: min(100%, 292px);
   }

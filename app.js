@@ -441,6 +441,7 @@
             <!-- ${icon.download} -->
             事前登録で<br />Ultraプラン3か月無料<br />クーポンプレゼント
           </a>
+          <p class="download-microcopy">※現在リリース準備中</p>
           <p class="os-note">Apple Silicon搭載のMacに対応</p>
         </div>
         <section id="concept-video" class="concept-video reveal" aria-labelledby="concept-video-title">
@@ -756,6 +757,7 @@
               <!-- ${icon.download} -->
               事前登録特典で<br />Ultraプラン3か月無料<br />クーポンプレゼント
             </a>
+            <p class="download-microcopy">※現在リリース準備中</p>
             <p>Apple Silicon搭載のMacに対応</p>
             <nav class="cta-links" aria-label="補助リンク">
               <a class="is-primary" href="#concept-video">コンセプト動画</a>
