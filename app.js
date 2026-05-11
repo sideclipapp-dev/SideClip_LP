@@ -1,5 +1,5 @@
 (function () {
-  const ASSET_VERSION = "20260511-mini-flow-badge-gap";
+  const ASSET_VERSION = "20260511-hero-data-feather";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
   const PRE_REGISTRATION_FORM_URL = "https://forms.gle/KbNn5T3TBVz459HBA";
@@ -17,7 +17,8 @@
     </div>`;
 
   const ASSETS = {
-    heroMain: `./assets/LP_hero_banner.png?v=${ASSET_VERSION}`,
+    heroMain: `./assets/hero_blank_clean.png?v=${ASSET_VERSION}`,
+    heroPhone: `./assets/hero_phone_web.png?v=${ASSET_VERSION}`,
     heroMainFallback: `./assets/hero-banner.jpg?v=${ASSET_VERSION}`,
     stepCopy: `./assets/step-copy.png?v=${ASSET_VERSION}`,
     stepAdd: `./assets/step-add.png?v=${ASSET_VERSION}`,
@@ -365,6 +366,26 @@
                     decoding="async"
                     onerror="this.onerror=null;this.src='${ASSETS.heroMainFallback}';"
                   />
+                  <div class="hero__visual-layers" aria-hidden="true">
+                    <div class="hero__sync-graphic" aria-hidden="true">
+                      <div
+                        class="sync-graphic__row hero__sync-row"
+                        style="--sync-line-left: 45.5px; --sync-line-w: 189.96px;"
+                      >
+                        ${syncDataLineRail}
+                      </div>
+                    </div>
+                    <img
+                      class="hero__visual-layer hero__visual-layer--phone"
+                      src="${ASSETS.heroPhone}"
+                      srcset="${ASSETS.heroPhone} 1x, ${ASSETS.heroPhone} 2x"
+                      width="1024"
+                      height="1536"
+                      sizes="(max-width: 2172px) 36vw, 780px"
+                      alt=""
+                      decoding="async"
+                    />
+                  </div>
                 </div>
                 <div class="hero__banner-overlay" aria-label="SideClipの紹介">
                   <p class="hero__banner-overlay-lead hero__banner-overlay-line hero__banner-overlay-line--lead">
@@ -1597,22 +1618,24 @@
   }
 
   function initSyncLineRailLayout() {
-    const row = document.querySelector(".sync-graphic__row");
-    if (!row) return;
+    const rows = Array.from(document.querySelectorAll(".sync-graphic__row"));
+    if (!rows.length) return;
 
     function updateSyncLineRailLayout() {
-      const laptop = row.querySelector(".device--laptop");
-      const phone = row.querySelector(".device--phone");
-      if (!laptop || !phone) return;
-      const rr = row.getBoundingClientRect();
-      const lr = laptop.getBoundingClientRect();
-      const pr = phone.getBoundingClientRect();
-      const cxL = lr.left + lr.width / 2 - rr.left;
-      const cxP = pr.left + pr.width / 2 - rr.left;
-      const x0 = Math.min(cxL, cxP);
-      const x1 = Math.max(cxL, cxP);
-      row.style.setProperty("--sync-line-left", `${Math.round(x0 * 100) / 100}px`);
-      row.style.setProperty("--sync-line-w", `${Math.round((x1 - x0) * 100) / 100}px`);
+      rows.forEach((row) => {
+        const laptop = row.querySelector(".device--laptop");
+        const phone = row.querySelector(".device--phone");
+        if (!laptop || !phone) return;
+        const rr = row.getBoundingClientRect();
+        const lr = laptop.getBoundingClientRect();
+        const pr = phone.getBoundingClientRect();
+        const cxL = lr.left + lr.width / 2 - rr.left;
+        const cxP = pr.left + pr.width / 2 - rr.left;
+        const x0 = Math.min(cxL, cxP);
+        const x1 = Math.max(cxL, cxP);
+        row.style.setProperty("--sync-line-left", `${Math.round(x0 * 100) / 100}px`);
+        row.style.setProperty("--sync-line-w", `${Math.round((x1 - x0) * 100) / 100}px`);
+      });
     }
 
     const run = () => window.requestAnimationFrame(updateSyncLineRailLayout);
@@ -1621,7 +1644,60 @@
     window.addEventListener("resize", run);
     window.addEventListener("load", run);
     if (typeof ResizeObserver !== "undefined") {
-      new ResizeObserver(run).observe(row);
+      rows.forEach((row) => new ResizeObserver(run).observe(row));
+    }
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(run);
+    }
+  }
+
+  function initHeroSyncGraphicPlacement() {
+    const wrap = document.querySelector(".hero__visual-wrap");
+    const phone = document.querySelector(".hero__visual-layer--phone");
+    const sync = document.querySelector(".hero__sync-graphic");
+    const syncRow = document.querySelector(".hero__sync-row");
+    if (!wrap || !phone || !sync || !syncRow) return;
+
+    function update() {
+      const wr = wrap.getBoundingClientRect();
+      const pr = phone.getBoundingClientRect();
+      const rr = syncRow.getBoundingClientRect();
+
+      // Mac（ベース画像）上の「画面中心」を wrap 幅/高さの比率で近似
+      // ※元のヒーローバナー構図に合わせた定数（必要なら微調整可）
+      const macCenterX = wr.left + wr.width * 0.695;
+      const macCenterY = wr.top + wr.height * 0.43;
+
+      // スマホ画像上の「画面中心」を phone の矩形から近似（ベゼル分を考慮）
+      const phoneScreenCenterX = pr.left + pr.width * 0.54;
+      const phoneScreenCenterY = pr.top + pr.height * 0.44;
+
+      const x0 = macCenterX;
+      const x1 = phoneScreenCenterX;
+      const rawWidth = Math.abs(x1 - x0);
+      const width = rawWidth * (2 / 3);
+
+      // 右端（スマホ側）は固定して、左側だけ短くする
+      const rightX = Math.max(x0, x1);
+      const leftX = rightX - width;
+      const left = leftX - rr.left;
+
+      // 線のY位置は両画面中心の中間
+      const y = (macCenterY + phoneScreenCenterY) / 2 - rr.top;
+
+      syncRow.style.setProperty("--sync-line-left", `${Math.round(left * 100) / 100}px`);
+      syncRow.style.setProperty("--sync-line-w", `${Math.round(width * 100) / 100}px`);
+      syncRow.style.setProperty("--hero-sync-rail-top", `${Math.round(y * 100) / 100}px`);
+    }
+
+    const run = () => window.requestAnimationFrame(update);
+    run();
+    window.addEventListener("resize", run);
+    window.addEventListener("load", run);
+    if (typeof ResizeObserver !== "undefined") {
+      const ro = new ResizeObserver(run);
+      ro.observe(wrap);
+      ro.observe(phone);
     }
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(run);
@@ -1644,6 +1720,7 @@
     initCtaNavHashLinks();
     initSectionDrawer();
     initSyncLineRailLayout();
+    initHeroSyncGraphicPlacement();
     initHashScroll();
   }
 

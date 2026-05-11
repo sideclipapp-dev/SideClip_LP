@@ -540,7 +540,7 @@ img {
   transform: translateY(-1px);
 }
 
-/* 入場アニメ（画像は静止、オーバーレイのみ opacity / translate） */
+/* 入場アニメ（ベース画像は静止、オーバーレイ文言・データ・スマホは translate / opacity） */
 .hero__banner-copy {
   margin: clamp(10px, 2vw, 18px) 0 0;
   padding: 0;
@@ -562,6 +562,80 @@ img {
   margin-inline: auto;
   z-index: 0;
   pointer-events: none;
+}
+
+.hero__visual-layers {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* ヒーロー内の同期ライン（ローカル同期セクションの表現を流用） */
+.hero__sync-graphic {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero__sync-row {
+  position: absolute;
+  inset: 0;
+  padding-bottom: 0;
+}
+
+.hero__sync-row .sync-line-rail {
+  top: var(--hero-sync-rail-top, 50%);
+}
+
+/* バナー右側のスマホ（元バナーと同程度の高さ・右寄せ） */
+.hero__visual-layer--phone {
+  position: absolute;
+  right: clamp(-10px, -0.35cqw, 0px);
+  bottom: clamp(-6px, -0.25cqw, 0px);
+  height: 102%;
+  width: auto;
+  max-width: min(38%, 52cqw);
+  object-fit: contain;
+  object-position: right bottom;
+  display: block;
+}
+
+/* リード見出しと同タイミング：右外→定位置（サブ行の遅延は付けない） */
+.hero__sync-graphic,
+.hero__visual-layer--phone {
+  opacity: 0;
+  transform: translate3d(36px, 0, 0);
+  transition:
+    opacity var(--hero-line-slide-duration, 0.82s) cubic-bezier(0.22, 0.82, 0.28, 1),
+    transform var(--hero-line-slide-duration, 0.82s) cubic-bezier(0.22, 0.82, 0.28, 1);
+  transition-delay: 0ms;
+}
+
+.hero__sync-graphic {
+  /* hero_phone が入り切ってから表示 */
+  transition-delay: calc(var(--hero-line-slide-duration, 0.82s) + 0.08s);
+}
+
+.hero__banner--entered:not(.hero__banner--headline-out) .hero__sync-graphic,
+.hero__banner--entered:not(.hero__banner--headline-out) .hero__visual-layer--phone {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0ms;
+}
+
+.hero__banner--entered:not(.hero__banner--headline-out) .hero__sync-graphic {
+  transition-delay: calc(var(--hero-line-slide-duration, 0.82s) + 0.08s);
+}
+
+.hero__banner--entered.hero__banner--headline-out .hero__sync-graphic,
+.hero__banner--entered.hero__banner--headline-out .hero__visual-layer--phone {
+  opacity: 0;
+  transform: translate3d(36px, 0, 0);
+  transition-delay: 0ms;
+  transition-duration: 0.38s;
 }
 
 .hero__visual {
@@ -3315,6 +3389,13 @@ main.page-shell > article.doc-page--terms section ol.terms-sublist:has(> li:only
     transform: none !important;
     transition: none !important;
   }
+
+  .hero__sync-graphic,
+  .hero__visual-layer--phone {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 @media (max-width: 680px) {
@@ -3406,6 +3487,13 @@ main.page-shell > article.doc-page--terms section ol.terms-sublist:has(> li:only
   .hero__visual {
     width: 100%;
     height: auto;
+  }
+
+  .hero__visual-layer--phone {
+    max-width: min(48%, 58cqw);
+    height: 100%;
+    right: clamp(-12px, -1.5vw, -4px);
+    bottom: 0;
   }
 
   .hero__content {
