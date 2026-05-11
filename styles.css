@@ -703,6 +703,84 @@ img {
   font-size: inherit;
 }
 
+.hero__infographic-card {
+  /* mini-flow 最大幅 720px + 内側パディングに合わせた白枠 */
+  max-width: min(100%, 800px);
+  margin: clamp(6px, 1.8vw, 14px) 0 clamp(16px, 2.8vw, 28px);
+  /* アイコン列の密度は維持し、白枠だけを詰める */
+  padding: clamp(14px, 2.4vw, 26px);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow:
+    0 12px 40px rgba(16, 55, 92, 0.08),
+    0 2px 10px rgba(16, 55, 92, 0.05);
+  /* 枠外の hero 文言と左端を揃える */
+  text-align: left;
+}
+
+.hero__infographic-title {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  /* 子行の em 基準（initHeroTitleFit がこの値を縮小） */
+  font-size: clamp(13px, 3vw, 22px);
+  line-height: 1.25;
+  font-weight: var(--heading-weight);
+  letter-spacing: -0.03em;
+  color: #15335d;
+}
+
+.tap-infographic__title-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2px, 0.6vw, 8px);
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.tap-infographic__title-line {
+  display: block;
+  width: 100%;
+  max-width: 28em;
+  margin-inline: auto;
+}
+
+.tap-infographic__title-line--primary {
+  color: #15335d;
+  font-size: 1.38em;
+  font-weight: 700;
+  line-height: 1.42;
+  letter-spacing: -0.025em;
+}
+
+.tap-infographic__title-line--secondary {
+  color: var(--blue);
+  font-size: 1.38em;
+  font-weight: 850;
+  line-height: 1.28;
+  letter-spacing: -0.035em;
+}
+
+.hero__infographic-card .tap-infographic__title-stack {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.hero__infographic-card .tap-infographic__title-line {
+  margin-inline: 0;
+}
+
+.hero__infographic-card .mini-flow {
+  margin-top: clamp(10px, 2vw, 20px);
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: auto;
+  justify-content: flex-start;
+}
+
 .hero__hook {
   margin: 0 0 clamp(10px, 1.6vw, 15px);
   color: var(--ink);
@@ -760,49 +838,53 @@ img {
 }
 
 .mini-flow {
-  display: grid;
-  grid-template-columns: minmax(56px, 1fr) 18px minmax(56px, 1fr) 18px minmax(56px, 1fr) 18px minmax(72px, 1.2fr);
-  align-items: end;
-  gap: 0;
-  width: min(100%, 420px);
-  margin: 0 0 clamp(18px, 3.2vw, 28px);
+  --mini-flow-gap: clamp(2px, 1.2vw, 12px);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: var(--mini-flow-gap);
+  width: 100%;
+  max-width: min(100%, 720px);
+  margin: clamp(12px, 2.4vw, 22px) auto clamp(18px, 3.2vw, 28px);
   padding: 0;
   list-style: none;
   color: #17325b;
 }
 
-.mini-flow li:not(.flow-arrow) {
+.mini-flow > .step-card--infographic {
   position: relative;
   z-index: 0;
-  display: grid;
-  justify-items: center;
-  gap: 6px;
-  min-width: 0;
-  font-size: var(--fs-caption);
-  line-height: 1.15;
-  font-weight: var(--heading-weight);
-  text-align: center;
-  white-space: normal;
-  transition: color 360ms var(--motion-ease), transform 360ms var(--motion-ease);
 }
 
-.mini-flow li:not(.flow-arrow) > span:last-child {
-  position: relative;
-  z-index: 3;
+.mini-flow > .flow-arrow {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  justify-content: center;
+  margin: 0;
+  padding: 0 clamp(1px, 0.5vw, 4px);
+  list-style: none;
 }
 
-.mini-flow li.is-active:not(.flow-arrow) {
-  z-index: 2;
-  color: var(--blue);
-  transform: translateY(-8px);
+.mini-flow .flow-arrow__glyph {
+  display: block;
+  color: #7eb8f0;
+  font-size: clamp(11px, 3.2vw, 18px);
+  font-weight: 700;
+  line-height: 1;
 }
 
 .flow-arrow {
+  flex: 0 0 auto;
   align-self: center;
-  margin-bottom: 20px;
+  margin: 0;
   color: #5fa9ed;
-  font-size: 20px;
+  font-size: clamp(11px, 3.4vw, 20px);
   font-weight: 800;
+  line-height: 1;
 }
 
 .flow-icon {
@@ -846,11 +928,13 @@ img {
   transform: translateY(-2px);
 }
 
-.mini-flow li.is-active .flow-icon {
-  filter:
-    drop-shadow(0 14px 20px rgba(20, 121, 223, 0.32))
-    drop-shadow(0 6px 10px rgba(20, 121, 223, 0.18));
-  transform: scale(1.14) translateY(-2px);
+
+.flow-icon--tap-step svg {
+  stroke-width: 2.05;
+}
+
+.flow-icon--tap-step.flow-icon--svg-check svg {
+  stroke-width: 2.35;
 }
 
 .flow-icon--mac::before {
@@ -1228,7 +1312,8 @@ img {
   letter-spacing: 0.01em;
 }
 
-.steps {
+/* Tap to Paste：スクリーンショット4枚グリッド（従来） */
+.tap-section .steps {
   --steps-gap: clamp(18px, 2.1vw, 28px);
   position: relative;
   display: grid;
@@ -1239,17 +1324,17 @@ img {
   list-style: none;
 }
 
-.step-card {
+.tap-section .step-card {
   position: relative;
   z-index: 0;
   min-width: 0;
 }
 
-.step-card.is-active {
+.tap-section .step-card.is-active {
   z-index: 2;
 }
 
-.step-card:not(:last-child)::after {
+.tap-section .step-card:not(:last-child)::after {
   content: "›";
   position: absolute;
   left: calc(100% + var(--steps-gap) / 2);
@@ -1263,7 +1348,7 @@ img {
   pointer-events: none;
 }
 
-.step-card.is-active img {
+.tap-section .step-card.is-active img {
   filter:
     drop-shadow(0 14px 20px rgba(20, 121, 223, 0.32))
     drop-shadow(0 6px 10px rgba(20, 121, 223, 0.18));
@@ -1271,7 +1356,7 @@ img {
   box-shadow: 0 16px 28px rgba(16, 55, 92, 0.14);
 }
 
-.step-card h3 {
+.tap-section .step-card h3 {
   position: relative;
   z-index: 2;
   display: flex;
@@ -1289,7 +1374,7 @@ img {
     filter 360ms var(--motion-ease);
 }
 
-.step-card.is-active h3 {
+.tap-section .step-card.is-active h3 {
   color: var(--blue);
   transform: translateY(-8px) scale(1.03);
   filter:
@@ -1297,7 +1382,7 @@ img {
     drop-shadow(0 3px 6px rgba(20, 121, 223, 0.12));
 }
 
-.step-card h3 span {
+.tap-section .step-card h3 span {
   display: inline-grid;
   place-items: center;
   width: 24px;
@@ -1314,12 +1399,12 @@ img {
     background-color 360ms var(--motion-ease);
 }
 
-.step-card.is-active h3 span {
+.tap-section .step-card.is-active h3 span {
   transform: scale(1.1);
   box-shadow: 0 6px 16px rgba(20, 121, 223, 0.4);
 }
 
-.step-card img {
+.tap-section .step-card img {
   position: relative;
   z-index: 1;
   width: 100%;
@@ -1334,6 +1419,206 @@ img {
     filter 360ms var(--motion-ease),
     transform 360ms var(--motion-ease),
     box-shadow 360ms var(--motion-ease);
+}
+
+.steps.steps--infographic {
+  --steps-gap: clamp(2px, 1.2vw, 14px);
+  --step-arrow-shift: clamp(10px, 2.5vw, 18px);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: var(--steps-gap);
+  margin: clamp(18px, 2.4vw, 32px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps--infographic .step-card,
+.mini-flow > .step-card--infographic {
+  position: relative;
+  z-index: 0;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+}
+
+.steps--infographic .step-card.is-active,
+.mini-flow > .step-card--infographic.is-active {
+  z-index: 2;
+}
+
+.steps--infographic .step-card:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: calc(-0.5 * var(--step-arrow-shift));
+  top: clamp(34px, 10.5vw, 54px);
+  z-index: 5;
+  transform: translateX(50%);
+  color: #5fa9ed;
+  font-size: clamp(10px, 3.2vw, 20px);
+  font-weight: 800;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.step-card__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.step-card__num {
+  display: inline-grid;
+  place-items: center;
+  width: clamp(17px, 4.5vw, 24px);
+  height: clamp(17px, 4.5vw, 24px);
+  margin: 0 auto clamp(4px, 1vw, 8px);
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: clamp(9px, 2.6vw, 13px);
+  font-weight: 700;
+  line-height: 1;
+  transition:
+    transform 360ms var(--motion-ease),
+    box-shadow 360ms var(--motion-ease);
+}
+
+.step-card__icon-ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: min(100%, clamp(52px, 22vw, 118px));
+  aspect-ratio: 1;
+  margin: 0 auto;
+  padding: clamp(4px, 1.1vw, 9px);
+  overflow: hidden;
+  border: clamp(2px, 0.55vw, 3px) solid #d5e3f0;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #fff 0%, #f5f9fd 100%);
+  transition:
+    filter 360ms var(--motion-ease),
+    transform 360ms var(--motion-ease),
+    box-shadow 360ms var(--motion-ease),
+    border-color 360ms var(--motion-ease);
+}
+
+.step-card__icon-ring--plus::after {
+  content: "+";
+  position: absolute;
+  right: clamp(-3px, -0.8vw, -1px);
+  bottom: clamp(-3px, -0.8vw, -1px);
+  display: grid;
+  place-items: center;
+  width: clamp(14px, 4.2vw, 21px);
+  height: clamp(14px, 4.2vw, 21px);
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: clamp(9px, 2.7vw, 13px);
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(20, 121, 223, 0.35);
+  pointer-events: none;
+}
+
+.steps--infographic .flow-icon--tap-step,
+.mini-flow .flow-icon--tap-step {
+  display: inline-grid;
+  place-items: center;
+  width: clamp(26px, 10vw, 52px);
+  height: auto;
+  color: var(--blue);
+}
+
+.steps--infographic .flow-icon--tap-step svg,
+.mini-flow .flow-icon--tap-step svg {
+  width: 100%;
+  height: auto;
+  max-height: clamp(28px, 11vw, 56px);
+}
+
+.steps--infographic .flow-icon--tap-step.flow-icon--svg-tap svg,
+.mini-flow .flow-icon--tap-step.flow-icon--svg-tap svg {
+  transform: translateY(clamp(-1px, -0.3vw, -2px));
+}
+
+.steps--infographic .flow-icon--tap-step.flow-icon--svg-check svg,
+.mini-flow .flow-icon--tap-step.flow-icon--svg-check svg {
+  stroke-width: 2.35;
+}
+
+.steps--infographic .flow-step-icon-img,
+.mini-flow .flow-step-icon-img {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.step-card__label {
+  margin: clamp(5px, 1.4vw, 10px) 0 0;
+  padding: 0 1px;
+  color: #15335d;
+  font-size: clamp(7.5px, 2.35vw, 12.6px);
+  font-weight: var(--heading-weight);
+  line-height: 1.28;
+  transition:
+    color 360ms var(--motion-ease),
+    transform 360ms var(--motion-ease),
+    filter 360ms var(--motion-ease);
+}
+
+.step-card__label--accent {
+  color: var(--blue);
+}
+
+
+.step-card--infographic.is-active .step-card__num {
+  transform: scale(1.08);
+  box-shadow: 0 5px 14px rgba(20, 121, 223, 0.45);
+}
+
+.step-card--infographic.is-active .step-card__icon-ring {
+  filter:
+    drop-shadow(0 12px 18px rgba(20, 121, 223, 0.28))
+    drop-shadow(0 5px 10px rgba(20, 121, 223, 0.15));
+  transform: translateY(-6px) scale(1.03);
+  border-color: #9fc4e6;
+  box-shadow: 0 12px 22px rgba(16, 55, 92, 0.12);
+}
+
+.step-card--infographic.is-active .flow-icon--tap-step {
+  filter:
+    drop-shadow(0 10px 14px rgba(20, 121, 223, 0.22))
+    drop-shadow(0 4px 8px rgba(20, 121, 223, 0.12));
+  transform: scale(1.08);
+}
+
+.step-card--infographic.is-active .flow-step-icon-img {
+  filter:
+    drop-shadow(0 10px 14px rgba(20, 121, 223, 0.22))
+    drop-shadow(0 4px 8px rgba(20, 121, 223, 0.12));
+  transform: scale(1.08);
+}
+
+.step-card--infographic.is-active .step-card__label {
+  color: var(--blue);
+  transform: translateY(-5px) scale(1.02);
+  filter:
+    drop-shadow(0 8px 12px rgba(20, 121, 223, 0.15))
+    drop-shadow(0 2px 4px rgba(20, 121, 223, 0.1));
 }
 
 .benefits {
@@ -3002,7 +3287,12 @@ main.page-shell > article.doc-page--terms section ol.terms-sublist:has(> li:only
 
   .hero__banner-motion,
   .interactive-card,
-  .step-card img,
+  .step-card--infographic .step-card__num,
+  .step-card--infographic .step-card__icon-ring,
+  .step-card--infographic .flow-icon--tap-step,
+  .step-card--infographic .flow-step-icon-img,
+  .step-card--infographic .step-card__label,
+  .tap-section .step-card img,
   .download-button {
     transform: none !important;
   }
@@ -3137,9 +3427,15 @@ main.page-shell > article.doc-page--terms section ol.terms-sublist:has(> li:only
   }
 
   .mini-flow {
-    width: min(100%, 360px);
-    grid-template-columns: minmax(52px, 1fr) 16px minmax(52px, 1fr) 16px minmax(52px, 1fr) 16px minmax(68px, 1.2fr);
+    flex-wrap: nowrap;
+    max-width: 100%;
+    width: 100%;
+    gap: clamp(0px, 0.6vw, 6px);
     margin: 0 0 clamp(14px, 4vw, 22px);
+  }
+
+  .mini-flow .flow-arrow__glyph {
+    font-size: clamp(9px, 2.95vw, 15px);
   }
 
   .download-button,
@@ -3200,10 +3496,6 @@ main.page-shell > article.doc-page--terms section ol.terms-sublist:has(> li:only
     overflow-wrap: anywhere;
   }
 
-  .tap-section .section-copy--tap h2 span {
-    display: block;
-  }
-
   .section-label {
     min-height: 22px;
     margin-bottom: 7px;
@@ -3234,27 +3526,41 @@ main.page-shell > article.doc-page--terms section ol.terms-sublist:has(> li:only
     overflow-wrap: anywhere;
   }
 
-  .steps {
+  .steps.steps--infographic {
+    flex-wrap: nowrap;
+    gap: clamp(0px, 0.8vw, 8px);
+    margin-top: clamp(14px, 4vw, 24px);
+  }
+
+  .steps--infographic .step-card:not(:last-child)::after {
+    display: block;
+    font-size: clamp(9px, 2.9vw, 18px);
+    right: calc(-0.45 * clamp(8px, 2.2vw, 16px));
+    top: clamp(30px, 10vw, 48px);
+  }
+
+  .tap-section .steps {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px 14px;
   }
 
-  .step-card:not(:last-child)::after {
+  .tap-section .step-card:not(:last-child)::after {
     display: none;
   }
 
-  .step-card h3 {
+  .tap-section .step-card h3 {
     justify-content: center;
     font-size: var(--mobile-card-title-size);
     line-height: 1.32;
   }
 
-  .step-card img {
+  .tap-section .step-card img {
     width: 100%;
     height: clamp(140px, 34vw, 200px);
     padding: 8px;
     margin: 0 auto;
   }
+
 
   .benefits {
     padding: 38px 24px;
@@ -3462,8 +3768,8 @@ main.page-shell > article.doc-page--terms section ol.terms-sublist:has(> li:only
     font-size: 11.5px;
   }
 
-  .mini-flow li:not(.flow-arrow) {
-    font-size: 7.8px;
+  .mini-flow .step-card__label {
+    font-size: max(7.5px, clamp(7px, 2.2vw, 11px));
   }
 
   .section-copy h2,

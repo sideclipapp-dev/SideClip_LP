@@ -1,5 +1,5 @@
 (function () {
-  const ASSET_VERSION = "20260510-lp-hero-banner";
+  const ASSET_VERSION = "20260511-infographic-align-left";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
   const PRE_REGISTRATION_FORM_URL = "https://forms.gle/KbNn5T3TBVz459HBA";
@@ -29,6 +29,10 @@
     featureScan: `./assets/feature-panel-scan.jpg?v=${ASSET_VERSION}`,
     usageScenes: `./assets/具体シーン.png?v=${ASSET_VERSION}`,
     clipboardDifference: `./assets/違い.jpeg?v=${ASSET_VERSION}`,
+    flowIconMac: `./assets/flow-icon-mac.png?v=${ASSET_VERSION}`,
+    flowIconPhone: `./assets/flow-icon-phone.png?v=${ASSET_VERSION}`,
+    flowIconTap: `./assets/flow-icon-tap.png?v=${ASSET_VERSION}`,
+    flowIconCheck: `./assets/flow-icon-check.png?v=${ASSET_VERSION}`,
   };
 
   const icon = {
@@ -79,44 +83,66 @@
     `,
     laptopFlow: `
       <svg viewBox="0 0 48 40" aria-hidden="true">
-        <rect x="8" y="7" width="32" height="21" rx="1.8" />
-        <path d="M4 33h40" />
-        <path d="M20 28h8" />
+        <rect x="9" y="8" width="30" height="19" rx="2.2" />
+        <path d="M5 33h38" />
+        <path d="M20 30h8" opacity="0.45" />
       </svg>
     `,
     clipboardFlow: `
       <svg viewBox="0 0 40 44" aria-hidden="true">
-        <rect x="9" y="3" width="22" height="36" rx="3.5" />
-        <path d="M16 8h8" />
-        <path d="M15 15h2M21 15h5" />
-        <path d="M15 21h2M21 21h5" />
-        <path d="M15 27h2M21 27h5" />
+        <rect x="10" y="4" width="20" height="34" rx="3.2" />
+        <path d="M16 9.5h8" opacity="0.35" />
+        <path d="M14 16h12M14 20.5h12M14 25h9.5M14 29.5h12" />
+        <path d="M27 6l3-2.5M29 8.5l3.2-1.8" opacity="0.55" />
       </svg>
     `,
     tapFlow: `
       <svg viewBox="0 0 44 44" aria-hidden="true">
-        <path d="M21 6.5v17" />
-        <path d="M21 6.5a4 4 0 0 1 8 0V22" />
-        <path d="M29 18.5a3.8 3.8 0 0 1 7.6 0v7.1c0 7.2-4 11.4-11.2 11.4h-4.7a8 8 0 0 1-6.5-3.4l-6-8.4a3.1 3.1 0 0 1 4.8-3.9l5.1 5.2" />
-        <path d="M14 5.7 11.5 3.2M35 8l2.8-2.3M8.2 15.4H4.5" />
+        <path d="M22 7v15.5" />
+        <path d="M22 7a3.8 3.8 0 0 1 7.6 0v11.2" />
+        <path d="M29.6 18.2a3.4 3.4 0 0 1 6.8 0v6.8c0 6.2-3.6 10.2-10 10.2h-4.2a7.2 7.2 0 0 1-5.8-3l-5.6-7.8a2.8 2.8 0 0 1 4.3-3.5l4.8 4.9" />
+        <path d="M14.5 6 12 3.8M33.5 7.2l2.6-2M9 14.5H6" opacity="0.55" />
       </svg>
     `,
     checkFlow: `
       <svg viewBox="0 0 44 44" aria-hidden="true">
-        <circle cx="22" cy="22" r="18.5" />
-        <path d="m13.7 22.5 5.4 5.4 11.2-12.1" />
+        <circle cx="22" cy="22" r="17.5" />
+        <path d="m14 22.2 4.8 4.8 10.6-11.4" />
       </svg>
     `,
   };
 
-  const miniFlow = [
-    [icon.laptopFlow, "Macで<br />コピー", ""],
-    [icon.clipboardFlow, "スマホに<br />自動追加", ""],
-    [icon.tapFlow, "スマホを<br />タップ", "flow-icon--svg-tap"],
-    [icon.checkFlow, "Macに<br />即ペースト", "flow-icon--svg-check"],
+  /** ヒーロー mini-flow と Tap セクションの4ステップで共通（ラベル・アイコン・アニメ連動を同期） */
+  const tapFlowSteps = [
+    {
+      number: "1",
+      title: "Macでコピー",
+      iconSrc: ASSETS.flowIconMac,
+      alt: "Macでコピーするステップ",
+    },
+    {
+      number: "2",
+      title: "スマホに自動追加",
+      iconSrc: ASSETS.flowIconPhone,
+      alt: "スマホへコピー内容が自動追加されるステップ",
+      labelAccent: true,
+    },
+    {
+      number: "3",
+      title: "スマホをタップ",
+      iconSrc: ASSETS.flowIconTap,
+      alt: "スマホ画面をタップするステップ",
+    },
+    {
+      number: "4",
+      title: "Macに即ペースト",
+      iconSrc: ASSETS.flowIconCheck,
+      alt: "Macへ即座にペーストされるステップ",
+    },
   ];
 
-  const steps = [
+  /** Tap to Paste セクション用（スクリーンショット4枚・従来レイアウト） */
+  const tapPasteSteps = [
     {
       number: "1",
       title: "Macでコピー",
@@ -142,6 +168,7 @@
       alt: "Macへ即座にペーストされる画面",
     },
   ];
+
 
   const benefits = [
     {
@@ -199,21 +226,34 @@
   ];
 
   function renderMiniFlow() {
-    return miniFlow
-      .map(([svg, label, extraClass], index) => {
+    return tapFlowSteps
+      .map((step, index) => {
+        const labelClass = step.labelAccent ? " step-card__label--accent" : "";
+        const plusClass = step.plusBadge ? " step-card__icon-ring--plus" : "";
+        const iconInner = step.iconSrc
+          ? `<img class="flow-step-icon-img" src="${step.iconSrc}" alt="${step.alt}" width="56" height="56" loading="eager" decoding="async" />`
+          : `<span class="flow-icon flow-icon--svg flow-icon--tap-step ${step.flowIconExtra || ""}" aria-hidden="true">${step.svg}</span>`;
         const item = `
-          <li data-flow-index="${index}">
-            <span class="flow-icon flow-icon--svg ${extraClass}" aria-hidden="true">${svg}</span>
-            <span>${label}</span>
-          </li>
-        `;
-        return index < miniFlow.length - 1 ? `${item}<li class="flow-arrow" aria-hidden="true">→</li>` : item;
+          <li class="step-card step-card--infographic mini-flow__step interactive-card" data-flow-index="${index}">
+            <div class="step-card__inner">
+              <span class="step-card__num" aria-hidden="true">${step.number}</span>
+              <div class="step-card__icon-ring${plusClass}">
+                ${iconInner}
+              </div>
+              <p class="step-card__label${labelClass}">${step.title}</p>
+            </div>
+          </li>`;
+        const arrow =
+          index < tapFlowSteps.length - 1
+            ? `<li class="flow-arrow" aria-hidden="true"><span class="flow-arrow__glyph">→</span></li>`
+            : "";
+        return item + arrow;
       })
       .join("");
   }
 
   function renderSteps() {
-    return steps
+    return tapPasteSteps
       .map(
         (step, index) => `
           <li class="step-card interactive-card" data-step-index="${index}">
@@ -416,10 +456,17 @@
           <p class="hero__banner-copy">画面の切り替えは、もう不要。</p>
           <p class="hero__hook">「さっきコピーしたデータ、どこだっけ？」<br />「もう一度コピーしなきゃ」</p>
           <p class="hero__hook">コピペが増えるほど、画面の行き来が重なります。</p>
-          <h1 id="hero-title">スマホやタブレットを、<br /><span class="hero__accent hero__accent--single-line">“横に置くクリップボード画面”に。</span></h1>
-          <ol class="mini-flow" aria-label="SideClipの流れ">
-            ${renderMiniFlow()}
-          </ol>
+          <div class="hero__infographic-card">
+            <h1 id="hero-title" class="hero__infographic-title">
+              <span class="tap-infographic__title-stack">
+                <span class="tap-infographic__title-line tap-infographic__title-line--primary">スマホやタブレットを、</span>
+                <span class="tap-infographic__title-line tap-infographic__title-line--secondary">“横に置くクリップボード画面”に。</span>
+              </span>
+            </h1>
+            <ol class="mini-flow" aria-label="SideClipの流れ">
+              ${renderMiniFlow()}
+            </ol>
+          </div>
           <p class="hero__lead">
             Macでコピー・スクショしたクリップボードの内容が、<br />
             スマホ/タブレットの画面にカードとして常時表示されます。<br />
@@ -482,7 +529,6 @@
                 <span class="tap-emphasis">キーボードの拡張デバイス</span>のような感覚で、<wbr />使い方は無限大。<br class="desktop-break" /><br class="mobile-break" />
                 1日に何回コピペ・スクショをしますか？<br />Macのウィンドウ切り替えを減らし、<br class="mobile-break" />集中して作業効率を上げましょう。
                 <br class="mobile-break" />
-
               </p>
             </div>
             <ol class="steps" aria-label="Tap to Pasteの4ステップ">
@@ -988,15 +1034,15 @@
   function initHeroTitleFit() {
     const h1 = document.querySelector("#hero-title");
     if (!h1) return;
-    const accentLine = h1.querySelector(".hero__accent--single-line");
+    const titleStack = h1.querySelector(".tap-infographic__title-stack");
 
     const minPx = 11;
     const tolerance = 2;
 
     function overflows() {
       const w = h1.clientWidth + tolerance;
+      if (titleStack && titleStack.scrollWidth > w) return true;
       if (h1.scrollWidth > w) return true;
-      if (accentLine && accentLine.scrollWidth > w) return true;
       return false;
     }
 
@@ -1019,7 +1065,7 @@
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(run);
     }
-    const wrap = h1.closest(".hero__content");
+    const wrap = h1.closest(".hero__infographic-card") || h1.closest(".hero__content");
     if (wrap && typeof ResizeObserver !== "undefined") {
       new ResizeObserver(run).observe(wrap);
     }
