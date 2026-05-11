@@ -1,5 +1,5 @@
 (function () {
-  const ASSET_VERSION = "20260511-hero-data-feather";
+  const ASSET_VERSION = "20260511-hero-phone-v2";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
   const PRE_REGISTRATION_FORM_URL = "https://forms.gle/KbNn5T3TBVz459HBA";
@@ -18,7 +18,7 @@
 
   const ASSETS = {
     heroMain: `./assets/hero_blank_clean.png?v=${ASSET_VERSION}`,
-    heroPhone: `./assets/hero_phone_web.png?v=${ASSET_VERSION}`,
+    heroPhone: `./assets/hero_phone_v2_web.png?v=${ASSET_VERSION}`,
     heroMainFallback: `./assets/hero-banner.jpg?v=${ASSET_VERSION}`,
     stepCopy: `./assets/step-copy.png?v=${ASSET_VERSION}`,
     stepAdd: `./assets/step-add.png?v=${ASSET_VERSION}`,
