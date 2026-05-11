@@ -116,26 +116,26 @@
   const tapFlowSteps = [
     {
       number: "1",
-      title: "Macでコピー",
+      title: "Macで<br />コピー",
       iconSrc: ASSETS.flowIconMac,
       alt: "Macでコピーするステップ",
     },
     {
       number: "2",
-      title: "スマホに自動追加",
+      title: "スマホに<br />自動追加",
       iconSrc: ASSETS.flowIconPhone,
       alt: "スマホへコピー内容が自動追加されるステップ",
       labelAccent: true,
     },
     {
       number: "3",
-      title: "スマホをタップ",
+      title: "スマホを<br />タップ",
       iconSrc: ASSETS.flowIconTap,
       alt: "スマホ画面をタップするステップ",
     },
     {
       number: "4",
-      title: "Macに即ペースト",
+      title: "Macに<br />即ペースト",
       iconSrc: ASSETS.flowIconCheck,
       alt: "Macへ即座にペーストされるステップ",
     },
