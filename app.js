@@ -1,5 +1,5 @@
 (function () {
-  const ASSET_VERSION = "20260511-hero-phone-v2";
+  const ASSET_VERSION = "20260512-hero-raster-icons";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
   const PRE_REGISTRATION_FORM_URL = "https://forms.gle/KbNn5T3TBVz459HBA";
@@ -34,6 +34,12 @@
     flowIconPhone: `./assets/flow-icon-phone.png?v=${ASSET_VERSION}`,
     flowIconTap: `./assets/flow-icon-tap.png?v=${ASSET_VERSION}`,
     flowIconCheck: `./assets/flow-icon-check.png?v=${ASSET_VERSION}`,
+    heroIconSceneResearch: `./assets/hero_icon_scene_research.png?v=${ASSET_VERSION}`,
+    heroIconSceneChat: `./assets/hero_icon_scene_chat.png?v=${ASSET_VERSION}`,
+    heroIconSceneIdea: `./assets/hero_icon_scene_idea.png?v=${ASSET_VERSION}`,
+    heroIconHighlightLock: `./assets/hero_icon_highlight_lock.png?v=${ASSET_VERSION}`,
+    heroIconHighlightBolt: `./assets/hero_icon_highlight_bolt.png?v=${ASSET_VERSION}`,
+    heroIconHighlightQr: `./assets/hero_icon_highlight_qr.png?v=${ASSET_VERSION}`,
   };
 
   const icon = {
@@ -480,31 +486,124 @@
           <div class="hero__infographic-card">
             <h1 id="hero-title" class="hero__infographic-title">
               <span class="tap-infographic__title-stack">
-                <span class="tap-infographic__title-line tap-infographic__title-line--primary">スマホやタブレットを、</span>
-                <span class="tap-infographic__title-line tap-infographic__title-line--secondary">“横に置くクリップボード画面”に。</span>
+                <span class="tap-infographic__title-line tap-infographic__title-line--primary">
+                  スマホをあなたの<span class="tap-infographic__title-accent">“横のクリップボード”</span>に。
+                </span>
               </span>
             </h1>
             <ol class="mini-flow" aria-label="SideClipの流れ">
               ${renderMiniFlow()}
             </ol>
           </div>
-          <p class="hero__lead">
-            Macでコピー・スクショした内容が、<br />
-            スマホの画面にカードとして表示。<br />
-            スマホをタップするだけで、Macへ即ペーストできます。<br />
-          </p>
 
-          <p class="hero__body">
-            使い方は、Mac用SideClipアプリを起動して、<br />
-            スマホのカメラでQRコードを読み込むだけ。<br />
+          <div class="hero-scene-card" aria-labelledby="hero-scene-title">
+            <h2 id="hero-scene-title" class="hero-scene-card__title">こんなシーンでサッと活躍</h2>
+            <ul class="hero-scene-card__list">
+              <li class="hero-scene-card__item">
+                <span class="hero-scene-card__icon" aria-hidden="true">
+                  <img
+                    src="${ASSETS.heroIconSceneResearch}"
+                    srcset="${ASSETS.heroIconSceneResearch} 1x, ${ASSETS.heroIconSceneResearch} 2x"
+                    width="176"
+                    height="176"
+                    alt=""
+                    decoding="async"
+                  />
+                </span>
+                <div class="hero-scene-card__body">
+                  <p class="hero-scene-card__item-title">リサーチ・資料作成</p>
+                  <p class="hero-scene-card__item-text">調べた情報を横に並べて、スムーズにまとめる。</p>
+                </div>
+              </li>
+              <li class="hero-scene-card__item">
+                <span class="hero-scene-card__icon" aria-hidden="true">
+                  <img
+                    src="${ASSETS.heroIconSceneChat}"
+                    srcset="${ASSETS.heroIconSceneChat} 1x, ${ASSETS.heroIconSceneChat} 2x"
+                    width="176"
+                    height="176"
+                    alt=""
+                    decoding="async"
+                  />
+                </span>
+                <div class="hero-scene-card__body">
+                  <p class="hero-scene-card__item-title">チャット・メール</p>
+                  <p class="hero-scene-card__item-text">定型文やリンクをすぐ貼れて、やり取りを高速化。</p>
+                </div>
+              </li>
+              <li class="hero-scene-card__item">
+                <span class="hero-scene-card__icon" aria-hidden="true">
+                  <img
+                    src="${ASSETS.heroIconSceneIdea}"
+                    srcset="${ASSETS.heroIconSceneIdea} 1x, ${ASSETS.heroIconSceneIdea} 2x"
+                    width="176"
+                    height="176"
+                    alt=""
+                    decoding="async"
+                  />
+                </span>
+                <div class="hero-scene-card__body">
+                  <p class="hero-scene-card__item-title">アイデア・メモ整理</p>
+                  <p class="hero-scene-card__item-text">思いついた内容を逃さず、あとで見返して活用。</p>
+                </div>
+              </li>
+            </ul>
+          </div>
 
-          </p>
+          <ul class="hero-highlight-row" aria-label="SideClipの安心ポイント">
+            <li class="hero-highlight-card">
+              <span class="hero-highlight-card__icon" aria-hidden="true">
+                <img
+                  src="${ASSETS.heroIconHighlightLock}"
+                  srcset="${ASSETS.heroIconHighlightLock} 1x, ${ASSETS.heroIconHighlightLock} 2x"
+                  width="176"
+                  height="176"
+                  alt=""
+                  decoding="async"
+                />
+              </span>
+              <div class="hero-highlight-card__body">
+                <p class="hero-highlight-card__title">ローカル同期で安心</p>
+                <p class="hero-highlight-card__text">データはMac内で完結。<br />プライバシーも安心。</p>
+              </div>
+            </li>
+            <li class="hero-highlight-card">
+              <span class="hero-highlight-card__icon" aria-hidden="true">
+                <img
+                  src="${ASSETS.heroIconHighlightBolt}"
+                  srcset="${ASSETS.heroIconHighlightBolt} 1x, ${ASSETS.heroIconHighlightBolt} 2x"
+                  width="176"
+                  height="176"
+                  alt=""
+                  decoding="async"
+                />
+              </span>
+              <div class="hero-highlight-card__body">
+                <p class="hero-highlight-card__title">設定いらずでシンプル</p>
+                <p class="hero-highlight-card__text">アカウント登録・ログイン不要。スマホアプリも不要です。</p>
+              </div>
+            </li>
+            <li class="hero-highlight-card">
+              <span class="hero-highlight-card__icon" aria-hidden="true">
+                <img
+                  src="${ASSETS.heroIconHighlightQr}"
+                  srcset="${ASSETS.heroIconHighlightQr} 1x, ${ASSETS.heroIconHighlightQr} 2x"
+                  width="176"
+                  height="176"
+                  alt=""
+                  decoding="async"
+                />
+              </span>
+              <div class="hero-highlight-card__body">
+                <p class="hero-highlight-card__title">接続はQRコードで簡単</p>
+                <p class="hero-highlight-card__text">スマホのカメラで読み込むだけ。すぐにつながります。</p>
+              </div>
+            </li>
+          </ul>
 
           <ul class="hero-kpis" aria-label="SideClipで得られる効果">
-            <li>Mac用アプリ</li>
-            <li>スマホアプリのインストール不要</li>
-            <li>アカウント作成・ログイン不要</li>
-            <li>MacとiPhone/iPad/Android端末がつながる</li>
+            <li>Mac専用アプリ</li>
+            <li>MacとiPhone/iPad/Androidスマホとつながる</li>
           </ul>
           <a class="download-button" href="#" data-wip-download-trigger data-cta-id="hero_download_status" data-cta-section="hero" aria-label="事前登録特典で、Ultraプラン3か月無料クーポンをプレゼント">
             <!-- ${icon.download} -->
