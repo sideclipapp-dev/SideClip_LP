@@ -1,5 +1,5 @@
 (function () {
-  const ASSET_VERSION = "20260511-infographic-align-left";
+  const ASSET_VERSION = "20260511-mini-flow-badge-gap";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
   const PRE_REGISTRATION_FORM_URL = "https://forms.gle/KbNn5T3TBVz459HBA";

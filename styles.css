@@ -1488,6 +1488,11 @@ img {
     box-shadow 360ms var(--motion-ease);
 }
 
+/* 強調アニメ時も番号とアイコンが被らないようベースの縦間隔を確保 */
+.mini-flow .step-card__num {
+  margin-bottom: clamp(10px, 2vw, 16px);
+}
+
 .step-card__icon-ring {
   position: relative;
   display: grid;
@@ -1586,7 +1591,8 @@ img {
 
 
 .step-card--infographic.is-active .step-card__num {
-  transform: scale(1.08);
+  /* わずかに上げてアイコン拡大域と離す */
+  transform: translateY(-3px) scale(1.06);
   box-shadow: 0 5px 14px rgba(20, 121, 223, 0.45);
 }
 
@@ -1594,7 +1600,8 @@ img {
   filter:
     drop-shadow(0 12px 18px rgba(20, 121, 223, 0.28))
     drop-shadow(0 5px 10px rgba(20, 121, 223, 0.15));
-  transform: translateY(-6px) scale(1.03);
+  /* 上方向への移動は番号バッジと干渉するため縮小・リング側はほぼ据え置き */
+  transform: translateY(0) scale(1.03);
   border-color: #9fc4e6;
   box-shadow: 0 12px 22px rgba(16, 55, 92, 0.12);
 }
@@ -1603,14 +1610,14 @@ img {
   filter:
     drop-shadow(0 10px 14px rgba(20, 121, 223, 0.22))
     drop-shadow(0 4px 8px rgba(20, 121, 223, 0.12));
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 .step-card--infographic.is-active .flow-step-icon-img {
   filter:
     drop-shadow(0 10px 14px rgba(20, 121, 223, 0.22))
     drop-shadow(0 4px 8px rgba(20, 121, 223, 0.12));
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 .step-card--infographic.is-active .step-card__label {
