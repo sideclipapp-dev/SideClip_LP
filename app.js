@@ -514,14 +514,15 @@
                   <defs>
                     <marker
                       id="heroFlowSyncArrowhead"
-                      markerWidth="11"
-                      markerHeight="11"
-                      refX="9"
-                      refY="5.5"
+                      markerWidth="44"
+                      markerHeight="44"
+                      refX="12.667"
+                      refY="22"
                       orient="auto"
                       markerUnits="userSpaceOnUse"
+                      overflow="visible"
                     >
-                      <path d="M0,0 L0,11 L10,5.5 z" fill="currentColor" />
+                      <path d="M0,3 L38,22 L0,41 Z" fill="currentColor" />
                     </marker>
                   </defs>
                   <rect
@@ -561,12 +562,12 @@
                   <path
                     class="hero-flow-sync__path hero-flow-sync__path--to-phone"
                     marker-end="url(#heroFlowSyncArrowhead)"
-                    d="M 433 282 C 548 198 702 232 805 352"
+                    d="M 433 282 C 548 198 702 232 776 319"
                   />
                   <path
                     class="hero-flow-sync__path hero-flow-sync__path--to-mac"
                     marker-end="url(#heroFlowSyncArrowhead)"
-                    d="M 824 472 C 632 565 415 455 285 318"
+                    d="M 824 472 C 632 565 415 455 313 344"
                   />
                 </svg>
               </div>

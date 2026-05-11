@@ -861,9 +861,9 @@ img {
   justify-content: center;
 }
 
-/* ヒーロー見出し直下：Mac／スマホ同期イラスト＋フロー同期の矢印オーバーレイ */
+/* ヒーロー見出し直下：Mac／スマホ同期イラスト（最大幅は従来 520px の 80%） */
 .hero-flow-sync {
-  width: min(100%, 520px);
+  width: min(100%, 416px);
   margin: clamp(2px, 0.8vw, 8px) auto 0;
 }
 
@@ -902,11 +902,11 @@ img {
 .hero-flow-sync__path {
   fill: none;
   stroke: currentColor;
-  stroke-width: 14;
+  stroke-width: 7;
   vector-effect: non-scaling-stroke;
-  stroke-linecap: round;
+  stroke-linecap: butt;
   stroke-linejoin: round;
-  stroke-dasharray: 14 20;
+  stroke-dasharray: 8 12;
   opacity: 0;
   stroke-dashoffset: var(--flow-path-len, 900);
 }
@@ -1121,7 +1121,9 @@ img {
 .hero-kpis {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
+  width: 100%;
   margin: 14px 0 0;
   padding: 0;
   list-style: none;
@@ -1392,14 +1394,16 @@ img {
   text-size-adjust: 100%;
 }
 
-/* ヒーロー：インラインボタンと同じ左端にブロックを揃える */
+/* ヒーロー：ダウンロードボタンと注釈を中央揃え */
 .hero__content > .download-button {
   display: flex;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero__content > .download-microcopy,
 .hero__content > .os-note {
-  margin-left: 0;
+  margin-left: auto;
   margin-right: auto;
 }
 
