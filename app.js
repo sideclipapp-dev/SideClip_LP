@@ -487,7 +487,7 @@
           </ul>
           <a class="download-button" href="#" data-wip-download-trigger data-cta-id="hero_download_status" data-cta-section="hero" aria-label="事前登録特典で、Ultraプラン3か月無料クーポンをプレゼント">
             <!-- ${icon.download} -->
-            事前登録で<br />全有料機能3か月無料<br />クーポンをプレゼント
+            事前登録で<br />全ての有料機能を3か月無料<br />クーポンをプレゼント
           </a>
           <p class="download-microcopy">※現在リリース準備中</p>
           <p class="os-note">Apple Silicon搭載のMacに対応</p>
@@ -802,7 +802,7 @@
           <div class="final-cta__action">
             <a class="download-button download-button--light" href="#" data-wip-download-trigger data-cta-id="final_download_status" data-cta-section="final_cta" aria-label="事前登録で、Ultraプラン3か月無料クーポンをプレゼント">
               <!-- ${icon.download} -->
-              事前登録で<br />全有料機能3か月無料<br />クーポンをプレゼント
+              事前登録で<br />全ての有料機能を3か月無料<br />クーポンをプレゼント
             </a>
             <p class="download-microcopy">※現在リリース準備中</p>
             <p>Apple Silicon搭載のMacに対応</p>
