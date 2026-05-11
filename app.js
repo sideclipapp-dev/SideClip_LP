@@ -1,5 +1,5 @@
 (function () {
-  const ASSET_VERSION = "20260512-devices-gap-clean";
+  const ASSET_VERSION = "20260512-mac-laptop-icon";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
   const PRE_REGISTRATION_FORM_URL = "https://forms.gle/KbNn5T3TBVz459HBA";
@@ -41,6 +41,8 @@
     heroIconHighlightBolt: `./assets/hero_icon_highlight_bolt.png?v=${ASSET_VERSION}`,
     heroIconHighlightQr: `./assets/hero_icon_highlight_qr.png?v=${ASSET_VERSION}`,
     heroFlowInfographic: `./assets/hero_flow_devices_only.png?v=${ASSET_VERSION}`,
+    heroFlowMacLaptop: `./assets/hero_flow_mac_laptop.png?v=${ASSET_VERSION}`,
+    heroFlowPhoneClipboard: `./assets/hero_flow_phone_clipboard.png?v=${ASSET_VERSION}`,
   };
 
   const icon = {
@@ -523,6 +525,23 @@
                     </marker>
                   </defs>
                   <rect
+                    class="hero-flow-sync__mac-mask"
+                    x="86"
+                    y="180"
+                    width="485"
+                    height="381"
+                    rx="0"
+                  />
+                  <image
+                    class="hero-flow-sync__mac-raster"
+                    href="${ASSETS.heroFlowMacLaptop}"
+                    x="90"
+                    y="184"
+                    width="477"
+                    height="373"
+                    preserveAspectRatio="xMidYMid meet"
+                  />
+                  <rect
                     class="hero-flow-sync__phone-mask"
                     x="732"
                     y="222"
@@ -530,26 +549,15 @@
                     height="332"
                     rx="0"
                   />
-                  <g class="hero-flow-sync__phone-art" aria-hidden="true">
-                    <rect
-                      class="hero-flow-sync__phone-outline"
-                      x="737"
-                      y="228"
-                      width="175"
-                      height="318"
-                      rx="44"
-                      ry="44"
-                    />
-                    <rect
-                      class="hero-flow-sync__phone-notch"
-                      x="806"
-                      y="236"
-                      width="38"
-                      height="12"
-                      rx="6"
-                      ry="6"
-                    />
-                  </g>
+                  <image
+                    class="hero-flow-sync__phone-raster"
+                    href="${ASSETS.heroFlowPhoneClipboard}"
+                    x="737"
+                    y="228"
+                    width="175"
+                    height="318"
+                    preserveAspectRatio="xMidYMid meet"
+                  />
                   <path
                     class="hero-flow-sync__path hero-flow-sync__path--to-phone"
                     marker-end="url(#heroFlowSyncArrowhead)"
@@ -558,7 +566,7 @@
                   <path
                     class="hero-flow-sync__path hero-flow-sync__path--to-mac"
                     marker-end="url(#heroFlowSyncArrowhead)"
-                    d="M 828 472 C 635 568 415 455 285 318"
+                    d="M 824 472 C 632 565 415 455 285 318"
                   />
                 </svg>
               </div>

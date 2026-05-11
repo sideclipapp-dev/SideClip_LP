@@ -889,21 +889,14 @@ img {
   overflow: visible;
 }
 
+.hero-flow-sync__mac-mask,
 .hero-flow-sync__phone-mask {
   fill: #ffffff;
 }
 
-.hero-flow-sync__phone-outline {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 10;
-  vector-effect: non-scaling-stroke;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
-
-.hero-flow-sync__phone-notch {
-  fill: currentColor;
+.hero-flow-sync__mac-raster,
+.hero-flow-sync__phone-raster {
+  image-rendering: auto;
 }
 
 .hero-flow-sync__path {
