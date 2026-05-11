@@ -1,5 +1,5 @@
 (function () {
-  const ASSET_VERSION = "20260512-hero-raster-icons";
+  const ASSET_VERSION = "20260512-devices-gap-clean";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
   const PRE_REGISTRATION_FORM_URL = "https://forms.gle/KbNn5T3TBVz459HBA";
@@ -40,6 +40,7 @@
     heroIconHighlightLock: `./assets/hero_icon_highlight_lock.png?v=${ASSET_VERSION}`,
     heroIconHighlightBolt: `./assets/hero_icon_highlight_bolt.png?v=${ASSET_VERSION}`,
     heroIconHighlightQr: `./assets/hero_icon_highlight_qr.png?v=${ASSET_VERSION}`,
+    heroFlowInfographic: `./assets/hero_flow_devices_only.png?v=${ASSET_VERSION}`,
   };
 
   const icon = {
@@ -491,6 +492,77 @@
                 </span>
               </span>
             </h1>
+            <div class="hero-flow-sync" id="hero-flow-sync" aria-hidden="true">
+              <div class="hero-flow-sync__frame">
+                <img
+                  class="hero-flow-sync__base"
+                  src="${ASSETS.heroFlowInfographic}"
+                  width="835"
+                  height="386"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+                <svg
+                  class="hero-flow-sync__overlay"
+                  viewBox="84 178 835 386"
+                  preserveAspectRatio="xMidYMid meet"
+                  focusable="false"
+                >
+                  <defs>
+                    <marker
+                      id="heroFlowSyncArrowhead"
+                      markerWidth="11"
+                      markerHeight="11"
+                      refX="9"
+                      refY="5.5"
+                      orient="auto"
+                      markerUnits="userSpaceOnUse"
+                    >
+                      <path d="M0,0 L0,11 L10,5.5 z" fill="currentColor" />
+                    </marker>
+                  </defs>
+                  <rect
+                    class="hero-flow-sync__phone-mask"
+                    x="732"
+                    y="222"
+                    width="186"
+                    height="332"
+                    rx="0"
+                  />
+                  <g class="hero-flow-sync__phone-art" aria-hidden="true">
+                    <rect
+                      class="hero-flow-sync__phone-outline"
+                      x="737"
+                      y="228"
+                      width="175"
+                      height="318"
+                      rx="44"
+                      ry="44"
+                    />
+                    <rect
+                      class="hero-flow-sync__phone-notch"
+                      x="806"
+                      y="236"
+                      width="38"
+                      height="12"
+                      rx="6"
+                      ry="6"
+                    />
+                  </g>
+                  <path
+                    class="hero-flow-sync__path hero-flow-sync__path--to-phone"
+                    marker-end="url(#heroFlowSyncArrowhead)"
+                    d="M 433 282 C 548 198 702 232 805 352"
+                  />
+                  <path
+                    class="hero-flow-sync__path hero-flow-sync__path--to-mac"
+                    marker-end="url(#heroFlowSyncArrowhead)"
+                    d="M 828 472 C 635 568 415 455 285 318"
+                  />
+                </svg>
+              </div>
+            </div>
             <ol class="mini-flow" aria-label="SideClipの流れ">
               ${renderMiniFlow()}
             </ol>
@@ -564,7 +636,7 @@
               </span>
               <div class="hero-highlight-card__body">
                 <p class="hero-highlight-card__title">ローカル同期で安心</p>
-                <p class="hero-highlight-card__text">データはMac内で完結。<br />プライバシーも安心。</p>
+                <p class="hero-highlight-card__text">データはMac内で完結。プライバシーも安心。</p>
               </div>
             </li>
             <li class="hero-highlight-card">
@@ -817,9 +889,8 @@
             </div>
             <div class="local-sync__text">
               <p>
-                SideClipはクラウドを使わず、コピー履歴をあなたのMac内に保存します。<br />
+                サーバーを経由しないため、コピー履歴がSideClipのクラウドに送信されることはなく、Mac内に保存されます。<br />
                 スマホやタブレットとの同期も、同じWi-Fi内のローカル通信だけで完結します。<br />
-                外部サーバーを経由しないため、コピー履歴がSideClipのクラウドに送信されることはありません。
               </p>
               <p class="local-sync__detail-link">
                 <a href="./security.html">セキュリティ対策の詳細を見る</a>
@@ -1132,6 +1203,19 @@
     }, 3200);
   }
 
+  function initHeroFlowSyncDashLengths() {
+    document.querySelectorAll("#hero-flow-sync .hero-flow-sync__path").forEach((path) => {
+      try {
+        if (typeof path.getTotalLength === "function") {
+          const len = path.getTotalLength();
+          if (len > 0) path.style.setProperty("--flow-path-len", `${Math.ceil(len) + 8}`);
+        }
+      } catch (_) {
+        /* ignore */
+      }
+    });
+  }
+
   function initFlowCycle() {
     const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (shouldReduceMotion) return;
@@ -1140,6 +1224,22 @@
     const stepItems = [...document.querySelectorAll("[data-step-index]")];
     let active = 0;
 
+    const syncRoot = document.getElementById("hero-flow-sync");
+    const pathToPhone = syncRoot?.querySelector(".hero-flow-sync__path--to-phone");
+    const pathToMac = syncRoot?.querySelector(".hero-flow-sync__path--to-mac");
+    const ARROW_ANIM_MS = 1120;
+
+    function triggerFlowPathAnim(path) {
+      if (!path) return;
+      path.classList.remove("is-animating");
+      void path.getBoundingClientRect();
+      path.classList.add("is-animating");
+      window.clearTimeout(path._heroFlowHideT);
+      path._heroFlowHideT = window.setTimeout(() => {
+        path.classList.remove("is-animating");
+      }, ARROW_ANIM_MS);
+    }
+
     function setActive(index) {
       flowItems.forEach((item, itemIndex) => item.classList.toggle("is-active", itemIndex === index));
       stepItems.forEach((item, itemIndex) => item.classList.toggle("is-active", itemIndex === index));
@@ -1147,8 +1247,11 @@
 
     setActive(active);
     window.setInterval(() => {
+      const prev = active;
       active = (active + 1) % Math.max(flowItems.length, 1);
       setActive(active);
+      if (prev === 0 && active === 1) triggerFlowPathAnim(pathToPhone);
+      if (prev === 2 && active === 3) triggerFlowPathAnim(pathToMac);
     }, 1700);
   }
 
@@ -1806,6 +1909,9 @@
   function mount() {
     document.querySelector("#root").innerHTML = renderApp();
     initReveal();
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(initHeroFlowSyncDashLengths);
+    });
     initFlowCycle();
     initHeroTitleFit();
     initFinalCtaCopyFit();

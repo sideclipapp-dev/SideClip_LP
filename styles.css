@@ -780,9 +780,9 @@ img {
 .hero__infographic-card {
   /* mini-flow 最大幅 720px + 内側パディングに合わせた白枠 */
   max-width: min(100%, 800px);
-  margin: clamp(6px, 1.8vw, 14px) 0 clamp(16px, 2.8vw, 28px);
+  margin: clamp(4px, 1.2vw, 10px) 0 clamp(10px, 2vw, 20px);
   /* アイコン列の密度は維持し、白枠だけを詰める */
-  padding: clamp(14px, 2.4vw, 26px);
+  padding: clamp(8px, 1.6vw, 18px);
   border-radius: 20px;
   background: #fff;
   box-shadow:
@@ -854,11 +854,89 @@ img {
 }
 
 .hero__infographic-card .mini-flow {
-  margin-top: clamp(10px, 2vw, 20px);
+  margin-top: clamp(6px, 1.4vw, 14px);
   margin-bottom: 0;
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
+}
+
+/* ヒーロー見出し直下：Mac／スマホ同期イラスト＋フロー同期の矢印オーバーレイ */
+.hero-flow-sync {
+  width: min(100%, 520px);
+  margin: clamp(2px, 0.8vw, 8px) auto 0;
+}
+
+.hero-flow-sync__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 835 / 386;
+}
+
+.hero-flow-sync__base {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-flow-sync__overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  color: var(--blue);
+  overflow: visible;
+}
+
+.hero-flow-sync__phone-mask {
+  fill: #ffffff;
+}
+
+.hero-flow-sync__phone-outline {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 10;
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.hero-flow-sync__phone-notch {
+  fill: currentColor;
+}
+
+.hero-flow-sync__path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 14;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 14 20;
+  opacity: 0;
+  stroke-dashoffset: var(--flow-path-len, 900);
+}
+
+.hero-flow-sync__path.is-animating {
+  opacity: 1;
+  animation: hero-flow-sync-draw 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes hero-flow-sync-draw {
+  from {
+    stroke-dashoffset: var(--flow-path-len, 900);
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-flow-sync__path {
+    display: none;
+  }
 }
 
 /* ヒーロー：利用シーン（インフォグラフィック直下） */
