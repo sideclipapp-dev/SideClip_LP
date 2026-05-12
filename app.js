@@ -1,5 +1,5 @@
 (function () {
-  const ASSET_VERSION = "20260512-mac-laptop-icon";
+  const ASSET_VERSION = "20260512-tap-icon-white-fill";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
   const PRE_REGISTRATION_FORM_URL = "https://forms.gle/KbNn5T3TBVz459HBA";
@@ -33,6 +33,7 @@
     flowIconMac: `./assets/flow-icon-mac.png?v=${ASSET_VERSION}`,
     flowIconPhone: `./assets/flow-icon-phone.png?v=${ASSET_VERSION}`,
     flowIconTap: `./assets/flow-icon-tap.png?v=${ASSET_VERSION}`,
+    flowIconTapHeroFill: `./assets/flow-icon-tap-hero-fill.png?v=${ASSET_VERSION}`,
     flowIconCheck: `./assets/flow-icon-check.png?v=${ASSET_VERSION}`,
     heroIconSceneResearch: `./assets/hero_icon_scene_research.png?v=${ASSET_VERSION}`,
     heroIconSceneChat: `./assets/hero_icon_scene_chat.png?v=${ASSET_VERSION}`,
@@ -494,7 +495,7 @@
                 </span>
               </span>
             </h1>
-            <div class="hero-flow-sync" id="hero-flow-sync" aria-hidden="true">
+            <div class="hero-flow-sync" id="hero-flow-sync" data-hero-flow-step="0" aria-hidden="true">
               <div class="hero-flow-sync__frame">
                 <img
                   class="hero-flow-sync__base"
@@ -545,29 +546,39 @@
                   <rect
                     class="hero-flow-sync__phone-mask"
                     x="732"
-                    y="222"
+                    y="163"
                     width="186"
-                    height="332"
+                    height="391"
                     rx="0"
                   />
                   <image
                     class="hero-flow-sync__phone-raster"
                     href="${ASSETS.heroFlowPhoneClipboard}"
                     x="737"
-                    y="228"
+                    y="169"
                     width="175"
                     height="318"
                     preserveAspectRatio="xMidYMid meet"
                   />
+                  <image
+                    class="hero-flow-sync__tap-hit"
+                    href="${ASSETS.flowIconTapHeroFill}"
+                    x="750"
+                    y="350"
+                    width="180"
+                    height="180"
+                    preserveAspectRatio="xMidYMid meet"
+                    aria-hidden="true"
+                  />
                   <path
                     class="hero-flow-sync__path hero-flow-sync__path--to-phone"
                     marker-end="url(#heroFlowSyncArrowhead)"
-                    d="M 433 282 C 548 198 702 232 776 312"
+                    d="M 433 282 C 548 198 702 173 776 253"
                   />
                   <path
                     class="hero-flow-sync__path hero-flow-sync__path--to-mac"
                     marker-end="url(#heroFlowSyncArrowhead)"
-                    d="M 799.8 472 C 632 565 415 455 313 344"
+                    d="M 799.8 413 C 632 506 415 396 313 344"
                   />
                   <text
                     class="hero-flow-sync__cap-label hero-flow-sync__cap-label--copy"
@@ -1256,34 +1267,23 @@
     const syncRoot = document.getElementById("hero-flow-sync");
     const pathToPhone = syncRoot?.querySelector(".hero-flow-sync__path--to-phone");
     const pathToMac = syncRoot?.querySelector(".hero-flow-sync__path--to-mac");
-    const labelCopy = syncRoot?.querySelector(".hero-flow-sync__cap-label--copy");
-    const labelPaste = syncRoot?.querySelector(".hero-flow-sync__cap-label--paste");
     const ARROW_ANIM_MS = 1120;
 
-    function triggerFlowPathAnim(path, label) {
-      if (path) {
+    function triggerFlowPathAnim(path) {
+      if (!path) return;
+      path.classList.remove("is-animating");
+      void path.getBoundingClientRect();
+      path.classList.add("is-animating");
+      window.clearTimeout(path._heroFlowHideT);
+      path._heroFlowHideT = window.setTimeout(() => {
         path.classList.remove("is-animating");
-        void path.getBoundingClientRect();
-        path.classList.add("is-animating");
-        window.clearTimeout(path._heroFlowHideT);
-        path._heroFlowHideT = window.setTimeout(() => {
-          path.classList.remove("is-animating");
-        }, ARROW_ANIM_MS);
-      }
-      if (label) {
-        label.classList.remove("is-animating");
-        void label.getBoundingClientRect();
-        label.classList.add("is-animating");
-        window.clearTimeout(label._heroFlowHideT);
-        label._heroFlowHideT = window.setTimeout(() => {
-          label.classList.remove("is-animating");
-        }, ARROW_ANIM_MS);
-      }
+      }, ARROW_ANIM_MS);
     }
 
     function setActive(index) {
       flowItems.forEach((item, itemIndex) => item.classList.toggle("is-active", itemIndex === index));
       stepItems.forEach((item, itemIndex) => item.classList.toggle("is-active", itemIndex === index));
+      if (syncRoot) syncRoot.setAttribute("data-hero-flow-step", String(index));
     }
 
     setActive(active);
@@ -1291,8 +1291,8 @@
       const prev = active;
       active = (active + 1) % Math.max(flowItems.length, 1);
       setActive(active);
-      if (prev === 0 && active === 1) triggerFlowPathAnim(pathToPhone, labelCopy);
-      if (prev === 2 && active === 3) triggerFlowPathAnim(pathToMac, labelPaste);
+      if (prev === 0 && active === 1) triggerFlowPathAnim(pathToPhone);
+      if (prev === 2 && active === 3) triggerFlowPathAnim(pathToMac);
     }, 1700);
   }
 

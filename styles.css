@@ -916,6 +916,17 @@ img {
   animation: hero-flow-sync-draw 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+.hero-flow-sync__tap-hit {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.55s ease;
+  image-rendering: auto;
+}
+
+#hero-flow-sync[data-hero-flow-step="2"] .hero-flow-sync__tap-hit {
+  opacity: 1;
+}
+
 .hero-flow-sync__cap-label {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 38px;
@@ -924,10 +935,14 @@ img {
   fill: var(--blue);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.12s ease;
+  transition: opacity 0.4s ease;
 }
 
-.hero-flow-sync__cap-label.is-animating {
+#hero-flow-sync[data-hero-flow-step="0"] .hero-flow-sync__cap-label--copy {
+  opacity: 1;
+}
+
+#hero-flow-sync[data-hero-flow-step="3"] .hero-flow-sync__cap-label--paste {
   opacity: 1;
 }
 
@@ -947,6 +962,10 @@ img {
   }
 
   .hero-flow-sync__cap-label {
+    display: none;
+  }
+
+  .hero-flow-sync__tap-hit {
     display: none;
   }
 }
