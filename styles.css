@@ -916,6 +916,21 @@ img {
   animation: hero-flow-sync-draw 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+.hero-flow-sync__cap-label {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  fill: var(--blue);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease;
+}
+
+.hero-flow-sync__cap-label.is-animating {
+  opacity: 1;
+}
+
 @keyframes hero-flow-sync-draw {
   from {
     stroke-dashoffset: var(--flow-path-len, 900);
@@ -928,6 +943,10 @@ img {
 
 @media (prefers-reduced-motion: reduce) {
   .hero-flow-sync__path {
+    display: none;
+  }
+
+  .hero-flow-sync__cap-label {
     display: none;
   }
 }

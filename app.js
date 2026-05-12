@@ -562,13 +562,33 @@
                   <path
                     class="hero-flow-sync__path hero-flow-sync__path--to-phone"
                     marker-end="url(#heroFlowSyncArrowhead)"
-                    d="M 433 282 C 548 198 702 232 776 319"
+                    d="M 433 282 C 548 198 702 232 776 312"
                   />
                   <path
                     class="hero-flow-sync__path hero-flow-sync__path--to-mac"
                     marker-end="url(#heroFlowSyncArrowhead)"
-                    d="M 824 472 C 632 565 415 455 313 344"
+                    d="M 799.8 472 C 632 565 415 455 313 344"
                   />
+                  <text
+                    class="hero-flow-sync__cap-label hero-flow-sync__cap-label--copy"
+                    x="418"
+                    y="284"
+                    text-anchor="end"
+                    dominant-baseline="middle"
+                    aria-hidden="true"
+                  >
+                    Copy
+                  </text>
+                  <text
+                    class="hero-flow-sync__cap-label hero-flow-sync__cap-label--paste"
+                    x="238"
+                    y="322"
+                    text-anchor="start"
+                    dominant-baseline="auto"
+                    aria-hidden="true"
+                  >
+                    Paste
+                  </text>
                 </svg>
               </div>
             </div>
@@ -1236,17 +1256,29 @@
     const syncRoot = document.getElementById("hero-flow-sync");
     const pathToPhone = syncRoot?.querySelector(".hero-flow-sync__path--to-phone");
     const pathToMac = syncRoot?.querySelector(".hero-flow-sync__path--to-mac");
+    const labelCopy = syncRoot?.querySelector(".hero-flow-sync__cap-label--copy");
+    const labelPaste = syncRoot?.querySelector(".hero-flow-sync__cap-label--paste");
     const ARROW_ANIM_MS = 1120;
 
-    function triggerFlowPathAnim(path) {
-      if (!path) return;
-      path.classList.remove("is-animating");
-      void path.getBoundingClientRect();
-      path.classList.add("is-animating");
-      window.clearTimeout(path._heroFlowHideT);
-      path._heroFlowHideT = window.setTimeout(() => {
+    function triggerFlowPathAnim(path, label) {
+      if (path) {
         path.classList.remove("is-animating");
-      }, ARROW_ANIM_MS);
+        void path.getBoundingClientRect();
+        path.classList.add("is-animating");
+        window.clearTimeout(path._heroFlowHideT);
+        path._heroFlowHideT = window.setTimeout(() => {
+          path.classList.remove("is-animating");
+        }, ARROW_ANIM_MS);
+      }
+      if (label) {
+        label.classList.remove("is-animating");
+        void label.getBoundingClientRect();
+        label.classList.add("is-animating");
+        window.clearTimeout(label._heroFlowHideT);
+        label._heroFlowHideT = window.setTimeout(() => {
+          label.classList.remove("is-animating");
+        }, ARROW_ANIM_MS);
+      }
     }
 
     function setActive(index) {
@@ -1259,8 +1291,8 @@
       const prev = active;
       active = (active + 1) % Math.max(flowItems.length, 1);
       setActive(active);
-      if (prev === 0 && active === 1) triggerFlowPathAnim(pathToPhone);
-      if (prev === 2 && active === 3) triggerFlowPathAnim(pathToMac);
+      if (prev === 0 && active === 1) triggerFlowPathAnim(pathToPhone, labelCopy);
+      if (prev === 2 && active === 3) triggerFlowPathAnim(pathToMac, labelPaste);
     }, 1700);
   }
 
