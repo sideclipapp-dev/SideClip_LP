@@ -491,7 +491,7 @@
             <h1 id="hero-title" class="hero__infographic-title">
               <span class="tap-infographic__title-stack">
                 <span class="tap-infographic__title-line tap-infographic__title-line--primary">
-                  スマホをあなたの<span class="tap-infographic__title-accent">“横のクリップボード”</span>に。
+                  スマホをMacの<span class="tap-infographic__title-accent">“横のクリップボード”</span>に。
                 </span>
               </span>
             </h1>
