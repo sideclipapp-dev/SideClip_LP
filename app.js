@@ -1,5 +1,5 @@
 (function () {
-  const ASSET_VERSION = "20260512-tap-icon-white-fill";
+  const ASSET_VERSION = "20260512-mac-screen-white-solid";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
   const PRE_REGISTRATION_FORM_URL = "https://forms.gle/KbNn5T3TBVz459HBA";
@@ -573,7 +573,7 @@
                   <path
                     class="hero-flow-sync__path hero-flow-sync__path--to-phone"
                     marker-end="url(#heroFlowSyncArrowhead)"
-                    d="M 433 282 C 548 198 702 173 776 253"
+                    d="M 433 274 C 548 192 702 173 776 253"
                   />
                   <path
                     class="hero-flow-sync__path hero-flow-sync__path--to-mac"
@@ -582,7 +582,7 @@
                   />
                   <text
                     class="hero-flow-sync__cap-label hero-flow-sync__cap-label--copy"
-                    x="418"
+                    x="432"
                     y="284"
                     text-anchor="end"
                     dominant-baseline="middle"
@@ -592,7 +592,7 @@
                   </text>
                   <text
                     class="hero-flow-sync__cap-label hero-flow-sync__cap-label--paste"
-                    x="238"
+                    x="224"
                     y="322"
                     text-anchor="start"
                     dominant-baseline="auto"
