@@ -190,7 +190,7 @@
     {
       icon: icon.tapFlow,
       title: "Tap to Paste",
-      text: "ワンタップで<br />即座にペースト。<br />ウィンドウ切替不要。",
+      text: "ワンタップで<br />即座にペースト。",
     },
     {
       icon: icon.media,
@@ -218,16 +218,16 @@
       text: "重要なクリップはスワイプし、価値あるデータだけ保持。<br />あなた専用のお気に入りコピペ集を作成できます。",
     },
     {
-      title: "Todoモード",
-      image: ASSETS.featureTodo,
-      alt: "Todoモード画面",
-      text: "カードをスワイプするだけでTodo化。<br />優先度設定するとカードの色が変わって一目瞭然。<br />Apple純正リマインダーアプリと同期可能。<br /><small>（Pro / Ultraプラン）</small>",
-    },
-    {
       title: "瞬時にMacをスクショ",
       image: ASSETS.featureScan,
       alt: "MacをキャプチャするSCAN画面",
-      text: "スマホの「SCAN」ボタンで、Macのスクショをリモート起動。<br />範囲指定するとクリップボード履歴にスクショが<br />カードとして自動同期されます。<br /><small>（Pro / Ultraプラン）</small>",
+      text: "スマホの「SCAN」ボタンで、Macのスクショをリモート起動。<br />範囲選択後、クリップボード履歴にスクショが<br />カードとして自動同期されます。<br />更にPro/Ultraプランでは、ペン入れ・トリミングも可能です。",
+    },
+    {
+      title: "Todoモード<small>（Pro / Ultraプラン）</small>",
+      image: ASSETS.featureTodo,
+      alt: "Todoモード画面",
+      text: "カードをスワイプするだけでTodo化。<br />優先度設定するとカードの色が変わって一目瞭然。<br />Apple純正リマインダーアプリと同期可能(Ultraプランのみ)",
     },
   ];
 
@@ -609,7 +609,7 @@
           </div>
 
           <div class="hero-scene-card" aria-labelledby="hero-scene-title">
-            <h2 id="hero-scene-title" class="hero-scene-card__title">こんなシーンでサッと活躍</h2>
+            <h2 id="hero-scene-title" class="hero-scene-card__title">こんなシーンで活躍</h2>
             <ul class="hero-scene-card__list">
               <li class="hero-scene-card__item">
                 <span class="hero-scene-card__icon" aria-hidden="true">
@@ -715,7 +715,7 @@
 
           <ul class="hero-kpis" aria-label="SideClipで得られる効果">
             <li>Mac専用アプリ</li>
-            <li>MacとiPhone/iPad/Androidスマホとつながる</li>
+            <li>MacとiPhone/iPad/Android端末とつながる</li>
           </ul>
           <a class="download-button" href="#" data-wip-download-trigger data-cta-id="hero_download_status" data-cta-section="hero" aria-label="事前登録特典で、Ultraプラン3か月無料クーポンをプレゼント">
             <!-- ${icon.download} -->
@@ -817,7 +817,8 @@
                 多くのクリップボードマネージャーは、使うたびにMacの画面内で「呼び出す」必要があります。
               </p>
               <p>
-                画面の切り替え・ウィンドウの重なりで、集中が途切れてしまったり、ペースト用ショートカットを忘れてしまったり…
+                画面の切り替え・ウィンドウの重なりで、集中が途切れることも、<br />
+                マウスカーソルを見失ったり、ペースト用ショートカットを忘れたりすることもあります。
               </p>
               <p class="clipboard-shift__emphasis">SideClipは、発想を変えました。</p>
               <p>
@@ -897,7 +898,7 @@
                 </p>
                 <h3 class="usage-scenes__case-title">繰り返しの出品作業やメッセージ返信を爆速化。</h3>
                 <p class="usage-scenes__case-text">
-                  せどりなどで、大量に商品を入荷・出品・発送される方へ。<br />副業や事務作業のコピペ効率を上げて、収益も上げましょう！
+                  せどりなどで、大量に商品を入荷・出品・発送される方へ。<br />コピペの快適性と時間短縮により、チリツモで効率を積み上げ、事業収益の向上に直結します。
                 </p>
               </article>
             </div>
@@ -963,7 +964,7 @@
                         <strong>スマホ・タブレット：</strong><br />
                         iOS/Android/iPadOSなど、Webブラウザが動けば基本的に動作します。<br />
                         <span class="faq__note">（端末の性能により動作が重くなる場合もあります）</span><br />
-                        <span class="faq__note">Safari/Chromeで開発・動作確認済み。<br />最新バージョンのブラウザをご使用ください。<br />セキュリティのためにも、最新バージョンのブラウザをご使用ください。</span>
+                        <span class="faq__note">Safari/Chromeで開発・動作確認済み。<br />セキュリティのためにも、最新バージョンのブラウザをご使用ください。</span>
                       </li>
                     </ul>
                   </div>
@@ -971,8 +972,37 @@
                 <details class="faq__item">
                   <summary class="faq__summary">無料で利用できますか？有料プランとの違いは何ですか？</summary>
                   <div class="faq__answer">
-                    <p>Freeプランで基本機能は無料でご利用いただけます。<br />有料プランの前にご自身の環境で動作確認をお勧めいたします。</p>
-                    <p>Proプラン・Ultraプランは、より便利な機能が解放されます。<br />詳しくはアプリインストール後、スマホ側画面に表示されるメニュー内の「プラン」をご確認ください。</p>
+                    <p>Freeプランで基本機能が無料でご利用いただけます。<br />有料プランの前にご自身の環境で動作確認をお勧めいたします。</p>
+                    <p>Proプラン・Ultraプランは、より便利な機能が解放されます。<br />詳しくはアプリインストール後の設定メニュー内「プラン比較表」をご確認ください。</p>
+                  </div>
+                </details>
+                <details class="faq__item">
+                  <summary class="faq__summary">各プランの料金はいくらですか？</summary>
+                  <div class="faq__answer">
+                    <p>継続的なアプリ改善と新機能の開発原資として月額プランを設けています。<br />Freeプランで気に入ってくださった方は、より使いやすく多機能な有料プランの検討をお願いいたします。</p>
+                    <dl class="faq__plans">
+                      <div class="faq__plan">
+                        <dt>Freeプラン</dt>
+                        <dd>
+                          <span class="faq__plan-price">無料</span><br />
+                          SideClipをご体感ください。ご自身の環境で動作確認をお願いいたします。
+                        </dd>
+                      </div>
+                      <div class="faq__plan">
+                        <dt>Proプラン</dt>
+                        <dd>
+                          <span class="faq__plan-price">月額480円（1日あたり16円）</span><br />
+                          Freeプランでは物足りない方へ。Todo機能など便利な機能が解放されます。
+                        </dd>
+                      </div>
+                      <div class="faq__plan">
+                        <dt>Ultraプラン</dt>
+                        <dd>
+                          <span class="faq__plan-price">月額900円（1日あたり30円）</span><br />
+                          全機能解放・今後の新機能や改善のアップデートを最優先に提供します。
+                        </dd>
+                      </div>
+                    </dl>
                   </div>
                 </details>
               </div>
