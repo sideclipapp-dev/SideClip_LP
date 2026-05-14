@@ -224,7 +224,7 @@
       text: "スマホの「SCAN」ボタンで、Macのスクショをリモート起動。<br />範囲選択後、クリップボード履歴にスクショが<br />カードとして自動同期されます。<br />更にPro/Ultraプランでは、ペン入れ・トリミングも可能です。",
     },
     {
-      title: "Todoモード<small>（Pro / Ultraプラン）</small>",
+      title: "Todoモード<br /><small>（Pro / Ultraプラン）</small>",
       image: ASSETS.featureTodo,
       alt: "Todoモード画面",
       text: "カードをスワイプするだけでTodo化。<br />優先度設定するとカードの色が変わって一目瞭然。<br />Apple純正リマインダーアプリと同期可能(Ultraプランのみ)",
@@ -841,9 +841,6 @@
             <div class="feature-grid">
               ${renderFeatures()}
             </div>
-            <p class="features__plan-note">
-              まずは<strong class="features__plan-note-free">Freeプラン</strong>から。コピペなど基本機能が使えて無料です。<br />さらにコピー履歴の保存件数アップやTodoモードなど、作業をさらに加速させる<span class="features__plan-note-paid"><span class="features__plan-note-tier">Pro / Ultra</span>プラン</span>もご用意しています。
-            </p>
           </div>
         </section>
 
@@ -979,7 +976,7 @@
                 <details class="faq__item">
                   <summary class="faq__summary">各プランの料金はいくらですか？</summary>
                   <div class="faq__answer">
-                    <p>継続的なアプリ改善と新機能の開発原資として月額プランを設けています。<br />Freeプランで気に入ってくださった方は、より使いやすく多機能な有料プランの検討をお願いいたします。</p>
+                    <p>継続的なアプリ改善・新機能開発の原資として月額プランを設けています。<br />Freeプランで気に入ってくださった方は、より使いやすく多機能な有料プランの検討をお願いいたします。</p>
                     <dl class="faq__plans">
                       <div class="faq__plan">
                         <dt>Freeプラン</dt>
