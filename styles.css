@@ -2589,8 +2589,12 @@ img {
   width: 100%;
 }
 
-.local-sync__heading {
+.local-sync__reveal > .reveal__head {
   grid-column: 1 / -1;
+  width: 100%;
+}
+
+.local-sync__heading {
   margin: 0;
   text-align: center;
   font-size: var(--fs-section-title);
