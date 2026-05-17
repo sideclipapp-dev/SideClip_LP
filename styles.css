@@ -32,6 +32,8 @@
   --motion-reveal-distance: 58px;
   /* 終盤をやや長く感じさせる（遅いスクロールでもじわっと見える） */
   --motion-reveal-ease: cubic-bezier(0.18, 0.88, 0.28, 1);
+  --motion-reveal-head-delay: 200ms;
+  --motion-reveal-rest-delay: 550ms;
   /* 法務フッター（最終CTA からの色相連続・ダークバンド） */
   --footer-legal-bg-top: #0a4fae;
   --footer-legal-bg-bottom: #041e3d;
@@ -1440,14 +1442,14 @@ img {
 }
 
 /* ヒーロー：ダウンロードボタンと注釈を中央揃え */
-.hero__content > .download-button {
+.hero__content .download-button {
   display: flex;
   margin-left: auto;
   margin-right: auto;
 }
 
-.hero__content > .download-microcopy,
-.hero__content > .os-note {
+.hero__content .download-microcopy,
+.hero__content .os-note {
   margin-left: auto;
   margin-right: auto;
 }
@@ -2395,15 +2397,15 @@ img {
 }
 
 .usage-scenes__reveal.is-visible .usage-scenes__case:nth-child(1) {
-  transition-delay: 560ms;
+  transition-delay: calc(var(--motion-reveal-head-delay) + var(--motion-reveal-rest-delay) + 560ms);
 }
 
 .usage-scenes__reveal.is-visible .usage-scenes__case:nth-child(2) {
-  transition-delay: 920ms;
+  transition-delay: calc(var(--motion-reveal-head-delay) + var(--motion-reveal-rest-delay) + 920ms);
 }
 
 .usage-scenes__reveal.is-visible .usage-scenes__case:nth-child(3) {
-  transition-delay: 1280ms;
+  transition-delay: calc(var(--motion-reveal-head-delay) + var(--motion-reveal-rest-delay) + 1280ms);
 }
 
 .usage-scenes__case-badge {
@@ -3653,17 +3655,38 @@ main.page-shell > article.doc-page--terms section ol.terms-sublist:has(> li:only
 }
 
 .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal__head,
+.reveal__rest {
   opacity: 0;
   transform: translate3d(0, var(--motion-reveal-distance), 0);
-  /* transition-delay は JS 側で制御（初回ペイント前に is-visible が付くとアニメが発火しないのを避ける） */
   transition:
     opacity var(--motion-reveal-duration) var(--motion-reveal-ease) 0ms,
     transform var(--motion-reveal-duration) var(--motion-reveal-ease) 0ms;
 }
 
-.reveal.is-visible {
+.reveal__head,
+.reveal__rest {
+  transition-delay: 0ms;
+}
+
+.reveal.is-visible .reveal__head {
   opacity: 1;
   transform: translate3d(0, 0, 0);
+  transition-delay: var(--motion-reveal-head-delay);
+}
+
+.reveal.is-visible .reveal__rest {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: calc(var(--motion-reveal-head-delay) + var(--motion-reveal-rest-delay));
+}
+
+.local-sync__reveal > .reveal__rest {
+  display: contents;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3676,7 +3699,8 @@ main.page-shell > article.doc-page--terms section ol.terms-sublist:has(> li:only
     animation-iteration-count: 1 !important;
   }
 
-  .reveal {
+  .reveal__head,
+  .reveal__rest {
     opacity: 1;
     transform: none;
     transition-delay: 0ms !important;
@@ -3872,9 +3896,9 @@ main.page-shell > article.doc-page--terms section ol.terms-sublist:has(> li:only
   }
 
   /* ヒーロー CTA 列：幅を揃えたうえでブロックごと中央寄せし、注釈とボタンの中心を一致させる */
-  .hero__content > .download-button,
-  .hero__content > .download-microcopy,
-  .hero__content > .os-note {
+  .hero__content .download-button,
+  .hero__content .download-microcopy,
+  .hero__content .os-note {
     margin-left: auto;
     margin-right: auto;
   }

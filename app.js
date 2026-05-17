@@ -483,8 +483,11 @@
         </div>
 
         <div class="content-overlay">
-        <div class="hero__content reveal is-visible">
-          <p class="hero__banner-copy">画面の切り替えは、もう不要。</p>
+        <div class="hero__content reveal">
+          <div class="reveal__head">
+            <h2 class="hero__banner-copy">画面の切り替えは、もう不要。</h2>
+          </div>
+          <div class="reveal__rest">
           <p class="hero__hook">「さっきコピーしたデータ、どこだっけ？」<br />「もう一度コピーしなきゃ」</p>
           <p class="hero__hook">コピペが増えるほど、画面の行き来が重なります。</p>
           <div class="hero__infographic-card">
@@ -723,14 +726,18 @@
           </a>
           <p class="download-microcopy">※現在リリース準備中</p>
           <p class="os-note">Apple Silicon搭載のMacに対応</p>
+          </div>
         </div>
         <section id="concept-video" class="concept-video reveal" aria-labelledby="concept-video-title">
           <div class="concept-video__copy">
-            <h2 id="concept-video-title">コンセプト動画で<br />SideClipを知る</h2>
-            <p>30秒でわかる、常時表示のコピペ体験</p>
-            
+            <div class="reveal__head">
+              <h2 id="concept-video-title">コンセプト動画で<br />SideClipを知る</h2>
+            </div>
+            <div class="reveal__rest">
+              <p>30秒でわかる、常時表示のコピペ体験</p>
+            </div>
           </div>
-          <div class="concept-video__visual" aria-label="コンセプト動画（YouTube）">
+          <div class="reveal__rest concept-video__visual" aria-label="コンセプト動画（YouTube）">
             <div class="concept-video__embed concept-video__embed--poster">
               <button type="button" class="concept-video__facade" data-cta-id="concept_video_play" data-cta-section="concept_video" aria-label="コンセプト動画を再生する（約30秒・YouTube）">
                 <img
@@ -756,42 +763,57 @@
         <section class="tap-section" aria-labelledby="tap-title">
           <div class="tap-section__reveal reveal">
             <div class="section-copy section-copy--tap">
-              <h2 id="tap-title">指先ひとつの <span>「Tap to Paste」</span></h2>
-              <p>
-                スマホ画面に並んだカードを<wbr />タップするだけ。<br class="desktop-break" /><br class="mobile-break" />
-                <span class="tap-emphasis">キーボードの拡張デバイス</span>のような感覚で、<wbr />使い方は無限大。<br class="desktop-break" /><br class="mobile-break" />
-                1日に何回コピペ・スクショをしますか？<br />Macのウィンドウ切り替えを減らし、<br class="mobile-break" />集中して作業効率を上げましょう。
-                <br class="mobile-break" />
-              </p>
+              <div class="reveal__head">
+                <h2 id="tap-title">指先ひとつの <span>「Tap to Paste」</span></h2>
+              </div>
+              <div class="reveal__rest">
+                <p>
+                  スマホ画面に並んだカードを<wbr />タップするだけ。<br class="desktop-break" /><br class="mobile-break" />
+                  <span class="tap-emphasis">キーボードの拡張デバイス</span>のような感覚で、<wbr />使い方は無限大。<br class="desktop-break" /><br class="mobile-break" />
+                  1日に何回コピペ・スクショをしますか？<br />Macのウィンドウ切り替えを減らし、<br class="mobile-break" />集中して作業効率を上げましょう。
+                  <br class="mobile-break" />
+                </p>
+              </div>
             </div>
+            <div class="reveal__rest">
             <ol class="steps" aria-label="Tap to Pasteの4ステップ">
               ${renderSteps()}
             </ol>
+            </div>
           </div>
         </section>
 
         <section class="benefits" aria-labelledby="benefits-title">
           <div class="benefits__reveal reveal">
             <div class="section-copy">
-              <h2 id="benefits-title">作業の流れを、止めない。</h2>
-              <p>
-                SideClipのリスト操作は、<br />スワイプとタップで非常にスムーズに動作します。<br />
-                コピー履歴の確認からペーストまで、<br />
-                直感的な操作で完了できます。
-              </p>
+              <div class="reveal__head">
+                <h2 id="benefits-title">作業の流れを、止めない。</h2>
+              </div>
+              <div class="reveal__rest">
+                <p>
+                  SideClipのリスト操作は、<br />スワイプとタップで非常にスムーズに動作します。<br />
+                  コピー履歴の確認からペーストまで、<br />
+                  直感的な操作で完了できます。
+                </p>
+              </div>
             </div>
+            <div class="reveal__rest">
             <div class="benefit-grid">
               ${renderBenefits()}
+            </div>
             </div>
           </div>
         </section>
 
         <section class="clipboard-shift" aria-labelledby="clipboard-shift-title">
           <div class="clipboard-shift__reveal reveal">
-            <h2 id="clipboard-shift-title" class="clipboard-shift__title">
-              呼び出すクリップボードから、<br />
-              横に置くクリップボードへ
-            </h2>
+            <div class="reveal__head">
+              <h2 id="clipboard-shift-title" class="clipboard-shift__title">
+                呼び出すクリップボードから、<br />
+                横に置くクリップボードへ
+              </h2>
+            </div>
+            <div class="reveal__rest">
             <figure class="clipboard-shift__figure">
               <button
                 type="button"
@@ -832,21 +854,29 @@
                 クリップボードが“画面の中で操作するもの”から、“横に置いて使うもの”へ変わります。
               </p>
             </div>
+            </div>
           </div>
         </section>
 
         <section class="features" aria-labelledby="features-title">
           <div class="features__reveal reveal">
-            <h2 id="features-title">SideClipの主な機能</h2>
+            <div class="reveal__head">
+              <h2 id="features-title">SideClipの主な機能</h2>
+            </div>
+            <div class="reveal__rest">
             <div class="feature-grid">
               ${renderFeatures()}
+            </div>
             </div>
           </div>
         </section>
 
         <section class="usage-scenes" aria-labelledby="usage-scenes-title">
           <div class="usage-scenes__reveal reveal">
-            <h2 id="usage-scenes-title">具体的な使用シーン</h2>
+            <div class="reveal__head">
+              <h2 id="usage-scenes-title">具体的な使用シーン</h2>
+            </div>
+            <div class="reveal__rest">
             <figure class="usage-scenes__figure">
               <button
                 type="button"
@@ -895,16 +925,20 @@
                 </p>
                 <h3 class="usage-scenes__case-title">繰り返しの出品作業やメッセージ返信を爆速化。</h3>
                 <p class="usage-scenes__case-text">
-                  せどりなどで、大量に商品を入荷・出品・発送される方へ。<br />コピペの快適性と時間短縮により、チリツモで効率を積み上げ、事業収益の向上に直結します。
+                  せどりなどで、大量に商品を入荷・出品・発送される方へ。<br />コピペの快適性と効率化により、チリツモで時短。<br />時間効率は、収益の向上に直結します。
                 </p>
               </article>
+            </div>
             </div>
           </div>
         </section>
 
         <section class="local-sync" aria-labelledby="local-title">
           <div class="local-sync__reveal reveal">
-            <h2 id="local-title" class="local-sync__heading">大事なコピー履歴は、<br />クラウドに出さない。<br /><span class="local-sync__title-nowrap">ローカル通信で安全かつ高速。</span></h2>
+            <div class="reveal__head">
+              <h2 id="local-title" class="local-sync__heading">大事なコピー履歴は、<br />クラウドに出さない。<br /><span class="local-sync__title-nowrap">ローカル通信で安全かつ高速。</span></h2>
+            </div>
+            <div class="reveal__rest">
             <div class="sync-graphic" aria-hidden="true">
               <div class="sync-graphic__row">
                 ${syncDataLineRail}
@@ -939,12 +973,16 @@
                 <span>プライベート</span>
               </div>
             </div>
+            </div>
           </div>
         </section>
 
         <section class="faq reveal" id="faq" aria-labelledby="faq-title">
           <div class="faq__inner">
-            <h2 id="faq-title" class="faq__title">FAQ</h2>
+            <div class="reveal__head">
+              <h2 id="faq-title" class="faq__title">FAQ</h2>
+            </div>
+            <div class="reveal__rest">
 
             <div class="faq__group">
               <h3 class="faq__group-title">導入について</h3>
@@ -1044,20 +1082,25 @@
                 </details>
               </div>
             </div>
+            </div>
           </div>
         </section>
 
         <section class="final-cta reveal" id="download" aria-labelledby="cta-title">
           <div class="final-cta__copy">
-            <h2 id="cta-title"><span class="final-cta__line--nowrap">クリップボードの概念を、変える。</span></h2>
-            <p>
-              SideClipは、コピー履歴を探す時間を減らし、<br />
-              いつものコピペをもっとスムーズにします。<br />
-              Mac横のクリップボードで作業が快適に。
-            </p>
-            <strong><span class="final-cta__line--nowrap">新たなクリップボードを体験しよう。</span></strong>
+            <div class="reveal__head">
+              <h2 id="cta-title"><span class="final-cta__line--nowrap">クリップボードの概念を、変える。</span></h2>
+            </div>
+            <div class="reveal__rest">
+              <p>
+                SideClipは、コピー履歴を探す時間を減らし、<br />
+                いつものコピペをもっとスムーズにします。<br />
+                Mac横のクリップボードで作業が快適に。
+              </p>
+              <strong><span class="final-cta__line--nowrap">新たなクリップボードを体験しよう。</span></strong>
+            </div>
           </div>
-          <div class="final-cta__action">
+          <div class="reveal__rest final-cta__action">
             <a class="download-button download-button--light" href="#" data-wip-download-trigger data-cta-id="final_download_status" data-cta-section="final_cta" aria-label="事前登録で、Ultraプラン3か月無料クーポンをプレゼント">
               <!-- ${icon.download} -->
               事前登録で<br />全機能お試し3か月無料<br />クーポンプレゼント
@@ -1185,7 +1228,7 @@
     }
 
     function queueRevealVisible(el) {
-      if (!el || el.classList.contains("hero__content")) return;
+      if (!el) return;
       if (el.classList.contains("is-visible")) return;
       /* 既に表示予約中なら再スケジュールしない（遅スクロールで遅延が永遠に延びない） */
       if (revealShowArm.has(el) || revealEnterTimers.has(el)) return;
@@ -1268,6 +1311,11 @@
         queueRevealVisible(target);
       });
     }, 3200);
+
+    const heroContent = document.querySelector(".hero__content.reveal");
+    if (heroContent) {
+      queueRevealVisible(heroContent);
+    }
   }
 
   function initHeroFlowSyncDashLengths() {
