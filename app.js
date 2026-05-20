@@ -838,13 +838,18 @@
               <div class="clipboard-shift__compare">
                 <div class="clipboard-shift__compare-block clipboard-shift__compare-block--others">
                   <p class="clipboard-shift__prose-title">多くのクリップボードアプリで起こりがちなこと</p>
-                  <p>
-                    コピー履歴をMacの<span class="clipboard-shift__inline-accent">画面内で「呼び出し」</span>、<br />ペーストするたびにポインターを動かしてクリックするのが一般的です。<br />
-                  </p>
-                  <p>
-                    ウィンドウの切り替えや重なりで、集中が途切れやすく、<br />
-                    ポインター位置を見失ったり、ペースト用ショートカットを忘れてしまうこともあります。
-                  </p>
+                  <ul class="clipboard-shift__bullets">
+                    <li>
+                      コピー履歴をMacの<span class="clipboard-shift__inline-accent">画面内</span>で呼び出すので、<br />
+                      <span class="clipboard-shift__inline-accent">ウィンドウの切り替えや重なりで集中が途切れやすい。</span>
+                    </li>
+                    <li>
+                      ペーストするたびにポインターを動かしてクリックするので、<br /><span class="clipboard-shift__inline-accent">ポインターの位置を見失う。</span>
+                    </li>
+                    <li>
+                      ペースト用ショートカットの設定が面倒で使わなくなったり、<br /><span class="clipboard-shift__inline-accent">設定したショートカットを忘れてしまう。</span>
+                    </li>
+                  </ul>
                 </div>
                 <div class="clipboard-shift__compare-block clipboard-shift__compare-block--sideclip">
                   <p class="clipboard-shift__prose-title clipboard-shift__prose-title--sideclip">SideClipアプリ</p>
@@ -853,7 +858,7 @@
                     Macの作業を見たまま、スマホでコピー履歴をタップしてペースト。
                   </p>
                   <p>
-                    Macの横に<strong class="clipboard-shift__strong-accent">いつも表示されたコピー履歴</strong>として置いておけるため、
+                    Macの横に<strong class="clipboard-shift__strong-accent">いつも表示されたコピー履歴</strong>として置いておけるため、<br />
                     探す・呼び出す・思い出す負担が減り、コピペがより直感的になります。
                   </p>
                   <p>

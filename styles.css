@@ -2192,6 +2192,19 @@ img {
   font-weight: var(--text-weight);
 }
 
+.clipboard-shift__bullets {
+  margin: 0;
+  padding: 0 0 0 1.15em;
+  color: var(--muted);
+  font-size: var(--fs-body);
+  line-height: 1.78;
+  font-weight: var(--text-weight);
+}
+
+.clipboard-shift__bullets li + li {
+  margin-top: 0.65em;
+}
+
 .clipboard-shift__prose .clipboard-shift__emphasis {
   margin-bottom: 0.95em;
   color: var(--ink);
