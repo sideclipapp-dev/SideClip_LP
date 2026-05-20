@@ -835,24 +835,32 @@
               </button>
             </figure>
             <div class="clipboard-shift__prose">
-              <p>
-                多くのクリップボードマネージャーは、使うたびにMacの画面内で「呼び出す」必要があります。
-              </p>
-              <p>
-                画面の切り替え・ウィンドウの重なりで、集中が途切れることも、<br />
-                マウスカーソルを見失ったり、ペースト用ショートカットを忘れたりすることもあります。
-              </p>
-              <p class="clipboard-shift__emphasis">SideClipは、発想を変えました。</p>
-              <p>
-                Mac画面の中で「呼び出す」のではなく、
-                スマホを「横に置いて常時表示」のクリップボード画面として使います。
-              </p>
-              <p>
-                探す・思い出す・呼び出す負担を減らし、コピペをもっと直感的に。
-              </p>
-              <p>
-                クリップボードが“画面の中で操作するもの”から、“横に置いて使うもの”へ変わります。
-              </p>
+              <div class="clipboard-shift__compare">
+                <div class="clipboard-shift__compare-block clipboard-shift__compare-block--others">
+                  <p class="clipboard-shift__prose-title">多くのクリップボードアプリで起こりがちなこと</p>
+                  <p>
+                    コピー履歴をMacの<span class="clipboard-shift__inline-accent">画面内で「呼び出し」</span>、<br />ペーストするたびにポインターを動かしてクリックするのが一般的です。<br />
+                  </p>
+                  <p>
+                    ウィンドウの切り替えや重なりで、集中が途切れやすく、<br />
+                    ポインター位置を見失ったり、ペースト用ショートカットを忘れてしまうこともあります。
+                  </p>
+                </div>
+                <div class="clipboard-shift__compare-block clipboard-shift__compare-block--sideclip">
+                  <p class="clipboard-shift__prose-title clipboard-shift__prose-title--sideclip">SideClipアプリ</p>
+                  <p class="clipboard-shift__emphasis">
+                    <span class="clipboard-shift__emphasis-lead">呼び出すのではなく、横に置く。</span><br />
+                    Macの作業を見たまま、スマホでコピー履歴をタップしてペースト。
+                  </p>
+                  <p>
+                    Macの横に<strong class="clipboard-shift__strong-accent">いつも表示されたコピー履歴</strong>として置いておけるため、
+                    探す・呼び出す・思い出す負担が減り、コピペがより直感的になります。
+                  </p>
+                  <p>
+                    「画面の中で操作するクリップボード」から、「横に置いて使うクリップボード」へ。
+                  </p>
+                </div>
+              </div>
             </div>
             </div>
           </div>

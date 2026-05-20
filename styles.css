@@ -2121,6 +2121,69 @@ img {
   text-align: left;
 }
 
+.clipboard-shift__prose-title {
+  margin: 0 0 0.75em;
+  padding-bottom: 0.55em;
+  border-bottom: 1px solid rgba(30, 116, 217, 0.18);
+  color: var(--ink);
+  font-size: clamp(17px, 2.35vw, 21px);
+  line-height: 1.32;
+  font-weight: var(--heading-weight);
+  letter-spacing: -0.03em;
+}
+
+.clipboard-shift__compare {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2.6vw, 32px);
+}
+
+.clipboard-shift__compare-block--others {
+  padding-bottom: clamp(4px, 0.8vw, 8px);
+  border-bottom: 1px dashed rgba(37, 57, 85, 0.14);
+}
+
+.clipboard-shift__compare-block--others .clipboard-shift__prose-title {
+  margin-bottom: 0.65em;
+}
+
+.clipboard-shift__compare-block--sideclip {
+  padding: clamp(16px, 2.2vw, 24px) clamp(18px, 2.4vw, 26px);
+  border-radius: 14px;
+  background: linear-gradient(
+    165deg,
+    rgba(234, 245, 255, 0.88) 0%,
+    rgba(248, 252, 255, 0.96) 56%,
+    rgba(255, 255, 255, 0.99) 100%
+  );
+  border: 1px solid rgba(30, 116, 217, 0.16);
+  box-shadow: 0 8px 22px rgba(14, 54, 96, 0.06);
+}
+
+.clipboard-shift__compare-block--sideclip .clipboard-shift__prose-title {
+  margin-bottom: 0.65em;
+  border-bottom-color: rgba(8, 121, 237, 0.22);
+}
+
+.clipboard-shift__prose-title--sideclip {
+  color: var(--blue-strong);
+}
+
+.clipboard-shift__strong-muted {
+  font-weight: var(--heading-weight);
+  color: #3d4f66;
+}
+
+.clipboard-shift__strong-accent {
+  font-weight: var(--heading-weight);
+  color: var(--blue-strong);
+}
+
+.clipboard-shift__inline-accent {
+  color: var(--blue-strong);
+  font-weight: var(--heading-weight);
+}
+
 .clipboard-shift__prose p {
   margin: 0 0 1.05em;
   color: var(--muted);
@@ -2130,11 +2193,23 @@ img {
 }
 
 .clipboard-shift__prose .clipboard-shift__emphasis {
-  color: var(--blue);
-  font-weight: var(--heading-weight);
+  margin-bottom: 0.95em;
+  color: var(--ink);
+  font-size: clamp(15px, 2vw, 17px);
+  line-height: 1.65;
+  font-weight: var(--text-weight);
 }
 
-.clipboard-shift__prose p:last-child {
+.clipboard-shift__emphasis-lead {
+  display: inline-block;
+  margin-bottom: 0.35em;
+  color: var(--blue);
+  font-size: clamp(16px, 2.1vw, 18px);
+  font-weight: var(--heading-weight);
+  letter-spacing: -0.02em;
+}
+
+.clipboard-shift__compare-block:last-child p:last-child {
   margin-bottom: 0;
 }
 
