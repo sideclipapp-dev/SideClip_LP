@@ -844,10 +844,10 @@
                       <span class="clipboard-shift__inline-accent">ウィンドウの切り替えや重なりで集中が途切れやすい。</span>
                     </li>
                     <li>
-                      ペーストするたびにポインターを動かしてクリックするので、<br /><span class="clipboard-shift__inline-accent">ポインターの位置を見失う。</span>
+                      ペーストのたびにポインターを動かすので、<br /><span class="clipboard-shift__inline-accent">ポインターの位置を見失う。</span>
                     </li>
                     <li>
-                      ペースト用ショートカットの設定が面倒で使わなくなったり、<br /><span class="clipboard-shift__inline-accent">設定したショートカットを忘れてしまう。</span>
+                      ペースト用ショートカット設定が面倒。<br /><span class="clipboard-shift__inline-accent">設定したショートカットを忘れてしまう。</span>
                     </li>
                   </ul>
                 </div>
