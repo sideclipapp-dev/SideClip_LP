@@ -126,27 +126,27 @@
   /** ヒーロー mini-flow と Tap セクションの4ステップで共通（ラベル・アイコン・アニメ連動を同期） */
   const tapFlowSteps = [
     {
-      number: "1",
-      title: "Macで<br />コピー",
+      number: "01",
+      title: "コピー",
       iconSrc: ASSETS.flowIconMac,
       alt: "Macでコピーするステップ",
     },
     {
-      number: "2",
-      title: "スマホに<br />自動追加",
+      number: "02",
+      title: "表示",
       iconSrc: ASSETS.flowIconPhone,
       alt: "スマホへコピー内容が自動追加されるステップ",
       labelAccent: true,
     },
     {
-      number: "3",
-      title: "スマホを<br />タップ",
+      number: "03",
+      title: "タップ",
       iconSrc: ASSETS.flowIconTap,
       alt: "スマホ画面をタップするステップ",
     },
     {
-      number: "4",
-      title: "Macに<br />即ペースト",
+      number: "04",
+      title: "ペースト",
       iconSrc: ASSETS.flowIconCheck,
       alt: "Macへ即座にペーストされるステップ",
     },
@@ -184,50 +184,54 @@
   const benefits = [
     {
       icon: icon.eye,
-      title: "横目でサッと確認",
-      text: "スマホに常時表示。<br />必要なコピー履歴をすぐに<br />見つけられます。",
+      title: "横に置いて確認",
+      text: "必要な履歴が視界に残り、<br />作業中の画面を隠しません。",
     },
     {
       icon: icon.tapFlow,
-      title: "Tap to Paste",
-      text: "ワンタップで<br />即座にペースト。",
+      title: "タップで貼り付け",
+      text: "カードに触れるだけで、<br />Macへすぐにペースト。",
     },
     {
       icon: icon.media,
-      title: "テキスト・画像に対応",
-      text: "あらゆるコピー履歴を<br />スマホで管理。<br />スクショも画像もOK。",
+      title: "画像もそのまま",
+      text: "テキスト、URL、スクショまで<br />手元に並べておけます。",
     },
     {
       icon: icon.lock,
-      title: "ローカル同期で安心",
-      text: "クリップボード履歴データは<br />外部に送信されません。<br />安全かつ高速。",
+      title: "ローカルで同期",
+      text: "同じWi-Fi内でつながり、<br />コピー履歴をクラウドへ出しません。",
     },
   ];
 
   const features = [
     {
-      title: "クリップボード履歴",
+      eyebrow: "History",
+      title: "コピー履歴を、手元に。",
       image: ASSETS.featureHistory,
       alt: "クリップボード履歴画面",
-      text: "コピーした内容を自動で保存。<br />クラウドを介さないので瞬時に表示されます。<br />一定以上溜まったカードは自動で削除されます。",
+      text: "テキスト、URL、画像を自動保存。<br />必要なカードをスマホ側ですぐ見つけられます。",
     },
     {
-      title: "Favorite（お気に入り)",
+      eyebrow: "Favorite",
+      title: "大事なものだけ、残す。",
       image: ASSETS.featureFavorite,
       alt: "お気に入り保存画面",
-      text: "重要なクリップはスワイプし、価値あるデータだけ保持。<br />あなた専用のお気に入りコピペ集を作成できます。",
+      text: "よく使う定型文やリンクを保存。<br />一度まとめれば、次から探す時間を減らせます。",
     },
     {
-      title: "瞬時にMac画面をスクショ",
+      eyebrow: "Screenshot",
+      title: "Macの画面も、カードに。",
       image: ASSETS.featureScan,
       alt: "MacをキャプチャするSCAN画面",
-      text: "スマホの「SCAN」ボタンで、Macのスクショをリモート起動。<br />範囲選択後、クリップボード履歴にスクショが<br />カードとして自動同期されます。<br />更にPro/Ultraプランでは、ペン入れ・トリミングも可能です。",
+      text: "スマホからMacのスクショを起動。<br />撮った画像を、そのまま履歴に並べられます。",
     },
     {
-      title: "Todoモード<br /><small>（Pro / Ultraプラン）</small>",
+      eyebrow: "Todo",
+      title: "あとで使うものを、Todoに。",
       image: ASSETS.featureTodo,
       alt: "Todoモード画面",
-      text: "カードをスワイプするだけでTodo化。<br />優先度設定するとカードの色が変わって一目瞭然。<br />Apple純正リマインダーアプリと同期可能(Ultraプランのみ)",
+      text: "カードをスワイプしてTodo化。<br />優先度を付けて、あとで使うコピーを見失いません。",
     },
   ];
 
@@ -297,6 +301,7 @@
       .map(
         (feature) => `
           <article class="feature-card interactive-card">
+            <p class="feature-card__eyebrow">${feature.eyebrow}</p>
             <h3>${feature.title}</h3>
             <p>${feature.text}</p>
             <button
@@ -343,7 +348,7 @@
               <span>Side</span><strong>Clip</strong>
             </a>
             <p class="hero__tagline" title="Clipboard app for Mac" aria-hidden="true">
-              <span lang="en">Clipboard app for Mac</span>
+              <span lang="en">Clipboard app</span>
             </p>
           </div>
           <button
@@ -398,67 +403,28 @@
                   </div>
                 </div>
                 <div class="hero__banner-overlay" aria-label="SideClipの紹介">
+                  <p class="hero__banner-eyebrow hero__banner-overlay-line hero__banner-overlay-line--eyebrow">
+                    SideClip for Mac
+                  </p>
                   <p class="hero__banner-overlay-lead hero__banner-overlay-line hero__banner-overlay-line--lead">
-                    Macのコピー履歴を、<br />画面の<span class="hero__banner-accent">「外」</span>へ。
+                    コピー履歴を、<br />Macの<span class="hero__banner-accent">外</span>へ。
                   </p>
                   <p class="hero__banner-overlay-sub hero__banner-overlay-line hero__banner-overlay-line--sub">
-                    スマホを常時表示の<br />クリップボード拡張デバイスに。
+                    スマホを横に置くだけ。<br />コピーしたものが、いつも視界に。
                   </p>
-                  <ul class="hero__banner-pills" aria-label="主な特長">
-                    <li class="hero__banner-pill">
-                      <span class="hero__banner-pill-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="24" height="24" focusable="false" fill="none" aria-hidden="true">
-                          <rect x="5.25" y="2.75" width="13.5" height="19.5" rx="2.75" stroke="currentColor" stroke-width="1.45" />
-                          <line x1="9.5" y1="20.35" x2="14.5" y2="20.35" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" opacity="0.45" />
-                          <rect x="8.1" y="7.35" width="7.8" height="9.4" rx="1.05" stroke="currentColor" stroke-width="1.35" />
-                          <path d="M8.1 9.85h2.35l.75-1.15" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
-                          <line x1="10.35" y1="12.15" x2="14.55" y2="12.15" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-                          <line x1="10.35" y1="14.05" x2="14.2" y2="14.05" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-                          <line x1="10.35" y1="15.9" x2="13.5" y2="15.9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-                        </svg>
-                      </span>
-                      <span>常時表示</span>
-                    </li>
-                    <li class="hero__banner-pill">
-                      <span class="hero__banner-pill-icon hero__banner-pill-icon--tapflow" aria-hidden="true">
-                        ${icon.tapFlow}
-                      </span>
-                      <span>Tap to Paste</span>
-                    </li>
-                    <li class="hero__banner-pill">
-                      <span class="hero__banner-pill-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="24" height="24" focusable="false" fill="none" aria-hidden="true">
-                          <path
-                            d="M7.35 9.2a5.35 5.35 0 0 1 9.3-3.7"
-                            stroke="currentColor"
-                            stroke-width="1.45"
-                            stroke-linecap="round"
-                          />
-                          <path
-                            d="M5.85 7.35V10h2.85"
-                            stroke="currentColor"
-                            stroke-width="1.45"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                          <path
-                            d="M16.65 14.8a5.35 5.35 0 0 1-9.3 3.7"
-                            stroke="currentColor"
-                            stroke-width="1.45"
-                            stroke-linecap="round"
-                          />
-                          <path
-                            d="M18.15 16.65V14h-2.85"
-                            stroke="currentColor"
-                            stroke-width="1.45"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                      </span>
-                      <span>ローカル同期</span>
-                    </li>
-                  </ul>
+                  <div class="hero__banner-actions" aria-label="ヒーロー操作">
+                    <a
+                      class="hero__banner-primary"
+                      href="#"
+                      data-wip-download-trigger
+                      data-cta-id="hero_banner_register"
+                      data-cta-section="hero"
+                    >
+                      事前登録する
+                    </a>
+                    <a class="hero__banner-secondary" href="#tap-title">詳しく見る</a>
+                  </div>
+                  <p class="hero__banner-note">リリース準備中 / Apple Silicon搭載Macに対応</p>
                 </div>
               </div>
             </div>
@@ -471,13 +437,14 @@
             <button type="button" class="section-drawer__close" aria-label="メニューを閉じる" data-section-menu-close>×</button>
             <a href="#hero-title" data-section-menu-link>トップ</a>
             <a href="#concept-video" data-section-menu-link>コンセプト動画</a>
-            <a href="#tap-title" data-section-menu-link>Tap to Paste</a>
-            <a href="#clipboard-shift-title" data-section-menu-link>他のクリップボードマネージャーとの違い</a>
-            <a href="#features-title" data-section-menu-link>SideClipの主な機能</a>
-            <a href="#usage-scenes-title" data-section-menu-link>具体的な使用シーン</a>
-            <a href="#local-title" data-section-menu-link>安全かつ高速な理由</a>
+            <a href="#tap-title" data-section-menu-link>使い方</a>
+            <a href="#benefits-title" data-section-menu-link>メリット</a>
+            <a href="#clipboard-shift-title" data-section-menu-link>他のツールとの違い</a>
+            <a href="#features-title" data-section-menu-link>主な機能</a>
+            <a href="#usage-scenes-title" data-section-menu-link>使用シーン</a>
+            <a href="#local-title" data-section-menu-link>ローカル同期</a>
             <a href="#faq" data-section-menu-link>FAQ</a>
-            <a href="#download" data-section-menu-link>新たなクリップボード体験を始める</a>
+            <a href="#download" data-section-menu-link>事前登録</a>
             <a href="#site-legal-footer" data-section-menu-link>ポリシー・規約</a>
           </nav>
         </div>
@@ -485,16 +452,15 @@
         <div class="content-overlay">
         <div class="hero__content reveal">
           <div class="reveal__head">
-            <h2 class="hero__banner-copy">画面の切り替えは、もう不要。</h2>
+            <h2 class="hero__banner-copy">Macの横に、<br />コピーの置き場所を。</h2>
           </div>
           <div class="reveal__rest">
-          <p class="hero__hook">「さっきコピーしたデータ、どこだっけ？」<br />「もう一度コピーしなきゃ」</p>
-          <p class="hero__hook">コピペが増えるほど、画面の行き来が重なります。</p>
+          <p class="hero__hook">もう一度使いたいテキストや画像が、視界の中に残っている。<br />探さず、手元から貼り付けられます。</p>
           <div class="hero__infographic-card">
             <h1 id="hero-title" class="hero__infographic-title">
               <span class="tap-infographic__title-stack">
                 <span class="tap-infographic__title-line tap-infographic__title-line--primary">
-                  スマホをMacの<span class="tap-infographic__title-accent">“横のクリップボード”</span>に。
+                  コピー。表示。タップ。ペースト。
                 </span>
               </span>
             </h1>
@@ -612,7 +578,7 @@
           </div>
 
           <div class="hero-scene-card" aria-labelledby="hero-scene-title">
-            <h2 id="hero-scene-title" class="hero-scene-card__title">こんなシーンで活躍</h2>
+            <h2 id="hero-scene-title" class="hero-scene-card__title">いつもの作業に、そのままなじむ。</h2>
             <ul class="hero-scene-card__list">
               <li class="hero-scene-card__item">
                 <span class="hero-scene-card__icon" aria-hidden="true">
@@ -627,7 +593,7 @@
                 </span>
                 <div class="hero-scene-card__body">
                   <p class="hero-scene-card__item-title">リサーチ・資料作成</p>
-                  <p class="hero-scene-card__item-text">調べた情報を横に並べて、スムーズにまとめる。</p>
+                  <p class="hero-scene-card__item-text">集めた情報を横に置き、流れを止めずにまとめる。</p>
                 </div>
               </li>
               <li class="hero-scene-card__item">
@@ -643,7 +609,7 @@
                 </span>
                 <div class="hero-scene-card__body">
                   <p class="hero-scene-card__item-title">チャット・メール</p>
-                  <p class="hero-scene-card__item-text">定型文やリンクをすぐ貼れて、やり取りを高速化。</p>
+                  <p class="hero-scene-card__item-text">定型文やリンクを、必要な瞬間にすぐ貼れる。</p>
                 </div>
               </li>
               <li class="hero-scene-card__item">
@@ -659,7 +625,7 @@
                 </span>
                 <div class="hero-scene-card__body">
                   <p class="hero-scene-card__item-title">アイデア・メモ整理</p>
-                  <p class="hero-scene-card__item-text">思いついた内容を逃さず、あとで見返して活用。</p>
+                  <p class="hero-scene-card__item-text">思いついた断片を残し、あとで自然に見返せる。</p>
                 </div>
               </li>
             </ul>
@@ -679,7 +645,7 @@
               </span>
               <div class="hero-highlight-card__body">
                 <p class="hero-highlight-card__title">ローカル同期で安心</p>
-                <p class="hero-highlight-card__text">データはMac内で完結。プライバシーも安心。</p>
+                <p class="hero-highlight-card__text">データはMac内で完結。<br />プライバシーも安心。</p>
               </div>
             </li>
             <li class="hero-highlight-card">
@@ -722,19 +688,20 @@
           </ul>
           <a class="download-button" href="#" data-wip-download-trigger data-cta-id="hero_download_status" data-cta-section="hero" aria-label="事前登録特典で、Ultraプラン3か月無料クーポンをプレゼント">
             <!-- ${icon.download} -->
-            事前登録で<br />全料機能お試し3か月無料<br />クーポンプレゼント
+            事前登録する
           </a>
-          <p class="download-microcopy">※現在リリース準備中</p>
+          <p class="download-microcopy">リリース時にUltraプラン3か月無料クーポンをお届けします。</p>
           <p class="os-note">Apple Silicon搭載のMacに対応</p>
           </div>
         </div>
         <section id="concept-video" class="concept-video reveal" aria-labelledby="concept-video-title">
           <div class="concept-video__copy">
             <div class="reveal__head">
-              <h2 id="concept-video-title">コンセプト動画で<br />SideClipを知る</h2>
+              <p class="concept-video__eyebrow">Concept Movie</p>
+              <h2 id="concept-video-title">30秒で、<br />SideClipが見える。</h2>
             </div>
             <div class="reveal__rest">
-              <p>30秒でわかる、常時表示のコピペ体験</p>
+              <p>Macでコピー。スマホに表示。タップでペースト。<br />横に置くクリップボード体験を、短い動画で確認できます。</p>
             </div>
           </div>
           <div class="reveal__rest concept-video__visual" aria-label="コンセプト動画（YouTube）">
@@ -764,13 +731,13 @@
           <div class="tap-section__reveal reveal">
             <div class="section-copy section-copy--tap">
               <div class="reveal__head">
-                <h2 id="tap-title">指先ひとつの <span>「Tap to Paste」</span></h2>
+                <h2 id="tap-title">タップで、<br class="mobile-break" /><span>そのまま貼り付け。</span></h2>
               </div>
               <div class="reveal__rest">
                 <p>
-                  スマホ画面に並んだカードを<wbr />タップするだけ。<br class="desktop-break" /><br class="mobile-break" />
-                  <span class="tap-emphasis">キーボードの拡張デバイス</span>のような感覚で、<wbr />使い方は無限大。<br class="desktop-break" /><br class="mobile-break" />
-                  1日に何回コピペ・スクショをしますか？<br />Macのウィンドウ切り替えを減らし、<br class="mobile-break" />集中して作業効率を上げましょう。
+                  Macでコピーした内容が、スマホに並ぶ。<br class="desktop-break" />
+                  必要なカードに触れると、Macへ即ペースト。<br />
+                  作業中の画面から目を離さずに使えます。
                   <br class="mobile-break" />
                 </p>
               </div>
@@ -791,9 +758,9 @@
               </div>
               <div class="reveal__rest">
                 <p>
-                  SideClipのリスト操作は、<br />スワイプとタップで非常にスムーズに動作します。<br />
-                  コピー履歴の確認からペーストまで、<br />
-                  直感的な操作で完了できます。
+                  コピーしたものは、Macの横に。<br />
+                  探す時間も、呼び出す動きも、<br />
+                  少しずつ減らします。
                 </p>
               </div>
             </div>
@@ -808,10 +775,17 @@
         <section class="clipboard-shift" aria-labelledby="clipboard-shift-title">
           <div class="clipboard-shift__reveal reveal">
             <div class="reveal__head">
+              <p class="clipboard-shift__eyebrow">Clipboard Shift</p>
               <h2 id="clipboard-shift-title" class="clipboard-shift__title">
-                呼び出すクリップボードから、<br />
-                横に置くクリップボードへ
+                呼び出さない。<br />
+                横に置く。
               </h2>
+              <p class="clipboard-shift__lead">
+                コピー履歴をMacの中で探すのではなく、<br />
+                横のスマホに表示。<br />
+                視線の移動を小さくして、<br />
+                作業の流れを保ちます。
+              </p>
             </div>
             <div class="reveal__rest">
             <figure class="clipboard-shift__figure">
@@ -837,33 +811,24 @@
             <div class="clipboard-shift__prose">
               <div class="clipboard-shift__compare">
                 <div class="clipboard-shift__compare-block clipboard-shift__compare-block--others">
-                  <p class="clipboard-shift__prose-title">多くのクリップボードアプリで起こりがちなこと</p>
+                  <p class="clipboard-shift__prose-title">画面内で呼び出す</p>
                   <ul class="clipboard-shift__bullets">
-                    <li>
-                      コピー履歴をMacの<span class="clipboard-shift__inline-accent">画面内</span>で呼び出すので、<br />
-                      <span class="clipboard-shift__inline-accent">ウィンドウの切り替えや重なりで集中が途切れやすい。</span>
-                    </li>
-                    <li>
-                      ペーストのたびにポインターを動かすので、<br /><span class="clipboard-shift__inline-accent">ポインターの位置を見失う。</span>
-                    </li>
-                    <li>
-                      ペースト用ショートカット設定が面倒。<br /><span class="clipboard-shift__inline-accent">設定したショートカットを忘れてしまう。</span>
-                    </li>
+                    <li>履歴パネルが作業画面に重なる。</li>
+                    <li>ペーストのたびに視線とポインターが移動する。</li>
+                    <li>ショートカットや設定を思い出す負担が残る。</li>
                   </ul>
                 </div>
                 <div class="clipboard-shift__compare-block clipboard-shift__compare-block--sideclip">
-                  <p class="clipboard-shift__prose-title clipboard-shift__prose-title--sideclip">SideClipアプリ</p>
+                  <p class="clipboard-shift__prose-title clipboard-shift__prose-title--sideclip">横に置く</p>
                   <p class="clipboard-shift__emphasis">
-                    <span class="clipboard-shift__emphasis-lead">呼び出すのではなく、横に置く。</span><br />
-                    Macの作業を見たまま、スマホでコピー履歴をタップしてペースト。
+                    <span class="clipboard-shift__emphasis-lead">履歴は、Macの横に。</span><br />
+                    Macの作業を見たまま、スマホのカードをタップしてペースト。
                   </p>
-                  <p>
-                    Macの横に<strong class="clipboard-shift__strong-accent">いつも表示されたコピー履歴</strong>として置いておけるため、<br />
-                    探す・呼び出す・思い出す負担が減り、コピペがより直感的になります。
-                  </p>
-                  <p>
-                    「画面の中で操作するクリップボード」から、「横に置いて使うクリップボード」へ。
-                  </p>
+                  <ul class="clipboard-shift__bullets clipboard-shift__bullets--sideclip">
+                    <li>コピー履歴はスマホ側に常時表示。</li>
+                    <li>カードをタップするとMacへすぐペースト。</li>
+                    <li>作業画面を隠さず、集中を保てる。</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -874,7 +839,13 @@
         <section class="features" aria-labelledby="features-title">
           <div class="features__reveal reveal">
             <div class="reveal__head">
-              <h2 id="features-title">SideClipの主な機能</h2>
+              <p class="features__eyebrow">Core Features</p>
+              <h2 id="features-title">よく使うものが、<br />手元に残る。</h2>
+              <p class="features__lead">
+                コピー履歴、スクショ、お気に入り。<br />
+                作業に戻るためのものだけを、<br />
+                スマホに整えます。
+              </p>
             </div>
             <div class="reveal__rest">
             <div class="feature-grid">
@@ -887,7 +858,12 @@
         <section class="usage-scenes" aria-labelledby="usage-scenes-title">
           <div class="usage-scenes__reveal reveal">
             <div class="reveal__head">
-              <h2 id="usage-scenes-title">具体的な使用シーン</h2>
+              <p class="usage-scenes__eyebrow">Use Cases</p>
+              <h2 id="usage-scenes-title">仕事にも、創作にも、<br />学びにも。</h2>
+              <p class="usage-scenes__lead">
+                よく使うテキストや画像を、Macの横へ。<br />
+                小さなコピペを、静かに速くします。
+              </p>
             </div>
             <div class="reveal__rest">
             <figure class="usage-scenes__figure">
@@ -916,9 +892,9 @@
                   <span class="usage-scenes__case-badge-icon" aria-hidden="true">${icon.usageCaseDev}</span>
                   <span class="usage-scenes__case-badge-label">開発者・プログラマー</span>
                 </p>
-                <h3 class="usage-scenes__case-title">頻繁に使うコードやコマンドを、手元にストック。</h3>
+                <h3 class="usage-scenes__case-title">コードやコマンドを、すぐ再利用。</h3>
                 <p class="usage-scenes__case-text">
-                  生成AIによりコードを書くことは減ったかもしれませんが、コピペ操作は増えてませんか？<br />よく使うプロンプト・コード・コマンドなどをスマホ画面に並べて管理。<br />エディタから離れず、コーディングに集中できます。
+                  よく使うスニペットやURLを横に。エディタから離れず貼り付けられます。
                 </p>
               </article>
               <article class="usage-scenes__case">
@@ -926,9 +902,9 @@
                   <span class="usage-scenes__case-badge-icon" aria-hidden="true">${icon.usageCaseLlm}</span>
                   <span class="usage-scenes__case-badge-label">AIツール（LLM）活用者</span>
                 </p>
-                <h3 class="usage-scenes__case-title">AIへのプロンプト入力を、もっと直感的に。</h3>
+                <h3 class="usage-scenes__case-title">プロンプトを、手元から呼び出す。</h3>
                 <p class="usage-scenes__case-text">
-                  生成AIを使い始めてコピペの回数が増大した方へ。<br />よく使うプロンプトをお気に入りに整理することで、AIとの対話がスムーズになります。
+                  定型プロンプトや前提文を保存。AIとのやり取りを止めずに進められます。
                 </p>
               </article>
               <article class="usage-scenes__case">
@@ -936,9 +912,9 @@
                   <span class="usage-scenes__case-badge-icon" aria-hidden="true">${icon.usageCaseShop}</span>
                   <span class="usage-scenes__case-badge-label">フリマ・オークション・ECサイト出品者</span>
                 </p>
-                <h3 class="usage-scenes__case-title">繰り返しの出品作業やメッセージ返信を爆速化。</h3>
+                <h3 class="usage-scenes__case-title">出品文や返信を、迷わず貼る。</h3>
                 <p class="usage-scenes__case-text">
-                  せどりなどで、大量に商品を入荷・出品・発送される方へ。<br />コピペの快適性と効率化により、チリツモで時短。<br />時間効率は、収益の向上に直結します。
+                  商品説明、住所、返信文を保存。繰り返し作業の手間を減らします。
                 </p>
               </article>
             </div>
@@ -949,7 +925,12 @@
         <section class="local-sync" aria-labelledby="local-title">
           <div class="local-sync__reveal reveal">
             <div class="reveal__head">
-              <h2 id="local-title" class="local-sync__heading">大事なコピー履歴は、<br />クラウドに出さない。<br /><span class="local-sync__title-nowrap">ローカル通信で安全かつ高速。</span></h2>
+              <p class="local-sync__eyebrow">Local Sync</p>
+              <h2 id="local-title" class="local-sync__heading">大事なコピー履歴は、<br />クラウドに出さない。</h2>
+              <p class="local-sync__lead">
+                Macとスマホは、同じWi-Fi内で直接同期。<br />
+                コピー履歴はMac内に残り、クラウドへ送りません。
+              </p>
             </div>
             <div class="reveal__rest">
             <div class="sync-graphic" aria-hidden="true">
@@ -970,21 +951,26 @@
                 </div>
                 <div class="device device--phone"></div>
               </div>
-              <p>ローカルWi-Fiで直接同期</p>
+              <p>同じWi-Fi内で直接同期</p>
             </div>
             <div class="local-sync__text">
-              <p>
-                サーバーを経由しないため、コピー履歴がSideClipのクラウドに送信されることはなく、Mac内に保存されます。<br />
-                スマホやタブレットとの同期も、同じWi-Fi内のローカル通信だけで完結します。<br />
-              </p>
+              <div class="local-sync__points" aria-label="ローカル同期の安心ポイント">
+                <article class="local-sync__point">
+                  <h3>Mac内に保存</h3>
+                  <p>履歴はMac側に保持。SideClipのクラウドへ送りません。</p>
+                </article>
+                <article class="local-sync__point">
+                  <h3>同じWi-Fiで同期</h3>
+                  <p>スマホやタブレットとは、同じWi-Fi内で直接つながります。</p>
+                </article>
+                <article class="local-sync__point">
+                  <h3>速くてプライベート</h3>
+                  <p>サーバーを挟まないため、反映が速く、データも外へ出にくい設計です。</p>
+                </article>
+              </div>
               <p class="local-sync__detail-link">
                 <a href="./security.html">セキュリティ対策の詳細を見る</a>
               </p>
-              <div class="sync-tags" aria-label="SideClipの同期特性">
-                <span>高速</span>
-                <span>安全</span>
-                <span>プライベート</span>
-              </div>
             </div>
             </div>
           </div>
@@ -993,7 +979,9 @@
         <section class="faq reveal" id="faq" aria-labelledby="faq-title">
           <div class="faq__inner">
             <div class="reveal__head">
+              <p class="faq__eyebrow">FAQ</p>
               <h2 id="faq-title" class="faq__title">FAQ</h2>
+              <p class="faq__lead">導入前に知っておきたいことを、短くまとめました。</p>
             </div>
             <div class="reveal__rest">
 
@@ -1102,23 +1090,22 @@
         <section class="final-cta reveal" id="download" aria-labelledby="cta-title">
           <div class="final-cta__copy">
             <div class="reveal__head">
-              <h2 id="cta-title"><span class="final-cta__line--nowrap">クリップボードの概念を、変える。</span></h2>
+              <p class="final-cta__eyebrow">Pre Register</p>
+              <h2 id="cta-title">コピーの置き場所を、<br />Macの横に。</h2>
             </div>
             <div class="reveal__rest">
               <p>
-                SideClipは、コピー履歴を探す時間を減らし、<br />
-                いつものコピペをもっとスムーズにします。<br />
-                Mac横のクリップボードで作業が快適に。
+                リリース時にお知らせします。<br />
+                事前登録で、Ultraプラン3か月無料クーポンをお届けします。
               </p>
-              <strong><span class="final-cta__line--nowrap">新たなクリップボードを体験しよう。</span></strong>
             </div>
           </div>
           <div class="reveal__rest final-cta__action">
             <a class="download-button download-button--light" href="#" data-wip-download-trigger data-cta-id="final_download_status" data-cta-section="final_cta" aria-label="事前登録で、Ultraプラン3か月無料クーポンをプレゼント">
               <!-- ${icon.download} -->
-              事前登録で<br />全機能お試し3か月無料<br />クーポンプレゼント
+              事前登録する
             </a>
-            <p class="download-microcopy">※現在リリース準備中</p>
+            <p class="download-microcopy">Ultraプラン3か月無料クーポンをプレゼント</p>
             <p>Apple Silicon搭載のMacに対応</p>
             <nav class="cta-links" aria-label="補助リンク">
               <a class="is-primary" href="#concept-video">コンセプト動画</a>

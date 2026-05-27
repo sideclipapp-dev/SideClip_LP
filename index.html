@@ -57,34 +57,34 @@
       });
       gtag('config', 'G-D3JVLNHHMQ');
     </script>
-    <link rel="stylesheet" href="./styles.css?v=20260511-mini-flow-badge-gap" />
-    <script src="./app.js?v=20260511-mini-flow-badge-gap" defer></script>
+    <link rel="stylesheet" href="./styles.css?v=20260526-faq-cta-refresh" />
+    <script src="./app.js?v=20260526-faq-cta-refresh" defer></script>
   </head>
   <body>
     <div id="root"></div>
     <div
       id="cookie-banner"
+      class="cookie-banner"
       role="dialog"
       aria-live="polite"
       aria-label="Cookie同意バナー"
-      style="display:none;position:fixed;left:10px;right:10px;bottom:10px;max-width:none;margin:0;padding:16px 18px;border-radius:12px;border:1px solid rgba(173,208,236,.85);background:linear-gradient(165deg,rgba(255,255,255,.86) 0%,rgba(240,248,255,.8) 58%,rgba(226,242,255,.76) 100%);color:#071d45;box-shadow:0 10px 24px rgba(20,60,110,.14),inset 0 1px 0 rgba(255,255,255,.72);backdrop-filter:blur(12px) saturate(125%);-webkit-backdrop-filter:blur(12px) saturate(125%);z-index:9999;"
     >
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-      <p style="margin:0;line-height:1.6;color:#071d45;font-weight:700;text-shadow:0 1px 0 rgba(255,255,255,.35);flex:1 1 auto;min-width:220px;">
-        サイト改善のため、アクセス解析Cookieを使用します。よろしければ「同意する」を押してください。
+      <div class="cookie-banner__inner">
+      <p class="cookie-banner__text">
+        サイト改善のため、アクセス解析Cookieを使用します。
       </p>
-      <div style="display:flex;gap:8px;flex-wrap:nowrap;white-space:nowrap;flex:0 0 auto;">
+      <div class="cookie-banner__actions">
         <button
           id="cookie-accept"
+          class="cookie-banner__button cookie-banner__button--primary"
           type="button"
-          style="padding:9px 14px;border:0;border-radius:999px;background:#1479df;color:#fff;font-weight:700;cursor:pointer;box-shadow:0 8px 16px rgba(20,121,223,.28);"
         >
           同意する
         </button>
         <button
           id="cookie-reject"
+          class="cookie-banner__button cookie-banner__button--secondary"
           type="button"
-          style="padding:9px 14px;border:1px solid #9fc4e6;border-radius:999px;background:#ffffff;color:#42506c;font-weight:700;cursor:pointer;"
         >
           同意しない
         </button>
@@ -121,11 +121,11 @@
         }
 
         function hideBanner() {
-          if (banner) banner.style.display = 'none';
+          if (banner) banner.classList.remove('is-visible');
         }
 
         function showBanner() {
-          if (banner) banner.style.display = 'block';
+          if (banner) banner.classList.add('is-visible');
         }
 
         var savedChoice = localStorage.getItem(CONSENT_KEY);

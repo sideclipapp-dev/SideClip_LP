@@ -12,36 +12,81 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260526-security-refresh-10" />
   </head>
   <body>
-    <main class="page-shell">
-      <article class="doc-page">
+    <main class="page-shell page-shell--security">
+      <article class="doc-page doc-page--security">
         <header class="doc-page__header">
           <div class="doc-page__header-text">
-            <h1>セキュリティ対策の詳細</h1>
+            <p class="doc-page__eyebrow">Security</p>
+            <h1>SideClipの<br />安全設計</h1>
+            <p class="doc-page__intro">
+              Macとスマホをつなぐ前に、誰がアクセスできるかを確かめる。通信は暗号化し、許可された端末だけで使えるようにしています。
+            </p>
           </div>
           <a href="./index.html" class="doc-page__top-return">トップへ戻る</a>
         </header>
 
-        <p class="doc-page__lead">
-          接続にはQRコードによるトークン認証を使用し、認証済みの端末だけがコピー履歴にアクセスできます。<br />
-          さらに通信はHTTPSで暗号化されるため、同じWi-Fi上の端末でも、認証されていない端末からはアクセスできません。
-        </p>
-
-        <section aria-labelledby="security-cert-heading">
-          <h2 id="security-cert-heading">Webブラウザ証明書</h2>
-          <p>
-            Macとスマホ／タブレット間で証明書を交換することによって、暗号化されたセキュリティの高いHTTPS通信を使用します。
-          </p>
+        <section class="security-overview" aria-labelledby="security-overview-heading">
+          <div>
+            <p class="doc-page__eyebrow">Overview</p>
+            <h2 id="security-overview-heading">認証した端末だけがつながる。</h2>
+            <p>
+              接続にはQRコードによるトークン認証を使用します。認証済みの端末だけがコピー履歴にアクセスでき、通信はHTTPSで暗号化されます。
+            </p>
+          </div>
+          <ul class="security-pillars" aria-label="SideClipの主なセキュリティ対策">
+            <li>
+              <span>01</span>
+              <strong>QRコードで認証</strong>
+              <p>Mac側に表示されたQRコードを読み取った端末だけを接続します。</p>
+            </li>
+            <li>
+              <span>02</span>
+              <strong>HTTPSで暗号化</strong>
+              <p>Macとスマホ／タブレット間の通信を暗号化して扱います。</p>
+            </li>
+            <li>
+              <span>03</span>
+              <strong>ローカル同期</strong>
+              <p>同じWi-Fi内の端末連携を前提に、必要な範囲で使える設計です。</p>
+            </li>
+          </ul>
         </section>
 
-        <section aria-labelledby="security-token-heading">
-          <h2 id="security-token-heading">トークン認証（QRコード読み取り）</h2>
-          <p>
-            同じWi-Fiにつながる同僚や家族の端末からはアクセスできないようになっています。<br />
-            QRコードを読み取った端末のみ接続可能な安全設計です。
-          </p>
+        <section class="security-section security-section--split" aria-labelledby="security-cert-heading">
+          <div class="security-section__copy">
+            <p class="doc-page__eyebrow">Encrypted Connection</p>
+            <h2 id="security-cert-heading">HTTPSで暗号化して接続。</h2>
+            <p>
+              Macとスマホ／タブレット間で証明書を交換し、暗号化されたHTTPS通信を使用します。
+            </p>
+          </div>
+          <ol class="security-flow" aria-label="接続時の流れ">
+            <li>
+              <span>1</span>
+              <p>MacでSideClipを起動</p>
+            </li>
+            <li>
+              <span>2</span>
+              <p>スマホでQRコードを読み取る</p>
+            </li>
+            <li>
+              <span>3</span>
+              <p>認証後、HTTPSで接続</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="security-section" aria-labelledby="security-token-heading">
+          <div class="security-section__copy">
+            <p class="doc-page__eyebrow">Token Pairing</p>
+            <h2 id="security-token-heading">QRコードで端末を認証。</h2>
+            <p>
+              同じWi-Fiにつながる同僚や家族の端末からはアクセスできないようになっています。QRコードを読み取った端末のみ接続可能な安全設計です。
+            </p>
+          </div>
           <figure class="doc-page__security-figure">
             <img
               src="./assets/security-qr-pairing.png"
@@ -53,9 +98,12 @@
             />
           </figure>
           <div class="doc-page__note-block">
-            <p class="doc-page__note">
-              ※ トークン含みURLを共有するか、トークン認証設定OFFにすると、同じWi-Fiにつながる複数端末からアクセス可能になります。
-            </p>
+            <div class="doc-page__note">
+              <strong>共有時の注意</strong>
+              <p>
+                トークンを含むURLを共有する、またはトークン認証設定をOFFにすると、同じWi-Fiにつながる複数端末からアクセス可能になります。
+              </p>
+            </div>
             <figure class="doc-page__security-figure">
               <img
                 src="./assets/security-shared-wifi.png"
@@ -67,6 +115,18 @@
               />
             </figure>
           </div>
+        </section>
+
+        <section class="security-section security-section--checklist" aria-labelledby="security-check-heading">
+          <div class="security-section__copy">
+            <p class="doc-page__eyebrow">Good Practice</p>
+            <h2 id="security-check-heading">安全に使うための基本。</h2>
+          </div>
+          <ul class="security-checklist">
+            <li>QRコードやトークンを含むURLを、必要のない相手に共有しない。</li>
+            <li>共有Wi-Fiや職場のネットワークでは、使い終わったら接続状態を確認する。</li>
+            <li>Safari / Chromeなどのブラウザは、最新バージョンを使用する。</li>
+          </ul>
         </section>
       </article>
     </main>
