@@ -1015,7 +1015,7 @@
                 <details class="faq__item">
                   <summary class="faq__summary">各プランの料金はいくらですか？</summary>
                   <div class="faq__answer">
-                    <p>継続的なアプリ改善・新機能開発の原資として月額プランを設けています。<br />Freeプランで気に入ってくださった方は、より使いやすく多機能な有料プランの検討をお願いいたします。</p>
+                    <p>継続的なアプリ改善・新機能開発の原資として有料プランを設けています。<br />Freeプランで気に入ってくださった方は、より使いやすく多機能な有料プランの検討をお願いいたします。</p>
                     <dl class="faq__plans">
                       <div class="faq__plan">
                         <dt>Freeプラン</dt>
