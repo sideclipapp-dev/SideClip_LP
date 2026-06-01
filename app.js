@@ -127,26 +127,26 @@
   const tapFlowSteps = [
     {
       number: "01",
-      title: "コピー",
+      title: "Macで<br />コピー",
       iconSrc: ASSETS.flowIconMac,
       alt: "Macでコピーするステップ",
     },
     {
       number: "02",
-      title: "表示",
+      title: "スマホに<br />表示",
       iconSrc: ASSETS.flowIconPhone,
       alt: "スマホへコピー内容が自動追加されるステップ",
       labelAccent: true,
     },
     {
       number: "03",
-      title: "タップ",
+      title: "スマホを<br />タップ",
       iconSrc: ASSETS.flowIconTap,
       alt: "スマホ画面をタップするステップ",
     },
     {
       number: "04",
-      title: "ペースト",
+      title: "Macへ<br />ペースト",
       iconSrc: ASSETS.flowIconCheck,
       alt: "Macへ即座にペーストされるステップ",
     },
@@ -1027,14 +1027,14 @@
                       <div class="faq__plan">
                         <dt>Proプラン</dt>
                         <dd>
-                          <span class="faq__plan-price">月額480円（1日あたり16円）</span><br />
-                          Freeプランでは物足りない方へ。Todo機能など便利な機能が解放されます。
+                          <span class="faq__plan-price">月額300円（1日あたり10円）</span><br />
+                          Freeプランでは物足りない方へ。保存上限の増加やTodo機能など便利な機能が解放されます。
                         </dd>
                       </div>
                       <div class="faq__plan">
                         <dt>Ultraプラン</dt>
                         <dd>
-                          <span class="faq__plan-price">月額900円（1日あたり30円）</span><br />
+                          <span class="faq__plan-price">月額480円（1日あたり16円）</span><br />
                           全機能解放・今後の新機能や改善のアップデートを最優先に提供します。
                         </dd>
                       </div>
