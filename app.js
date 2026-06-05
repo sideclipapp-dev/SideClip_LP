@@ -46,6 +46,18 @@
     heroFlowPhoneClipboard: `./assets/hero_flow_phone_clipboard.png?v=${ASSET_VERSION}`,
   };
 
+  function renderLanguageSwitch() {
+    if (window.SideClipI18n && typeof window.SideClipI18n.renderSwitch === "function") {
+      return window.SideClipI18n.renderSwitch();
+    }
+    return `
+      <div class="language-switch" data-language-switch role="group" aria-label="言語切替">
+        <button type="button" class="language-switch__option" data-language-option="ja" aria-label="日本語で表示">JP</button>
+        <button type="button" class="language-switch__option" data-language-option="en" aria-label="Show in English">EN</button>
+      </div>
+    `;
+  }
+
   const icon = {
     download: `
       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -351,18 +363,21 @@
               <span lang="en">Clipboard app</span>
             </p>
           </div>
-          <button
-            type="button"
-            class="hero__menu-button"
-            aria-label="セクションメニューを開く"
-            aria-controls="section-drawer"
-            aria-expanded="false"
-            data-section-menu-trigger
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+          <div class="hero__header-actions">
+            ${renderLanguageSwitch()}
+            <button
+              type="button"
+              class="hero__menu-button"
+              aria-label="セクションメニューを開く"
+              aria-controls="section-drawer"
+              aria-expanded="false"
+              data-section-menu-trigger
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
         </header>
         <section class="hero" aria-labelledby="hero-title">
           <div class="hero__banner">
@@ -2024,6 +2039,7 @@
 
   function mount() {
     document.querySelector("#root").innerHTML = renderApp();
+    window.SideClipI18n?.applyPageTranslations?.("landing");
     initReveal();
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(initHeroFlowSyncDashLengths);

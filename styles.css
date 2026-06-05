@@ -242,6 +242,57 @@ img {
   background: #1f3f6b;
 }
 
+.hero__header-actions {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  min-width: 0;
+}
+
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  height: 32px;
+  padding: 2px;
+  border: 1px solid rgba(31, 63, 107, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.74);
+  box-sizing: border-box;
+}
+
+.language-switch__option {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 26px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  color: #1f3f6b;
+  background: transparent;
+  font: inherit;
+  font-size: 10.5px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.language-switch__option.is-active {
+  color: #ffffff;
+  background: #1f3f6b;
+  box-shadow: 0 1px 6px rgba(31, 63, 107, 0.18);
+}
+
+.language-switch__option:focus-visible {
+  outline: 2px solid rgba(0, 113, 227, 0.42);
+  outline-offset: 2px;
+}
+
 .section-drawer {
   position: fixed;
   inset: 0;
@@ -3242,6 +3293,25 @@ main.page-shell:has(> article.doc-page) > article.doc-page .doc-page__header:has
   min-width: 0;
 }
 
+.doc-page__header-actions {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-inline-start: auto;
+}
+
+.doc-page__header-actions .language-switch {
+  background: rgba(255, 255, 255, 0.84);
+  border-color: rgba(29, 29, 31, 0.1);
+  box-shadow: none;
+}
+
+.doc-page__header-actions .doc-page__top-return {
+  margin-inline-start: 0;
+}
+
 .doc-page a.doc-page__top-return {
   flex: 0 0 auto;
   margin-inline-start: auto;
@@ -3445,7 +3515,6 @@ main.page-shell.page-shell--security:has(> article.doc-page.doc-page--security)
 @media (min-width: 760px) {
   .doc-page--security a.doc-page__top-return {
     margin: 0;
-    justify-self: end;
   }
 }
 
@@ -3764,7 +3833,6 @@ main.page-shell.page-shell--legal:has(> article.doc-page.doc-page--legal)
 @media (min-width: 760px) {
   .doc-page--legal a.doc-page__top-return {
     margin: 0;
-    justify-self: end;
   }
 }
 
