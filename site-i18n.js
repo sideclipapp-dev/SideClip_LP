@@ -25,7 +25,7 @@
   const pageMetaOriginals = new Map();
 
   const landingEntries = [
-    ["html", ".hero__banner-overlay-lead", "Move your copy history<br />outside your Mac."],
+    ["html", ".hero__banner-overlay-lead", "Put your clipboard<br />history beside<br />your Mac."],
     ["html", ".hero__banner-overlay-sub", "Set your phone beside your Mac.<br />Everything you copy stays in sight."],
     ["text", ".hero__banner-primary", "Pre-register"],
     ["text", ".hero__banner-secondary", "See how it works"],
@@ -82,7 +82,7 @@
     ["html", ".steps [data-step-index='2'] h3", "<span>3</span>Tap the card you need"],
     ["html", ".steps [data-step-index='3'] h3", "<span>4</span>Paste instantly to Mac"],
     ["attr", ".steps [data-step-index='0'] img", "alt", "Screen showing text copied on Mac"],
-    ["attr", ".steps [data-step-index='1'] img", "alt", "Screen showing a copy history card added to the phone"],
+    ["attr", ".steps [data-step-index='1'] img", "alt", "Screen showing a clipboard history card added to the phone"],
     ["attr", ".steps [data-step-index='2'] img", "alt", "Screen showing a card tapped on the phone"],
     ["attr", ".steps [data-step-index='3'] img", "alt", "Screen showing instant paste to Mac"],
     ["text", "#benefits-title", "Keep your workflow moving."],
@@ -97,7 +97,7 @@
     ["html", ".benefit-item:nth-child(4) p", "Devices connect on the same Wi-Fi,<br />without sending history to our cloud."],
     ["text", ".clipboard-shift__eyebrow", "Clipboard Shift"],
     ["html", "#clipboard-shift-title", "Stop opening panels.<br />Keep it beside you."],
-    ["html", ".clipboard-shift__lead", "Instead of searching inside your Mac,<br />show your copy history on the phone beside it.<br />Move your eyes less,<br />and stay in flow."],
+    ["html", ".clipboard-shift__lead", "Instead of searching inside your Mac,<br />show your clipboard history on the phone beside it.<br />Move your eyes less,<br />and stay in flow."],
     ["attr", ".clipboard-shift__panel", "data-feature-image-alt", "Difference between opening a clipboard panel and keeping history beside your Mac"],
     ["attr", ".clipboard-shift__panel", "aria-label", "Zoom image showing the difference between opening a clipboard panel and keeping history beside your Mac"],
     ["attr", ".clipboard-shift__panel img", "alt", "Difference between opening a clipboard panel and keeping history beside your Mac"],
@@ -113,7 +113,7 @@
     ["text", ".features__eyebrow", "Core Features"],
     ["html", "#features-title", "Everything you reuse,<br />ready at hand."],
     ["html", ".features__lead", "Copy history, screenshots, and favorites.<br />SideClip keeps only what helps you get back to work,<br />organized on your phone."],
-    ["text", ".feature-card:nth-child(1) h3", "Your copy history, at hand."],
+    ["text", ".feature-card:nth-child(1) h3", "Your clipboard history, at hand."],
     ["html", ".feature-card:nth-child(1) > p:not(.feature-card__eyebrow)", "Text, URLs, and images are saved automatically.<br />Find the card you need from your phone."],
     ["attr", ".feature-card:nth-child(1) .feature-card__panel", "aria-label", "Zoom image of the clipboard history screen"],
     ["attr", ".feature-card:nth-child(1) .feature-card__panel", "data-feature-image-alt", "Clipboard history screen"],
@@ -149,7 +149,7 @@
     ["text", ".usage-scenes__case:nth-child(3) .usage-scenes__case-title", "Paste listing text and replies without hesitation."],
     ["text", ".usage-scenes__case:nth-child(3) .usage-scenes__case-text", "Store product descriptions, addresses, and replies to reduce repetitive work."],
     ["text", ".local-sync__eyebrow", "Local Sync"],
-    ["html", "#local-title", "Keep sensitive copy history<br />out of the cloud."],
+    ["html", "#local-title", "Keep sensitive clipboard history<br />out of the cloud."],
     ["html", ".local-sync__lead", "Your Mac and phone sync directly on the same Wi-Fi.<br />Copy history stays on your Mac and is not sent to our cloud."],
     ["text", ".sync-graphic > p", "Direct sync on the same Wi-Fi"],
     ["attr", ".local-sync__points", "aria-label", "Local sync reassurance points"],
@@ -172,7 +172,7 @@
     ["html", ".faq__item:nth-of-type(3) .faq__answer", "<p>Paid plans help fund ongoing app improvements and new feature development.<br />If the Free plan works well for you, please consider a paid plan for a more capable experience.</p><dl class=\"faq__plans\"><div class=\"faq__plan\"><dt>Free plan</dt><dd><span class=\"faq__plan-price\">Free</span><br />Try SideClip and confirm it works in your environment.</dd></div><div class=\"faq__plan\"><dt>Pro plan</dt><dd><span class=\"faq__plan-price\">JPY 300/month, about JPY 10/day</span><br />For users who want more than Free, with higher save limits, Todo features, and more.</dd></div><div class=\"faq__plan\"><dt>Ultra plan</dt><dd><span class=\"faq__plan-price\">JPY 480/month, about JPY 16/day</span><br />Unlock all features and receive future improvements and new features with the highest priority.</dd></div></dl>"],
     ["text", ".faq__group:nth-child(2) .faq__group-title", "Usage and limits"],
     ["text", ".faq__group:nth-child(2) .faq__item:nth-of-type(1) .faq__summary", "Are there limits on saved data types or sizes?"],
-    ["html", ".faq__group:nth-child(2) .faq__item:nth-of-type(1) .faq__answer", "<p>Yes. To keep copy history from growing too large and to prevent sluggish behavior, SideClip applies the following limits. These may change in app updates.</p><ul class=\"faq__bullets\"><li>Plain text: up to 50 KB per copy</li><li>Images such as JPG, PNG, and TIFF: up to 10 MB per image</li><li>Other files: not supported, so no card is created</li></ul>"],
+    ["html", ".faq__group:nth-child(2) .faq__item:nth-of-type(1) .faq__answer", "<p>Yes. To keep clipboard history from growing too large and to prevent sluggish behavior, SideClip applies the following limits. These may change in app updates.</p><ul class=\"faq__bullets\"><li>Plain text: up to 50 KB per copy</li><li>Images such as JPG, PNG, and TIFF: up to 10 MB per image</li><li>Other files: not supported, so no card is created</li></ul>"],
     ["text", ".faq__group:nth-child(2) .faq__item:nth-of-type(2) .faq__summary", "Is there a card save limit?"],
     ["html", ".faq__group:nth-child(2) .faq__item:nth-of-type(2) .faq__answer", "<p>Yes. Save limits differ by plan.</p><p>After installing the app, check the Plan menu shown on the phone-side screen for details.</p><p>When the limit is exceeded, older data is deleted automatically. Data saved to Favorite is not deleted automatically.</p>"],
     ["text", ".faq__group:nth-child(2) .faq__item:nth-of-type(3) .faq__summary", "Can I use SideClip on a phone tethering Wi-Fi network?"],
@@ -281,7 +281,7 @@
             <p class="doc-page__eyebrow">Overview</p>
             <h2 id="security-overview-heading">Only authenticated devices can connect.</h2>
             <p>
-              SideClip uses token authentication through a QR code. Only authenticated devices can access copy history, and communication is encrypted with HTTPS.
+              SideClip uses token authentication through a QR code. Only authenticated devices can access clipboard history, and communication is encrypted with HTTPS.
             </p>
           </div>
           <ul class="security-pillars" aria-label="Main SideClip security measures">
