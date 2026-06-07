@@ -1,6 +1,7 @@
 (function () {
   const STORAGE_KEY = "sideclip_language_v1";
   const SUPPORTED_LANGS = new Set(["ja", "en"]);
+  const LANGUAGE_SWITCH_ENABLED = false;
 
   function normalizeLang(lang) {
     const value = String(lang || "").toLowerCase();
@@ -8,6 +9,8 @@
   }
 
   function detectInitialLang() {
+    if (!LANGUAGE_SWITCH_ENABLED) return "ja";
+
     try {
       const saved = window.localStorage.getItem(STORAGE_KEY);
       if (SUPPORTED_LANGS.has(saved)) return saved;
@@ -32,7 +35,7 @@
     ["text", ".hero__banner-note", "In development / Supports Macs with Apple Silicon"],
     ["html", ".hero__banner-copy", "A place for copied items,<br />right beside your Mac."],
     ["html", ".hero__hook", "Text and images you want again stay in view.<br />Paste from your hand without hunting."],
-    ["text", "#hero-title .tap-infographic__title-line--primary", "Copy. See it. Tap. Paste."],
+    ["text", "#hero-title .tap-infographic__title-line--primary", "Copy. Appears. Tap. Paste."],
     ["attr", ".brand.hero__brand", "aria-label", "SideClip, clipboard app for Mac"],
     ["attr", ".hero__menu-button", "aria-label", "Open section menu"],
     ["attr", ".section-drawer__backdrop", "aria-label", "Close menu"],
@@ -41,7 +44,7 @@
     ["attr", ".hero__visual", "alt", "Using SideClip with a Mac and phone"],
     ["attr", ".mini-flow", "aria-label", "SideClip workflow"],
     ["html", ".mini-flow [data-flow-index='0'] .step-card__label", "Copy on<br />Mac"],
-    ["html", ".mini-flow [data-flow-index='1'] .step-card__label", "See it on<br />phone"],
+    ["html", ".mini-flow [data-flow-index='1'] .step-card__label", "Appears on<br />your phone"],
     ["html", ".mini-flow [data-flow-index='2'] .step-card__label", "Tap your<br />phone"],
     ["html", ".mini-flow [data-flow-index='3'] .step-card__label", "Paste to<br />Mac"],
     ["attr", ".mini-flow [data-flow-index='0'] .flow-step-icon-img", "alt", "Copy on Mac"],
@@ -71,7 +74,7 @@
     ["text", ".os-note", "Supports Macs with Apple Silicon"],
     ["text", ".concept-video__eyebrow", "Concept Movie"],
     ["html", "#concept-video-title", "See SideClip in<br />30 seconds."],
-    ["html", ".concept-video__copy .reveal__rest p", "Copy on Mac. See it on your phone. Tap to paste.<br />Watch the side-by-side clipboard flow in a short video."],
+    ["html", ".concept-video__copy .reveal__rest p", "Copy on Mac. It appears on your phone. Tap to paste.<br />Watch the side-by-side clipboard flow in a short video."],
     ["attr", ".concept-video__visual", "aria-label", "Concept movie on YouTube"],
     ["attr", ".concept-video__facade", "aria-label", "Play the concept movie, about 30 seconds, on YouTube"],
     ["html", "#tap-title", "Tap once.<br class=\"mobile-break\" /><span>Paste right away.</span>"],
@@ -210,11 +213,11 @@
 
   const metaByPage = {
     landing: {
-      title: "SideClip | Move your Mac clipboard out of the way.",
+      title: "SideClip | Take your Mac's clipboard off-screen",
       description: "A Mac app that turns your phone or tablet into an always-visible clipboard side display.",
       locale: "en_US",
-      ogTitle: "SideClip | Move your Mac clipboard out of the way.",
-      twitterTitle: "SideClip | Move your Mac clipboard out of the way."
+      ogTitle: "SideClip | Take your Mac's clipboard off-screen",
+      twitterTitle: "SideClip | Take your Mac's clipboard off-screen"
     },
     privacy: {
       title: "SideClip | Privacy Policy",
@@ -910,6 +913,8 @@
   }
 
   function renderSwitch() {
+    if (!LANGUAGE_SWITCH_ENABLED) return "";
+
     return `
       <div class="language-switch" data-language-switch role="group" aria-label="Language selector">
         <button type="button" class="language-switch__option" data-language-option="ja" aria-label="日本語で表示">JP</button>
@@ -945,6 +950,8 @@
   }
 
   function ensureDocLanguageSwitch() {
+    if (!LANGUAGE_SWITCH_ENABLED) return;
+
     const header = document.querySelector("article.doc-page .doc-page__header");
     if (!header) return;
     if (header.querySelector("[data-language-switch]")) return;
