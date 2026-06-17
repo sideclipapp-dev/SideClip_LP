@@ -243,7 +243,7 @@
       title: "あとで使うものを、Todoに。",
       image: ASSETS.featureTodo,
       alt: "Todoモード画面",
-      text: "カードをスワイプしてTodo化。<br />優先度を付けて、あとで使うコピーを見失いません。",
+      text: "Macでコピー→すぐTodo。<br />カードをスワイプするだけでTodo化",
     },
   ];
 
