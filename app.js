@@ -240,7 +240,7 @@
     },
     {
       eyebrow: "Todo",
-      title: "あとで使うものを、Todoに。",
+      title: "忘れる前にコピーするだけ。",
       image: ASSETS.featureTodo,
       alt: "Todoモード画面",
       text: "Macでコピー→すぐTodo。<br />カードをスワイプするだけでTodo化",
