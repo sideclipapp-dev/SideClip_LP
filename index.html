@@ -45,12 +45,14 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D3JVLNHHMQ"></script>
     <script>
+      var COOKIE_CONSENT_BANNER_ENABLED = false; // 海外向け公開時に true に変更
+
       window.dataLayer = window.dataLayer || [];
       function gtag() {dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('consent', 'default', {
-        analytics_storage: 'denied',
+        analytics_storage: COOKIE_CONSENT_BANNER_ENABLED ? 'denied' : 'granted',
         ad_storage: 'denied',
         ad_user_data: 'denied',
         ad_personalization: 'denied'
@@ -69,6 +71,7 @@
       role="dialog"
       aria-live="polite"
       aria-label="Cookie同意バナー"
+      hidden
     >
       <div class="cookie-banner__inner">
       <p class="cookie-banner__text">
@@ -94,8 +97,11 @@
     </div>
     <script>
       (function() {
+        if (!COOKIE_CONSENT_BANNER_ENABLED) return;
+
         var CONSENT_KEY = 'sideclip_cookie_consent_v1';
         var banner = document.getElementById('cookie-banner');
+        if (banner) banner.removeAttribute('hidden');
         var acceptButton = document.getElementById('cookie-accept');
         var rejectButton = document.getElementById('cookie-reject');
 

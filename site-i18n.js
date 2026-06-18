@@ -484,7 +484,7 @@
           </p>
           <p>
             <strong>(2) Website analytics and cookies</strong><br />
-            On the Website, cookies may be used to collect browsing history and similar information, which is sent to and recorded on Google's servers. The user's choice in the consent banner is saved in browser storage or similar storage to prevent the banner from being shown again on repeat visits. If the user selects "Decline" in the cookie consent banner, analytics storage use is restricted.
+            On the Website, cookies may be used to collect browsing history and similar information, which is sent to and recorded on Google's servers.
           </p>
           <p>
             <strong>(3) Google's privacy policy</strong><br />
