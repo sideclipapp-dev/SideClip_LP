@@ -785,10 +785,10 @@
                 <p class="benefits-video-copy__eyebrow">Screenshot Demo</p>
                 <h3>スクショを、<br />カードで残す。</h3>
                 <p class="benefits-video-copy__text">
-                  ショートカットボタンからすぐ撮影。連続で撮ったスクショもカードリストに整理され、必要な時にペーストできます。<br />
+                  スクショボタンですぐ撮影。連続で撮ったスクショもカードリストに整理され、必要な時にペーストできます。<br />
                 </p>
                 <p class="benefits-video-copy__text">
-                  保存先はSideClipフォルダなので、デスクトップがスクショ画像で埋もれません。<br />よく使うスクショはカードをスワイプしてお気に入りに整理。
+                  保存先はSideClipフォルダなので、デスクトップがスクショ画像で埋もれません。<br />よく使うスクショはカードをスワイプしてお気に入りへ。
                 </p>
               </div>
               <div class="benefits-video" aria-label="スクショ機能の紹介動画（YouTube）">
