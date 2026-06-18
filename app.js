@@ -1,6 +1,7 @@
 (function () {
   const ASSET_VERSION = "20260512-mac-screen-white-solid";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
+  const BENEFITS_VIDEO_YT_ID = "3m6aWg6LDFY";
   const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
   const PRE_REGISTRATION_FORM_URL = "https://forms.gle/KbNn5T3TBVz459HBA";
 
@@ -712,7 +713,7 @@
         <section id="concept-video" class="concept-video reveal" aria-labelledby="concept-video-title">
           <div class="concept-video__copy">
             <div class="reveal__head">
-              <p class="concept-video__eyebrow">Concept Movie</p>
+              <p class="concept-video__eyebrow">Concept Video</p>
               <h2 id="concept-video-title">30秒で、<br />SideClipが見える。</h2>
             </div>
             <div class="reveal__rest">
@@ -777,6 +778,39 @@
                   探す時間も、呼び出す動きも、<br />
                   少しずつ減らします。
                 </p>
+              </div>
+            </div>
+            <div class="reveal__rest benefits-video-showcase">
+              <div class="benefits-video-copy">
+                <p class="benefits-video-copy__eyebrow">Screenshot Demo</p>
+                <h3>スクショを、<br />カードで残す。</h3>
+                <p class="benefits-video-copy__text">
+                  ショートカットボタンからすぐ撮影。連続で撮ったスクショもカードリストに整理され、必要な時にペーストできます。<br />
+                </p>
+                <p class="benefits-video-copy__text">
+                  保存先はSideClipフォルダなので、デスクトップがスクショ画像で埋もれません。<br />よく使うスクショはカードをスワイプしてお気に入りに整理。
+                </p>
+              </div>
+              <div class="benefits-video" aria-label="スクショ機能の紹介動画（YouTube）">
+                <div class="benefits-video__embed benefits-video__embed--poster">
+                  <button type="button" class="benefits-video__facade" data-cta-id="benefits_video_play" data-cta-section="benefits_video" aria-label="スクショ機能の紹介動画を再生する（YouTube）">
+                    <img
+                      class="benefits-video__poster"
+                      src="https://i.ytimg.com/vi/${BENEFITS_VIDEO_YT_ID}/maxresdefault.jpg"
+                      alt=""
+                      width="1280"
+                      height="720"
+                      loading="lazy"
+                      decoding="async"
+                      fetchpriority="low"
+                    />
+                    <span class="benefits-video__facade-ring" aria-hidden="true">
+                      <svg class="benefits-video__facade-triangle" viewBox="0 0 24 24" width="28" height="28" focusable="false">
+                        <polygon points="8,5 8,19 19,12" fill="currentColor" />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
             <div class="reveal__rest">
@@ -1544,49 +1578,103 @@
     });
   }
 
-  function initConceptVideoEmbed() {
-    const wrap = document.querySelector(".concept-video__embed--poster");
+  function initYoutubePosterEmbed(wrap, videoId, options) {
     if (!wrap) return;
 
-    const embedUrl =
-      "https://www.youtube-nocookie.com/embed/" +
-      CONCEPT_VIDEO_YT_ID +
-      "?autoplay=1&modestbranding=1&rel=0&playsinline=1";
+    const {
+      posterModifierClass,
+      iframeTitle,
+      ctaId = "video_play",
+      ctaText = "動画を再生する",
+      ctaSection = "video",
+      onBeforeLoad = []
+    } = options;
+
+    const embedParams = new URLSearchParams({
+      autoplay: "1",
+      modestbranding: "1",
+      rel: "0",
+      playsinline: "1"
+    });
+    const pageOrigin = window.location.origin;
+    const canEmbedInline = pageOrigin && pageOrigin !== "null";
+    if (canEmbedInline) {
+      embedParams.set("origin", pageOrigin);
+    }
+    const embedUrl = `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?${embedParams.toString()}`;
+    const watchUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}`;
 
     function loadIframe() {
+      if (!canEmbedInline) {
+        window.open(watchUrl, "_blank", "noopener,noreferrer");
+        return;
+      }
       if (wrap.dataset.loaded === "1") return;
       wrap.dataset.loaded = "1";
-      wrap.classList.remove("concept-video__embed--poster");
+      wrap.classList.remove(posterModifierClass);
       wrap.innerHTML = "";
       const iframe = document.createElement("iframe");
       iframe.width = "560";
       iframe.height = "315";
       iframe.src = embedUrl;
-      iframe.title = "SideClip コンセプト動画";
+      iframe.title = iframeTitle;
       iframe.setAttribute("frameborder", "0");
       iframe.allow =
         "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
       iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
       iframe.allowFullscreen = true;
       wrap.appendChild(iframe);
+
+      const fallback = document.createElement("a");
+      fallback.className = "video-embed-fallback";
+      fallback.href = watchUrl;
+      fallback.target = "_blank";
+      fallback.rel = "noopener noreferrer";
+      fallback.textContent = "YouTubeで見る";
+      wrap.appendChild(fallback);
     }
 
-    wrap.querySelector(".concept-video__facade")?.addEventListener("click", (event) => {
+    wrap.querySelector("button")?.addEventListener("click", (event) => {
       const trigger = event.currentTarget;
       trackCtaClick({
-        ctaId: trigger?.dataset?.ctaId || "concept_video_play",
-        ctaText: "コンセプト動画を再生する",
-        section: trigger?.dataset?.ctaSection || "concept_video"
+        ctaId: trigger?.dataset?.ctaId || ctaId,
+        ctaText,
+        section: trigger?.dataset?.ctaSection || ctaSection
       });
       loadIframe();
     });
 
-    document.querySelectorAll('a[href="#concept-video"]').forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-        alignTargetTopWithViewport(resolveHashScrollTarget("concept-video"), { smooth: true });
-        loadIframe();
-      });
+    onBeforeLoad.forEach((fn) => fn(loadIframe));
+  }
+
+  function initConceptVideoEmbed() {
+    initYoutubePosterEmbed(document.querySelector(".concept-video__embed--poster"), CONCEPT_VIDEO_YT_ID, {
+      posterModifierClass: "concept-video__embed--poster",
+      iframeTitle: "SideClip コンセプト動画",
+      ctaId: "concept_video_play",
+      ctaText: "コンセプト動画を再生する",
+      ctaSection: "concept_video",
+      onBeforeLoad: [
+        (loadIframe) => {
+          document.querySelectorAll('a[href="#concept-video"]').forEach((link) => {
+            link.addEventListener("click", (event) => {
+              event.preventDefault();
+              alignTargetTopWithViewport(resolveHashScrollTarget("concept-video"), { smooth: true });
+              loadIframe();
+            });
+          });
+        }
+      ]
+    });
+  }
+
+  function initBenefitsVideoEmbed() {
+    initYoutubePosterEmbed(document.querySelector(".benefits-video__embed--poster"), BENEFITS_VIDEO_YT_ID, {
+      posterModifierClass: "benefits-video__embed--poster",
+      iframeTitle: "SideClip スクショ機能の紹介動画",
+      ctaId: "benefits_video_play",
+      ctaText: "スクショ機能の紹介動画を再生する",
+      ctaSection: "benefits_video"
     });
   }
 
@@ -2052,6 +2140,7 @@
     initHeroBannerHeadlineScroll();
     initInteractiveCards();
     initConceptVideoEmbed();
+    initBenefitsVideoEmbed();
     initFeatureImageLightbox();
     initDownloadWipModal();
     initCtaNavHashLinks();

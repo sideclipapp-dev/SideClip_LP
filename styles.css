@@ -1694,14 +1694,16 @@ img {
   box-shadow: 0 22px 44px rgba(0, 0, 0, 0.14);
 }
 
-.concept-video__embed {
+.concept-video__embed,
+.benefits-video__embed {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #0b1224;
 }
 
-.concept-video__facade {
+.concept-video__facade,
+.benefits-video__facade {
   position: absolute;
   inset: 0;
   display: block;
@@ -1715,7 +1717,8 @@ img {
   border-radius: 0;
 }
 
-.concept-video__poster {
+.concept-video__poster,
+.benefits-video__poster {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1725,7 +1728,8 @@ img {
   pointer-events: none;
 }
 
-.concept-video__facade-ring {
+.concept-video__facade-ring,
+.benefits-video__facade-ring {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -1743,31 +1747,72 @@ img {
 }
 
 .concept-video__facade:hover .concept-video__facade-ring,
-.concept-video__facade:focus-visible .concept-video__facade-ring {
+.concept-video__facade:focus-visible .concept-video__facade-ring,
+.benefits-video__facade:hover .benefits-video__facade-ring,
+.benefits-video__facade:focus-visible .benefits-video__facade-ring {
   transform: translate(-50%, -50%) scale(1.06);
   box-shadow: 0 10px 32px rgba(15, 22, 40, 0.45);
 }
 
-.concept-video__facade:focus-visible {
+.concept-video__facade:focus-visible,
+.benefits-video__facade:focus-visible {
   outline: none;
 }
 
-.concept-video__facade:focus-visible .concept-video__facade-ring {
+.concept-video__facade:focus-visible .concept-video__facade-ring,
+.benefits-video__facade:focus-visible .benefits-video__facade-ring {
   outline: 3px solid #fff;
   outline-offset: 4px;
 }
 
-.concept-video__facade-triangle {
+.concept-video__facade-triangle,
+.benefits-video__facade-triangle {
   margin-left: 3px;
 }
 
-.concept-video__embed iframe {
+.concept-video__embed iframe,
+.benefits-video__embed iframe {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   border: 0;
   display: block;
+}
+
+.video-embed-fallback {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(15, 22, 40, 0.72);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.16s ease, transform 0.16s ease, background-color 0.16s ease;
+}
+
+.concept-video__embed:hover .video-embed-fallback,
+.concept-video__embed:focus-within .video-embed-fallback,
+.benefits-video__embed:hover .video-embed-fallback,
+.benefits-video__embed:focus-within .video-embed-fallback {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.video-embed-fallback:hover,
+.video-embed-fallback:focus-visible {
+  background: rgba(0, 113, 227, 0.92);
+  outline: none;
 }
 
 .tap-section {
@@ -2179,6 +2224,54 @@ img {
   line-height: 1.78;
   font-weight: 600;
   text-align: center;
+}
+
+.benefits-video-showcase {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.82fr) minmax(420px, 1.18fr);
+  align-items: center;
+  gap: clamp(30px, 5vw, 72px);
+  width: 100%;
+  margin: clamp(44px, 5vw, 64px) 0 0;
+}
+
+.benefits-video-copy__eyebrow {
+  margin: 0 0 12px;
+  color: #6e6e73;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.benefits-video-copy h3 {
+  margin: 0;
+  color: #1d1d1f;
+  font-size: clamp(2.15rem, 4vw, 4rem);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.benefits-video-copy__text {
+  max-width: 31em;
+  margin: 20px 0 0;
+  color: #6e6e73;
+  font-size: 1rem;
+  line-height: 1.78;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.benefits-video {
+  width: 100%;
+  margin: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #0f1628;
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.14);
 }
 
 .benefit-grid {
@@ -5184,6 +5277,27 @@ main.page-shell--legal > article.doc-page--terms section ol.terms-sublist:has(> 
     max-width: 31ch;
     font-size: 0.9rem;
     line-height: 1.72;
+  }
+
+  .benefits-video-showcase {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 34px;
+  }
+
+  .benefits-video-copy h3 {
+    font-size: 2rem;
+    line-height: 1.18;
+  }
+
+  .benefits-video-copy__text {
+    max-width: 31ch;
+    font-size: 0.9rem;
+    line-height: 1.72;
+  }
+
+  .benefits-video {
+    max-width: 100%;
   }
 
   .benefit-grid {
