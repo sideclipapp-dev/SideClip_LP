@@ -485,7 +485,7 @@
           </p>
           <p>
             <strong>(1) Analytics in the app</strong><br />
-            App usage data, such as the operation logs described in Section 1(3), is sent to and recorded on Google's servers. This data is collected anonymously and does not identify individuals. Users can disable this data transmission, or opt out, from the app settings screen.
+            App usage data, such as the operation logs described in Section 1(3), is not sent by default. It is sent to and recorded on Google's servers only when users explicitly agree from the app settings screen or consent prompt. This data is collected anonymously and does not identify individuals. The data sent is limited to information such as screen view counts, button tap events, OS version, app version, country and region-level location inferred from the access source IP address, and prefecture-capital representative cities used for Google Analytics map rendering. It does not include the IP address itself, clipboard history, copied text, search terms, Todo contents, image data, URLs, file names, app or website names, the user's actual municipality, GPS information, latitude/longitude, or postal codes. Users can stop this data transmission at any time from the app settings screen after consenting.
           </p>
           <p>
             <strong>(2) Website analytics and cookies</strong><br />

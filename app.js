@@ -450,7 +450,6 @@
         <div class="section-drawer" id="section-drawer" aria-hidden="true">
           <button type="button" class="section-drawer__backdrop" aria-label="メニューを閉じる" data-section-menu-close></button>
           <nav class="section-drawer__panel" aria-label="ページメニュー">
-            <button type="button" class="section-drawer__close" aria-label="メニューを閉じる" data-section-menu-close>×</button>
             <a href="#hero-title" data-section-menu-link>トップ</a>
             <a href="#concept-video" data-section-menu-link>コンセプト動画</a>
             <a href="#tap-title" data-section-menu-link>使い方</a>
