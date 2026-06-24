@@ -4571,9 +4571,35 @@ main.page-shell--legal > article.doc-page--terms section ol.terms-sublist:has(> 
   margin-bottom: 0;
 }
 
+.faq__answer a {
+  color: #5ba3f5;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.faq__answer a:hover {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
 .faq__plans {
   margin: 0;
   padding: 0;
+}
+
+.faq__plans-more {
+  margin: 14px 0 0;
+}
+
+.faq__plans-more a {
+  color: #5ba3f5;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.faq__plans-more a:hover {
+  color: var(--blue);
+  text-decoration: underline;
 }
 
 .faq__plan {

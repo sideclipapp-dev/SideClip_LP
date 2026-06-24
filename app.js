@@ -244,7 +244,7 @@
       title: "忘れる前にコピーするだけ。",
       image: ASSETS.featureTodo,
       alt: "Todoモード画面",
-      text: "Macでコピー→すぐTodo。<br />カードをスワイプするだけでTodo化",
+      text: "Macでコピー→すぐTodo。<br />カードをスワイプするだけでTodo化<br /><small>Proプラン以上で利用可能</small>",
     },
   ];
 
@@ -460,6 +460,7 @@
             <a href="#local-title" data-section-menu-link>ローカル同期</a>
             <a href="#faq" data-section-menu-link>FAQ</a>
             <a href="#download" data-section-menu-link>事前登録</a>
+            <a href="/plans">料金プラン</a>
             <a href="#site-legal-footer" data-section-menu-link>ポリシー・規約</a>
           </nav>
         </div>
@@ -1057,7 +1058,10 @@
                   <summary class="faq__summary">無料で利用できますか？有料プランとの違いは何ですか？</summary>
                   <div class="faq__answer">
                     <p>Freeプランで基本機能が無料でご利用いただけます。<br />有料プランの前にご自身の環境で動作確認をお勧めいたします。</p>
-                    <p>Proプラン・Ultraプランは、より便利な機能が解放されます。<br />詳しくはアプリインストール後の設定メニュー内「プラン比較表」をご確認ください。</p>
+                    <p>Proプラン・Ultraプランは、より便利な機能が解放されます。</p>
+                    <p class="faq__plans-more">
+                      <a href="/plans">プラン別にできること・料金の詳細を見る →</a>
+                    </p>
                   </div>
                 </details>
                 <details class="faq__item">
@@ -1087,6 +1091,9 @@
                         </dd>
                       </div>
                     </dl>
+                    <p class="faq__plans-more">
+                      <a href="/plans">プラン別にできること・料金の詳細を見る →</a>
+                    </p>
                   </div>
                 </details>
               </div>
@@ -1160,7 +1167,7 @@
               <a href="#features-title">SideClipの主な機能</a>
               <a href="#usage-scenes-title">具体的な使用シーン</a>
               <a href="#local-title">ローカル同期</a>
-
+              <a href="/plans">料金・プラン比較</a>
             </nav>
             <ul class="trust-list" aria-label="利用条件">
               ${renderTrustItems()}
