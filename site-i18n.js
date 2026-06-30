@@ -139,7 +139,7 @@
     ["attr", ".feature-card:nth-child(3) .feature-card__image", "alt", "Screenshot capture screen"],
     ["attr", ".feature-card:nth-child(3) .feature-card__video-trigger", "aria-label", "Play the pen and crop demo video"],
     ["attr", ".feature-card:nth-child(3) .feature-card__video-trigger", "data-video-title", "SideClip pen and crop demo video"],
-    ["text", ".feature-card:nth-child(3) .feature-card__video-kicker", "Demo Movie"],
+    ["text", ".feature-card:nth-child(3) .feature-card__video-kicker", "Demo Video"],
     ["text", ".feature-card:nth-child(3) .feature-card__video-label", "Watch pen and crop demo"],
     ["attr", ".feature-video-lightbox__close", "aria-label", "Close video"],
     ["text", ".feature-video-lightbox__title", "Pen and crop demo video"],

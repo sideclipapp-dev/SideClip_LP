@@ -361,7 +361,7 @@
                 <span class="feature-card__video-play-icon" aria-hidden="true"></span>
               </span>
               <span class="feature-card__video-copy">
-                <span class="feature-card__video-kicker">Demo Movie</span>
+                <span class="feature-card__video-kicker">Demo Video</span>
                 <span class="feature-card__video-label">${feature.video.label}</span>
               </span>
             </button>
