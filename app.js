@@ -2,6 +2,7 @@
   const ASSET_VERSION = "20260512-mac-screen-white-solid";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const BENEFITS_VIDEO_YT_ID = "3m6aWg6LDFY";
+  const FEATURE_SCREENSHOT_VIDEO_YT_ID = "pfBsk3Iwi4E";
   const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
   const PRE_REGISTRATION_FORM_URL = "https://forms.gle/KbNn5T3TBVz459HBA";
 
@@ -237,7 +238,13 @@
       title: "Macの画面も、カードに。",
       image: ASSETS.featureScan,
       alt: "MacをキャプチャするSCAN画面",
-      text: "スマホからMacのスクショを起動。<br />撮った画像を、そのまま履歴に並べられます。",
+      text: "スマホからMacのスクショを起動。<br />撮った画像はペン入れ・トリミングして、そのまま履歴に残せます。",
+      video: {
+        id: FEATURE_SCREENSHOT_VIDEO_YT_ID,
+        title: "SideClip ペン入れ・トリミングデモ動画",
+        label: "ペン入れ・トリミングを動画で見る",
+        ariaLabel: "ペン入れ・トリミングのデモ動画を再生する",
+      },
     },
     {
       eyebrow: "Todo",
@@ -325,6 +332,7 @@
               aria-label="${feature.title}の画像を拡大表示"
             >
               <img
+                class="feature-card__image"
                 src="${feature.image}"
                 srcset="${feature.image} 1x, ${feature.image} 2x"
                 sizes="(max-width: 680px) 100vw, 50vw"
@@ -333,6 +341,31 @@
                 decoding="async"
               />
             </button>
+            ${feature.video ? `
+            <button
+              type="button"
+              class="feature-card__video-trigger"
+              data-youtube-id="${feature.video.id}"
+              data-video-title="${feature.video.title}"
+              data-cta-id="feature_screenshot_video_play"
+              data-cta-section="feature_screenshot_video"
+              aria-label="${feature.video.ariaLabel}"
+            >
+              <span class="feature-card__video-thumb" aria-hidden="true">
+                <img
+                  src="https://i.ytimg.com/vi/${feature.video.id}/hqdefault.jpg"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="feature-card__video-play-icon" aria-hidden="true"></span>
+              </span>
+              <span class="feature-card__video-copy">
+                <span class="feature-card__video-kicker">Demo Movie</span>
+                <span class="feature-card__video-label">${feature.video.label}</span>
+              </span>
+            </button>
+            ` : ""}
           </article>
         `
       )
@@ -1183,6 +1216,20 @@
           </div>
         </div>
 
+        <div class="feature-video-lightbox" id="feature-video-lightbox" aria-hidden="true">
+          <div
+            class="feature-video-lightbox__dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="feature-video-lightbox-title"
+          >
+            <button type="button" class="feature-video-lightbox__close" aria-label="動画を閉じる">×</button>
+            <p id="feature-video-lightbox-title" class="feature-video-lightbox__title">ペン入れ・トリミングのデモ動画</p>
+            <div class="feature-video-lightbox__frame"></div>
+            <a class="feature-video-lightbox__fallback" href="https://www.youtube.com/watch?v=${FEATURE_SCREENSHOT_VIDEO_YT_ID}" target="_blank" rel="noopener noreferrer">YouTubeで見る</a>
+          </div>
+        </div>
+
         <div class="wip-download-modal" id="wip-download-modal" aria-hidden="true">
           <div
             class="wip-download-modal__dialog"
@@ -1684,6 +1731,117 @@
     });
   }
 
+  function initFeatureScreenshotVideoLightbox() {
+    const trigger = document.querySelector(".feature-card__video-trigger");
+    const lightbox = document.querySelector("#feature-video-lightbox");
+    if (!trigger || !lightbox) return;
+
+    const dialog = lightbox.querySelector(".feature-video-lightbox__dialog");
+    const closeButton = lightbox.querySelector(".feature-video-lightbox__close");
+    const frame = lightbox.querySelector(".feature-video-lightbox__frame");
+    const fallback = lightbox.querySelector(".feature-video-lightbox__fallback");
+    const videoId = trigger.dataset.youtubeId || FEATURE_SCREENSHOT_VIDEO_YT_ID;
+    const videoTitle = trigger.dataset.videoTitle || "SideClip デモ動画";
+    const watchUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}`;
+    let lastFocusedElement = null;
+
+    if (fallback) fallback.href = watchUrl;
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("has-feature-video-lightbox");
+      if (frame) frame.innerHTML = "";
+      setPageInertState(false);
+      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+        lastFocusedElement.focus();
+      }
+      lastFocusedElement = null;
+    }
+
+    function openLightbox(opener) {
+      trackCtaClick({
+        ctaId: trigger.dataset.ctaId || "feature_screenshot_video_play",
+        ctaText: trigger.textContent.trim() || "ペン入れ・トリミングを動画で見る",
+        section: trigger.dataset.ctaSection || "feature_screenshot_video"
+      });
+
+      const canEmbedInline = window.location.protocol === "http:" || window.location.protocol === "https:";
+      if (!canEmbedInline) {
+        window.open(watchUrl, "_blank", "noopener,noreferrer");
+        return;
+      }
+
+      const embedParams = new URLSearchParams({
+        autoplay: "1",
+        modestbranding: "1",
+        rel: "0",
+        playsinline: "1",
+        origin: window.location.origin
+      });
+      const iframe = document.createElement("iframe");
+      iframe.width = "960";
+      iframe.height = "540";
+      iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?${embedParams.toString()}`;
+      iframe.title = videoTitle;
+      iframe.setAttribute("frameborder", "0");
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+      iframe.allowFullscreen = true;
+
+      lastFocusedElement = opener || document.activeElement;
+      if (frame) {
+        frame.innerHTML = "";
+        frame.appendChild(iframe);
+      }
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("has-feature-video-lightbox");
+      setPageInertState(true);
+      closeButton?.focus();
+    }
+
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      openLightbox(trigger);
+    });
+
+    ["touchstart", "touchend", "click"].forEach((eventName) => {
+      dialog?.addEventListener(eventName, (event) => {
+        event.stopPropagation();
+      });
+      closeButton?.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        closeLightbox();
+      });
+    });
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        event.preventDefault();
+        closeLightbox();
+      }
+    });
+
+    ["touchstart", "touchend"].forEach((eventName) => {
+      lightbox.addEventListener(eventName, (event) => {
+        event.stopPropagation();
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!lightbox.classList.contains("is-open")) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeLightbox();
+        return;
+      }
+      trapFocusInDialog(event, dialog);
+    });
+  }
+
 
   function getFocusableElements(container) {
     if (!container) return [];
@@ -1716,7 +1874,7 @@
   function setPageInertState(enabled) {
     const page = document.querySelector("main.page-shell");
     if (!page) return;
-    const modalIds = new Set(["feature-lightbox", "wip-download-modal"]);
+    const modalIds = new Set(["feature-lightbox", "feature-video-lightbox", "wip-download-modal"]);
     [...page.children].forEach((child) => {
       const shouldKeepInteractive = modalIds.has(child.id);
       if (!enabled || shouldKeepInteractive) {
@@ -2147,6 +2305,7 @@
     initInteractiveCards();
     initConceptVideoEmbed();
     initBenefitsVideoEmbed();
+    initFeatureScreenshotVideoLightbox();
     initFeatureImageLightbox();
     initDownloadWipModal();
     initCtaNavHashLinks();
