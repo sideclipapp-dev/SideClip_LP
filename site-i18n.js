@@ -133,7 +133,7 @@
     ["attr", ".feature-card:nth-child(2) .feature-card__panel", "data-feature-image-alt", "Favorites screen"],
     ["attr", ".feature-card:nth-child(2) .feature-card__image", "alt", "Favorites screen"],
     ["text", ".feature-card:nth-child(3) h3", "Mac screenshots become cards."],
-    ["html", ".feature-card:nth-child(3) > p:not(.feature-card__eyebrow)", "Start a Mac screenshot from your phone.<br />Mark it up, crop it, and save it directly in your history."],
+    ["html", ".feature-card:nth-child(3) > p:not(.feature-card__eyebrow)", "Start a Mac screenshot from your phone.<br />Mark it up, crop it, and save it directly in your history.<br /><small>Markup and cropping are available on Pro and above.</small>"],
     ["attr", ".feature-card:nth-child(3) .feature-card__panel", "aria-label", "Zoom image of the screenshot capture screen"],
     ["attr", ".feature-card:nth-child(3) .feature-card__panel", "data-feature-image-alt", "Screenshot capture screen"],
     ["attr", ".feature-card:nth-child(3) .feature-card__image", "alt", "Screenshot capture screen"],

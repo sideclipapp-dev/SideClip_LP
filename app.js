@@ -1,5 +1,5 @@
 (function () {
-  const ASSET_VERSION = "20260701-feature-order";
+  const ASSET_VERSION = "20260701-screenshot-pro-note";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const BENEFITS_VIDEO_YT_ID = "3m6aWg6LDFY";
   const FEATURE_SCREENSHOT_VIDEO_YT_ID = "pfBsk3Iwi4E";
@@ -239,7 +239,7 @@
       title: "Macの画面も、カードに。",
       image: ASSETS.featureScan,
       alt: "MacをキャプチャするSCAN画面",
-      text: "スマホからMacのスクショを起動。<br />撮った画像はペン入れ・トリミングして、そのまま履歴に残せます。",
+      text: "スマホからMacのスクショを起動。<br />撮った画像はペン入れ・トリミングして、そのまま履歴に残せます。<br /><small>ペン入れ・トリミングはProプラン以上で利用可能</small>",
       wide: true,
       video: {
         id: FEATURE_SCREENSHOT_VIDEO_YT_ID,
