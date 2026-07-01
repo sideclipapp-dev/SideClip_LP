@@ -33,11 +33,6 @@
         transform: translateY(-1px);
       }
 
-      .plans-added-row th,
-      .plans-added-row td {
-        background: rgba(45, 154, 255, 0.035);
-      }
-
       @media (max-width: 560px) {
         .plans-top-return-link {
           margin-left: 8px;
@@ -114,7 +109,7 @@
 
   function addComparisonRow(tbody, row, afterRow) {
     const tr = document.createElement("tr");
-    tr.className = "plans-added-row border-b border-black/8 last:border-b-0 even:bg-sc-surface/45";
+    tr.className = "border-b border-black/8 last:border-b-0 even:bg-sc-surface/45";
     tr.appendChild(tableCell("th", row.feature, false));
     tr.appendChild(tableCell("td", row.free, false));
     tr.appendChild(tableCell("td", row.pro, false));
@@ -159,7 +154,8 @@
 
     if (!tbody.textContent.includes("画像内テキスト抽出")) {
       const rows = Array.from(tbody.querySelectorAll("tr"));
-      const afterRow = rows.find((row) => firstCellText(row) === "カード検索") || rows[rows.length - 1];
+      const afterRow =
+        rows.find((row) => firstCellText(row) === "画像内テキスト表示") || rows[rows.length - 1];
       addComparisonRow(
         tbody,
         {
