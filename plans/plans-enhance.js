@@ -86,6 +86,35 @@
     list.appendChild(item);
   }
 
+  function replaceText(root, from, to) {
+    if (!root || !root.textContent || !root.textContent.includes(from)) return;
+
+    const walker = document.createTreeWalker(root, 4);
+    const textNodes = [];
+    let node = walker.nextNode();
+    while (node) {
+      textNodes.push(node);
+      node = walker.nextNode();
+    }
+
+    textNodes.forEach((textNode) => {
+      if (textNode.nodeValue && textNode.nodeValue.includes(from)) {
+        textNode.nodeValue = textNode.nodeValue.split(from).join(to);
+      }
+    });
+  }
+
+  function updatePlanWording() {
+    const proCard = Array.from(document.querySelectorAll("article")).find((article) => {
+      const title = article.querySelector("h3");
+      return title && title.textContent.trim() === "Pro";
+    });
+    replaceText(proCard, "自動翻訳", "コピーして翻訳");
+
+    const differenceSection = document.getElementById("difference-heading")?.closest("section");
+    replaceText(differenceSection, "自動翻訳", "コピーして翻訳");
+  }
+
   function findComparisonBody() {
     const heading = document.getElementById("comparison-heading");
     const section = heading ? heading.closest("section") : null;
@@ -133,8 +162,8 @@
       const label = firstCellText(row);
       const cells = row.children;
 
-      if (label === "コピー時の自動翻訳" && cells.length >= 4) {
-        cells[0].textContent = "翻訳機能";
+      if ((label === "コピー時の自動翻訳" || label === "翻訳機能") && cells.length >= 4) {
+        cells[0].textContent = "コピーして翻訳";
         cells[2].textContent =
           "コピーしたテキストを指定の言語に翻訳して新規カードを生成\nmacOS 15以降のMac純正翻訳機能が必要";
         cells[3].textContent = "←";
@@ -146,11 +175,25 @@
     });
   }
 
+  function moveTranslateRowAfterTodo(tbody) {
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+    const todoRow = rows.find((row) => firstCellText(row) === "Todo管理");
+    const translateRow = rows.find((row) => firstCellText(row) === "コピーして翻訳");
+    if (!todoRow || !translateRow || translateRow.previousElementSibling === todoRow) return;
+
+    if (todoRow.nextSibling) {
+      tbody.insertBefore(translateRow, todoRow.nextSibling);
+    } else {
+      tbody.appendChild(translateRow);
+    }
+  }
+
   function addComparisonRows() {
     const tbody = findComparisonBody();
     if (!tbody) return;
 
     updateExistingRows(tbody);
+    moveTranslateRowAfterTodo(tbody);
 
     if (!tbody.textContent.includes("画像内テキスト抽出")) {
       const rows = Array.from(tbody.querySelectorAll("tr"));
@@ -173,6 +216,7 @@
     ensureStyles();
     addTopReturnLink();
     addUltraConvenienceBullet();
+    updatePlanWording();
     addComparisonRows();
   }
 
