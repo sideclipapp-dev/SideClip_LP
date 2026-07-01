@@ -2656,6 +2656,10 @@ img {
   text-align: left;
 }
 
+.feature-card--wide {
+  grid-column: 1 / -1;
+}
+
 .interactive-card {
   transform: perspective(900px) rotateX(var(--card-rotate-x, 0deg)) rotateY(var(--card-rotate-y, 0deg));
   transform-style: preserve-3d;
@@ -2728,6 +2732,10 @@ img {
   height: auto;
   max-width: 100%;
   vertical-align: top;
+}
+
+.feature-card--wide .feature-card__panel {
+  margin-top: clamp(18px, 2.4vw, 26px);
 }
 
 .feature-card__video-trigger {
