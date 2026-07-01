@@ -2738,6 +2738,43 @@ img {
   margin-top: clamp(18px, 2.4vw, 26px);
 }
 
+@media (min-width: 681px) {
+  .feature-card--wide.feature-card--has-video {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.72fr);
+    grid-template-areas:
+      "eyebrow video"
+      "title video"
+      "copy video"
+      "panel panel";
+    column-gap: clamp(18px, 3vw, 34px);
+    align-items: start;
+  }
+
+  .feature-card--wide.feature-card--has-video .feature-card__eyebrow {
+    grid-area: eyebrow;
+  }
+
+  .feature-card--wide.feature-card--has-video h3 {
+    grid-area: title;
+  }
+
+  .feature-card--wide.feature-card--has-video .feature-card__copy {
+    grid-area: copy;
+  }
+
+  .feature-card--wide.feature-card--has-video .feature-card__panel {
+    grid-area: panel;
+  }
+
+  .feature-card--wide.feature-card--has-video .feature-card__video-trigger {
+    grid-area: video;
+    align-self: end;
+    min-height: 92px;
+    margin-top: 0;
+  }
+}
+
 .feature-card__video-trigger {
   display: flex;
   align-items: center;

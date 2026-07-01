@@ -1,5 +1,5 @@
 (function () {
-  const ASSET_VERSION = "20260701-search-feature";
+  const ASSET_VERSION = "20260701-feature-order";
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const BENEFITS_VIDEO_YT_ID = "3m6aWg6LDFY";
   const FEATURE_SCREENSHOT_VIDEO_YT_ID = "pfBsk3Iwi4E";
@@ -235,25 +235,25 @@
       text: "よく使う定型文やリンクを保存。<br />一度まとめれば、次から探す時間を減らせます。",
     },
     {
-      eyebrow: "Search",
-      title: "増えた履歴も、すぐ見つかる。",
-      image: ASSETS.featureSearch,
-      alt: "検索でコピー履歴やスクショを探す画面",
-      text: "日付の期間・キーワード・画像内の文字まで検索。<br />あいまいな表現でも、目当てのカードに戻れます。<br /><small>画像内テキスト検索はProプラン以上で利用可能</small>",
-      wide: true,
-    },
-    {
       eyebrow: "Screenshot",
       title: "Macの画面も、カードに。",
       image: ASSETS.featureScan,
       alt: "MacをキャプチャするSCAN画面",
       text: "スマホからMacのスクショを起動。<br />撮った画像はペン入れ・トリミングして、そのまま履歴に残せます。",
+      wide: true,
       video: {
         id: FEATURE_SCREENSHOT_VIDEO_YT_ID,
         title: "SideClip ペン入れ・トリミングデモ動画",
         label: "ペン入れ・トリミングを動画で見る",
         ariaLabel: "ペン入れ・トリミングのデモ動画を再生する",
       },
+    },
+    {
+      eyebrow: "Search",
+      title: "増えた履歴も、すぐ見つかる。",
+      image: ASSETS.featureSearch,
+      alt: "検索でコピー履歴やスクショを探す画面",
+      text: "日付の期間・キーワード・画像内の文字まで検索。<br />あいまいな表現でも、目当てのカードに戻れます。<br /><small>画像内テキスト検索はProプラン以上で利用可能</small>",
     },
     {
       eyebrow: "Todo",
@@ -329,13 +329,13 @@
     return features
       .map(
         (feature) => {
-          const cardClass = feature.wide ? " feature-card--wide" : "";
+          const cardClass = `${feature.wide ? " feature-card--wide" : ""}${feature.video ? " feature-card--has-video" : ""}`;
           const imageSizes = feature.wide ? "(max-width: 680px) 100vw, 980px" : "(max-width: 680px) 100vw, 50vw";
           return `
           <article class="feature-card${cardClass} interactive-card">
             <p class="feature-card__eyebrow">${feature.eyebrow}</p>
             <h3>${feature.title}</h3>
-            <p>${feature.text}</p>
+            <p class="feature-card__copy">${feature.text}</p>
             <button
               type="button"
               class="feature-card__panel feature-zoom-trigger"
