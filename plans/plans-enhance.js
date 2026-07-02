@@ -65,11 +65,41 @@
     headerInner.insertBefore(link, divider || null);
   }
 
-  function addUltraConvenienceBullet() {
-    const ultraCard = Array.from(document.querySelectorAll("article")).find((article) => {
+  function findPlanCard(planName) {
+    return Array.from(document.querySelectorAll("article")).find((article) => {
       const title = article.querySelector("h3");
-      return title && title.textContent.trim() === "Ultra";
+      return title && title.textContent.trim() === planName;
     });
+  }
+
+  function addPlanBullet(card, text, afterText) {
+    if (!card || card.textContent.includes(text)) return;
+
+    const list = card.querySelector("ul");
+    if (!list) return;
+
+    const item = document.createElement("li");
+    item.className = "flex gap-2 text-sm text-sc-text";
+    item.innerHTML = `${CHECK_ICON}<span>${text}</span>`;
+
+    const afterItem = afterText
+      ? Array.from(list.children).find((child) => child.textContent.includes(afterText))
+      : null;
+    if (afterItem && afterItem.nextSibling) {
+      list.insertBefore(item, afterItem.nextSibling);
+    } else {
+      list.appendChild(item);
+    }
+  }
+
+  function addQuickPasteBullets() {
+    const quickPasteText = "クイックペースト（最新1〜9をショートカットでペースト）";
+    addPlanBullet(findPlanCard("Pro"), quickPasteText, "Mac Clip");
+    addPlanBullet(findPlanCard("Ultra"), quickPasteText, "Proの全機能");
+  }
+
+  function addUltraConvenienceBullet() {
+    const ultraCard = findPlanCard("Ultra");
     if (!ultraCard || ultraCard.textContent.includes("その他 便利機能")) return;
 
     const list = ultraCard.querySelector("ul");
@@ -100,14 +130,21 @@
   }
 
   function updatePlanWording() {
-    const proCard = Array.from(document.querySelectorAll("article")).find((article) => {
-      const title = article.querySelector("h3");
-      return title && title.textContent.trim() === "Pro";
-    });
+    const proCard = findPlanCard("Pro");
     replaceText(proCard, "自動翻訳", "コピーして翻訳");
+    replaceText(
+      proCard,
+      "Todo、画像内検索、コピーして翻訳に加えて、画像のトリミング・ペン入れまで使えます。",
+      "Todo、クイックペースト、画像内検索、コピーして翻訳に加えて、画像のトリミング・ペン入れまで使えます。",
+    );
 
     const differenceSection = document.getElementById("difference-heading")?.closest("section");
     replaceText(differenceSection, "自動翻訳", "コピーして翻訳");
+    replaceText(
+      differenceSection,
+      "Pro以上ではTodo、画像のトリミング・ペン入れ、画像内テキスト検索、コピーして翻訳を使えます。",
+      "Pro以上ではTodo、クイックペースト、画像のトリミング・ペン入れ、画像内テキスト検索、コピーして翻訳を使えます。",
+    );
   }
 
   function findComparisonBody() {
@@ -190,6 +227,21 @@
     updateExistingRows(tbody);
     moveTranslateRowAfterTodo(tbody);
 
+    if (!tbody.textContent.includes("クイックペースト")) {
+      const rows = Array.from(tbody.querySelectorAll("tr"));
+      const afterRow = rows.find((row) => firstCellText(row) === "カード検索") || rows[rows.length - 1];
+      addComparisonRow(
+        tbody,
+        {
+          feature: "クイックペースト",
+          free: "-",
+          pro: "選択中のタブの最新カード1〜9を\nキーボードショートカットでペースト",
+          ultra: "←",
+        },
+        afterRow,
+      );
+    }
+
     if (!tbody.textContent.includes("画像内テキスト抽出")) {
       const rows = Array.from(tbody.querySelectorAll("tr"));
       const afterRow =
@@ -210,6 +262,7 @@
   function enhancePlansPage() {
     ensureStyles();
     addTopReturnLink();
+    addQuickPasteBullets();
     addUltraConvenienceBullet();
     updatePlanWording();
     addComparisonRows();
