@@ -14,42 +14,37 @@
         align-items: center;
         justify-content: center;
         margin-left: 16px;
-        border: 1px solid rgba(45, 154, 255, 0.28);
+        border: 1px solid rgba(29, 29, 31, 0.1);
         border-radius: 999px;
-        background: rgba(45, 154, 255, 0.08);
-        color: #087eff;
-        font-size: 13px;
-        font-weight: 800;
-        line-height: 1;
-        padding: 9px 13px;
+        background: rgba(255, 255, 255, 0.84);
+        color: #1d1d1f;
+        font-size: 11.8px;
+        font-weight: 700;
+        line-height: 1.35;
+        padding: 7px 14px;
+        box-shadow: none;
         text-decoration: none;
         white-space: nowrap;
-        transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+        -webkit-backdrop-filter: blur(18px) saturate(1.3);
+        backdrop-filter: blur(18px) saturate(1.3);
+        transition: color 160ms ease, border-color 160ms ease;
       }
 
       .plans-top-return-link:hover {
-        background: rgba(45, 154, 255, 0.13);
-        border-color: rgba(45, 154, 255, 0.45);
-        transform: translateY(-1px);
+        color: #0071e3;
+        border-color: rgba(0, 113, 227, 0.24);
       }
 
       @media (max-width: 560px) {
         .plans-top-return-link {
           margin-left: 8px;
-          padding: 8px 10px;
-          font-size: 12px;
+          padding: 7px 12px;
         }
       }
 
       @media (max-width: 420px) {
-        .plans-top-return-link {
-          font-size: 0;
-          padding: 8px 9px;
-        }
-
         .plans-top-return-link::before {
-          content: "LPへ";
-          font-size: 12px;
+          content: none;
         }
       }
     `;
@@ -63,8 +58,8 @@
     const link = document.createElement("a");
     link.href = "/";
     link.className = "plans-top-return-link";
-    link.textContent = "LPトップへ戻る";
-    link.setAttribute("aria-label", "SideClipのLPトップへ戻る");
+    link.textContent = "トップへ戻る";
+    link.setAttribute("aria-label", "SideClipトップへ戻る");
 
     const divider = headerInner.querySelector("span.pointer-events-none");
     headerInner.insertBefore(link, divider || null);
