@@ -47,6 +47,16 @@
           content: none;
         }
       }
+
+      .plans-pricing-summary {
+        min-height: 5.75rem !important;
+      }
+
+      @media (max-width: 1023px) {
+        .plans-pricing-summary {
+          min-height: 0 !important;
+        }
+      }
     `;
     document.head.appendChild(style);
   }
@@ -95,7 +105,6 @@
   function addQuickPasteBullets() {
     const quickPasteText = "クイックペースト（最新1〜9をショートカットでペースト）";
     addPlanBullet(findPlanCard("Pro"), quickPasteText, "画像トリミング");
-    addPlanBullet(findPlanCard("Ultra"), quickPasteText, "Proの全機能");
   }
 
   function addUltraConvenienceBullet() {
@@ -141,20 +150,64 @@
     list.insertBefore(movingItem, targetItem);
   }
 
+  function removePlanBullet(card, text) {
+    const list = card ? card.querySelector("ul") : null;
+    if (!list) return;
+
+    Array.from(list.children).forEach((item) => {
+      if (item.textContent.includes(text)) item.remove();
+    });
+  }
+
+  function updatePlanSummary(card, currentTexts, nextText) {
+    if (!card) return;
+
+    const summary = Array.from(card.querySelectorAll("p")).find((paragraph) =>
+      currentTexts.some((text) => paragraph.textContent.includes(text)),
+    );
+    if (!summary) return;
+
+    summary.textContent = nextText;
+    summary.classList.add("plans-pricing-summary");
+  }
+
   function updatePlanWording() {
+    const freeCard = findPlanCard("Free");
     const proCard = findPlanCard("Pro");
+    const ultraCard = findPlanCard("Ultra");
+
+    updatePlanSummary(
+      freeCard,
+      [
+        "Tap to Pasteと基本の履歴管理を体験できます。",
+        "Tap to Pasteやスクショ履歴など、SideClipの基本機能が体験できます。",
+      ],
+      "Tap to Pasteやスクショ履歴など、SideClipの基本機能が体験できます。",
+    );
+
     replaceText(proCard, "自動翻訳", "コピーして翻訳");
-    replaceText(
+    updatePlanSummary(
       proCard,
-      "Todo、画像内検索、コピーして翻訳に加えて、画像のトリミング・ペン入れまで使えます。",
+      [
+        "Todo、画像内検索、コピーして翻訳に加えて、画像のトリミング・ペン入れまで使えます。",
+        "Todo、クイックペースト、画像内検索、コピーして翻訳に加えて、画像のトリミング・ペン入れまで使えます。",
+        "プロフェッショナルに向けの便利な機能が解放されます。",
+      ],
       "プロフェッショナルに向けの便利な機能が解放されます。",
     );
-    replaceText(
-      proCard,
-      "Todo、クイックペースト、画像内検索、コピーして翻訳に加えて、画像のトリミング・ペン入れまで使えます。",
-      "プロフェッショナルに向けの便利な機能が解放されます。",
+
+    updatePlanSummary(
+      ultraCard,
+      [
+        "Proの全機能に、無制限保存・CSVエクスポート・バックアップと復元などのデータ管理を追加できます。",
+        "SideClipの全機能が使えます。今後のアップデートで新機能が優先的に追加されます。",
+      ],
+      "SideClipの全機能が使えます。今後のアップデートで新機能が優先的に追加されます。",
     );
+
     movePlanBulletBefore(proCard, "クイックペースト", "コピーして翻訳");
+    removePlanBullet(ultraCard, "クイックペースト");
+    addPlanBullet(ultraCard, "画像内テキスト抽出", "Appleリマインダー連携");
 
     const differenceSection = document.getElementById("difference-heading")?.closest("section");
     replaceText(differenceSection, "自動翻訳", "コピーして翻訳");
