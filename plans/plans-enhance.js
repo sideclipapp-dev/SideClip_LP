@@ -52,7 +52,15 @@
         min-height: 5.75rem !important;
       }
 
+      .plans-free-year-placeholder {
+        visibility: hidden;
+      }
+
       @media (max-width: 1023px) {
+        .plans-free-year-placeholder {
+          display: none !important;
+        }
+
         .plans-pricing-summary {
           min-height: 0 !important;
         }
@@ -171,6 +179,22 @@
     summary.classList.add("plans-pricing-summary");
   }
 
+  function ensureFreeYearPlaceholder(card) {
+    if (!card || card.querySelector(".plans-free-year-placeholder")) return;
+
+    const priceBlock = Array.from(card.children).find((child) =>
+      child.textContent.includes("¥0"),
+    );
+    const placeholder = document.createElement("p");
+    placeholder.className = "plans-free-year-placeholder mt-2 text-sm font-medium text-sc-primary";
+    placeholder.setAttribute("aria-hidden", "true");
+    placeholder.textContent = "年額 ¥0";
+
+    if (priceBlock) {
+      priceBlock.insertAdjacentElement("afterend", placeholder);
+    }
+  }
+
   function updatePlanWording() {
     const freeCard = findPlanCard("Free");
     const proCard = findPlanCard("Pro");
@@ -184,6 +208,7 @@
       ],
       "Tap to Pasteやスクショ履歴など、SideClipの基本機能が体験できます。",
     );
+    ensureFreeYearPlaceholder(freeCard);
 
     replaceText(proCard, "自動翻訳", "コピーして翻訳");
     updatePlanSummary(
