@@ -94,7 +94,7 @@
 
   function addQuickPasteBullets() {
     const quickPasteText = "クイックペースト（最新1〜9をショートカットでペースト）";
-    addPlanBullet(findPlanCard("Pro"), quickPasteText, "Mac Clip");
+    addPlanBullet(findPlanCard("Pro"), quickPasteText, "画像トリミング");
     addPlanBullet(findPlanCard("Ultra"), quickPasteText, "Proの全機能");
   }
 
@@ -129,14 +129,32 @@
     });
   }
 
+  function movePlanBulletBefore(card, movingText, targetText) {
+    const list = card ? card.querySelector("ul") : null;
+    if (!list) return;
+
+    const items = Array.from(list.children);
+    const movingItem = items.find((item) => item.textContent.includes(movingText));
+    const targetItem = items.find((item) => item.textContent.includes(targetText));
+    if (!movingItem || !targetItem || movingItem.nextElementSibling === targetItem) return;
+
+    list.insertBefore(movingItem, targetItem);
+  }
+
   function updatePlanWording() {
     const proCard = findPlanCard("Pro");
     replaceText(proCard, "自動翻訳", "コピーして翻訳");
     replaceText(
       proCard,
       "Todo、画像内検索、コピーして翻訳に加えて、画像のトリミング・ペン入れまで使えます。",
-      "Todo、クイックペースト、画像内検索、コピーして翻訳に加えて、画像のトリミング・ペン入れまで使えます。",
+      "プロフェッショナルに向けの便利な機能が解放されます。",
     );
+    replaceText(
+      proCard,
+      "Todo、クイックペースト、画像内検索、コピーして翻訳に加えて、画像のトリミング・ペン入れまで使えます。",
+      "プロフェッショナルに向けの便利な機能が解放されます。",
+    );
+    movePlanBulletBefore(proCard, "クイックペースト", "コピーして翻訳");
 
     const differenceSection = document.getElementById("difference-heading")?.closest("section");
     replaceText(differenceSection, "自動翻訳", "コピーして翻訳");
@@ -220,6 +238,15 @@
     }
   }
 
+  function moveQuickPasteRowBeforeTranslate(tbody) {
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+    const translateRow = rows.find((row) => firstCellText(row) === "コピーして翻訳");
+    const quickPasteRow = rows.find((row) => firstCellText(row) === "クイックペースト");
+    if (!translateRow || !quickPasteRow || quickPasteRow.nextElementSibling === translateRow) return;
+
+    tbody.insertBefore(quickPasteRow, translateRow);
+  }
+
   function addComparisonRows() {
     const tbody = findComparisonBody();
     if (!tbody) return;
@@ -229,8 +256,8 @@
 
     if (!tbody.textContent.includes("クイックペースト")) {
       const rows = Array.from(tbody.querySelectorAll("tr"));
-      const afterRow = rows.find((row) => firstCellText(row) === "カード検索") || rows[rows.length - 1];
-      addComparisonRow(
+      const translateRow = rows.find((row) => firstCellText(row) === "コピーして翻訳");
+      const quickPasteRow = addComparisonRow(
         tbody,
         {
           feature: "クイックペースト",
@@ -238,9 +265,12 @@
           pro: "選択中のタブの最新カード1〜9を\nキーボードショートカットでペースト",
           ultra: "←",
         },
-        afterRow,
+        null,
       );
+
+      if (translateRow) tbody.insertBefore(quickPasteRow, translateRow);
     }
+    moveQuickPasteRowBeforeTranslate(tbody);
 
     if (!tbody.textContent.includes("画像内テキスト抽出")) {
       const rows = Array.from(tbody.querySelectorAll("tr"));
