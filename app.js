@@ -3,8 +3,7 @@
   const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
   const BENEFITS_VIDEO_YT_ID = "3m6aWg6LDFY";
   const FEATURE_SCREENSHOT_VIDEO_YT_ID = "pfBsk3Iwi4E";
-  const WIP_DOWNLOAD_X_URL = "https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw";
-  const PRE_REGISTRATION_FORM_URL = "https://forms.gle/KbNn5T3TBVz459HBA";
+  const MAC_DOWNLOAD_URL = "https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg";
 
   // Visual assets are centralized so replacement only needs this block.
   const syncDataLineRail = `
@@ -477,16 +476,17 @@
                   <div class="hero__banner-actions" aria-label="ヒーロー操作">
                     <a
                       class="hero__banner-primary"
-                      href="#"
-                      data-wip-download-trigger
-                      data-cta-id="hero_banner_register"
+                      href="${MAC_DOWNLOAD_URL}"
+                      data-download-link
+                      data-cta-id="hero_banner_download"
                       data-cta-section="hero"
+                      aria-label="SideClipをMacで無料ダウンロード"
                     >
-                      事前登録する
+                      Macで無料ダウンロード
                     </a>
                     <a class="hero__banner-secondary" href="#tap-title">詳しく見る</a>
                   </div>
-                  <p class="hero__banner-note">リリース準備中 / Apple Silicon搭載Macに対応</p>
+                  <p class="hero__banner-note">Apple Silicon搭載Macに対応</p>
                 </div>
               </div>
             </div>
@@ -505,7 +505,7 @@
             <a href="#usage-scenes-title" data-section-menu-link>使用シーン</a>
             <a href="#local-title" data-section-menu-link>ローカル同期</a>
             <a href="#faq" data-section-menu-link>FAQ</a>
-            <a href="#download" data-section-menu-link>事前登録</a>
+            <a href="#download" data-section-menu-link>ダウンロード</a>
             <a href="/plans">料金プラン</a>
             <a href="#site-legal-footer" data-section-menu-link>ポリシー・規約</a>
           </nav>
@@ -748,11 +748,11 @@
             <li>Mac専用アプリ</li>
             <li>MacとiPhone/iPad/Android端末とつながる</li>
           </ul>
-          <a class="download-button" href="#" data-wip-download-trigger data-cta-id="hero_download_status" data-cta-section="hero" aria-label="事前登録特典で、Ultraプラン3か月無料クーポンをプレゼント">
+          <a class="download-button" href="${MAC_DOWNLOAD_URL}" data-download-link data-cta-id="hero_download" data-cta-section="hero" aria-label="SideClipをMacで無料ダウンロード">
             <!-- ${icon.download} -->
-            事前登録する
+            Macで無料ダウンロード
           </a>
-          <p class="download-microcopy">リリース時にUltraプラン3か月無料クーポンをお届けします。</p>
+          <p class="download-microcopy">Apple Silicon搭載Mac用DMGをダウンロードします。</p>
           <p class="os-note">Apple Silicon搭載のMacに対応</p>
           </div>
         </div>
@@ -1191,22 +1191,22 @@
         <section class="final-cta reveal" id="download" aria-labelledby="cta-title">
           <div class="final-cta__copy">
             <div class="reveal__head">
-              <p class="final-cta__eyebrow">Pre Register</p>
+              <p class="final-cta__eyebrow">Download</p>
               <h2 id="cta-title">コピーの置き場所を、<br />Macの横に。</h2>
             </div>
             <div class="reveal__rest">
               <p>
-                リリース時にお知らせします。<br />
-                事前登録で、Ultraプラン3か月無料クーポンをお届けします。
+                Apple Silicon搭載Macで無料で始められます。<br />
+                ダウンロード後、SideClipアプリ内からプランを選べます。
               </p>
             </div>
           </div>
           <div class="reveal__rest final-cta__action">
-            <a class="download-button download-button--light" href="#" data-wip-download-trigger data-cta-id="final_download_status" data-cta-section="final_cta" aria-label="事前登録で、Ultraプラン3か月無料クーポンをプレゼント">
+            <a class="download-button download-button--light" href="${MAC_DOWNLOAD_URL}" data-download-link data-cta-id="final_download" data-cta-section="final_cta" aria-label="SideClipをMacで無料ダウンロード">
               <!-- ${icon.download} -->
-              事前登録する
+              Macで無料ダウンロード
             </a>
-            <p class="download-microcopy">Ultraプラン3か月無料クーポンをプレゼント</p>
+            <p class="download-microcopy">Apple Silicon搭載Mac用DMGをダウンロードします。</p>
             <p>Apple Silicon搭載のMacに対応</p>
             <nav class="cta-links" aria-label="補助リンク">
               <a class="is-primary" href="#concept-video">コンセプト動画</a>
@@ -1240,35 +1240,6 @@
             <p id="feature-video-lightbox-title" class="feature-video-lightbox__title">ペン入れ・トリミングのデモ動画</p>
             <div class="feature-video-lightbox__frame"></div>
             <a class="feature-video-lightbox__fallback" href="https://www.youtube.com/watch?v=${FEATURE_SCREENSHOT_VIDEO_YT_ID}" target="_blank" rel="noopener noreferrer">YouTubeで見る</a>
-          </div>
-        </div>
-
-        <div class="wip-download-modal" id="wip-download-modal" aria-hidden="true">
-          <div
-            class="wip-download-modal__dialog"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="wip-download-desc"
-          >
-            <button type="button" class="wip-download-modal__close" aria-label="閉じる">×</button>
-            <p id="wip-download-desc" class="wip-download-modal__text">
-              ただいま絶賛アプリ開発中です。もうしばらくお待ちください。<br />
-              開発の進捗は、開発者の"X(Twitter)"をチェックしてください。<br />
-              事前登録で、Ultraプラン3か月無料クーポンをプレゼント🎁（先着5名様限定）
-            </p>
-            <a
-              class="wip-download-modal__formlink"
-              href="${PRE_REGISTRATION_FORM_URL}"
-              target="_blank"
-              rel="noopener noreferrer"
-              >事前登録（Googleフォーム）</a>
-            <a
-              class="wip-download-modal__xlink"
-              href="${WIP_DOWNLOAD_X_URL}"
-              target="_blank"
-              rel="noopener noreferrer"
-              >SideClip 開発アカウント（X）を開く</a>
-            <button type="button" class="wip-download-modal__dismiss">閉じる</button>
           </div>
         </div>
 
@@ -1887,7 +1858,7 @@
   function setPageInertState(enabled) {
     const page = document.querySelector("main.page-shell");
     if (!page) return;
-    const modalIds = new Set(["feature-lightbox", "feature-video-lightbox", "wip-download-modal"]);
+    const modalIds = new Set(["feature-lightbox", "feature-video-lightbox"]);
     [...page.children].forEach((child) => {
       const shouldKeepInteractive = modalIds.has(child.id);
       if (!enabled || shouldKeepInteractive) {
@@ -1976,86 +1947,16 @@
     });
   }
 
-  function initDownloadWipModal() {
-    const modal = document.querySelector("#wip-download-modal");
-    if (!modal) return;
-
-    const dialog = modal.querySelector(".wip-download-modal__dialog");
-    const closeBtn = modal.querySelector(".wip-download-modal__close");
-    const dismissBtn = modal.querySelector(".wip-download-modal__dismiss");
-    const triggers = document.querySelectorAll("[data-wip-download-trigger]");
-    let lastFocusedElement = null;
-
-    function closeModal() {
-      modal.classList.remove("is-open");
-      modal.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("has-wip-download-modal");
-      setPageInertState(false);
-      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
-        lastFocusedElement.focus();
-      }
-      lastFocusedElement = null;
-    }
-
-    function openModal(opener) {
-      lastFocusedElement = opener || document.activeElement;
-      modal.classList.add("is-open");
-      modal.setAttribute("aria-hidden", "false");
-      document.body.classList.add("has-wip-download-modal");
-      setPageInertState(true);
-      closeBtn?.focus();
-    }
-
-    triggers.forEach((trigger) => {
-      trigger.addEventListener("click", (event) => {
-        event.preventDefault();
+  function initDownloadLinkTracking() {
+    const links = document.querySelectorAll("[data-download-link]");
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
         trackCtaClick({
-          ctaId: trigger.dataset.ctaId || "download_status",
-          ctaText: (trigger.textContent || "").trim(),
-          section: trigger.dataset.ctaSection || "unknown"
-        });
-        openModal(trigger);
-      });
-    });
-
-    ["touchstart", "touchend", "click"].forEach((eventName) => {
-      dialog?.addEventListener(eventName, (event) => {
-        event.stopPropagation();
-      });
-    });
-
-    [closeBtn, dismissBtn].forEach((btn) => {
-      if (!btn) return;
-      ["touchstart", "touchend", "click"].forEach((eventName) => {
-        btn.addEventListener(eventName, (event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          closeModal();
+          ctaId: link.dataset.ctaId || "mac_download",
+          ctaText: (link.textContent || "").trim(),
+          section: link.dataset.ctaSection || "download"
         });
       });
-    });
-
-    modal.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        event.preventDefault();
-        closeModal();
-      }
-    });
-
-    ["touchstart", "touchend"].forEach((eventName) => {
-      modal.addEventListener(eventName, (event) => {
-        event.stopPropagation();
-      });
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (!modal.classList.contains("is-open")) return;
-      if (event.key === "Escape") {
-        event.preventDefault();
-        closeModal();
-        return;
-      }
-      trapFocusInDialog(event, dialog);
     });
   }
 
@@ -2320,7 +2221,7 @@
     initBenefitsVideoEmbed();
     initFeatureScreenshotVideoLightbox();
     initFeatureImageLightbox();
-    initDownloadWipModal();
+    initDownloadLinkTracking();
     initCtaNavHashLinks();
     initSectionDrawer();
     initSyncLineRailLayout();
