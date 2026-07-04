@@ -484,7 +484,6 @@
                     >
                       Macで無料ダウンロード
                     </a>
-                    <a class="hero__banner-secondary" href="#tap-title">詳しく見る</a>
                   </div>
                   <p class="hero__banner-note">Apple Silicon搭載Macに対応</p>
                 </div>

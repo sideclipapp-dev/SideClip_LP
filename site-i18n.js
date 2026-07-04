@@ -31,7 +31,6 @@
     ["html", ".hero__banner-overlay-lead", "Put your clipboard<br />history beside<br />your Mac."],
     ["html", ".hero__banner-overlay-sub", "Set your phone beside your Mac.<br />Everything you copy stays in sight."],
     ["text", ".hero__banner-primary", "Download free for Mac"],
-    ["text", ".hero__banner-secondary", "See how it works"],
     ["text", ".hero__banner-note", "Supports Macs with Apple Silicon"],
     ["html", ".hero__banner-copy", "A place for copied items,<br />right beside your Mac."],
     ["html", ".hero__hook", "Text and images you want again stay in view.<br />Paste from your hand without hunting."],

@@ -594,8 +594,7 @@ img {
     transform 0.62s cubic-bezier(0.22, 0.82, 0.28, 1);
 }
 
-.hero__banner-primary,
-.hero__banner-secondary {
+.hero__banner-primary {
   pointer-events: auto;
   display: inline-flex;
   align-items: center;
@@ -614,17 +613,6 @@ img {
   background: #0071e3;
   color: #fff;
   box-shadow: 0 10px 24px rgba(0, 113, 227, 0.18);
-}
-
-.hero__banner-secondary {
-  padding: 0 2px;
-  color: #0066cc;
-}
-
-.hero__banner-secondary::after {
-  content: ">";
-  margin-left: 0.35em;
-  font-weight: 700;
 }
 
 .hero__banner-note {
