@@ -1544,23 +1544,6 @@ img {
   stroke-linejoin: round;
 }
 
-.download-microcopy {
-  display: block;
-  margin: 5px 0 0;
-  width: 232px;
-  max-width: 100%;
-  box-sizing: border-box;
-  text-align: center;
-  font-size: clamp(10px, 2.35vw, 11px);
-  line-height: 1.35;
-  font-weight: 600;
-  color: #5a6a85;
-  letter-spacing: 0.02em;
-  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", system-ui, sans-serif;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
 /* ヒーロー：ダウンロードボタンと注釈を中央揃え */
 .hero__content .download-button {
   display: flex;
@@ -1577,17 +1560,9 @@ img {
   margin-right: auto;
 }
 
-.hero__content .download-microcopy,
 .hero__content .os-note {
   margin-left: auto;
   margin-right: auto;
-}
-
-.hero__content .download-microcopy {
-  width: min(100%, 420px);
-  margin-top: 10px;
-  color: #6e6e73;
-  letter-spacing: 0;
 }
 
 .os-note {
@@ -4862,18 +4837,6 @@ main.page-shell--legal > article.doc-page--terms section ol.terms-sublist:has(> 
   color: #6e6e73;
 }
 
-.final-cta__action .download-microcopy {
-  width: 100%;
-  max-width: 100%;
-  margin: 5px 0 0;
-  text-align: center;
-  font-size: clamp(10px, 2.35vw, 11px);
-  line-height: 1.35;
-  font-weight: 600;
-  color: #6e6e73;
-  align-self: stretch;
-}
-
 .cta-links {
   display: flex;
   flex-wrap: wrap;
@@ -5273,14 +5236,12 @@ main.page-shell--legal > article.doc-page--terms section ol.terms-sublist:has(> 
   }
 
   .download-button,
-  .download-microcopy,
   .os-note {
     width: min(100%, 292px);
   }
 
   /* ヒーロー CTA 列：幅を揃えたうえでブロックごと中央寄せし、注釈とボタンの中心を一致させる */
   .hero__content .download-button,
-  .hero__content .download-microcopy,
   .hero__content .os-note {
     margin-left: auto;
     margin-right: auto;
@@ -5292,12 +5253,6 @@ main.page-shell--legal > article.doc-page--terms section ol.terms-sublist:has(> 
     max-width: min(100%, 260px);
     min-height: 48px;
     padding: 0 18px;
-  }
-
-  /* 狭い画面では clamp 下限で 10px になりがちなので PC 上限の 11px に合わせる */
-  .hero__content .download-microcopy,
-  .final-cta__action .download-microcopy {
-    font-size: 11px;
   }
 
   .tap-section,

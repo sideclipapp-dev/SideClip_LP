@@ -752,7 +752,6 @@
             <!-- ${icon.download} -->
             Macで無料ダウンロード
           </a>
-          <p class="download-microcopy">Apple Silicon搭載Mac用DMGをダウンロードします。</p>
           <p class="os-note">Apple Silicon搭載のMacに対応</p>
           </div>
         </div>
@@ -1206,7 +1205,6 @@
               <!-- ${icon.download} -->
               Macで無料ダウンロード
             </a>
-            <p class="download-microcopy">Apple Silicon搭載Mac用DMGをダウンロードします。</p>
             <p>Apple Silicon搭載のMacに対応</p>
             <nav class="cta-links" aria-label="補助リンク">
               <a class="is-primary" href="#concept-video">コンセプト動画</a>
