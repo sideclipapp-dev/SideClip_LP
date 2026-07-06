@@ -49,7 +49,8 @@
       }
 
       .plans-pricing-summary {
-        min-height: 5.75rem !important;
+        min-height: 8.25rem !important;
+        white-space: pre-line;
       }
 
       .plans-free-year-placeholder {
@@ -226,8 +227,9 @@
       [
         "Proの全機能に、無制限保存・CSVエクスポート・バックアップと復元などのデータ管理を追加できます。",
         "SideClipの全機能が使えます。今後のアップデートで新機能が優先的に追加されます。",
+        "SideClipの全機能が使えます。無制限保存・バックアップと復元など、SideClipをクリップボード履歴の保管庫として使えるようになります。\n将来のAI時代、あなたのクリップボード履歴は重要なデータ資産になるかもしれません。",
       ],
-      "SideClipの全機能が使えます。今後のアップデートで新機能が優先的に追加されます。",
+      "SideClipの全機能が使えます。無制限保存・バックアップと復元など、SideClipをクリップボード履歴の保管庫として使えるようになります。\n将来のAI時代、あなたのクリップボード履歴は重要なデータ資産になるかもしれません。",
     );
 
     movePlanBulletBefore(proCard, "クイックペースト", "コピーして翻訳");
