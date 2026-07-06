@@ -53,6 +53,17 @@
         white-space: pre-line;
       }
 
+      .plans-summary-link {
+        color: #0071e3;
+        font-weight: 700;
+        text-decoration: underline;
+        text-underline-offset: 0.18em;
+      }
+
+      .plans-summary-link:hover {
+        color: #005bb5;
+      }
+
       .plans-free-year-placeholder {
         visibility: hidden;
       }
@@ -168,7 +179,7 @@
     });
   }
 
-  function updatePlanSummary(card, currentTexts, nextText) {
+  function updatePlanSummary(card, currentTexts, nextContent) {
     if (!card) return;
 
     const summary = Array.from(card.querySelectorAll("p")).find((paragraph) =>
@@ -176,8 +187,26 @@
     );
     if (!summary) return;
 
-    summary.textContent = nextText;
+    if (typeof nextContent === "function") {
+      summary.replaceChildren();
+      nextContent(summary);
+    } else {
+      summary.textContent = nextContent;
+    }
     summary.classList.add("plans-pricing-summary");
+  }
+
+  function renderProSummary(summary) {
+    const comparisonLink = document.createElement("a");
+    comparisonLink.href = "#comparison-heading";
+    comparisonLink.className = "plans-summary-link";
+    comparisonLink.textContent = "比較表";
+
+    summary.append(
+      "プロフェッショナルに向けの便利な機能が解放されます。\n詳細はページ下部の",
+      comparisonLink,
+      "をご覧ください。",
+    );
   }
 
   function ensureFreeYearPlaceholder(card) {
@@ -206,8 +235,9 @@
       [
         "Tap to Pasteと基本の履歴管理を体験できます。",
         "Tap to Pasteやスクショ履歴など、SideClipの基本機能が体験できます。",
+        "Tap to Pasteやスクショ履歴など、SideClipの基本機能が利用できます。",
       ],
-      "Tap to Pasteやスクショ履歴など、SideClipの基本機能が体験できます。",
+      "Tap to Pasteやスクショ履歴など、SideClipの基本機能が利用できます。\nまずはSideClipを体験いただき、あなたのMac環境で正しく動作するかご確認ください。",
     );
     ensureFreeYearPlaceholder(freeCard);
 
@@ -219,7 +249,7 @@
         "Todo、クイックペースト、画像内検索、コピーして翻訳に加えて、画像のトリミング・ペン入れまで使えます。",
         "プロフェッショナルに向けの便利な機能が解放されます。",
       ],
-      "プロフェッショナルに向けの便利な機能が解放されます。",
+      renderProSummary,
     );
 
     updatePlanSummary(
