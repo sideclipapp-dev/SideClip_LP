@@ -985,7 +985,7 @@
                   <span class="usage-scenes__case-badge-icon" aria-hidden="true">${icon.usageCaseDev}</span>
                   <span class="usage-scenes__case-badge-label">開発者・プログラマー</span>
                 </p>
-                <h3 class="usage-scenes__case-title">コードやコマンドを、すぐ再利用。</h3>
+                <h3 class="usage-scenes__case-title">コードやコマンドを、<br />すぐ再利用。</h3>
                 <p class="usage-scenes__case-text">
                   よく使うスニペットやURLを横に。エディタから離れず貼り付けられます。
                 </p>
@@ -995,7 +995,7 @@
                   <span class="usage-scenes__case-badge-icon" aria-hidden="true">${icon.usageCaseLlm}</span>
                   <span class="usage-scenes__case-badge-label">AIツール（LLM）活用者</span>
                 </p>
-                <h3 class="usage-scenes__case-title">プロンプトを、手元から呼び出す。</h3>
+                <h3 class="usage-scenes__case-title">プロンプトを、<br />手元から呼び出す。</h3>
                 <p class="usage-scenes__case-text">
                   定型プロンプトや前提文を保存。AIとのやり取りを止めずに進められます。
                 </p>
