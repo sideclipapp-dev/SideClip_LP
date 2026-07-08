@@ -64,6 +64,10 @@
         color: #005bb5;
       }
 
+      .plans-bullet-text {
+        white-space: pre-line;
+      }
+
       .plans-free-year-placeholder {
         visibility: hidden;
       }
@@ -102,15 +106,26 @@
     });
   }
 
+  function createPlanBullet(text) {
+    const item = document.createElement("li");
+    item.className = "flex gap-2 text-sm text-sc-text";
+    item.innerHTML = CHECK_ICON;
+
+    const textSpan = document.createElement("span");
+    textSpan.className = "plans-bullet-text";
+    textSpan.textContent = text;
+    item.appendChild(textSpan);
+
+    return item;
+  }
+
   function addPlanBullet(card, text, afterText) {
     if (!card || card.textContent.includes(text)) return;
 
     const list = card.querySelector("ul");
     if (!list) return;
 
-    const item = document.createElement("li");
-    item.className = "flex gap-2 text-sm text-sc-text";
-    item.innerHTML = `${CHECK_ICON}<span>${text}</span>`;
+    const item = createPlanBullet(text);
 
     const afterItem = afterText
       ? Array.from(list.children).find((child) => child.textContent.includes(afterText))
@@ -120,6 +135,22 @@
     } else {
       list.appendChild(item);
     }
+  }
+
+  function addPlanBulletAtStart(card, text) {
+    if (!card || card.textContent.includes(text)) return;
+
+    const list = card.querySelector("ul");
+    if (!list) return;
+
+    list.insertBefore(createPlanBullet(text), list.firstElementChild);
+  }
+
+  function replacePlanBullets(card, items) {
+    const list = card ? card.querySelector("ul") : null;
+    if (!list) return;
+
+    list.replaceChildren(...items.map(createPlanBullet));
   }
 
   function addQuickPasteBullets() {
@@ -134,10 +165,7 @@
     const list = ultraCard.querySelector("ul");
     if (!list) return;
 
-    const item = document.createElement("li");
-    item.className = "flex gap-2 text-sm text-sc-text";
-    item.innerHTML = `${CHECK_ICON}<span>その他 便利機能</span>`;
-    list.appendChild(item);
+    list.appendChild(createPlanBullet("その他 便利機能"));
   }
 
   function replaceText(root, from, to) {
@@ -236,10 +264,17 @@
         "Tap to Pasteと基本の履歴管理を体験できます。",
         "Tap to Pasteやスクショ履歴など、SideClipの基本機能が体験できます。",
         "Tap to Pasteやスクショ履歴など、SideClipの基本機能が利用できます。",
+        "インストールしてすぐ使えます。アカウント作成やログイン不要です。",
       ],
-      "Tap to Pasteやスクショ履歴など、SideClipの基本機能が利用できます。\nまずはSideClipを体験いただき、あなたのMac環境で正しく動作するかご確認ください。",
+      "インストールしてすぐ使えます。アカウント作成やログイン不要です。\nまずはSideClipを体験いただき、あなたのMac環境で正しく動作するかご確認ください。",
     );
     ensureFreeYearPlaceholder(freeCard);
+    replacePlanBullets(freeCard, [
+      "コピー・スクショでカード生成",
+      "SCAN（スクショ）ショートカット機能",
+      "Mac Clip（クリップボード履歴保存件数）200件",
+      "Favorite（お気に入り）\n　　Keep 10件 / 各Fav 5件",
+    ]);
 
     replaceText(proCard, "自動翻訳", "コピーして翻訳");
     updatePlanSummary(
@@ -251,6 +286,7 @@
       ],
       renderProSummary,
     );
+    addPlanBulletAtStart(proCard, "Freeの全機能");
 
     updatePlanSummary(
       ultraCard,
