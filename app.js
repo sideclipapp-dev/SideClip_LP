@@ -758,7 +758,7 @@
           <div class="concept-video__copy">
             <div class="reveal__head">
               <p class="concept-video__eyebrow">Product Demo</p>
-              <h2 id="concept-video-title">基本機能を、<br />実際の操作で。</h2>
+              <h2 id="concept-video-title">SideClip体験を、<br />実際の操作で。</h2>
             </div>
             <div class="reveal__rest">
               <p>Macとスマホをつないで、コピー履歴を表示し、必要なカードをすぐにペースト。<br />SideClipでできることと操作の流れを、約2分半のデモ映像でご覧いただけます。</p>

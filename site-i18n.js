@@ -72,7 +72,7 @@
     ["attr", ".download-button", "aria-label", "Download SideClip free for Mac"],
     ["text", ".os-note", "Supports Macs with Apple Silicon"],
     ["text", ".concept-video__eyebrow", "Product Demo"],
-    ["html", "#concept-video-title", "See the core features<br />in action."],
+    ["html", "#concept-video-title", "Experience SideClip<br />in action."],
     ["html", ".concept-video__copy .reveal__rest p", "Connect your Mac and phone, view your clipboard history, and paste the card you need.<br />See what SideClip can do and how it works in this two-and-a-half-minute demo."],
     ["attr", ".concept-video__visual", "aria-label", "SideClip core feature demo on YouTube"],
     ["attr", ".concept-video__facade", "aria-label", "Play the SideClip core feature demo, about two and a half minutes, on YouTube"],
