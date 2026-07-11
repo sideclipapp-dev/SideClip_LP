@@ -1,6 +1,6 @@
 (function () {
   const ASSET_VERSION = "20260701-screenshot-pro-note";
-  const CONCEPT_VIDEO_YT_ID = "b0-eWvKMeOk";
+  const CONCEPT_VIDEO_YT_ID = "rCiLdIpRr5I";
   const BENEFITS_VIDEO_YT_ID = "3m6aWg6LDFY";
   const FEATURE_SCREENSHOT_VIDEO_YT_ID = "pfBsk3Iwi4E";
   const MAC_DOWNLOAD_URL = "https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg";
@@ -757,16 +757,16 @@
         <section id="concept-video" class="concept-video reveal" aria-labelledby="concept-video-title">
           <div class="concept-video__copy">
             <div class="reveal__head">
-              <p class="concept-video__eyebrow">Concept Video</p>
-              <h2 id="concept-video-title">30秒で、<br />SideClipが見える。</h2>
+              <p class="concept-video__eyebrow">Product Demo</p>
+              <h2 id="concept-video-title">基本機能を、<br />実際の操作で。</h2>
             </div>
             <div class="reveal__rest">
-              <p>Macでコピー。スマホに表示。タップでペースト。<br />横に置くクリップボード体験を、短い動画で確認できます。</p>
+              <p>Macとスマホをつないで、コピー履歴を表示し、必要なカードをすぐにペースト。<br />SideClipでできることと操作の流れを、約2分半のデモ映像でご覧いただけます。</p>
             </div>
           </div>
-          <div class="reveal__rest concept-video__visual" aria-label="コンセプト動画（YouTube）">
+          <div class="reveal__rest concept-video__visual" aria-label="SideClipの基本機能を紹介するデモ動画（YouTube）">
             <div class="concept-video__embed concept-video__embed--poster">
-              <button type="button" class="concept-video__facade" data-cta-id="concept_video_play" data-cta-section="concept_video" aria-label="コンセプト動画を再生する（約30秒・YouTube）">
+              <button type="button" class="concept-video__facade" data-cta-id="concept_video_play" data-cta-section="concept_video" aria-label="SideClipの基本機能を紹介するデモ動画を再生する（約2分半・YouTube）">
                 <img
                   class="concept-video__poster"
                   src="https://i.ytimg.com/vi/${CONCEPT_VIDEO_YT_ID}/maxresdefault.jpg"
@@ -1684,9 +1684,9 @@
   function initConceptVideoEmbed() {
     initYoutubePosterEmbed(document.querySelector(".concept-video__embed--poster"), CONCEPT_VIDEO_YT_ID, {
       posterModifierClass: "concept-video__embed--poster",
-      iframeTitle: "SideClip コンセプト動画",
+      iframeTitle: "SideClip 基本機能のデモ動画",
       ctaId: "concept_video_play",
-      ctaText: "コンセプト動画を再生する",
+      ctaText: "基本機能のデモ動画を再生する",
       ctaSection: "concept_video",
       onBeforeLoad: [
         (loadIframe) => {
