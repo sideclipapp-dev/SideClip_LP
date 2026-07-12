@@ -1618,8 +1618,10 @@
     const {
       posterModifierClass,
       iframeTitle,
+      iframeTitleEn = iframeTitle,
       ctaId = "video_play",
       ctaText = "動画を再生する",
+      ctaTextEn = ctaText,
       ctaSection = "video",
       onBeforeLoad = []
     } = options;
@@ -1639,6 +1641,7 @@
     const watchUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}`;
 
     function loadIframe() {
+      const isEnglish = window.SideClipI18n?.getLang?.() === "en";
       if (!canEmbedInline) {
         window.open(watchUrl, "_blank", "noopener,noreferrer");
         return;
@@ -1651,7 +1654,7 @@
       iframe.width = "560";
       iframe.height = "315";
       iframe.src = embedUrl;
-      iframe.title = iframeTitle;
+      iframe.title = isEnglish ? iframeTitleEn : iframeTitle;
       iframe.setAttribute("frameborder", "0");
       iframe.allow =
         "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
@@ -1664,7 +1667,7 @@
       fallback.href = watchUrl;
       fallback.target = "_blank";
       fallback.rel = "noopener noreferrer";
-      fallback.textContent = "YouTubeで見る";
+      fallback.textContent = isEnglish ? "Watch on YouTube" : "YouTubeで見る";
       wrap.appendChild(fallback);
     }
 
@@ -1672,7 +1675,7 @@
       const trigger = event.currentTarget;
       trackCtaClick({
         ctaId: trigger?.dataset?.ctaId || ctaId,
-        ctaText,
+        ctaText: window.SideClipI18n?.getLang?.() === "en" ? ctaTextEn : ctaText,
         section: trigger?.dataset?.ctaSection || ctaSection
       });
       loadIframe();
@@ -1685,8 +1688,10 @@
     initYoutubePosterEmbed(document.querySelector(".concept-video__embed--poster"), CONCEPT_VIDEO_YT_ID, {
       posterModifierClass: "concept-video__embed--poster",
       iframeTitle: "SideClip 基本機能のデモ動画",
+      iframeTitleEn: "SideClip core feature demo",
       ctaId: "concept_video_play",
       ctaText: "基本機能のデモ動画を再生する",
+      ctaTextEn: "Play the SideClip core feature demo",
       ctaSection: "concept_video",
       onBeforeLoad: [
         (loadIframe) => {
@@ -1706,8 +1711,10 @@
     initYoutubePosterEmbed(document.querySelector(".benefits-video__embed--poster"), BENEFITS_VIDEO_YT_ID, {
       posterModifierClass: "benefits-video__embed--poster",
       iframeTitle: "SideClip スクショ機能の紹介動画",
+      iframeTitleEn: "SideClip screenshot feature demo",
       ctaId: "benefits_video_play",
       ctaText: "スクショ機能の紹介動画を再生する",
+      ctaTextEn: "Play the SideClip screenshot feature demo",
       ctaSection: "benefits_video"
     });
   }
