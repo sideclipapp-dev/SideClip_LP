@@ -231,9 +231,11 @@
     comparisonLink.textContent = "比較表";
 
     summary.append(
-      "プロフェッショナルに向けの便利な機能が解放されます。\n詳細はページ下部の",
+      document.createTextNode("プロフェッショナルに向けの便利な機能が解放されます。"),
+      document.createElement("br"),
+      document.createTextNode("詳細はページ下部の "),
       comparisonLink,
-      "をご覧ください。",
+      document.createTextNode(" をご覧ください。"),
     );
   }
 
@@ -446,16 +448,6 @@
 
   function startEnhancement() {
     enhancePlansPage();
-
-    let mutationCount = 0;
-    const observer = new MutationObserver(() => {
-      mutationCount += 1;
-      enhancePlansPage();
-      if (mutationCount > 40) observer.disconnect();
-    });
-
-    observer.observe(document.documentElement, { childList: true, subtree: true });
-    window.setTimeout(() => observer.disconnect(), 5000);
   }
 
   function scheduleEnhancement() {

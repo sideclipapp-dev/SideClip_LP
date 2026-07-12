@@ -7,7 +7,7 @@
 
   const translations = new Map([
     ["使い方に合わせて、", "Choose a plan that fits"],
-    ["プランを選べる。", "the way you work."],
+    ["プランを選べる。", "\u00a0the way you work."],
     ["Freeで試して、毎日のコピー履歴が増えてきたらProへ。\n大量のカード管理やバックアップまで任せたい人にはUltraを用意しています。", "Start with Free, then move to Pro as your daily clipboard history grows.\nChoose Ultra for unlimited storage, backups, and deeper data management."],
     ["料金とおすすめ", "Plans and recommendations"],
     ["有料プランは初回30日無料。\n購入・変更・解約はSideClipアプリ内のプラン画面から簡単に行えます。", "Paid plans include a 30-day free trial.\nPurchase, switch, or cancel easily from the Plan screen in the SideClip app."],
@@ -25,8 +25,8 @@
     ["おすすめ", "Recommended"],
     ["日常的に使う人へ", "For everyday use"],
     ["月額", "per month"],
-    ["¥300/月", "JPY 300/month"],
-    ["¥480/月", "JPY 480/month"],
+    ["¥300/月", "JPY 300"],
+    ["¥480/月", "JPY 480"],
     ["¥2,400/年", "JPY 2,400/year"],
     ["¥3,600/年", "JPY 3,600/year"],
     ["年額 ¥0", "JPY 0/year"],
@@ -43,7 +43,7 @@
     ["クイックペースト（最新1〜9をショートカットでペースト）", "Quick Paste (paste recent cards 1–9 with shortcuts)"],
     ["コピーして翻訳", "Copy and translate"],
     ["Pro + 管理機能", "Pro + data management"],
-    ["大量のデータを管理したい人へ", "For managing large histories"],
+    ["大量のデータを管理したい人へ", "For large histories"],
     ["Proの全機能に、無制限保存・CSVエクスポート・バックアップと復元などのデータ管理を追加できます。", "Add unlimited storage, CSV export, backup, and restore to every Pro feature."],
     ["SideClipの全機能が使えます。無制限保存・バックアップと復元など、SideClipをクリップボード履歴の保管庫として使えるようになります。\nAI時代、あなたのクリップボード履歴は今後ますます重要なデータ資産になるかもしれません。", "Use every SideClip feature. Unlimited storage, backup, and restore turn SideClip into a vault for your clipboard history.\nIn the AI era, that history may become an increasingly valuable data asset."],
     ["Proの全機能", "Everything in Pro"],
