@@ -400,7 +400,7 @@
           </div>
           <figure class="doc-page__security-figure">
             <img
-              src="./assets/security-qr-pairing.png"
+              src="./assets/security-qr-pairing-en.png?v=20260712-security-en-images"
               alt="Diagram showing a Mac and smartphone connecting through QR-code authentication and encrypted HTTPS communication"
               width="1600"
               height="797"
@@ -417,7 +417,7 @@
             </div>
             <figure class="doc-page__security-figure">
               <img
-                src="./assets/security-shared-wifi.png"
+                src="./assets/security-shared-wifi-en.png?v=20260712-security-en-images"
                 alt="Diagram showing multiple laptops, phones, and tablets on the same Wi-Fi connecting when a token is shared or authentication is turned off"
                 width="800"
                 height="533"
