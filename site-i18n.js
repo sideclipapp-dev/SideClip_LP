@@ -38,6 +38,7 @@
   }
 
   let currentLang = detectInitialLang();
+  let lastTrackedLang = null;
   const pageMetaOriginals = new Map();
 
   const landingEntries = [
@@ -1063,8 +1064,25 @@
     initLanguageControls(document);
   }
 
+  function trackLanguageView(lang, source) {
+    const trackedLang = normalizeLang(lang);
+    if (lastTrackedLang === trackedLang || typeof window.gtag !== "function") return;
+
+    window.gtag("set", { site_language: trackedLang });
+    window.gtag("set", "user_properties", { site_language: trackedLang });
+    window.gtag("event", "language_view", {
+      site_language: trackedLang,
+      language_source: source,
+      page_path: window.location.pathname,
+      page_title: document.title,
+      transport_type: "beacon"
+    });
+    lastTrackedLang = trackedLang;
+  }
+
   function setLang(lang) {
     const next = normalizeLang(lang);
+    const changed = next !== currentLang;
     currentLang = next;
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
@@ -1072,6 +1090,7 @@
       /* ignore */
     }
     applyPageTranslations();
+    if (changed) trackLanguageView(next, "switch");
     window.dispatchEvent(new Event("resize"));
     document.dispatchEvent(new CustomEvent("sideclip:languagechange", { detail: { lang: next } }));
   }
@@ -1088,5 +1107,6 @@
   document.addEventListener("DOMContentLoaded", () => {
     if (articleTranslations[getPageKey()]) ensureDocLanguageSwitch();
     applyPageTranslations();
+    trackLanguageView(currentLang, "initial");
   });
 })();

@@ -1974,7 +1974,8 @@
       cta_id: ctaId || "unknown",
       cta_text: ctaText || "",
       section: section || "unknown",
-      page_path: location.pathname
+      page_path: location.pathname,
+      site_language: window.SideClipI18n?.getLang?.() || document.documentElement.lang || "ja"
     });
   }
 

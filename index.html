@@ -58,11 +58,29 @@
         ad_user_data: 'denied',
         ad_personalization: 'denied'
       });
-      gtag('config', 'G-D3JVLNHHMQ');
+
+      var initialSiteLanguage = (function() {
+        try {
+          var savedLanguage = window.localStorage.getItem('sideclip_language_v1');
+          if (savedLanguage === 'ja' || savedLanguage === 'en') return savedLanguage;
+        } catch (_) {
+          /* ignore */
+        }
+        var browserLanguages = navigator.languages && navigator.languages.length
+          ? navigator.languages
+          : [navigator.language || ''];
+        return browserLanguages.some(function(language) {
+          return String(language || '').toLowerCase().indexOf('en') === 0;
+        }) ? 'en' : 'ja';
+      })();
+
+      gtag('set', { site_language: initialSiteLanguage });
+      gtag('set', 'user_properties', { site_language: initialSiteLanguage });
+      gtag('config', 'G-D3JVLNHHMQ', { site_language: initialSiteLanguage });
     </script>
     <link rel="stylesheet" href="./styles.css?v=20260706-usage-title-breaks" />
-    <script src="./site-i18n.js?v=20260713-concept-copy" defer></script>
-    <script src="./app.js?v=20260713-concept-copy" defer></script>
+    <script src="./site-i18n.js?v=20260713-ga-language" defer></script>
+    <script src="./app.js?v=20260713-ga-language" defer></script>
   </head>
   <body data-i18n-page="landing">
     <div id="root"></div>
