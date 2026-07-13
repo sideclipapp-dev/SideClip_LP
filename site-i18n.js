@@ -2,17 +2,17 @@
   const STORAGE_KEY = "sideclip_language_v1";
   const SUPPORTED_LANGS = new Set(["ja", "en"]);
   const LANGUAGE_SWITCH_ENABLED = true;
-  const EN_ASSET_VERSION = "20260712-en-images-v1";
+  const EN_ASSET_VERSION = "20260713-native-copy-v2";
   const EN_ASSETS = {
     heroPhone: `./assets/hero-phone-en.png?v=${EN_ASSET_VERSION}`,
     stepAdd: `./assets/step-add-en.png?v=${EN_ASSET_VERSION}`,
     stepTap: `./assets/step-tap-en.png?v=${EN_ASSET_VERSION}`,
-    featureHistory: `./assets/feature-panel-history-en.png?v=${EN_ASSET_VERSION}`,
-    featureFavorite: `./assets/feature-panel-favorite-en.png?v=${EN_ASSET_VERSION}`,
-    featureScan: `./assets/feature-panel-scan-en.png?v=${EN_ASSET_VERSION}`,
-    featureSearch: `./assets/feature-panel-search-en.png?v=${EN_ASSET_VERSION}`,
-    featureTodo: `./assets/feature-panel-todo-en.png?v=${EN_ASSET_VERSION}`,
-    usageScenes: `./assets/usage-scenes-en.png?v=${EN_ASSET_VERSION}`,
+    featureHistory: `./assets/feature-panel-history-en-v2.png?v=${EN_ASSET_VERSION}`,
+    featureFavorite: `./assets/feature-panel-favorite-en-v2.png?v=${EN_ASSET_VERSION}`,
+    featureScan: `./assets/feature-panel-scan-en-v2.png?v=${EN_ASSET_VERSION}`,
+    featureSearch: `./assets/feature-panel-search-en-v2.png?v=${EN_ASSET_VERSION}`,
+    featureTodo: `./assets/feature-panel-todo-en-v2.png?v=${EN_ASSET_VERSION}`,
+    usageScenes: `./assets/usage-scenes-en-v2.png?v=${EN_ASSET_VERSION}`,
     clipboardDifference: `./assets/clipboard-difference-en.png?v=${EN_ASSET_VERSION}`
   };
 
@@ -47,7 +47,7 @@
     ["text", ".hero__banner-primary", "Download free for Mac"],
     ["text", ".hero__banner-note", "Supports Macs with Apple Silicon"],
     ["html", ".hero__banner-copy", "A place for copied items,<br />right beside your Mac."],
-    ["html", ".hero__hook", "Text and images you want again stay in view.<br />Paste from your hand without hunting."],
+    ["html", ".hero__hook", "Keep the text and images you will need again in view.<br />Paste from your phone without searching."],
     ["text", "#hero-title .tap-infographic__title-line--primary", "Copy. Appears. Tap. Paste."],
     ["attr", ".brand.hero__brand", "aria-label", "SideClip, clipboard app for Mac"],
     ["attr", ".hero__menu-button", "aria-label", "Open section menu"],
@@ -117,7 +117,7 @@
     ["attr", ".steps [data-step-index='2'] img", "src", EN_ASSETS.stepTap],
     ["attr", ".steps [data-step-index='3'] img", "alt", "Screen showing instant paste to Mac"],
     ["text", "#benefits-title", "Keep your workflow moving."],
-    ["html", ".benefits .section-copy .reveal__rest p", "Copied items stay beside your Mac.<br />You spend less time searching,<br />and less effort calling history back."],
+    ["html", ".benefits .section-copy .reveal__rest p", "Copied items stay beside your Mac.<br />Spend less time searching<br />and less effort retrieving past clips."],
     ["text", ".benefits-video-copy__eyebrow", "Screenshot Demo"],
     ["html", ".benefits-video-copy h3", "Screenshots,<br />saved as cards."],
     ["text", ".benefits-video-copy__text", "Start a screenshot from the shortcut button. Even when you capture several in a row, SideClip organizes them as cards so you can paste them back anytime. Files are stored in the SideClip folder, keeping your desktop clear."],
@@ -150,9 +150,9 @@
     ["text", ".clipboard-shift__bullets--sideclip li:nth-child(2)", "Tap a card to paste it back to your Mac."],
     ["text", ".clipboard-shift__bullets--sideclip li:nth-child(3)", "Keep your workspace clear and your focus intact."],
     ["text", ".features__eyebrow", "Core Features"],
-    ["html", "#features-title", "Everything you reuse,<br />ready at hand."],
-    ["html", ".features__lead", "Copy history, screenshots, and favorites.<br />SideClip keeps only what helps you get back to work,<br />organized on your phone."],
-    ["text", ".feature-card:nth-child(1) h3", "Your clipboard history, at hand."],
+    ["html", "#features-title", "Everything you reuse,<br />right at hand."],
+    ["html", ".features__lead", "Copy history, screenshots, and favorites.<br />SideClip keeps what you need organized on your phone,<br />so you can get back to work faster."],
+    ["text", ".feature-card:nth-child(1) h3", "Your clipboard history, always at hand."],
     ["html", ".feature-card:nth-child(1) > p:not(.feature-card__eyebrow)", "Text, URLs, and images are saved automatically.<br />Find the card you need from your phone."],
     ["attr", ".feature-card:nth-child(1) .feature-card__panel", "aria-label", "Zoom image of the clipboard history screen"],
     ["attr", ".feature-card:nth-child(1) .feature-card__panel", "data-feature-image-alt", "Clipboard history screen"],
@@ -184,15 +184,15 @@
     ["text", ".feature-video-lightbox__title", "Pen and crop demo video"],
     ["text", ".feature-video-lightbox__fallback", "Watch on YouTube"],
     ["text", ".feature-card:nth-child(4) h3", "Find old cards fast."],
-    ["html", ".feature-card:nth-child(4) > p:not(.feature-card__eyebrow)", "Search by date range, keyword, and text inside images.<br />Even fuzzy terms can bring back the card you need.<br /><small>Text search inside images is available on Pro and above.</small>"],
+    ["html", ".feature-card:nth-child(4) > p:not(.feature-card__eyebrow)", "Search by date range, keyword, and text inside images.<br />Fuzzy search helps you find the right card, even with an approximate keyword.<br /><small>Text search inside images is available on Pro and above.</small>"],
     ["attr", ".feature-card:nth-child(4) .feature-card__panel", "aria-label", "Zoom image of the search screen"],
     ["attr", ".feature-card:nth-child(4) .feature-card__panel", "data-feature-image-alt", "Search screen for copy and screenshot history"],
     ["attr", ".feature-card:nth-child(4) .feature-card__panel", "data-feature-image-src", EN_ASSETS.featureSearch],
     ["attr", ".feature-card:nth-child(4) .feature-card__image", "src", EN_ASSETS.featureSearch],
     ["attr", ".feature-card:nth-child(4) .feature-card__image", "srcset", `${EN_ASSETS.featureSearch} 1x, ${EN_ASSETS.featureSearch} 2x`],
     ["attr", ".feature-card:nth-child(4) .feature-card__image", "alt", "Search screen for copy and screenshot history"],
-    ["text", ".feature-card:nth-child(5) h3", "Turn later-use items into Todo."],
-    ["html", ".feature-card:nth-child(5) > p:not(.feature-card__eyebrow)", "Copy on your Mac and turn it into a Todo right away.<br />Swipe a card to move it into Todo.<br /><small>Available on Pro and above.</small>"],
+    ["text", ".feature-card:nth-child(5) h3", "Turn items you need later into Todo cards."],
+    ["html", ".feature-card:nth-child(5) > p:not(.feature-card__eyebrow)", "Copy something on your Mac and turn it into a Todo card right away.<br />Swipe a card to move it to Todo.<br /><small>Available on Pro and above.</small>"],
     ["attr", ".feature-card:nth-child(5) .feature-card__panel", "aria-label", "Zoom image of the Todo mode screen"],
     ["attr", ".feature-card:nth-child(5) .feature-card__panel", "data-feature-image-alt", "Todo mode screen"],
     ["attr", ".feature-card:nth-child(5) .feature-card__panel", "data-feature-image-src", EN_ASSETS.featureTodo],
@@ -200,8 +200,8 @@
     ["attr", ".feature-card:nth-child(5) .feature-card__image", "srcset", `${EN_ASSETS.featureTodo} 1x, ${EN_ASSETS.featureTodo} 2x`],
     ["attr", ".feature-card:nth-child(5) .feature-card__image", "alt", "Todo mode screen"],
     ["text", ".usage-scenes__eyebrow", "Use Cases"],
-    ["html", "#usage-scenes-title", "For work, creation,<br />and learning."],
-    ["html", ".usage-scenes__lead", "Move often-used text and images beside your Mac.<br />Make small copy-paste tasks quietly faster."],
+    ["html", "#usage-scenes-title", "For work, creative projects,<br />and learning."],
+    ["html", ".usage-scenes__lead", "Keep frequently used text and images beside your Mac.<br />Speed up everyday copy-and-paste tasks."],
     ["attr", ".usage-scenes__panel", "data-feature-image-alt", "Examples of SideClip use cases"],
     ["attr", ".usage-scenes__panel", "data-feature-image-src", EN_ASSETS.usageScenes],
     ["attr", ".usage-scenes__panel", "aria-label", "Zoom image showing examples of SideClip use cases"],
@@ -212,10 +212,10 @@
     ["text", ".usage-scenes__case:nth-child(1) .usage-scenes__case-title", "Reuse code and commands instantly."],
     ["text", ".usage-scenes__case:nth-child(1) .usage-scenes__case-text", "Keep snippets and URLs beside your editor, then paste without leaving your work."],
     ["text", ".usage-scenes__case:nth-child(2) .usage-scenes__case-badge-label", "AI tool and LLM users"],
-    ["text", ".usage-scenes__case:nth-child(2) .usage-scenes__case-title", "Bring prompts back from your phone."],
+    ["text", ".usage-scenes__case:nth-child(2) .usage-scenes__case-title", "Reuse prompts from your phone."],
     ["text", ".usage-scenes__case:nth-child(2) .usage-scenes__case-text", "Save reusable prompts and context so AI work keeps moving."],
     ["text", ".usage-scenes__case:nth-child(3) .usage-scenes__case-badge-label", "Marketplace & ecommerce sellers"],
-    ["text", ".usage-scenes__case:nth-child(3) .usage-scenes__case-title", "Paste listing text and replies without hesitation."],
+    ["text", ".usage-scenes__case:nth-child(3) .usage-scenes__case-title", "Paste listing details and replies in seconds."],
     ["text", ".usage-scenes__case:nth-child(3) .usage-scenes__case-text", "Store product descriptions, addresses, and replies to reduce repetitive work."],
     ["text", ".local-sync__eyebrow", "Local Sync"],
     ["html", "#local-title", "Keep sensitive clipboard history<br />out of the cloud."],
@@ -223,15 +223,15 @@
     ["text", ".sync-graphic > p", "Direct sync on the same Wi-Fi"],
     ["attr", ".local-sync__points", "aria-label", "Local sync reassurance points"],
     ["text", ".local-sync__point:nth-child(1) h3", "Stored on your Mac"],
-    ["text", ".local-sync__point:nth-child(1) p", "History is kept on the Mac side. It is not sent to SideClip cloud storage."],
+    ["text", ".local-sync__point:nth-child(1) p", "Your history stays on your Mac. It is not sent to SideClip cloud storage."],
     ["text", ".local-sync__point:nth-child(2) h3", "Syncs on the same Wi-Fi"],
     ["text", ".local-sync__point:nth-child(2) p", "Phones and tablets connect directly inside the same local network."],
     ["text", ".local-sync__point:nth-child(3) h3", "Fast and private"],
-    ["text", ".local-sync__point:nth-child(3) p", "Because no relay server is used, updates are fast and data is less exposed."],
+    ["text", ".local-sync__point:nth-child(3) p", "Because no relay server is used, updates are fast and your data stays private."],
     ["text", ".local-sync__detail-link a", "View security details"],
     ["text", ".faq__eyebrow", "FAQ"],
     ["text", "#faq-title", "FAQ"],
-    ["text", ".faq__lead", "A short guide to what you may want to know before getting started."],
+    ["text", ".faq__lead", "Answers to common questions before you get started."],
     ["text", ".faq__group:nth-child(1) .faq__group-title", "Getting started"],
     ["text", ".faq__item:nth-of-type(1) .faq__summary", "What OS and devices are supported?"],
     ["html", ".faq__item:nth-of-type(1) .faq__answer", "<ul class=\"faq__bullets\"><li><strong>Mac:</strong><br />Developed and tested on Apple Silicon Macs running macOS 26 or later.</li><li><strong>Phones and tablets:</strong><br />In principle, SideClip works on iOS, Android, iPadOS, and other devices that can run a web browser.<br /><span class=\"faq__note\">Performance may vary depending on the device.</span><br /><span class=\"faq__note\">Tested with Safari and Chrome. For security, please use the latest browser version.</span></li></ul>"],
@@ -248,7 +248,7 @@
     ["html", ".faq__group:nth-child(2) .faq__item:nth-of-type(3) .faq__answer", "<p>Yes, but copy-paste updates may be a little slower because tethered Wi-Fi can be slow.</p><p>A faster Wi-Fi network will generally make SideClip quicker and more comfortable to use.</p>"],
     ["text", ".final-cta__eyebrow", "Download"],
     ["html", "#cta-title", "Put your clipboard<br />beside your Mac."],
-    ["html", ".final-cta__copy .reveal__rest p", "Start free on an Apple Silicon Mac.<br />After downloading, choose your plan inside the SideClip app."],
+    ["html", ".final-cta__copy .reveal__rest p", "Get started for free on an Apple Silicon Mac.<br />After downloading, choose your plan inside the SideClip app."],
     ["text", ".download-button--light", "Download free for Mac"],
     ["text", "#download .final-cta__action > p:last-of-type", "Supports Macs with Apple Silicon"],
     ["attr", ".cta-links", "aria-label", "Supporting links"],
@@ -259,7 +259,7 @@
     ["text", ".cta-links a:nth-child(5)", "Plans & pricing"],
     ["attr", ".trust-list", "aria-label", "Usage conditions"],
     ["text", ".trust-list li:nth-child(1)", "Free plan available for trial"],
-    ["text", ".trust-list li:nth-child(2)", "More capable Pro and Ultra plans are also available"],
+    ["text", ".trust-list li:nth-child(2)", "Pro and Ultra plans add more features"],
     ["attr", ".feature-lightbox__dialog", "aria-label", "Zoomed image"],
     ["attr", ".feature-lightbox__close", "aria-label", "Close zoomed image"],
     ["attr", ".site-footer__nav", "aria-label", "Site information"],
@@ -337,7 +337,7 @@
               Before your Mac and phone connect, SideClip checks who is allowed in. Communication is encrypted, and only authorized devices can use the local clipboard view.
             </p>
           </div>
-          <a href="./index.html" class="doc-page__top-return">Back to top</a>
+          <a href="./index.html" class="doc-page__top-return">Back to home</a>
         </header>
 
         <section class="security-overview" aria-labelledby="security-overview-heading">
@@ -447,7 +447,7 @@
             <h1>Privacy Policy</h1>
             <p class="doc-page__last-updated">Last updated: May 10, 2026</p>
           </div>
-          <a href="./index.html" class="doc-page__top-return">Back to top</a>
+          <a href="./index.html" class="doc-page__top-return">Back to home</a>
         </header>
 
         <p class="doc-page__lead">
@@ -615,7 +615,7 @@
             <h1>Terms of Use</h1>
             <p class="doc-page__last-updated">Last updated: May 21, 2026</p>
           </div>
-          <a href="./index.html" class="doc-page__top-return">Back to top</a>
+          <a href="./index.html" class="doc-page__top-return">Back to home</a>
         </header>
 
         <p class="doc-page__lead">
@@ -796,7 +796,7 @@
           <div class="doc-page__header-text">
             <h1>Specified Commercial Transactions Act Disclosure</h1>
           </div>
-          <a href="./index.html" class="doc-page__top-return">Back to top</a>
+          <a href="./index.html" class="doc-page__top-return">Back to home</a>
         </header>
 
         <p class="doc-page__lead">
