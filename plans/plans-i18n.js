@@ -123,7 +123,10 @@
     } catch (_) {
       /* ignore */
     }
-    return (navigator.languages || [navigator.language || ""]).some((lang) => normalizeLang(lang) === "en") ? "en" : "ja";
+    const primaryLanguage = navigator.languages && navigator.languages.length
+      ? navigator.languages[0]
+      : navigator.language || "";
+    return String(primaryLanguage).toLowerCase().startsWith("ja") ? "ja" : "en";
   }
 
   function ensureStyles() {

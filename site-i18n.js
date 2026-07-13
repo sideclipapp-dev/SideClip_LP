@@ -31,10 +31,10 @@
       /* ignore */
     }
 
-    const languages = navigator.languages && navigator.languages.length
-      ? navigator.languages
-      : [navigator.language || ""];
-    return languages.some((lang) => normalizeLang(lang) === "en") ? "en" : "ja";
+    const primaryLanguage = navigator.languages && navigator.languages.length
+      ? navigator.languages[0]
+      : navigator.language || "";
+    return String(primaryLanguage).toLowerCase().startsWith("ja") ? "ja" : "en";
   }
 
   let currentLang = detectInitialLang();
