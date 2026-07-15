@@ -5082,9 +5082,11 @@ main.page-shell--legal > article.doc-page--terms section ol.terms-sublist:has(> 
   }
 
   .hero__banner-overlay-sub {
-    max-width: 15.5em;
+    width: min(15.5em, 44vw);
+    max-width: 44vw;
     font-size: clamp(11px, 2.75vw, 14px);
     line-height: 1.45;
+    white-space: normal;
   }
 
   .hero__banner-actions,
