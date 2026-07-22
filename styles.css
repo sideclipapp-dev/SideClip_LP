@@ -25,13 +25,12 @@
   --mobile-card-line-height: 1.55;
   --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --motion-card-duration: 320ms;
-  /* スクロール表示：下からの移動量・所要時間（.reveal で使用） */
-  --motion-reveal-duration: 1380ms;
-  --motion-reveal-distance: 58px;
-  /* 終盤をやや長く感じさせる（遅いスクロールでもじわっと見える） */
-  --motion-reveal-ease: cubic-bezier(0.18, 0.88, 0.28, 1);
-  --motion-reveal-head-delay: 200ms;
-  --motion-reveal-rest-delay: 550ms;
+  /* スクロール表示：本文の可読性を優先した短い一度きりの演出 */
+  --motion-reveal-duration: 560ms;
+  --motion-reveal-distance: 28px;
+  --motion-reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-reveal-head-delay: 0ms;
+  --motion-reveal-rest-delay: 120ms;
   /* 法務フッター（最終CTA からの色相連続・ダークバンド） */
   --footer-legal-bg-top: #0a4fae;
   --footer-legal-bg-bottom: #041e3d;
@@ -4996,25 +4995,26 @@ main.page-shell--legal > article.doc-page--terms section ol.terms-sublist:has(> 
 
 .reveal__head,
 .reveal__rest {
-  opacity: 0;
-  transform: translate3d(0, var(--motion-reveal-distance), 0);
+  opacity: 1;
+  transform: none;
   transition:
     opacity var(--motion-reveal-duration) var(--motion-reveal-ease) 0ms,
     transform var(--motion-reveal-duration) var(--motion-reveal-ease) 0ms;
 }
 
-.reveal__head,
-.reveal__rest {
-  transition-delay: 0ms;
+.reveal-enabled .reveal:not(.is-visible) .reveal__head,
+.reveal-enabled .reveal:not(.is-visible) .reveal__rest {
+  opacity: 0;
+  transform: translate3d(0, var(--motion-reveal-distance), 0);
 }
 
-.reveal.is-visible .reveal__head {
+.reveal-enabled .reveal.is-visible .reveal__head {
   opacity: 1;
   transform: translate3d(0, 0, 0);
   transition-delay: var(--motion-reveal-head-delay);
 }
 
-.reveal.is-visible .reveal__rest {
+.reveal-enabled .reveal.is-visible .reveal__rest {
   opacity: 1;
   transform: translate3d(0, 0, 0);
   transition-delay: calc(var(--motion-reveal-head-delay) + var(--motion-reveal-rest-delay));

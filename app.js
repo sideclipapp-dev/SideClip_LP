@@ -511,7 +511,7 @@
         </div>
 
         <div class="content-overlay">
-        <div class="hero__content reveal">
+        <div class="hero__content">
           <div class="reveal__head">
             <h2 class="hero__banner-copy">Macの横に、<br />コピーの置き場所を。</h2>
           </div>
@@ -1258,147 +1258,40 @@
     const revealNodes = document.querySelectorAll(".reveal");
     const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (!("IntersectionObserver" in window)) {
+    if (!revealNodes.length || !("IntersectionObserver" in window) || shouldReduceMotion) {
       revealNodes.forEach((target) => target.classList.add("is-visible"));
       return;
     }
 
-    if (shouldReduceMotion) {
-      revealNodes.forEach((target) => target.classList.add("is-visible"));
-      return;
-    }
-
-    /* transform による見かけの位置ずれでも交差しやすいよう、やや低めにする */
-    const REVEAL_ENTER_RATIO = 0.05;
-    const REVEAL_EXIT_RATIO = 0.04;
-    /* observer の rootMargin bottom 22% と同じ比率（フォールバックで画面外まで一括表示しないため） */
-    const REVEAL_ROOT_MARGIN_BOTTOM_FRAC = 0.22;
-    /* 表示開始遅延 + 短い揺り戻しでもすぐ消えないよう少し長めに */
-    const REVEAL_EXIT_DEBOUNCE_MS = 450;
-    /* 初回ペイント後に付与するまでの待ち（CSS transition-delay は使わない） */
-    const REVEAL_START_DELAY_MS = 220;
-    const revealHideTimers = new WeakMap();
-    const revealEnterTimers = new WeakMap();
-    /** 遅いスクロールで queueRevealVisible が連打されても、予約を最初の1回に固定する */
-    const revealShowArm = new WeakSet();
-    const revealThresholds = Array.from({ length: 21 }, (_, i) => i * 0.05);
-
-    /** IO の root（ビューポート＋下マージン）と同程度か — 画面外ブロックに is-visible を付けない */
-    function revealLikelyIntersectsObserverRoot(el) {
-      const r = el.getBoundingClientRect();
-      const vh = window.innerHeight || document.documentElement.clientHeight || 0;
-      const vw = window.innerWidth || document.documentElement.clientWidth || 0;
-      if (vh <= 0) return false;
-      const rootBottom = vh * (1 + REVEAL_ROOT_MARGIN_BOTTOM_FRAC);
-      return r.bottom > 0 && r.top < rootBottom && r.right > 0 && r.left < vw;
-    }
-
-    function cancelRevealHide(el) {
-      const id = revealHideTimers.get(el);
-      if (id != null) {
-        window.clearTimeout(id);
-        revealHideTimers.delete(el);
-      }
-    }
-
-    function cancelRevealEnter(el) {
-      revealShowArm.delete(el);
-      const id = revealEnterTimers.get(el);
-      if (id != null) {
-        window.clearTimeout(id);
-        revealEnterTimers.delete(el);
-      }
-    }
-
-    function queueRevealVisible(el) {
-      if (!el) return;
-      if (el.classList.contains("is-visible")) return;
-      /* 既に表示予約中なら再スケジュールしない（遅スクロールで遅延が永遠に延びない） */
-      if (revealShowArm.has(el) || revealEnterTimers.has(el)) return;
-      revealShowArm.add(el);
-      cancelRevealHide(el);
-
-      const run = () => {
-        if (!el.isConnected) return;
-        if (el.classList.contains("is-visible")) return;
-        void el.offsetWidth;
-        el.classList.add("is-visible");
-      };
-
-      window.requestAnimationFrame(() => {
-        window.requestAnimationFrame(() => {
-          if (!revealShowArm.has(el)) return;
-          const id = window.setTimeout(() => {
-            revealEnterTimers.delete(el);
-            revealShowArm.delete(el);
-            run();
-          }, REVEAL_START_DELAY_MS);
-          revealEnterTimers.set(el, id);
-        });
-      });
-    }
-
-    function scheduleRevealHide(el) {
-      cancelRevealEnter(el);
-      cancelRevealHide(el);
-      const id = window.setTimeout(() => {
-        revealHideTimers.delete(el);
-        el.classList.remove("is-visible");
-      }, REVEAL_EXIT_DEBOUNCE_MS);
-      revealHideTimers.set(el, id);
-    }
+    document.documentElement.classList.add("reveal-enabled");
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const latestByTarget = new Map();
-        for (const entry of entries) {
-          latestByTarget.set(entry.target, entry);
-        }
-        latestByTarget.forEach((entry) => {
-          const el = entry.target;
-          if (el.classList.contains("hero__content")) return;
-
-          const ratio = entry.intersectionRatio;
-          const isShown = el.classList.contains("is-visible");
-
-          if (ratio >= REVEAL_ENTER_RATIO) {
-            cancelRevealHide(el);
-            queueRevealVisible(el);
-            return;
-          }
-
-          if (isShown && (ratio <= REVEAL_EXIT_RATIO || !entry.isIntersecting)) {
-            scheduleRevealHide(el);
-          }
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
         });
       },
       {
-        threshold: revealThresholds,
-        rootMargin: `0px 0px ${REVEAL_ROOT_MARGIN_BOTTOM_FRAC * 100}% 0px`,
+        threshold: 0.05,
+        rootMargin: "0px 0px 12% 0px",
       }
     );
 
     window.requestAnimationFrame(() => {
-      revealNodes.forEach((target) => {
-        if (!target.classList.contains("hero__content")) {
-          observer.observe(target);
-        }
-      });
+      revealNodes.forEach((target) => observer.observe(target));
     });
 
+    /* IO が一時的に通知されない環境でも本文を隠し続けない。 */
     window.setTimeout(() => {
       document.querySelectorAll(".reveal:not(.is-visible)").forEach((target) => {
-        if (target.classList.contains("hero__content")) return;
-        /* 全セクション一括は遅スクロールで「もう表示済み」になりアニメが消えるため、交差見込みのみ */
-        if (!revealLikelyIntersectsObserverRoot(target)) return;
-        queueRevealVisible(target);
+        const rect = target.getBoundingClientRect();
+        if (rect.top > window.innerHeight * 1.15 || rect.bottom < 0) return;
+        target.classList.add("is-visible");
+        observer.unobserve(target);
       });
-    }, 3200);
-
-    const heroContent = document.querySelector(".hero__content.reveal");
-    if (heroContent) {
-      queueRevealVisible(heroContent);
-    }
+    }, 1200);
   }
 
   function initHeroFlowSyncDashLengths() {
@@ -2209,7 +2102,9 @@
   }
 
   function mount() {
-    document.querySelector("#root").innerHTML = renderApp();
+    const root = document.querySelector("#root");
+    if (!root) return;
+    if (!root.hasChildNodes()) root.innerHTML = renderApp();
     window.SideClipI18n?.applyPageTranslations?.("landing");
     initReveal();
     window.requestAnimationFrame(() => {
@@ -2234,5 +2129,9 @@
     initHashScroll();
   }
 
-  document.addEventListener("DOMContentLoaded", mount);
+  window.SideClipLandingPrerender = { render: renderApp };
+
+  if (!window.__SIDECLIP_PRERENDER__) {
+    document.addEventListener("DOMContentLoaded", mount);
+  }
 })();

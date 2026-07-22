@@ -72,12 +72,867 @@
       gtag('set', 'user_properties', { site_language: initialSiteLanguage });
       gtag('config', 'G-D3JVLNHHMQ', { site_language: initialSiteLanguage });
     </script>
-    <link rel="stylesheet" href="/styles.css?v=20260722-language-dialog" />
-    <script src="/site-i18n.js?v=20260722-language-dialog" defer></script>
-    <script src="/app.js?v=20260722-language-dialog" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=20260722-static-seo" />
+    <script src="/site-i18n.js?v=20260722-static-seo" defer></script>
+    <script src="/app.js?v=20260722-static-seo" defer></script>
   </head>
   <body data-i18n-page="landing">
-    <div id="root"></div>
+    <!-- landing-static:start -->
+    <div id="root" data-static-landing="">
+      <main class="page-shell">
+        <header class="hero__header">
+          <div class="hero__header-brand">
+            <a class="brand hero__brand" href="#" aria-label="SideClip（Macのクリップボードアプリ）">
+              <span>Side</span><strong>Clip</strong>
+            </a>
+            <p class="hero__tagline" title="Clipboard app for Mac" aria-hidden="true">
+              <span lang="en">Clipboard app</span>
+            </p>
+          </div>
+          <div class="hero__header-actions">
+
+      <div class="language-switch" data-language-switch="" role="group" aria-label="言語切替">
+        <button type="button" class="language-switch__option is-active" data-language-option="ja" aria-label="日本語で表示" aria-pressed="true">JP</button>
+        <button type="button" class="language-switch__option" data-language-option="en" aria-label="Show in English" aria-pressed="false">EN</button>
+      </div>
+
+            <button type="button" class="hero__menu-button" aria-label="セクションメニューを開く" aria-controls="section-drawer" aria-expanded="false" data-section-menu-trigger="">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </header>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero__banner">
+            <div class="hero__banner-stack">
+              <div class="hero__banner-motion">
+                <div class="hero__visual-wrap">
+                  <img class="hero__visual" src="/assets/hero_blank_clean.png?v=20260701-screenshot-pro-note" srcset="/assets/hero_blank_clean.png?v=20260701-screenshot-pro-note 1x, /assets/hero_blank_clean.png?v=20260701-screenshot-pro-note 2x" width="2172" height="724" sizes="(max-width: 2172px) 100vw, 2172px" alt="MacとスマホでSideClipを使うイメージ" fetchpriority="high" decoding="async" onerror="this.onerror=null;this.src='/assets/hero-banner.jpg?v=20260701-screenshot-pro-note';">
+                  <div class="hero__visual-layers" aria-hidden="true">
+                    <div class="hero__sync-graphic" aria-hidden="true">
+                      <div class="sync-graphic__row hero__sync-row" style="--sync-line-left: 45.5px; --sync-line-w: 189.96px;">
+
+    <div class="sync-line-rail" aria-hidden="true">
+      <svg class="sync-line-svg" viewBox="0 0 100 14" preserveAspectRatio="none" focusable="false">
+        <line x1="0.25" y1="7" x2="99.75" y2="7" class="sync-line-solid" vector-effect="non-scaling-stroke"></line>
+      </svg>
+      <span class="sync-packet sync-packet--fwd" style="animation-delay: 0s"></span>
+      <span class="sync-packet sync-packet--fwd" style="animation-delay: 1.45s"></span>
+      <span class="sync-packet sync-packet--rev" style="animation-delay: 0.35s"></span>
+      <span class="sync-packet sync-packet--rev" style="animation-delay: 1.75s"></span>
+    </div>
+                      </div>
+                    </div>
+                    <img class="hero__visual-layer hero__visual-layer--phone" src="/assets/hero_phone_v2_web.png?v=20260701-screenshot-pro-note" srcset="/assets/hero_phone_v2_web.png?v=20260701-screenshot-pro-note 1x, /assets/hero_phone_v2_web.png?v=20260701-screenshot-pro-note 2x" width="1024" height="1536" sizes="(max-width: 2172px) 36vw, 780px" alt="" decoding="async">
+                  </div>
+                </div>
+                <div class="hero__banner-overlay" aria-label="SideClipの紹介">
+                  <p class="hero__banner-eyebrow hero__banner-overlay-line hero__banner-overlay-line--eyebrow">
+                    SideClip for Mac
+                  </p>
+                  <p class="hero__banner-overlay-lead hero__banner-overlay-line hero__banner-overlay-line--lead">
+                    コピー履歴を、<br>Macの<span class="hero__banner-accent">外</span>へ。
+                  </p>
+                  <p class="hero__banner-overlay-sub hero__banner-overlay-line hero__banner-overlay-line--sub">
+                    スマホを横に置くだけ。<br>コピーしたものが、いつも視界に。
+                  </p>
+                  <div class="hero__banner-actions" aria-label="ヒーロー操作">
+                    <a class="hero__banner-primary" href="https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg" data-download-link="" data-cta-id="hero_banner_download" data-cta-section="hero" aria-label="SideClipをMacで無料ダウンロード">
+                      Macで無料ダウンロード
+                    </a>
+                  </div>
+                  <p class="hero__banner-note">Apple Silicon搭載Macに対応</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="section-drawer" id="section-drawer" aria-hidden="true">
+          <button type="button" class="section-drawer__backdrop" aria-label="メニューを閉じる" data-section-menu-close=""></button>
+          <nav class="section-drawer__panel" aria-label="ページメニュー">
+            <a href="#hero-title" data-section-menu-link="">トップ</a>
+            <a href="#concept-video" data-section-menu-link="">コンセプト動画</a>
+            <a href="#tap-title" data-section-menu-link="">使い方</a>
+            <a href="#benefits-title" data-section-menu-link="">メリット</a>
+            <a href="#clipboard-shift-title" data-section-menu-link="">他のツールとの違い</a>
+            <a href="#features-title" data-section-menu-link="">主な機能</a>
+            <a href="#usage-scenes-title" data-section-menu-link="">使用シーン</a>
+            <a href="#local-title" data-section-menu-link="">ローカル同期</a>
+            <a href="#faq" data-section-menu-link="">FAQ</a>
+            <a href="#download" data-section-menu-link="">ダウンロード</a>
+            <a href="/ja/plans/">料金プラン</a>
+            <a href="#site-legal-footer" data-section-menu-link="">ポリシー・規約</a>
+          </nav>
+        </div>
+
+        <div class="content-overlay">
+        <div class="hero__content">
+          <div class="reveal__head">
+            <h2 class="hero__banner-copy">Macの横に、<br>コピーの置き場所を。</h2>
+          </div>
+          <div class="reveal__rest">
+          <p class="hero__hook">もう一度使いたいテキストや画像が、視界の中に残っている。<br>探さず、手元から貼り付けられます。</p>
+          <div class="hero__infographic-card">
+            <h1 id="hero-title" class="hero__infographic-title">
+              <span class="tap-infographic__title-stack">
+                <span class="tap-infographic__title-line tap-infographic__title-line--primary">
+                  コピー。表示。タップ。ペースト。
+                </span>
+              </span>
+            </h1>
+            <div class="hero-flow-sync" id="hero-flow-sync" data-hero-flow-step="0" aria-hidden="true">
+              <div class="hero-flow-sync__frame">
+                <img class="hero-flow-sync__base" src="/assets/hero_flow_devices_only.png?v=20260701-screenshot-pro-note" width="835" height="386" alt="" loading="lazy" decoding="async">
+                <svg class="hero-flow-sync__overlay" viewBox="84 178 835 386" preserveAspectRatio="xMidYMid meet" focusable="false">
+                  <defs>
+                    <marker id="heroFlowSyncArrowhead" markerWidth="44" markerHeight="44" refX="12.667" refY="22" orient="auto" markerUnits="userSpaceOnUse" overflow="visible">
+                      <path d="M0,3 L38,22 L0,41 Z" fill="currentColor"></path>
+                    </marker>
+                  </defs>
+                  <rect class="hero-flow-sync__mac-mask" x="86" y="180" width="485" height="381" rx="0"></rect>
+                  <image class="hero-flow-sync__mac-raster" href="/assets/hero_flow_mac_laptop.png?v=20260701-screenshot-pro-note" x="90" y="184" width="477" height="373" preserveAspectRatio="xMidYMid meet"></image>
+                  <rect class="hero-flow-sync__phone-mask" x="732" y="163" width="186" height="391" rx="0"></rect>
+                  <image class="hero-flow-sync__phone-raster" href="/assets/hero_flow_phone_clipboard.png?v=20260701-screenshot-pro-note" x="737" y="169" width="175" height="318" preserveAspectRatio="xMidYMid meet"></image>
+                  <image class="hero-flow-sync__tap-hit" href="/assets/flow-icon-tap-hero-fill.png?v=20260701-screenshot-pro-note" x="750" y="350" width="180" height="180" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></image>
+                  <path class="hero-flow-sync__path hero-flow-sync__path--to-phone" marker-end="url(#heroFlowSyncArrowhead)" d="M 433 274 C 548 192 702 173 776 253"></path>
+                  <path class="hero-flow-sync__path hero-flow-sync__path--to-mac" marker-end="url(#heroFlowSyncArrowhead)" d="M 799.8 413 C 632 506 415 396 313 344"></path>
+                  <text class="hero-flow-sync__cap-label hero-flow-sync__cap-label--copy" x="432" y="284" text-anchor="end" dominant-baseline="middle" aria-hidden="true">
+                    Copy
+                  </text>
+                  <text class="hero-flow-sync__cap-label hero-flow-sync__cap-label--paste" x="224" y="322" text-anchor="start" dominant-baseline="auto" aria-hidden="true">
+                    Paste
+                  </text>
+                </svg>
+              </div>
+            </div>
+            <ol class="mini-flow" aria-label="SideClipの流れ">
+
+          <li class="step-card step-card--infographic mini-flow__step interactive-card" data-flow-index="0">
+            <div class="step-card__inner">
+              <span class="step-card__num" aria-hidden="true">01</span>
+              <div class="step-card__icon-ring">
+                <img class="flow-step-icon-img" src="/assets/flow-icon-mac.png?v=20260701-screenshot-pro-note" alt="Macでコピーするステップ" width="56" height="56" loading="eager" decoding="async">
+              </div>
+              <p class="step-card__label">Macで<br>コピー</p>
+            </div>
+          </li><li class="flow-arrow" aria-hidden="true"><span class="flow-arrow__glyph">→</span></li>
+          <li class="step-card step-card--infographic mini-flow__step interactive-card" data-flow-index="1">
+            <div class="step-card__inner">
+              <span class="step-card__num" aria-hidden="true">02</span>
+              <div class="step-card__icon-ring">
+                <img class="flow-step-icon-img" src="/assets/flow-icon-phone.png?v=20260701-screenshot-pro-note" alt="スマホへコピー内容が自動追加されるステップ" width="56" height="56" loading="eager" decoding="async">
+              </div>
+              <p class="step-card__label step-card__label--accent">スマホに<br>表示</p>
+            </div>
+          </li><li class="flow-arrow" aria-hidden="true"><span class="flow-arrow__glyph">→</span></li>
+          <li class="step-card step-card--infographic mini-flow__step interactive-card" data-flow-index="2">
+            <div class="step-card__inner">
+              <span class="step-card__num" aria-hidden="true">03</span>
+              <div class="step-card__icon-ring">
+                <img class="flow-step-icon-img" src="/assets/flow-icon-tap.png?v=20260701-screenshot-pro-note" alt="スマホ画面をタップするステップ" width="56" height="56" loading="eager" decoding="async">
+              </div>
+              <p class="step-card__label">スマホを<br>タップ</p>
+            </div>
+          </li><li class="flow-arrow" aria-hidden="true"><span class="flow-arrow__glyph">→</span></li>
+          <li class="step-card step-card--infographic mini-flow__step interactive-card" data-flow-index="3">
+            <div class="step-card__inner">
+              <span class="step-card__num" aria-hidden="true">04</span>
+              <div class="step-card__icon-ring">
+                <img class="flow-step-icon-img" src="/assets/flow-icon-check.png?v=20260701-screenshot-pro-note" alt="Macへ即座にペーストされるステップ" width="56" height="56" loading="eager" decoding="async">
+              </div>
+              <p class="step-card__label">Macへ<br>ペースト</p>
+            </div>
+          </li>
+            </ol>
+          </div>
+
+          <div class="hero-scene-card" aria-labelledby="hero-scene-title">
+            <h2 id="hero-scene-title" class="hero-scene-card__title">いつもの作業に、そのままなじむ。</h2>
+            <ul class="hero-scene-card__list">
+              <li class="hero-scene-card__item">
+                <span class="hero-scene-card__icon" aria-hidden="true">
+                  <img src="/assets/hero_icon_scene_research.png?v=20260701-screenshot-pro-note" srcset="/assets/hero_icon_scene_research.png?v=20260701-screenshot-pro-note 1x, /assets/hero_icon_scene_research.png?v=20260701-screenshot-pro-note 2x" width="176" height="176" alt="" decoding="async">
+                </span>
+                <div class="hero-scene-card__body">
+                  <p class="hero-scene-card__item-title">リサーチ・資料作成</p>
+                  <p class="hero-scene-card__item-text">集めた情報を横に置き、流れを止めずにまとめる。</p>
+                </div>
+              </li>
+              <li class="hero-scene-card__item">
+                <span class="hero-scene-card__icon" aria-hidden="true">
+                  <img src="/assets/hero_icon_scene_chat.png?v=20260701-screenshot-pro-note" srcset="/assets/hero_icon_scene_chat.png?v=20260701-screenshot-pro-note 1x, /assets/hero_icon_scene_chat.png?v=20260701-screenshot-pro-note 2x" width="176" height="176" alt="" decoding="async">
+                </span>
+                <div class="hero-scene-card__body">
+                  <p class="hero-scene-card__item-title">チャット・メール</p>
+                  <p class="hero-scene-card__item-text">定型文やリンクを、必要な瞬間にすぐ貼れる。</p>
+                </div>
+              </li>
+              <li class="hero-scene-card__item">
+                <span class="hero-scene-card__icon" aria-hidden="true">
+                  <img src="/assets/hero_icon_scene_idea.png?v=20260701-screenshot-pro-note" srcset="/assets/hero_icon_scene_idea.png?v=20260701-screenshot-pro-note 1x, /assets/hero_icon_scene_idea.png?v=20260701-screenshot-pro-note 2x" width="176" height="176" alt="" decoding="async">
+                </span>
+                <div class="hero-scene-card__body">
+                  <p class="hero-scene-card__item-title">アイデア・メモ整理</p>
+                  <p class="hero-scene-card__item-text">思いついた断片を残し、あとで自然に見返せる。</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="hero-highlight-row" aria-label="SideClipの安心ポイント">
+            <li class="hero-highlight-card">
+              <span class="hero-highlight-card__icon" aria-hidden="true">
+                <img src="/assets/hero_icon_highlight_lock.png?v=20260701-screenshot-pro-note" srcset="/assets/hero_icon_highlight_lock.png?v=20260701-screenshot-pro-note 1x, /assets/hero_icon_highlight_lock.png?v=20260701-screenshot-pro-note 2x" width="176" height="176" alt="" decoding="async">
+              </span>
+              <div class="hero-highlight-card__body">
+                <p class="hero-highlight-card__title">ローカル同期で安心</p>
+                <p class="hero-highlight-card__text">データはMac内で完結。<br>プライバシーも安心。</p>
+              </div>
+            </li>
+            <li class="hero-highlight-card">
+              <span class="hero-highlight-card__icon" aria-hidden="true">
+                <img src="/assets/hero_icon_highlight_bolt.png?v=20260701-screenshot-pro-note" srcset="/assets/hero_icon_highlight_bolt.png?v=20260701-screenshot-pro-note 1x, /assets/hero_icon_highlight_bolt.png?v=20260701-screenshot-pro-note 2x" width="176" height="176" alt="" decoding="async">
+              </span>
+              <div class="hero-highlight-card__body">
+                <p class="hero-highlight-card__title">設定いらずでシンプル</p>
+                <p class="hero-highlight-card__text">アカウント登録・ログイン不要。スマホアプリも不要です。</p>
+              </div>
+            </li>
+            <li class="hero-highlight-card">
+              <span class="hero-highlight-card__icon" aria-hidden="true">
+                <img src="/assets/hero_icon_highlight_qr.png?v=20260701-screenshot-pro-note" srcset="/assets/hero_icon_highlight_qr.png?v=20260701-screenshot-pro-note 1x, /assets/hero_icon_highlight_qr.png?v=20260701-screenshot-pro-note 2x" width="176" height="176" alt="" decoding="async">
+              </span>
+              <div class="hero-highlight-card__body">
+                <p class="hero-highlight-card__title">接続はQRコードで簡単</p>
+                <p class="hero-highlight-card__text">スマホのカメラで読み込むだけ。すぐにつながります。</p>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="hero-kpis" aria-label="SideClipで得られる効果">
+            <li>Mac専用アプリ</li>
+            <li>MacとiPhone/iPad/Android端末とつながる</li>
+          </ul>
+          <a class="download-button" href="https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg" data-download-link="" data-cta-id="hero_download" data-cta-section="hero" aria-label="SideClipをMacで無料ダウンロード">
+
+            Macで無料ダウンロード
+          </a>
+          <p class="os-note">Apple Silicon搭載のMacに対応</p>
+          </div>
+        </div>
+        <section id="concept-video" class="concept-video reveal" aria-labelledby="concept-video-title">
+          <div class="concept-video__copy">
+            <div class="reveal__head">
+              <p class="concept-video__eyebrow">Product Demo</p>
+              <h2 id="concept-video-title">SideClip体験を、<br>実際の操作で。</h2>
+            </div>
+            <div class="reveal__rest">
+              <p>Macとスマホをつないで、コピー履歴を表示し、必要なカードをすぐにペースト。<br>SideClipでできることと操作の流れを、デモ映像でご覧いただけます。</p>
+            </div>
+          </div>
+          <div class="reveal__rest concept-video__visual" aria-label="SideClipの基本機能を紹介するデモ動画（YouTube）">
+            <div class="concept-video__embed concept-video__embed--poster">
+              <button type="button" class="concept-video__facade" data-cta-id="concept_video_play" data-cta-section="concept_video" aria-label="SideClipの基本機能を紹介するデモ動画をYouTubeで再生する">
+                <img class="concept-video__poster" src="https://i.ytimg.com/vi/rCiLdIpRr5I/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async" fetchpriority="low">
+                <span class="concept-video__facade-ring" aria-hidden="true">
+                  <svg class="concept-video__facade-triangle" viewBox="0 0 24 24" width="28" height="28" focusable="false">
+                    <polygon points="8,5 8,19 19,12" fill="currentColor"></polygon>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="tap-section" aria-labelledby="tap-title">
+          <div class="tap-section__reveal reveal">
+            <div class="section-copy section-copy--tap">
+              <div class="reveal__head">
+                <h2 id="tap-title">タップで、<br class="mobile-break"><span>そのまま貼り付け。</span></h2>
+              </div>
+              <div class="reveal__rest">
+                <p>
+                  Macでコピーした内容が、スマホに並ぶ。<br class="desktop-break">
+                  必要なカードに触れると、Macへ即ペースト。<br>
+                  作業中の画面から目を離さずに使えます。
+                  <br class="mobile-break">
+                </p>
+              </div>
+            </div>
+            <div class="reveal__rest">
+            <ol class="steps" aria-label="Tap to Pasteの4ステップ">
+
+          <li class="step-card interactive-card" data-step-index="0">
+            <h3><span>1</span>Macでコピー</h3>
+            <img src="/assets/step-copy.png?v=20260701-screenshot-pro-note" alt="Macでテキストをコピーする画面">
+          </li>
+
+          <li class="step-card interactive-card" data-step-index="1">
+            <h3><span>2</span>スマホにカードが<br>自動追加</h3>
+            <img src="/assets/step-add.png?v=20260701-screenshot-pro-note" alt="スマホにコピー履歴カードが追加される画面">
+          </li>
+
+          <li class="step-card interactive-card" data-step-index="2">
+            <h3><span>3</span>必要なカードをタップ</h3>
+            <img src="/assets/step-tap.png?v=20260701-screenshot-pro-note" alt="スマホのカードをタップする画面">
+          </li>
+
+          <li class="step-card interactive-card" data-step-index="3">
+            <h3><span>4</span>Macに即ペースト</h3>
+            <img src="/assets/step-paste.png?v=20260701-screenshot-pro-note" alt="Macへ即座にペーストされる画面">
+          </li>
+
+            </ol>
+            </div>
+          </div>
+        </section>
+
+        <section class="benefits" aria-labelledby="benefits-title">
+          <div class="benefits__reveal reveal">
+            <div class="section-copy">
+              <div class="reveal__head">
+                <h2 id="benefits-title">作業の流れを、止めない。</h2>
+              </div>
+              <div class="reveal__rest">
+                <p>
+                  コピーしたものは、Macの横に。<br>
+                  探す時間も、呼び出す動きも、<br>
+                  少しずつ減らします。
+                </p>
+              </div>
+            </div>
+            <div class="reveal__rest benefits-video-showcase">
+              <div class="benefits-video-copy">
+                <p class="benefits-video-copy__eyebrow">Screenshot Demo</p>
+                <h3>スクショを、<br>カードで残す。</h3>
+                <p class="benefits-video-copy__text">
+                  スクショボタンですぐ撮影。連続で撮ったスクショもカードリストに整理され、必要な時にペーストできます。
+                </p>
+                <p class="benefits-video-copy__text">
+                  保存先はSideClipフォルダなので、デスクトップがスクショ画像で埋もれません。よく使うスクショはカードをスワイプしてお気に入りへ。
+                </p>
+              </div>
+              <div class="benefits-video" aria-label="スクショ機能の紹介動画（YouTube）">
+                <div class="benefits-video__embed benefits-video__embed--poster">
+                  <button type="button" class="benefits-video__facade" data-cta-id="benefits_video_play" data-cta-section="benefits_video" aria-label="スクショ機能の紹介動画を再生する（YouTube）">
+                    <img class="benefits-video__poster" src="https://i.ytimg.com/vi/3m6aWg6LDFY/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async" fetchpriority="low">
+                    <span class="benefits-video__facade-ring" aria-hidden="true">
+                      <svg class="benefits-video__facade-triangle" viewBox="0 0 24 24" width="28" height="28" focusable="false">
+                        <polygon points="8,5 8,19 19,12" fill="currentColor"></polygon>
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="reveal__rest">
+            <div class="benefit-grid">
+
+          <article class="benefit-item interactive-card">
+            <div class="round-icon" aria-hidden="true">
+
+      <svg viewBox="0 0 24 24"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+
+            </div>
+            <h3>横に置いて確認</h3>
+            <p>必要な履歴が視界に残り、<br>作業中の画面を隠しません。</p>
+          </article>
+
+          <article class="benefit-item interactive-card">
+            <div class="round-icon" aria-hidden="true">
+
+      <svg viewBox="0 0 44 44" aria-hidden="true">
+        <path d="M22 7v15.5"></path>
+        <path d="M22 7a3.8 3.8 0 0 1 7.6 0v11.2"></path>
+        <path d="M29.6 18.2a3.4 3.4 0 0 1 6.8 0v6.8c0 6.2-3.6 10.2-10 10.2h-4.2a7.2 7.2 0 0 1-5.8-3l-5.6-7.8a2.8 2.8 0 0 1 4.3-3.5l4.8 4.9"></path>
+        <path d="M14.5 6 12 3.8M33.5 7.2l2.6-2M9 14.5H6" opacity="0.55"></path>
+      </svg>
+
+            </div>
+            <h3>タップで貼り付け</h3>
+            <p>カードに触れるだけで、<br>Macへすぐにペースト。</p>
+          </article>
+
+          <article class="benefit-item interactive-card">
+            <div class="round-icon" aria-hidden="true">
+
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="10" height="8" rx="1.5"></rect><rect x="12" y="12" width="9" height="8" rx="1.5"></rect><path d="M6 16h4M16 7h3M7 8h2M15 16h3"></path></svg>
+
+            </div>
+            <h3>画像もそのまま</h3>
+            <p>テキスト、URL、スクショまで<br>手元に並べておけます。</p>
+          </article>
+
+          <article class="benefit-item interactive-card">
+            <div class="round-icon" aria-hidden="true">
+
+      <svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path><path d="M12 14v2.5"></path></svg>
+
+            </div>
+            <h3>ローカルで同期</h3>
+            <p>同じWi-Fi内でつながり、<br>コピー履歴をクラウドへ出しません。</p>
+          </article>
+
+            </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="clipboard-shift" aria-labelledby="clipboard-shift-title">
+          <div class="clipboard-shift__reveal reveal">
+            <div class="reveal__head">
+              <p class="clipboard-shift__eyebrow">Clipboard Shift</p>
+              <h2 id="clipboard-shift-title" class="clipboard-shift__title">
+                呼び出さない。<br>
+                横に置く。
+              </h2>
+              <p class="clipboard-shift__lead">
+                コピー履歴をMacの中で探すのではなく、<br>
+                横のスマホに表示。<br>
+                視線の移動を小さくして、<br>
+                作業の流れを保ちます。
+              </p>
+            </div>
+            <div class="reveal__rest">
+            <figure class="clipboard-shift__figure">
+              <button type="button" class="clipboard-shift__panel feature-zoom-trigger" data-feature-image-src="/assets/違い.jpeg?v=20260701-screenshot-pro-note" data-feature-image-alt="呼び出すクリップボードと横に置くクリップボードの違い" aria-label="呼び出すクリップボードと横に置くクリップボードの違いの画像を拡大表示">
+                <img src="/assets/違い.jpeg?v=20260701-screenshot-pro-note" srcset="/assets/違い.jpeg?v=20260701-screenshot-pro-note 1x, /assets/違い.jpeg?v=20260701-screenshot-pro-note 2x" sizes="(max-width: 1200px) 100vw, 1200px" width="2752" height="1536" alt="呼び出すクリップボードと横に置くクリップボードの違い" loading="lazy" decoding="async">
+              </button>
+            </figure>
+            <div class="clipboard-shift__prose">
+              <div class="clipboard-shift__compare">
+                <div class="clipboard-shift__compare-block clipboard-shift__compare-block--others">
+                  <p class="clipboard-shift__prose-title">画面内で呼び出す</p>
+                  <ul class="clipboard-shift__bullets">
+                    <li>履歴パネルが作業画面に重なる。</li>
+                    <li>ペーストのたびに視線とポインターが移動する。</li>
+                    <li>ショートカットや設定を思い出す負担が残る。</li>
+                  </ul>
+                </div>
+                <div class="clipboard-shift__compare-block clipboard-shift__compare-block--sideclip">
+                  <p class="clipboard-shift__prose-title clipboard-shift__prose-title--sideclip">横に置く</p>
+                  <p class="clipboard-shift__emphasis">
+                    <span class="clipboard-shift__emphasis-lead">履歴は、Macの横に。</span><br>
+                    Macの作業を見たまま、スマホのカードをタップしてペースト。
+                  </p>
+                  <ul class="clipboard-shift__bullets clipboard-shift__bullets--sideclip">
+                    <li>コピー履歴はスマホ側に常時表示。</li>
+                    <li>カードをタップするとMacへすぐペースト。</li>
+                    <li>作業画面を隠さず、集中を保てる。</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="features" aria-labelledby="features-title">
+          <div class="features__reveal reveal">
+            <div class="reveal__head">
+              <p class="features__eyebrow">Core Features</p>
+              <h2 id="features-title">よく使うものが、<br>手元に残る。</h2>
+              <p class="features__lead">
+                コピー履歴、スクショ、お気に入り。<br>
+                作業に戻るためのものだけを、<br>
+                スマホに整えます。
+              </p>
+            </div>
+            <div class="reveal__rest">
+            <div class="feature-grid">
+
+          <article class="feature-card interactive-card">
+            <p class="feature-card__eyebrow">History</p>
+            <h3>コピー履歴を、手元に。</h3>
+            <p class="feature-card__copy">テキスト、URL、画像を自動保存。<br>必要なカードをスマホ側ですぐ見つけられます。</p>
+            <button type="button" class="feature-card__panel feature-zoom-trigger" data-feature-image-src="/assets/feature-panel-history.jpg?v=20260701-screenshot-pro-note" data-feature-image-alt="クリップボード履歴画面" aria-label="コピー履歴を、手元に。の画像を拡大表示">
+              <img class="feature-card__image" src="/assets/feature-panel-history.jpg?v=20260701-screenshot-pro-note" srcset="/assets/feature-panel-history.jpg?v=20260701-screenshot-pro-note 1x, /assets/feature-panel-history.jpg?v=20260701-screenshot-pro-note 2x" sizes="(max-width: 680px) 100vw, 50vw" alt="クリップボード履歴画面" loading="lazy" decoding="async">
+            </button>
+
+          </article>
+
+          <article class="feature-card interactive-card">
+            <p class="feature-card__eyebrow">Favorite</p>
+            <h3>大事なものだけ、残す。</h3>
+            <p class="feature-card__copy">よく使う定型文やリンクを保存。<br>一度まとめれば、次から探す時間を減らせます。</p>
+            <button type="button" class="feature-card__panel feature-zoom-trigger" data-feature-image-src="/assets/feature-panel-favorite.jpg?v=20260701-screenshot-pro-note" data-feature-image-alt="お気に入り保存画面" aria-label="大事なものだけ、残す。の画像を拡大表示">
+              <img class="feature-card__image" src="/assets/feature-panel-favorite.jpg?v=20260701-screenshot-pro-note" srcset="/assets/feature-panel-favorite.jpg?v=20260701-screenshot-pro-note 1x, /assets/feature-panel-favorite.jpg?v=20260701-screenshot-pro-note 2x" sizes="(max-width: 680px) 100vw, 50vw" alt="お気に入り保存画面" loading="lazy" decoding="async">
+            </button>
+
+          </article>
+
+          <article class="feature-card feature-card--wide feature-card--has-video interactive-card">
+            <p class="feature-card__eyebrow">Screenshot</p>
+            <h3>Macの画面も、カードに。</h3>
+            <p class="feature-card__copy">スマホからMacのスクショを起動。<br>撮った画像はペン入れ・トリミングして、そのまま履歴に残せます。<br><small>ペン入れ・トリミングはProプラン以上で利用可能</small></p>
+            <button type="button" class="feature-card__panel feature-zoom-trigger" data-feature-image-src="/assets/feature-panel-scan.jpg?v=20260701-screenshot-pro-note" data-feature-image-alt="MacをキャプチャするSCAN画面" aria-label="Macの画面も、カードに。の画像を拡大表示">
+              <img class="feature-card__image" src="/assets/feature-panel-scan.jpg?v=20260701-screenshot-pro-note" srcset="/assets/feature-panel-scan.jpg?v=20260701-screenshot-pro-note 1x, /assets/feature-panel-scan.jpg?v=20260701-screenshot-pro-note 2x" sizes="(max-width: 680px) 100vw, 980px" alt="MacをキャプチャするSCAN画面" loading="lazy" decoding="async">
+            </button>
+
+            <button type="button" class="feature-card__video-trigger" data-youtube-id="pfBsk3Iwi4E" data-video-title="SideClip ペン入れ・トリミングデモ動画" data-cta-id="feature_screenshot_video_play" data-cta-section="feature_screenshot_video" aria-label="ペン入れ・トリミングのデモ動画を再生する">
+              <span class="feature-card__video-thumb" aria-hidden="true">
+                <img src="https://i.ytimg.com/vi/pfBsk3Iwi4E/hqdefault.jpg" alt="" loading="lazy" decoding="async">
+                <span class="feature-card__video-play-icon" aria-hidden="true"></span>
+              </span>
+              <span class="feature-card__video-copy">
+                <span class="feature-card__video-kicker">Demo Video</span>
+                <span class="feature-card__video-label">ペン入れ・トリミングを動画で見る</span>
+              </span>
+            </button>
+
+          </article>
+
+          <article class="feature-card interactive-card">
+            <p class="feature-card__eyebrow">Search</p>
+            <h3>増えた履歴も、すぐ見つかる。</h3>
+            <p class="feature-card__copy">日付の期間・キーワード・画像内の文字まで検索。<br>あいまいな表現でも、目当てのカードに戻れます。<br><small>画像内テキスト検索はProプラン以上で利用可能</small></p>
+            <button type="button" class="feature-card__panel feature-zoom-trigger" data-feature-image-src="/assets/feature-panel-search.png?v=20260701-screenshot-pro-note" data-feature-image-alt="検索でコピー履歴やスクショを探す画面" aria-label="増えた履歴も、すぐ見つかる。の画像を拡大表示">
+              <img class="feature-card__image" src="/assets/feature-panel-search.png?v=20260701-screenshot-pro-note" srcset="/assets/feature-panel-search.png?v=20260701-screenshot-pro-note 1x, /assets/feature-panel-search.png?v=20260701-screenshot-pro-note 2x" sizes="(max-width: 680px) 100vw, 50vw" alt="検索でコピー履歴やスクショを探す画面" loading="lazy" decoding="async">
+            </button>
+
+          </article>
+
+          <article class="feature-card interactive-card">
+            <p class="feature-card__eyebrow">Todo</p>
+            <h3>忘れる前にコピーするだけ。</h3>
+            <p class="feature-card__copy">Macでコピー→すぐTodo。<br>カードをスワイプするだけでTodo化<br><small>Proプラン以上で利用可能</small></p>
+            <button type="button" class="feature-card__panel feature-zoom-trigger" data-feature-image-src="/assets/feature-panel-todo.jpg?v=20260701-screenshot-pro-note" data-feature-image-alt="Todoモード画面" aria-label="忘れる前にコピーするだけ。の画像を拡大表示">
+              <img class="feature-card__image" src="/assets/feature-panel-todo.jpg?v=20260701-screenshot-pro-note" srcset="/assets/feature-panel-todo.jpg?v=20260701-screenshot-pro-note 1x, /assets/feature-panel-todo.jpg?v=20260701-screenshot-pro-note 2x" sizes="(max-width: 680px) 100vw, 50vw" alt="Todoモード画面" loading="lazy" decoding="async">
+            </button>
+
+          </article>
+
+            </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="usage-scenes" aria-labelledby="usage-scenes-title">
+          <div class="usage-scenes__reveal reveal">
+            <div class="reveal__head">
+              <p class="usage-scenes__eyebrow">Use Cases</p>
+              <h2 id="usage-scenes-title">仕事にも、創作にも、<br>学びにも。</h2>
+              <p class="usage-scenes__lead">
+                よく使うテキストや画像を、Macの横へ。<br>
+                小さなコピペを、静かに速くします。
+              </p>
+            </div>
+            <div class="reveal__rest">
+            <figure class="usage-scenes__figure">
+              <button type="button" class="usage-scenes__panel feature-zoom-trigger" data-feature-image-src="/assets/具体シーン.png?v=20260701-screenshot-pro-note" data-feature-image-alt="SideClipの具体的な使用シーン" aria-label="具体的な使用シーンの画像を拡大表示">
+                <img src="/assets/具体シーン.png?v=20260701-screenshot-pro-note" srcset="/assets/具体シーン.png?v=20260701-screenshot-pro-note 1x, /assets/具体シーン.png?v=20260701-screenshot-pro-note 2x" sizes="(max-width: 1200px) 100vw, 1200px" width="1672" height="941" alt="SideClipの具体的な使用シーン" loading="lazy" decoding="async">
+              </button>
+            </figure>
+            <div class="usage-scenes__cases">
+              <article class="usage-scenes__case">
+                <p class="usage-scenes__case-badge">
+                  <span class="usage-scenes__case-badge-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="5" y="5" width="14" height="10" rx="1.5"></rect>
+        <path d="M4 17h16"></path>
+        <path d="M8 8h8M8 11h5"></path>
+      </svg>
+    </span>
+                  <span class="usage-scenes__case-badge-label">開発者・プログラマー</span>
+                </p>
+                <h3 class="usage-scenes__case-title">コードやコマンドを、すぐ再利用。</h3>
+                <p class="usage-scenes__case-text">
+                  よく使うスニペットやURLを横に。エディタから離れず貼り付けられます。
+                </p>
+              </article>
+              <article class="usage-scenes__case">
+                <p class="usage-scenes__case-badge">
+                  <span class="usage-scenes__case-badge-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="6" y="3" width="12" height="18" rx="2"></rect>
+        <path d="M9 7h6M9 10h6M9 13h4M9 16h5"></path>
+      </svg>
+    </span>
+                  <span class="usage-scenes__case-badge-label">AIツール（LLM）活用者</span>
+                </p>
+                <h3 class="usage-scenes__case-title">プロンプトを、手元から呼び出す。</h3>
+                <p class="usage-scenes__case-text">
+                  定型プロンプトや前提文を保存。AIとのやり取りを止めずに進められます。
+                </p>
+              </article>
+              <article class="usage-scenes__case">
+                <p class="usage-scenes__case-badge">
+                  <span class="usage-scenes__case-badge-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 10h12l1.5 11H4.5L6 10Z"></path>
+        <path d="M9 10V8a3 3 0 0 1 6 0v2"></path>
+      </svg>
+    </span>
+                  <span class="usage-scenes__case-badge-label">フリマ・オークション・ECサイト出品者</span>
+                </p>
+                <h3 class="usage-scenes__case-title">出品文や返信を、迷わず貼る。</h3>
+                <p class="usage-scenes__case-text">
+                  商品説明、住所、返信文を保存。繰り返し作業の手間を減らします。
+                </p>
+              </article>
+            </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="local-sync" aria-labelledby="local-title">
+          <div class="local-sync__reveal reveal">
+            <div class="reveal__head">
+              <p class="local-sync__eyebrow">Local Sync</p>
+              <h2 id="local-title" class="local-sync__heading">大事なコピー履歴は、<br>クラウドに出さない。</h2>
+              <p class="local-sync__lead">
+                Macとスマホは、同じWi-Fi内で直接同期。<br>
+                コピー履歴はMac内に残り、クラウドへ送りません。
+              </p>
+            </div>
+            <div class="reveal__rest">
+            <div class="sync-graphic" aria-hidden="true">
+              <div class="sync-graphic__row">
+
+    <div class="sync-line-rail" aria-hidden="true">
+      <svg class="sync-line-svg" viewBox="0 0 100 14" preserveAspectRatio="none" focusable="false">
+        <line x1="0.25" y1="7" x2="99.75" y2="7" class="sync-line-solid" vector-effect="non-scaling-stroke"></line>
+      </svg>
+      <span class="sync-packet sync-packet--fwd" style="animation-delay: 0s"></span>
+      <span class="sync-packet sync-packet--fwd" style="animation-delay: 1.45s"></span>
+      <span class="sync-packet sync-packet--rev" style="animation-delay: 0.35s"></span>
+      <span class="sync-packet sync-packet--rev" style="animation-delay: 1.75s"></span>
+    </div>
+                <div class="device device--laptop"></div>
+                <div class="sync-center">
+                  <svg class="shield" viewBox="0 0 24 24">
+                    <path d="M12 2.5 20 6v5.4c0 5-3.4 8.7-8 10.1-4.6-1.4-8-5.1-8-10.1V6l8-3.5Z"></path>
+                    <path d="m8.3 12 2.3 2.3 5.1-5.4"></path>
+                  </svg>
+                  <svg class="wifi" viewBox="0 0 24 24">
+                    <path d="M3.6 9.2a13.2 13.2 0 0 1 16.8 0"></path>
+                    <path d="M6.8 12.8a8.2 8.2 0 0 1 10.4 0"></path>
+                    <path d="M9.9 16.2a3.3 3.3 0 0 1 4.2 0"></path>
+                    <circle cx="12" cy="20" r="1.15"></circle>
+                  </svg>
+                </div>
+                <div class="device device--phone"></div>
+              </div>
+              <p>同じWi-Fi内で直接同期</p>
+            </div>
+            <div class="local-sync__text">
+              <div class="local-sync__points" aria-label="ローカル同期の安心ポイント">
+                <article class="local-sync__point">
+                  <h3>Mac内に保存</h3>
+                  <p>履歴はMac側に保持。SideClipのクラウドへ送りません。</p>
+                </article>
+                <article class="local-sync__point">
+                  <h3>同じWi-Fiで同期</h3>
+                  <p>スマホやタブレットとは、同じWi-Fi内で直接つながります。</p>
+                </article>
+                <article class="local-sync__point">
+                  <h3>速くてプライベート</h3>
+                  <p>サーバーを挟まないため、反映が速く、データも外へ出にくい設計です。</p>
+                </article>
+              </div>
+              <p class="local-sync__detail-link">
+                <a href="/ja/security/">セキュリティ対策の詳細を見る</a>
+              </p>
+            </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="faq reveal" id="faq" aria-labelledby="faq-title">
+          <div class="faq__inner">
+            <div class="reveal__head">
+              <p class="faq__eyebrow">FAQ</p>
+              <h2 id="faq-title" class="faq__title">FAQ</h2>
+              <p class="faq__lead">導入前に知っておきたいことを、短くまとめました。</p>
+            </div>
+            <div class="reveal__rest">
+
+            <div class="faq__group">
+              <h3 class="faq__group-title">導入について</h3>
+              <div class="faq__list-wrap">
+                <details class="faq__item">
+                  <summary class="faq__summary">対応しているOSやデバイスを教えてください。</summary>
+                  <div class="faq__answer">
+                    <ul class="faq__bullets">
+                      <li>
+                        <strong>Mac：</strong><br>
+                        macOS 26以上のM系（Apple Silicon）で開発・動作確認をしております。
+                      </li>
+                      <li>
+                        <strong>スマホ・タブレット：</strong><br>
+                        iOS/Android/iPadOSなど、Webブラウザが動けば基本的に動作します。<br>
+                        <span class="faq__note">（端末の性能により動作が重くなる場合もあります）</span><br>
+                        <span class="faq__note">Safari/Chromeで開発・動作確認済み。<br>セキュリティのためにも、最新バージョンのブラウザをご使用ください。</span>
+                      </li>
+                    </ul>
+                  </div>
+                </details>
+                <details class="faq__item">
+                  <summary class="faq__summary">無料で利用できますか？有料プランとの違いは何ですか？</summary>
+                  <div class="faq__answer">
+                    <p>Freeプランで基本機能が無料でご利用いただけます。<br>有料プランの前にご自身の環境で動作確認をお勧めいたします。</p>
+                    <p>Proプラン・Ultraプランは、より便利な機能が解放されます。</p>
+                    <p class="faq__plans-more">
+                      <a href="/ja/plans/">プラン別にできること・料金の詳細を見る →</a>
+                    </p>
+                  </div>
+                </details>
+                <details class="faq__item">
+                  <summary class="faq__summary">各プランの料金はいくらですか？</summary>
+                  <div class="faq__answer">
+                    <p>継続的なアプリ改善・新機能開発の原資として有料プランを設けています。<br>Freeプランで気に入ってくださった方は、より使いやすく多機能な有料プランの検討をお願いいたします。</p>
+                    <dl class="faq__plans">
+                      <div class="faq__plan">
+                        <dt>Freeプラン</dt>
+                        <dd>
+                          <span class="faq__plan-price">無料</span><br>
+                          SideClipをご体感ください。ご自身の環境で動作確認をお願いいたします。
+                        </dd>
+                      </div>
+                      <div class="faq__plan">
+                        <dt>Proプラン</dt>
+                        <dd>
+                          <span class="faq__plan-price">月額300円（1日あたり10円）</span><br>
+                          Freeプランでは物足りない方へ。保存上限の増加やTodo機能など便利な機能が解放されます。
+                        </dd>
+                      </div>
+                      <div class="faq__plan">
+                        <dt>Ultraプラン</dt>
+                        <dd>
+                          <span class="faq__plan-price">月額480円（1日あたり16円）</span><br>
+                          全機能解放・今後の新機能や改善のアップデートを最優先に提供します。
+                        </dd>
+                      </div>
+                    </dl>
+                    <p class="faq__plans-more">
+                      <a href="/ja/plans/">プラン別にできること・料金の詳細を見る →</a>
+                    </p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <div class="faq__group">
+              <h3 class="faq__group-title">使い方・制限について</h3>
+              <div class="faq__list-wrap">
+                <details class="faq__item">
+                  <summary class="faq__summary">保存できるデータの種類やサイズに制限はありますか？</summary>
+                  <div class="faq__answer">
+                    <p>
+                      あります。SideClipのコピー履歴データの肥大化防止と、動作が重くならないように以下の制限をかけています（アプリアップデートで変更する場合もあります）。
+                    </p>
+                    <ul class="faq__bullets">
+                      <li>プレーンテキスト：1コピー 50KB まで</li>
+                      <li>画像（JPG/PNG/TIFFなど）：1画像 10MB まで</li>
+                      <li>その他のファイル：Mac内ファイルのリンクのみコピー（ファイルを移動するとリンクが切れます）</li>
+                    </ul>
+                  </div>
+                </details>
+                <details class="faq__item">
+                  <summary class="faq__summary">保存できるカードの上限はありますか？</summary>
+                  <div class="faq__answer">
+                    <p>あります。プランによって保存上限が異なります。</p>
+                    <p>詳しくはアプリインストール後、スマホ側画面に表示されるメニュー内の「プラン」をご確認ください。</p>
+                    <p>
+                      上限を超えた古いデータから自動削除されますが、「Favorite（お気に入り）」に登録したデータは自動削除されません。
+                    </p>
+                  </div>
+                </details>
+                <details class="faq__item">
+                  <summary class="faq__summary">スマホテザリングのWi-Fiでも使えますか？</summary>
+                  <div class="faq__answer">
+                    <p>
+                      使えますが、Wi-Fi通信の速度が遅いため、コピペの反映が少し遅くなります。
+                    </p>
+                    <p>
+                      通信速度の早いWi-Fiネットワークの方が動作が早く、快適にご利用いただけます。
+                    </p>
+                  </div>
+                </details>
+              </div>
+            </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="final-cta reveal" id="download" aria-labelledby="cta-title">
+          <div class="final-cta__copy">
+            <div class="reveal__head">
+              <p class="final-cta__eyebrow">Download</p>
+              <h2 id="cta-title">コピーの置き場所を、<br>Macの横に。</h2>
+            </div>
+            <div class="reveal__rest">
+              <p>
+                Apple Silicon搭載Macで無料で始められます。<br>
+                ダウンロード後、SideClipアプリ内からプランを選べます。
+              </p>
+            </div>
+          </div>
+          <div class="reveal__rest final-cta__action">
+            <a class="download-button download-button--light" href="https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg" data-download-link="" data-cta-id="final_download" data-cta-section="final_cta" aria-label="SideClipをMacで無料ダウンロード">
+
+              Macで無料ダウンロード
+            </a>
+            <p>Apple Silicon搭載のMacに対応</p>
+            <nav class="cta-links" aria-label="補助リンク">
+              <a class="is-primary" href="#concept-video">コンセプト動画</a>
+              <a href="#features-title">SideClipの主な機能</a>
+              <a href="#usage-scenes-title">具体的な使用シーン</a>
+              <a href="#local-title">ローカル同期</a>
+              <a href="/ja/plans/">料金・プラン比較</a>
+            </nav>
+            <ul class="trust-list" aria-label="利用条件">
+
+          <li>
+
+
+
+            Freeプランでお試し可能
+          </li>
+
+          <li>
+
+
+
+            より多機能なProプラン/Ultraプランも
+          </li>
+
+            </ul>
+          </div>
+        </section>
+        </div>
+
+        <div class="feature-lightbox" id="feature-lightbox" aria-hidden="true">
+          <div class="feature-lightbox__dialog" role="dialog" aria-modal="true" aria-label="画像の拡大表示">
+            <button type="button" class="feature-lightbox__close" aria-label="拡大表示を閉じる">×</button>
+            <img class="feature-lightbox__image" src="" alt="">
+          </div>
+        </div>
+
+        <div class="feature-video-lightbox" id="feature-video-lightbox" aria-hidden="true">
+          <div class="feature-video-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="feature-video-lightbox-title">
+            <button type="button" class="feature-video-lightbox__close" aria-label="動画を閉じる">×</button>
+            <p id="feature-video-lightbox-title" class="feature-video-lightbox__title">ペン入れ・トリミングのデモ動画</p>
+            <div class="feature-video-lightbox__frame"></div>
+            <a class="feature-video-lightbox__fallback" href="https://www.youtube.com/watch?v=pfBsk3Iwi4E" target="_blank" rel="noopener noreferrer">YouTubeで見る</a>
+          </div>
+        </div>
+
+        <footer class="site-footer" id="site-legal-footer" role="contentinfo">
+          <nav class="site-footer__nav" aria-label="サイト情報">
+            <a href="/ja/terms/" target="_blank" rel="noopener noreferrer">利用規約</a>
+            <span class="site-footer__sep" aria-hidden="true">·</span>
+            <a href="/ja/privacy/" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
+            <span class="site-footer__sep" aria-hidden="true">·</span>
+            <a href="/ja/tokushoho/" target="_blank" rel="noopener noreferrer">特定商取引法に基づく表記</a>
+          </nav>
+          <p class="site-footer__copyright">© 2026 SideClip. All rights reserved.</p>
+        </footer>
+      </main>
+    </div>
+    <!-- landing-static:end -->
     <div
       id="cookie-banner"
       class="cookie-banner"
@@ -185,16 +1040,5 @@
         }
       })();
     </script>
-    <noscript>
-      <section style="max-width: 760px; margin: 40px auto; padding: 0 16px; font-family: sans-serif; line-height: 1.7;">
-        <h1 style="margin: 0 0 12px;">SideClip</h1>
-        <p style="margin: 0 0 12px;">このページは JavaScript を有効にすると表示されます。</p>
-        <p style="margin: 0;">
-          開発状況は
-          <a href="https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw" rel="noopener noreferrer" target="_blank">開発者のX</a>
-          でご確認いただけます。
-        </p>
-      </section>
-    </noscript>
   </body>
 </html>

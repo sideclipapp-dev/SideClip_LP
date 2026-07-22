@@ -72,12 +72,731 @@
       gtag('set', 'user_properties', { site_language: initialSiteLanguage });
       gtag('config', 'G-D3JVLNHHMQ', { site_language: initialSiteLanguage });
     </script>
-    <link rel="stylesheet" href="/styles.css?v=20260722-language-dialog" />
-    <script src="/site-i18n.js?v=20260722-language-dialog" defer></script>
-    <script src="/app.js?v=20260722-language-dialog" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=20260722-static-seo" />
+    <script src="/site-i18n.js?v=20260722-static-seo" defer></script>
+    <script src="/app.js?v=20260722-static-seo" defer></script>
   </head>
   <body data-i18n-page="landing">
-    <div id="root"></div>
+    <!-- landing-static:start -->
+    <div id="root" data-static-landing="">
+      <main class="page-shell">
+        <header class="hero__header">
+          <div class="hero__header-brand">
+            <a class="brand hero__brand" href="#" aria-label="SideClip, clipboard app for Mac">
+              <span>Side</span><strong>Clip</strong>
+            </a>
+            <p class="hero__tagline" title="Clipboard app for Mac" aria-hidden="true">
+              <span lang="en">Clipboard app</span>
+            </p>
+          </div>
+          <div class="hero__header-actions">
+
+      <div class="language-switch" data-language-switch="" role="group" aria-label="Language selector">
+        <button type="button" class="language-switch__option" data-language-option="ja" aria-label="日本語で表示" aria-pressed="false">JP</button>
+        <button type="button" class="language-switch__option is-active" data-language-option="en" aria-label="Show in English" aria-pressed="true">EN</button>
+      </div>
+
+            <button type="button" class="hero__menu-button" aria-label="Open section menu" aria-controls="section-drawer" aria-expanded="false" data-section-menu-trigger="">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </header>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero__banner">
+            <div class="hero__banner-stack">
+              <div class="hero__banner-motion">
+                <div class="hero__visual-wrap">
+                  <img class="hero__visual" src="/assets/hero_blank_clean.png?v=20260701-screenshot-pro-note" srcset="/assets/hero_blank_clean.png?v=20260701-screenshot-pro-note 1x, /assets/hero_blank_clean.png?v=20260701-screenshot-pro-note 2x" width="2172" height="724" sizes="(max-width: 2172px) 100vw, 2172px" alt="Using SideClip with a Mac and phone" fetchpriority="high" decoding="async" onerror="this.onerror=null;this.src='/assets/hero-banner.jpg?v=20260701-screenshot-pro-note';">
+                  <div class="hero__visual-layers" aria-hidden="true">
+                    <div class="hero__sync-graphic" aria-hidden="true">
+                      <div class="sync-graphic__row hero__sync-row" style="--sync-line-left: 45.5px; --sync-line-w: 189.96px;">
+
+    <div class="sync-line-rail" aria-hidden="true">
+      <svg class="sync-line-svg" viewBox="0 0 100 14" preserveAspectRatio="none" focusable="false">
+        <line x1="0.25" y1="7" x2="99.75" y2="7" class="sync-line-solid" vector-effect="non-scaling-stroke"></line>
+      </svg>
+      <span class="sync-packet sync-packet--fwd" style="animation-delay: 0s"></span>
+      <span class="sync-packet sync-packet--fwd" style="animation-delay: 1.45s"></span>
+      <span class="sync-packet sync-packet--rev" style="animation-delay: 0.35s"></span>
+      <span class="sync-packet sync-packet--rev" style="animation-delay: 1.75s"></span>
+    </div>
+                      </div>
+                    </div>
+                    <img class="hero__visual-layer hero__visual-layer--phone" src="/assets/hero-phone-en.png?v=20260713-native-copy-v2" srcset="/assets/hero-phone-en.png?v=20260713-native-copy-v2 1x, /assets/hero-phone-en.png?v=20260713-native-copy-v2 2x" width="1024" height="1536" sizes="(max-width: 2172px) 36vw, 780px" alt="" decoding="async">
+                  </div>
+                </div>
+                <div class="hero__banner-overlay" aria-label="SideClipの紹介">
+                  <p class="hero__banner-eyebrow hero__banner-overlay-line hero__banner-overlay-line--eyebrow">
+                    SideClip for Mac
+                  </p>
+                  <p class="hero__banner-overlay-lead hero__banner-overlay-line hero__banner-overlay-line--lead">Put your clipboard<br>history beside<br>your Mac.</p>
+                  <p class="hero__banner-overlay-sub hero__banner-overlay-line hero__banner-overlay-line--sub">Keep your phone nearby.<br>Copied items stay in view.</p>
+                  <div class="hero__banner-actions" aria-label="ヒーロー操作">
+                    <a class="hero__banner-primary" href="https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg" data-download-link="" data-cta-id="hero_banner_download" data-cta-section="hero" aria-label="SideClipをMacで無料ダウンロード">Download free for Mac</a>
+                  </div>
+                  <p class="hero__banner-note">Supports Macs with Apple Silicon</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="section-drawer" id="section-drawer" aria-hidden="true">
+          <button type="button" class="section-drawer__backdrop" aria-label="Close menu" data-section-menu-close=""></button>
+          <nav class="section-drawer__panel" aria-label="Page menu">
+            <a href="#hero-title" data-section-menu-link="">Top</a>
+            <a href="#concept-video" data-section-menu-link="">Product demo</a>
+            <a href="#tap-title" data-section-menu-link="">How it works</a>
+            <a href="#benefits-title" data-section-menu-link="">Benefits</a>
+            <a href="#clipboard-shift-title" data-section-menu-link="">Why SideClip</a>
+            <a href="#features-title" data-section-menu-link="">Core features</a>
+            <a href="#usage-scenes-title" data-section-menu-link="">Use cases</a>
+            <a href="#local-title" data-section-menu-link="">Local sync</a>
+            <a href="#faq" data-section-menu-link="">FAQ</a>
+            <a href="#download" data-section-menu-link="">Download</a>
+            <a href="/plans">Plans &amp; pricing</a>
+            <a href="#site-legal-footer" data-section-menu-link="">Policies &amp; terms</a>
+          </nav>
+        </div>
+
+        <div class="content-overlay">
+        <div class="hero__content">
+          <div class="reveal__head">
+            <h2 class="hero__banner-copy">A place for copied items,<br>beside your Mac.</h2>
+          </div>
+          <div class="reveal__rest">
+          <p class="hero__hook">Keep the text and images you will need again in view.<br>Paste from your phone without searching.</p>
+          <div class="hero__infographic-card">
+            <h1 id="hero-title" class="hero__infographic-title">
+              <span class="tap-infographic__title-stack">
+                <span class="tap-infographic__title-line tap-infographic__title-line--primary">Copy. See it. Tap. Paste.</span>
+              </span>
+            </h1>
+            <div class="hero-flow-sync" id="hero-flow-sync" data-hero-flow-step="0" aria-hidden="true">
+              <div class="hero-flow-sync__frame">
+                <img class="hero-flow-sync__base" src="/assets/hero_flow_devices_only.png?v=20260701-screenshot-pro-note" width="835" height="386" alt="" loading="lazy" decoding="async">
+                <svg class="hero-flow-sync__overlay" viewBox="84 178 835 386" preserveAspectRatio="xMidYMid meet" focusable="false">
+                  <defs>
+                    <marker id="heroFlowSyncArrowhead" markerWidth="44" markerHeight="44" refX="12.667" refY="22" orient="auto" markerUnits="userSpaceOnUse" overflow="visible">
+                      <path d="M0,3 L38,22 L0,41 Z" fill="currentColor"></path>
+                    </marker>
+                  </defs>
+                  <rect class="hero-flow-sync__mac-mask" x="86" y="180" width="485" height="381" rx="0"></rect>
+                  <image class="hero-flow-sync__mac-raster" href="/assets/hero_flow_mac_laptop.png?v=20260701-screenshot-pro-note" x="90" y="184" width="477" height="373" preserveAspectRatio="xMidYMid meet"></image>
+                  <rect class="hero-flow-sync__phone-mask" x="732" y="163" width="186" height="391" rx="0"></rect>
+                  <image class="hero-flow-sync__phone-raster" href="/assets/hero_flow_phone_clipboard.png?v=20260701-screenshot-pro-note" x="737" y="169" width="175" height="318" preserveAspectRatio="xMidYMid meet"></image>
+                  <image class="hero-flow-sync__tap-hit" href="/assets/flow-icon-tap-hero-fill.png?v=20260701-screenshot-pro-note" x="750" y="350" width="180" height="180" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></image>
+                  <path class="hero-flow-sync__path hero-flow-sync__path--to-phone" marker-end="url(#heroFlowSyncArrowhead)" d="M 433 274 C 548 192 702 173 776 253"></path>
+                  <path class="hero-flow-sync__path hero-flow-sync__path--to-mac" marker-end="url(#heroFlowSyncArrowhead)" d="M 799.8 413 C 632 506 415 396 313 344"></path>
+                  <text class="hero-flow-sync__cap-label hero-flow-sync__cap-label--copy" x="432" y="284" text-anchor="end" dominant-baseline="middle" aria-hidden="true">
+                    Copy
+                  </text>
+                  <text class="hero-flow-sync__cap-label hero-flow-sync__cap-label--paste" x="224" y="322" text-anchor="start" dominant-baseline="auto" aria-hidden="true">
+                    Paste
+                  </text>
+                </svg>
+              </div>
+            </div>
+            <ol class="mini-flow" aria-label="SideClip workflow">
+
+          <li class="step-card step-card--infographic mini-flow__step interactive-card" data-flow-index="0">
+            <div class="step-card__inner">
+              <span class="step-card__num" aria-hidden="true">01</span>
+              <div class="step-card__icon-ring">
+                <img class="flow-step-icon-img" src="/assets/flow-icon-mac.png?v=20260701-screenshot-pro-note" alt="Copy on Mac" width="56" height="56" loading="eager" decoding="async">
+              </div>
+              <p class="step-card__label">Copy on<br>Mac</p>
+            </div>
+          </li><li class="flow-arrow" aria-hidden="true"><span class="flow-arrow__glyph">→</span></li>
+          <li class="step-card step-card--infographic mini-flow__step interactive-card" data-flow-index="1">
+            <div class="step-card__inner">
+              <span class="step-card__num" aria-hidden="true">02</span>
+              <div class="step-card__icon-ring">
+                <img class="flow-step-icon-img" src="/assets/flow-icon-phone.png?v=20260701-screenshot-pro-note" alt="Copied content shown on the phone" width="56" height="56" loading="eager" decoding="async">
+              </div>
+              <p class="step-card__label step-card__label--accent">See it on<br>your phone</p>
+            </div>
+          </li><li class="flow-arrow" aria-hidden="true"><span class="flow-arrow__glyph">→</span></li>
+          <li class="step-card step-card--infographic mini-flow__step interactive-card" data-flow-index="2">
+            <div class="step-card__inner">
+              <span class="step-card__num" aria-hidden="true">03</span>
+              <div class="step-card__icon-ring">
+                <img class="flow-step-icon-img" src="/assets/flow-icon-tap.png?v=20260701-screenshot-pro-note" alt="Tap the phone screen" width="56" height="56" loading="eager" decoding="async">
+              </div>
+              <p class="step-card__label">Tap your<br>phone</p>
+            </div>
+          </li><li class="flow-arrow" aria-hidden="true"><span class="flow-arrow__glyph">→</span></li>
+          <li class="step-card step-card--infographic mini-flow__step interactive-card" data-flow-index="3">
+            <div class="step-card__inner">
+              <span class="step-card__num" aria-hidden="true">04</span>
+              <div class="step-card__icon-ring">
+                <img class="flow-step-icon-img" src="/assets/flow-icon-check.png?v=20260701-screenshot-pro-note" alt="Paste instantly to Mac" width="56" height="56" loading="eager" decoding="async">
+              </div>
+              <p class="step-card__label">Paste to<br>Mac</p>
+            </div>
+          </li>
+            </ol>
+          </div>
+
+          <div class="hero-scene-card" aria-labelledby="hero-scene-title">
+            <h2 id="hero-scene-title" class="hero-scene-card__title">Fits right into the work you already do.</h2>
+            <ul class="hero-scene-card__list">
+              <li class="hero-scene-card__item">
+                <span class="hero-scene-card__icon" aria-hidden="true">
+                  <img src="/assets/hero_icon_scene_research.png?v=20260701-screenshot-pro-note" srcset="/assets/hero_icon_scene_research.png?v=20260701-screenshot-pro-note 1x, /assets/hero_icon_scene_research.png?v=20260701-screenshot-pro-note 2x" width="176" height="176" alt="" decoding="async">
+                </span>
+                <div class="hero-scene-card__body">
+                  <p class="hero-scene-card__item-title">Research &amp; documents</p>
+                  <p class="hero-scene-card__item-text">Keep collected references beside you and keep writing.</p>
+                </div>
+              </li>
+              <li class="hero-scene-card__item">
+                <span class="hero-scene-card__icon" aria-hidden="true">
+                  <img src="/assets/hero_icon_scene_chat.png?v=20260701-screenshot-pro-note" srcset="/assets/hero_icon_scene_chat.png?v=20260701-screenshot-pro-note 1x, /assets/hero_icon_scene_chat.png?v=20260701-screenshot-pro-note 2x" width="176" height="176" alt="" decoding="async">
+                </span>
+                <div class="hero-scene-card__body">
+                  <p class="hero-scene-card__item-title">Chat &amp; email</p>
+                  <p class="hero-scene-card__item-text">Paste templates and links the moment you need them.</p>
+                </div>
+              </li>
+              <li class="hero-scene-card__item">
+                <span class="hero-scene-card__icon" aria-hidden="true">
+                  <img src="/assets/hero_icon_scene_idea.png?v=20260701-screenshot-pro-note" srcset="/assets/hero_icon_scene_idea.png?v=20260701-screenshot-pro-note 1x, /assets/hero_icon_scene_idea.png?v=20260701-screenshot-pro-note 2x" width="176" height="176" alt="" decoding="async">
+                </span>
+                <div class="hero-scene-card__body">
+                  <p class="hero-scene-card__item-title">Ideas &amp; notes</p>
+                  <p class="hero-scene-card__item-text">Save small fragments naturally and come back to them later.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="hero-highlight-row" aria-label="SideClip reassurance points">
+            <li class="hero-highlight-card">
+              <span class="hero-highlight-card__icon" aria-hidden="true">
+                <img src="/assets/hero_icon_highlight_lock.png?v=20260701-screenshot-pro-note" srcset="/assets/hero_icon_highlight_lock.png?v=20260701-screenshot-pro-note 1x, /assets/hero_icon_highlight_lock.png?v=20260701-screenshot-pro-note 2x" width="176" height="176" alt="" decoding="async">
+              </span>
+              <div class="hero-highlight-card__body">
+                <p class="hero-highlight-card__title">Private local sync</p>
+                <p class="hero-highlight-card__text">Your data stays on your Mac.<br>Your clipboard stays private.</p>
+              </div>
+            </li>
+            <li class="hero-highlight-card">
+              <span class="hero-highlight-card__icon" aria-hidden="true">
+                <img src="/assets/hero_icon_highlight_bolt.png?v=20260701-screenshot-pro-note" srcset="/assets/hero_icon_highlight_bolt.png?v=20260701-screenshot-pro-note 1x, /assets/hero_icon_highlight_bolt.png?v=20260701-screenshot-pro-note 2x" width="176" height="176" alt="" decoding="async">
+              </span>
+              <div class="hero-highlight-card__body">
+                <p class="hero-highlight-card__title">Simple from the start</p>
+                <p class="hero-highlight-card__text">No account, no login, and no phone app required.</p>
+              </div>
+            </li>
+            <li class="hero-highlight-card">
+              <span class="hero-highlight-card__icon" aria-hidden="true">
+                <img src="/assets/hero_icon_highlight_qr.png?v=20260701-screenshot-pro-note" srcset="/assets/hero_icon_highlight_qr.png?v=20260701-screenshot-pro-note 1x, /assets/hero_icon_highlight_qr.png?v=20260701-screenshot-pro-note 2x" width="176" height="176" alt="" decoding="async">
+              </span>
+              <div class="hero-highlight-card__body">
+                <p class="hero-highlight-card__title">Pair with a QR code</p>
+                <p class="hero-highlight-card__text">Scan with your phone camera and you are connected.</p>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="hero-kpis" aria-label="What SideClip helps you do">
+            <li>Mac-only desktop app</li>
+            <li>Connects your Mac with iPhone, iPad, or Android devices</li>
+          </ul>
+          <a class="download-button" href="https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg" data-download-link="" data-cta-id="hero_download" data-cta-section="hero" aria-label="Download SideClip free for Mac">Download free for Mac</a>
+          <p class="os-note">Supports Macs with Apple Silicon</p>
+          </div>
+        </div>
+        <section id="concept-video" class="concept-video reveal" aria-labelledby="concept-video-title">
+          <div class="concept-video__copy">
+            <div class="reveal__head">
+              <p class="concept-video__eyebrow">Product Demo</p>
+              <h2 id="concept-video-title">Experience SideClip<br>in action.</h2>
+            </div>
+            <div class="reveal__rest">
+              <p>Connect your Mac and phone, view your clipboard history, and paste the card you need.<br>See what SideClip can do and how it works in this demo.</p>
+            </div>
+          </div>
+          <div class="reveal__rest concept-video__visual" aria-label="SideClip core feature demo on YouTube">
+            <div class="concept-video__embed concept-video__embed--poster">
+              <button type="button" class="concept-video__facade" data-cta-id="concept_video_play" data-cta-section="concept_video" aria-label="Play the SideClip core feature demo on YouTube">
+                <img class="concept-video__poster" src="https://i.ytimg.com/vi/rCiLdIpRr5I/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async" fetchpriority="low">
+                <span class="concept-video__facade-ring" aria-hidden="true">
+                  <svg class="concept-video__facade-triangle" viewBox="0 0 24 24" width="28" height="28" focusable="false">
+                    <polygon points="8,5 8,19 19,12" fill="currentColor"></polygon>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="tap-section" aria-labelledby="tap-title">
+          <div class="tap-section__reveal reveal">
+            <div class="section-copy section-copy--tap">
+              <div class="reveal__head">
+                <h2 id="tap-title">Tap once.<br class="mobile-break"><span>Paste right away.</span></h2>
+              </div>
+              <div class="reveal__rest">
+                <p>Copy on your Mac and see a new card on your phone.<br class="desktop-break">Touch the card you need, and it pastes back to your Mac instantly.<br>Stay focused on the screen you are working in.<br class="mobile-break"></p>
+              </div>
+            </div>
+            <div class="reveal__rest">
+            <ol class="steps" aria-label="Four Tap to Paste steps">
+
+          <li class="step-card interactive-card" data-step-index="0">
+            <h3><span>1</span>Copy on Mac</h3>
+            <img src="/assets/step-copy.png?v=20260701-screenshot-pro-note" alt="Screen showing text copied on Mac">
+          </li>
+
+          <li class="step-card interactive-card" data-step-index="1">
+            <h3><span>2</span>See the new card<br>on your phone</h3>
+            <img src="/assets/step-add-en.png?v=20260713-native-copy-v2" alt="Screen showing a new clipboard history card on the phone">
+          </li>
+
+          <li class="step-card interactive-card" data-step-index="2">
+            <h3><span>3</span>Tap the card you need</h3>
+            <img src="/assets/step-tap-en.png?v=20260713-native-copy-v2" alt="Screen showing a card tapped on the phone">
+          </li>
+
+          <li class="step-card interactive-card" data-step-index="3">
+            <h3><span>4</span>Paste instantly to Mac</h3>
+            <img src="/assets/step-paste.png?v=20260701-screenshot-pro-note" alt="Screen showing instant paste to Mac">
+          </li>
+
+            </ol>
+            </div>
+          </div>
+        </section>
+
+        <section class="benefits" aria-labelledby="benefits-title">
+          <div class="benefits__reveal reveal">
+            <div class="section-copy">
+              <div class="reveal__head">
+                <h2 id="benefits-title">Keep your workflow moving.</h2>
+              </div>
+              <div class="reveal__rest">
+                <p>Copied items stay beside your Mac.<br>Spend less time searching<br>and less effort retrieving past clips.</p>
+              </div>
+            </div>
+            <div class="reveal__rest benefits-video-showcase">
+              <div class="benefits-video-copy">
+                <p class="benefits-video-copy__eyebrow">Screenshot Demo</p>
+                <h3>Screenshots,<br>saved as cards.</h3>
+                <p class="benefits-video-copy__text">Start a screenshot from the shortcut button. Even when you capture several in a row, SideClip organizes them as cards so you can paste them back anytime. Files are stored in the SideClip folder, keeping your desktop clear.</p>
+                <p class="benefits-video-copy__text">Start a screenshot from the shortcut button. Even when you capture several in a row, SideClip organizes them as cards so you can paste them back anytime. Files are stored in the SideClip folder, keeping your desktop clear.</p>
+              </div>
+              <div class="benefits-video" aria-label="Screenshot feature demo on YouTube">
+                <div class="benefits-video__embed benefits-video__embed--poster">
+                  <button type="button" class="benefits-video__facade" data-cta-id="benefits_video_play" data-cta-section="benefits_video" aria-label="Play the screenshot feature demo on YouTube">
+                    <img class="benefits-video__poster" src="https://i.ytimg.com/vi/3m6aWg6LDFY/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async" fetchpriority="low">
+                    <span class="benefits-video__facade-ring" aria-hidden="true">
+                      <svg class="benefits-video__facade-triangle" viewBox="0 0 24 24" width="28" height="28" focusable="false">
+                        <polygon points="8,5 8,19 19,12" fill="currentColor"></polygon>
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="reveal__rest">
+            <div class="benefit-grid">
+
+          <article class="benefit-item interactive-card">
+            <div class="round-icon" aria-hidden="true">
+
+      <svg viewBox="0 0 24 24"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+
+            </div>
+            <h3>Keep it beside you</h3>
+            <p>The history you need stays in sight<br>without covering your work.</p>
+          </article>
+
+          <article class="benefit-item interactive-card">
+            <div class="round-icon" aria-hidden="true">
+
+      <svg viewBox="0 0 44 44" aria-hidden="true">
+        <path d="M22 7v15.5"></path>
+        <path d="M22 7a3.8 3.8 0 0 1 7.6 0v11.2"></path>
+        <path d="M29.6 18.2a3.4 3.4 0 0 1 6.8 0v6.8c0 6.2-3.6 10.2-10 10.2h-4.2a7.2 7.2 0 0 1-5.8-3l-5.6-7.8a2.8 2.8 0 0 1 4.3-3.5l4.8 4.9"></path>
+        <path d="M14.5 6 12 3.8M33.5 7.2l2.6-2M9 14.5H6" opacity="0.55"></path>
+      </svg>
+
+            </div>
+            <h3>Tap to paste</h3>
+            <p>Touch a card and paste it<br>straight back to your Mac.</p>
+          </article>
+
+          <article class="benefit-item interactive-card">
+            <div class="round-icon" aria-hidden="true">
+
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="10" height="8" rx="1.5"></rect><rect x="12" y="12" width="9" height="8" rx="1.5"></rect><path d="M6 16h4M16 7h3M7 8h2M15 16h3"></path></svg>
+
+            </div>
+            <h3>Images stay intact</h3>
+            <p>Text, URLs, and screenshots<br>can sit at your fingertips.</p>
+          </article>
+
+          <article class="benefit-item interactive-card">
+            <div class="round-icon" aria-hidden="true">
+
+      <svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path><path d="M12 14v2.5"></path></svg>
+
+            </div>
+            <h3>Local sync</h3>
+            <p>Devices connect on the same Wi-Fi,<br>without sending history to our cloud.</p>
+          </article>
+
+            </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="clipboard-shift" aria-labelledby="clipboard-shift-title">
+          <div class="clipboard-shift__reveal reveal">
+            <div class="reveal__head">
+              <p class="clipboard-shift__eyebrow">Clipboard Shift</p>
+              <h2 id="clipboard-shift-title" class="clipboard-shift__title">Stop opening panels.<br>Keep it beside you.</h2>
+              <p class="clipboard-shift__lead">Instead of searching inside your Mac,<br>show your clipboard history on the phone beside it.<br>Move your eyes less,<br>and stay in flow.</p>
+            </div>
+            <div class="reveal__rest">
+            <figure class="clipboard-shift__figure">
+              <button type="button" class="clipboard-shift__panel feature-zoom-trigger" data-feature-image-src="/assets/clipboard-difference-en.png?v=20260713-native-copy-v2" data-feature-image-alt="Difference between opening a clipboard panel and keeping history beside your Mac" aria-label="Zoom image showing the difference between opening a clipboard panel and keeping history beside your Mac">
+                <img src="/assets/clipboard-difference-en.png?v=20260713-native-copy-v2" srcset="/assets/clipboard-difference-en.png?v=20260713-native-copy-v2 1x, /assets/clipboard-difference-en.png?v=20260713-native-copy-v2 2x" sizes="(max-width: 1200px) 100vw, 1200px" width="2752" height="1536" alt="Difference between opening a clipboard panel and keeping history beside your Mac" loading="lazy" decoding="async">
+              </button>
+            </figure>
+            <div class="clipboard-shift__prose">
+              <div class="clipboard-shift__compare">
+                <div class="clipboard-shift__compare-block clipboard-shift__compare-block--others">
+                  <p class="clipboard-shift__prose-title">Open a panel on screen</p>
+                  <ul class="clipboard-shift__bullets">
+                    <li>The history panel overlaps your workspace.</li>
+                    <li>Your eyes and pointer move every time you paste.</li>
+                    <li>Shortcuts and settings stay in your head.</li>
+                  </ul>
+                </div>
+                <div class="clipboard-shift__compare-block clipboard-shift__compare-block--sideclip">
+                  <p class="clipboard-shift__prose-title clipboard-shift__prose-title--sideclip">Keep it beside you</p>
+                  <p class="clipboard-shift__emphasis"><span class="clipboard-shift__emphasis-lead">History lives beside your Mac.</span><br>Keep looking at your work, tap a phone card, and paste.</p>
+                  <ul class="clipboard-shift__bullets clipboard-shift__bullets--sideclip">
+                    <li>Copy history is always visible on your phone.</li>
+                    <li>Tap a card to paste it back to your Mac.</li>
+                    <li>Keep your workspace clear and your focus intact.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="features" aria-labelledby="features-title">
+          <div class="features__reveal reveal">
+            <div class="reveal__head">
+              <p class="features__eyebrow">Core Features</p>
+              <h2 id="features-title">Everything you reuse,<br>right at hand.</h2>
+              <p class="features__lead">Copy history, screenshots, and favorites.<br>SideClip keeps what you need organized on your phone,<br>so you can get back to work faster.</p>
+            </div>
+            <div class="reveal__rest">
+            <div class="feature-grid">
+
+          <article class="feature-card interactive-card">
+            <p class="feature-card__eyebrow">History</p>
+            <h3>Your clipboard history, always at hand.</h3>
+            <p class="feature-card__copy">Text, URLs, and images are saved automatically.<br>Find the card you need from your phone.</p>
+            <button type="button" class="feature-card__panel feature-zoom-trigger" data-feature-image-src="/assets/feature-panel-history-en-v2.png?v=20260713-native-copy-v2" data-feature-image-alt="Clipboard history screen" aria-label="Zoom image of the clipboard history screen">
+              <img class="feature-card__image" src="/assets/feature-panel-history-en-v2.png?v=20260713-native-copy-v2" srcset="/assets/feature-panel-history-en-v2.png?v=20260713-native-copy-v2 1x, /assets/feature-panel-history-en-v2.png?v=20260713-native-copy-v2 2x" sizes="(max-width: 680px) 100vw, 50vw" alt="Clipboard history screen" loading="lazy" decoding="async">
+            </button>
+
+          </article>
+
+          <article class="feature-card interactive-card">
+            <p class="feature-card__eyebrow">Favorite</p>
+            <h3>Save only what matters.</h3>
+            <p class="feature-card__copy">Keep reusable snippets and links.<br>Set them aside once and stop searching later.</p>
+            <button type="button" class="feature-card__panel feature-zoom-trigger" data-feature-image-src="/assets/feature-panel-favorite-en-v2.png?v=20260713-native-copy-v2" data-feature-image-alt="Favorites screen" aria-label="Zoom image of the favorites screen">
+              <img class="feature-card__image" src="/assets/feature-panel-favorite-en-v2.png?v=20260713-native-copy-v2" srcset="/assets/feature-panel-favorite-en-v2.png?v=20260713-native-copy-v2 1x, /assets/feature-panel-favorite-en-v2.png?v=20260713-native-copy-v2 2x" sizes="(max-width: 680px) 100vw, 50vw" alt="Favorites screen" loading="lazy" decoding="async">
+            </button>
+
+          </article>
+
+          <article class="feature-card feature-card--wide feature-card--has-video interactive-card">
+            <p class="feature-card__eyebrow">Screenshot</p>
+            <h3>Mac screenshots become cards.</h3>
+            <p class="feature-card__copy">Start a Mac screenshot from your phone.<br>Mark it up, crop it, and save it directly in your history.<br><small>Markup and cropping are available on Pro and above.</small></p>
+            <button type="button" class="feature-card__panel feature-zoom-trigger" data-feature-image-src="/assets/feature-panel-scan-en-v2.png?v=20260713-native-copy-v2" data-feature-image-alt="Screenshot capture screen" aria-label="Zoom image of the screenshot capture screen">
+              <img class="feature-card__image" src="/assets/feature-panel-scan-en-v2.png?v=20260713-native-copy-v2" srcset="/assets/feature-panel-scan-en-v2.png?v=20260713-native-copy-v2 1x, /assets/feature-panel-scan-en-v2.png?v=20260713-native-copy-v2 2x" sizes="(max-width: 680px) 100vw, 980px" alt="Screenshot capture screen" loading="lazy" decoding="async">
+            </button>
+
+            <button type="button" class="feature-card__video-trigger" data-youtube-id="pfBsk3Iwi4E" data-video-title="SideClip pen and crop demo video" data-cta-id="feature_screenshot_video_play" data-cta-section="feature_screenshot_video" aria-label="Play the pen and crop demo video">
+              <span class="feature-card__video-thumb" aria-hidden="true">
+                <img src="https://i.ytimg.com/vi/pfBsk3Iwi4E/hqdefault.jpg" alt="" loading="lazy" decoding="async">
+                <span class="feature-card__video-play-icon" aria-hidden="true"></span>
+              </span>
+              <span class="feature-card__video-copy">
+                <span class="feature-card__video-kicker">Demo Video</span>
+                <span class="feature-card__video-label">Watch pen and crop demo</span>
+              </span>
+            </button>
+
+          </article>
+
+          <article class="feature-card interactive-card">
+            <p class="feature-card__eyebrow">Search</p>
+            <h3>Find old cards fast.</h3>
+            <p class="feature-card__copy">Search by date range, keyword, and text inside images.<br>Fuzzy search helps you find the right card, even with an approximate keyword.<br><small>Text search inside images is available on Pro and above.</small></p>
+            <button type="button" class="feature-card__panel feature-zoom-trigger" data-feature-image-src="/assets/feature-panel-search-en-v2.png?v=20260713-native-copy-v2" data-feature-image-alt="Search screen for copy and screenshot history" aria-label="Zoom image of the search screen">
+              <img class="feature-card__image" src="/assets/feature-panel-search-en-v2.png?v=20260713-native-copy-v2" srcset="/assets/feature-panel-search-en-v2.png?v=20260713-native-copy-v2 1x, /assets/feature-panel-search-en-v2.png?v=20260713-native-copy-v2 2x" sizes="(max-width: 680px) 100vw, 50vw" alt="Search screen for copy and screenshot history" loading="lazy" decoding="async">
+            </button>
+
+          </article>
+
+          <article class="feature-card interactive-card">
+            <p class="feature-card__eyebrow">Todo</p>
+            <h3>Turn items you need later into Todo cards.</h3>
+            <p class="feature-card__copy">Copy something on your Mac and turn it into a Todo card right away.<br>Swipe a card to move it to Todo.<br><small>Available on Pro and above.</small></p>
+            <button type="button" class="feature-card__panel feature-zoom-trigger" data-feature-image-src="/assets/feature-panel-todo-en-v2.png?v=20260713-native-copy-v2" data-feature-image-alt="Todo mode screen" aria-label="Zoom image of the Todo mode screen">
+              <img class="feature-card__image" src="/assets/feature-panel-todo-en-v2.png?v=20260713-native-copy-v2" srcset="/assets/feature-panel-todo-en-v2.png?v=20260713-native-copy-v2 1x, /assets/feature-panel-todo-en-v2.png?v=20260713-native-copy-v2 2x" sizes="(max-width: 680px) 100vw, 50vw" alt="Todo mode screen" loading="lazy" decoding="async">
+            </button>
+
+          </article>
+
+            </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="usage-scenes" aria-labelledby="usage-scenes-title">
+          <div class="usage-scenes__reveal reveal">
+            <div class="reveal__head">
+              <p class="usage-scenes__eyebrow">Use Cases</p>
+              <h2 id="usage-scenes-title">For work, creative projects,<br>and learning.</h2>
+              <p class="usage-scenes__lead">Keep frequently used text and images beside your Mac.<br>Speed up everyday copy-and-paste tasks.</p>
+            </div>
+            <div class="reveal__rest">
+            <figure class="usage-scenes__figure">
+              <button type="button" class="usage-scenes__panel feature-zoom-trigger" data-feature-image-src="/assets/usage-scenes-en-v2.png?v=20260713-native-copy-v2" data-feature-image-alt="Examples of SideClip use cases" aria-label="Zoom image showing examples of SideClip use cases">
+                <img src="/assets/usage-scenes-en-v2.png?v=20260713-native-copy-v2" srcset="/assets/usage-scenes-en-v2.png?v=20260713-native-copy-v2 1x, /assets/usage-scenes-en-v2.png?v=20260713-native-copy-v2 2x" sizes="(max-width: 1200px) 100vw, 1200px" width="1672" height="941" alt="Examples of SideClip use cases" loading="lazy" decoding="async">
+              </button>
+            </figure>
+            <div class="usage-scenes__cases">
+              <article class="usage-scenes__case">
+                <p class="usage-scenes__case-badge">
+                  <span class="usage-scenes__case-badge-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="5" y="5" width="14" height="10" rx="1.5"></rect>
+        <path d="M4 17h16"></path>
+        <path d="M8 8h8M8 11h5"></path>
+      </svg>
+    </span>
+                  <span class="usage-scenes__case-badge-label">Developers &amp; programmers</span>
+                </p>
+                <h3 class="usage-scenes__case-title">Reuse code and commands instantly.</h3>
+                <p class="usage-scenes__case-text">Keep snippets and URLs beside your editor, then paste without leaving your work.</p>
+              </article>
+              <article class="usage-scenes__case">
+                <p class="usage-scenes__case-badge">
+                  <span class="usage-scenes__case-badge-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="6" y="3" width="12" height="18" rx="2"></rect>
+        <path d="M9 7h6M9 10h6M9 13h4M9 16h5"></path>
+      </svg>
+    </span>
+                  <span class="usage-scenes__case-badge-label">AI tool and LLM users</span>
+                </p>
+                <h3 class="usage-scenes__case-title">Reuse prompts from your phone.</h3>
+                <p class="usage-scenes__case-text">Save reusable prompts and context so AI work keeps moving.</p>
+              </article>
+              <article class="usage-scenes__case">
+                <p class="usage-scenes__case-badge">
+                  <span class="usage-scenes__case-badge-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 10h12l1.5 11H4.5L6 10Z"></path>
+        <path d="M9 10V8a3 3 0 0 1 6 0v2"></path>
+      </svg>
+    </span>
+                  <span class="usage-scenes__case-badge-label">Marketplace &amp; ecommerce sellers</span>
+                </p>
+                <h3 class="usage-scenes__case-title">Paste listing details and replies in seconds.</h3>
+                <p class="usage-scenes__case-text">Store product descriptions, addresses, and replies to reduce repetitive work.</p>
+              </article>
+            </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="local-sync" aria-labelledby="local-title">
+          <div class="local-sync__reveal reveal">
+            <div class="reveal__head">
+              <p class="local-sync__eyebrow">Local Sync</p>
+              <h2 id="local-title" class="local-sync__heading">Keep sensitive clipboard history<br>out of the cloud.</h2>
+              <p class="local-sync__lead">Your Mac and phone sync directly on the same Wi-Fi.<br>Copy history stays on your Mac and is not sent to our cloud.</p>
+            </div>
+            <div class="reveal__rest">
+            <div class="sync-graphic" aria-hidden="true">
+              <div class="sync-graphic__row">
+
+    <div class="sync-line-rail" aria-hidden="true">
+      <svg class="sync-line-svg" viewBox="0 0 100 14" preserveAspectRatio="none" focusable="false">
+        <line x1="0.25" y1="7" x2="99.75" y2="7" class="sync-line-solid" vector-effect="non-scaling-stroke"></line>
+      </svg>
+      <span class="sync-packet sync-packet--fwd" style="animation-delay: 0s"></span>
+      <span class="sync-packet sync-packet--fwd" style="animation-delay: 1.45s"></span>
+      <span class="sync-packet sync-packet--rev" style="animation-delay: 0.35s"></span>
+      <span class="sync-packet sync-packet--rev" style="animation-delay: 1.75s"></span>
+    </div>
+                <div class="device device--laptop"></div>
+                <div class="sync-center">
+                  <svg class="shield" viewBox="0 0 24 24">
+                    <path d="M12 2.5 20 6v5.4c0 5-3.4 8.7-8 10.1-4.6-1.4-8-5.1-8-10.1V6l8-3.5Z"></path>
+                    <path d="m8.3 12 2.3 2.3 5.1-5.4"></path>
+                  </svg>
+                  <svg class="wifi" viewBox="0 0 24 24">
+                    <path d="M3.6 9.2a13.2 13.2 0 0 1 16.8 0"></path>
+                    <path d="M6.8 12.8a8.2 8.2 0 0 1 10.4 0"></path>
+                    <path d="M9.9 16.2a3.3 3.3 0 0 1 4.2 0"></path>
+                    <circle cx="12" cy="20" r="1.15"></circle>
+                  </svg>
+                </div>
+                <div class="device device--phone"></div>
+              </div>
+              <p>Direct sync on the same Wi-Fi</p>
+            </div>
+            <div class="local-sync__text">
+              <div class="local-sync__points" aria-label="Local sync reassurance points">
+                <article class="local-sync__point">
+                  <h3>Stored on your Mac</h3>
+                  <p>Your history stays on your Mac. It is not sent to SideClip cloud storage.</p>
+                </article>
+                <article class="local-sync__point">
+                  <h3>Syncs on the same Wi-Fi</h3>
+                  <p>Phones and tablets connect directly inside the same local network.</p>
+                </article>
+                <article class="local-sync__point">
+                  <h3>Fast and private</h3>
+                  <p>Because no relay server is used, updates are fast and your data stays private.</p>
+                </article>
+              </div>
+              <p class="local-sync__detail-link">
+                <a href="/security/">View security details</a>
+              </p>
+            </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="faq reveal" id="faq" aria-labelledby="faq-title">
+          <div class="faq__inner">
+            <div class="reveal__head">
+              <p class="faq__eyebrow">FAQ</p>
+              <h2 id="faq-title" class="faq__title">FAQ</h2>
+              <p class="faq__lead">Answers to common questions before you get started.</p>
+            </div>
+            <div class="reveal__rest">
+
+            <div class="faq__group">
+              <h3 class="faq__group-title">Getting started</h3>
+              <div class="faq__list-wrap">
+                <details class="faq__item">
+                  <summary class="faq__summary">What OS and devices are supported?</summary>
+                  <div class="faq__answer"><ul class="faq__bullets"><li><strong>Mac:</strong><br>Developed and tested on Apple Silicon Macs running macOS 26 or later.</li><li><strong>Phones and tablets:</strong><br>In principle, SideClip works on iOS, Android, iPadOS, and other devices that can run a web browser.<br><span class="faq__note">Performance may vary depending on the device.</span><br><span class="faq__note">Tested with Safari and Chrome. For security, please use the latest browser version.</span></li></ul></div>
+                </details>
+                <details class="faq__item">
+                  <summary class="faq__summary">Can I use it for free? How are paid plans different?</summary>
+                  <div class="faq__answer"><p>The Free plan lets you use the basic features at no cost.<br>We recommend testing SideClip in your own environment before choosing a paid plan.</p><p>Pro and Ultra unlock more convenient features.</p><p class="faq__plans-more"><a href="/plans">See plans and pricing in detail →</a></p></div>
+                </details>
+                <details class="faq__item">
+                  <summary class="faq__summary">How much do the plans cost?</summary>
+                  <div class="faq__answer"><p>Paid plans help fund ongoing app improvements and new feature development.<br>If the Free plan works well for you, please consider a paid plan for a more capable experience.</p><dl class="faq__plans"><div class="faq__plan"><dt>Free plan</dt><dd><span class="faq__plan-price">Free</span><br>Try SideClip and confirm it works in your environment.</dd></div><div class="faq__plan"><dt>Pro plan</dt><dd><span class="faq__plan-price">JPY 300/month, about JPY 10/day</span><br>For users who want more than Free, with higher save limits, Todo features, and more.</dd></div><div class="faq__plan"><dt>Ultra plan</dt><dd><span class="faq__plan-price">JPY 480/month, about JPY 16/day</span><br>Unlock all features and receive future improvements and new features with the highest priority.</dd></div></dl><p class="faq__plans-more"><a href="/plans">See plans and pricing in detail →</a></p></div>
+                </details>
+              </div>
+            </div>
+
+            <div class="faq__group">
+              <h3 class="faq__group-title">Usage and limits</h3>
+              <div class="faq__list-wrap">
+                <details class="faq__item">
+                  <summary class="faq__summary">Are there limits on saved data types or sizes?</summary>
+                  <div class="faq__answer"><p>Yes. To keep clipboard history from growing too large and to prevent sluggish behavior, SideClip applies the following limits. These may change in app updates.</p><ul class="faq__bullets"><li>Plain text: up to 50 KB per copy</li><li>Images such as JPG, PNG, and TIFF: up to 10 MB per image</li><li>Other files: only a link to the file on your Mac is copied. The link stops working if the file is moved.</li></ul></div>
+                </details>
+                <details class="faq__item">
+                  <summary class="faq__summary">Is there a card save limit?</summary>
+                  <div class="faq__answer"><p>Yes. Save limits differ by plan.</p><p>After installing the app, check the Plan menu shown on the phone-side screen for details.</p><p>When the limit is exceeded, older data is deleted automatically. Data saved to Favorite is not deleted automatically.</p></div>
+                </details>
+                <details class="faq__item">
+                  <summary class="faq__summary">Can I use SideClip on a phone tethering Wi-Fi network?</summary>
+                  <div class="faq__answer"><p>Yes, but copy-paste updates may be a little slower because tethered Wi-Fi can be slow.</p><p>A faster Wi-Fi network will generally make SideClip quicker and more comfortable to use.</p></div>
+                </details>
+              </div>
+            </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="final-cta reveal" id="download" aria-labelledby="cta-title">
+          <div class="final-cta__copy">
+            <div class="reveal__head">
+              <p class="final-cta__eyebrow">Download</p>
+              <h2 id="cta-title">Put your clipboard<br>beside your Mac.</h2>
+            </div>
+            <div class="reveal__rest">
+              <p>Get started for free on an Apple Silicon Mac.<br>After downloading, choose your plan inside the SideClip app.</p>
+            </div>
+          </div>
+          <div class="reveal__rest final-cta__action">
+            <a class="download-button download-button--light" href="https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg" data-download-link="" data-cta-id="final_download" data-cta-section="final_cta" aria-label="Download SideClip free for Mac">Download free for Mac</a>
+            <p>Supports Macs with Apple Silicon</p>
+            <nav class="cta-links" aria-label="Supporting links">
+              <a class="is-primary" href="#concept-video">Product demo</a>
+              <a href="#features-title">Main SideClip features</a>
+              <a href="#usage-scenes-title">Use case examples</a>
+              <a href="#local-title">Local sync</a>
+              <a href="/plans">Plans &amp; pricing</a>
+            </nav>
+            <ul class="trust-list" aria-label="Usage conditions">
+
+          <li>Free plan available for trial</li>
+
+          <li>Pro and Ultra plans add more features</li>
+
+            </ul>
+          </div>
+        </section>
+        </div>
+
+        <div class="feature-lightbox" id="feature-lightbox" aria-hidden="true">
+          <div class="feature-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Zoomed image">
+            <button type="button" class="feature-lightbox__close" aria-label="Close zoomed image">×</button>
+            <img class="feature-lightbox__image" src="" alt="">
+          </div>
+        </div>
+
+        <div class="feature-video-lightbox" id="feature-video-lightbox" aria-hidden="true">
+          <div class="feature-video-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="feature-video-lightbox-title">
+            <button type="button" class="feature-video-lightbox__close" aria-label="Close video">×</button>
+            <p id="feature-video-lightbox-title" class="feature-video-lightbox__title">Pen and crop demo video</p>
+            <div class="feature-video-lightbox__frame"></div>
+            <a class="feature-video-lightbox__fallback" href="https://www.youtube.com/watch?v=pfBsk3Iwi4E" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          </div>
+        </div>
+
+        <footer class="site-footer" id="site-legal-footer" role="contentinfo">
+          <nav class="site-footer__nav" aria-label="Site information">
+            <a href="/terms/" target="_blank" rel="noopener noreferrer">Terms</a>
+            <span class="site-footer__sep" aria-hidden="true">·</span>
+            <a href="/privacy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            <span class="site-footer__sep" aria-hidden="true">·</span>
+            <a href="/tokushoho/" target="_blank" rel="noopener noreferrer">Specified Commercial Transactions Act Disclosure</a>
+          </nav>
+          <p class="site-footer__copyright">© 2026 SideClip. All rights reserved.</p>
+        </footer>
+      </main>
+    </div>
+    <!-- landing-static:end -->
     <div
       id="cookie-banner"
       class="cookie-banner"
@@ -185,16 +904,5 @@
         }
       })();
     </script>
-    <noscript>
-      <section style="max-width: 760px; margin: 40px auto; padding: 0 16px; font-family: sans-serif; line-height: 1.7;">
-        <h1 style="margin: 0 0 12px;">SideClip</h1>
-        <p style="margin: 0 0 12px;">Enable JavaScript to view this page.</p>
-        <p style="margin: 0;">
-          Follow development updates on
-          <a href="https://x.com/sideclip_dev?s=21&t=2OHl3cS0nDMUprBn7N6jyw" rel="noopener noreferrer" target="_blank">開発者のX</a>
-          .
-        </p>
-      </section>
-    </noscript>
   </body>
 </html>
