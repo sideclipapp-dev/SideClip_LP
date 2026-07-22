@@ -264,7 +264,7 @@
     ["attr", ".site-footer__nav", "aria-label", "Site information"],
     ["text", ".site-footer__nav a:nth-of-type(1)", "Terms"],
     ["text", ".site-footer__nav a:nth-of-type(2)", "Privacy Policy"],
-    ["text", ".site-footer__nav a:nth-of-type(3)", "Specified Commercial Transactions Act Disclosure"],
+    ["text", ".site-footer__nav a:nth-of-type(3)", "Legal notice for customers in Japan"],
     ["attr", "#cookie-banner", "aria-label", "Cookie consent banner"],
     ["text", ".cookie-banner__text", "We use analytics cookies to improve this site."],
     ["text", "#cookie-accept", "Accept"],
@@ -323,7 +323,7 @@
           <ul class="legal-hub__list">
             <li><a href="./terms.html">Terms of Use</a></li>
             <li><a href="./privacy.html">Privacy Policy</a></li>
-            <li><a href="./tokushoho.html">Specified Commercial Transactions Act Disclosure</a></li>
+            <li><a href="./tokushoho.html">Legal notice for customers in Japan</a></li>
           </ul>
         </section>
     `,

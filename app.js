@@ -1246,7 +1246,7 @@
             <span class="site-footer__sep" aria-hidden="true">·</span>
             <a href="./privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
             <span class="site-footer__sep" aria-hidden="true">·</span>
-            <a href="./tokushoho.html" target="_blank" rel="noopener noreferrer">特定商取引法に基づく表記</a>
+            <a class="site-footer__japan-legal" href="./tokushoho.html" target="_blank" rel="noopener noreferrer">特定商取引法に基づく表記</a>
           </nav>
           <p class="site-footer__copyright">© 2026 SideClip. All rights reserved.</p>
         </footer>
