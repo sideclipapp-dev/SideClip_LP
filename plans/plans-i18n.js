@@ -1,6 +1,5 @@
 (function () {
   const STORAGE_KEY = "sideclip_language_v1";
-  const SUGGESTION_DISMISSED_KEY = "sideclip_language_suggestion_dismissed_v1";
   const STYLE_ID = "sideclip-plans-i18n-style";
   const originalText = new WeakMap();
   let currentLang = "ja";
@@ -117,15 +116,6 @@
     return String(value || "").toLowerCase().startsWith("en") ? "en" : "ja";
   }
 
-  function storedLang() {
-    try {
-      const saved = window.localStorage.getItem(STORAGE_KEY);
-      return saved === "ja" || saved === "en" ? saved : "";
-    } catch (_) {
-      return "";
-    }
-  }
-
   function browserLang() {
     const primaryLanguage = navigator.languages && navigator.languages.length
       ? navigator.languages[0]
@@ -136,10 +126,6 @@
   function initialLang() {
     const path = window.location.pathname.toLowerCase();
     return path === "/ja" || path.startsWith("/ja/") ? "ja" : "en";
-  }
-
-  function preferredLang() {
-    return storedLang() || browserLang();
   }
 
   function localizedPlansPath(lang) {
@@ -156,12 +142,15 @@
       .plans-language-switch button.is-active { background:#0071e3; color:#fff; }
       .plans-language-switch button:focus-visible { outline:2px solid #0071e3; outline-offset:2px; }
       .plans-language-switch + .plans-top-return-link { margin-left:8px; }
-      .plans-language-suggestion { position:fixed; right:20px; bottom:20px; z-index:1000; display:grid; grid-template-columns:1fr auto; gap:12px 16px; align-items:center; width:min(390px,calc(100vw - 32px)); padding:16px; border:1px solid rgba(29,29,31,.14); border-radius:8px; background:#fff; box-shadow:0 12px 36px rgba(0,0,0,.16); color:#1d1d1f; font:600 14px/1.45 system-ui,sans-serif; }
-      .plans-language-suggestion p { margin:0; }
-      .plans-language-suggestion__actions { display:flex; gap:8px; grid-column:1/-1; }
-      .plans-language-suggestion button { padding:9px 13px; border:1px solid rgba(29,29,31,.14); border-radius:7px; background:#fff; color:#1d1d1f; font:700 13px/1.2 system-ui,sans-serif; cursor:pointer; }
+      .plans-language-suggestion-open, .plans-language-suggestion-open body { overflow:hidden; }
+      .plans-language-suggestion { position:fixed; inset:0; z-index:5000; display:grid; place-items:center; padding:24px 20px; background:rgba(7,29,69,.46); color:#071d45; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; backdrop-filter:blur(10px) saturate(1.05); }
+      .plans-language-suggestion__card { display:grid; gap:26px; width:min(560px,100%); padding:clamp(30px,5vw,48px); border:1px solid rgba(7,29,69,.12); border-radius:12px; background:#fff; box-shadow:0 28px 80px rgba(7,29,69,.28); text-align:center; }
+      .plans-language-suggestion h2 { margin:0; font-size:clamp(26px,4vw,36px); font-weight:800; line-height:1.35; }
+      .plans-language-suggestion p { margin:-12px 0 0; color:#42506c; font-size:clamp(15px,2vw,17px); font-weight:600; line-height:1.65; }
+      .plans-language-suggestion__actions { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
+      .plans-language-suggestion button { min-height:52px; padding:13px 24px; border:1px solid rgba(29,29,31,.14); border-radius:999px; background:#fff; color:#1d1d1f; font:700 16px/1.2 system-ui,sans-serif; cursor:pointer; }
       .plans-language-suggestion button[data-suggestion-action="switch"] { border-color:#0071e3; background:#0071e3; color:#fff; }
-      @media (max-width:560px) { .plans-language-switch button { min-width:31px; padding:5px 6px; } .plans-language-suggestion { right:16px; bottom:16px; } }
+      @media (max-width:560px) { .plans-language-switch button { min-width:31px; padding:5px 6px; } .plans-language-suggestion { padding:18px 14px; } .plans-language-suggestion__card { gap:22px; padding:28px 20px; } .plans-language-suggestion__actions { display:grid; width:100%; } .plans-language-suggestion button { width:100%; } }
     `;
     document.head.appendChild(style);
   }
@@ -240,40 +229,35 @@
     document.querySelector(".plans-language-switch")?.setAttribute("aria-label", currentLang === "en" ? "Language selector" : "言語切替");
   }
 
-  function suggestionDismissed() {
-    try {
-      return window.sessionStorage.getItem(SUGGESTION_DISMISSED_KEY) === "1";
-    } catch (_) {
-      return false;
-    }
-  }
-
   function dismissSuggestion() {
-    try {
-      window.sessionStorage.setItem(SUGGESTION_DISMISSED_KEY, "1");
-    } catch (_) {
-      /* ignore */
-    }
     document.querySelector(".plans-language-suggestion")?.remove();
+    document.documentElement.classList.remove("plans-language-suggestion-open");
   }
 
   function ensureLanguageSuggestion() {
-    if (document.querySelector(".plans-language-suggestion") || suggestionDismissed()) return;
-    const preferred = preferredLang();
+    if (document.querySelector(".plans-language-suggestion")) return;
+    const preferred = browserLang();
     if (preferred === currentLang) return;
 
     const suggestion = document.createElement("aside");
     suggestion.className = "plans-language-suggestion";
-    suggestion.setAttribute("aria-live", "polite");
+    suggestion.setAttribute("role", "dialog");
+    suggestion.setAttribute("aria-modal", "true");
+    suggestion.setAttribute("aria-labelledby", "plans-language-suggestion-title");
     suggestion.innerHTML = preferred === "en"
-      ? '<p>View this page in English?</p><div class="plans-language-suggestion__actions"><button type="button" data-suggestion-action="switch">View in English</button><button type="button" data-suggestion-action="dismiss">Not now</button></div>'
-      : '<p>日本語で表示しますか？</p><div class="plans-language-suggestion__actions"><button type="button" data-suggestion-action="switch">日本語で表示</button><button type="button" data-suggestion-action="dismiss">今はしない</button></div>';
+      ? '<div class="plans-language-suggestion__card"><h2 id="plans-language-suggestion-title">View this page in English?</h2><p>Your browser is set to English.</p><div class="plans-language-suggestion__actions"><button type="button" data-suggestion-action="switch">View in English</button><button type="button" data-suggestion-action="dismiss">Not now</button></div></div>'
+      : '<div class="plans-language-suggestion__card"><h2 id="plans-language-suggestion-title">日本語で表示しますか？</h2><p>ブラウザの言語設定が日本語になっています。</p><div class="plans-language-suggestion__actions"><button type="button" data-suggestion-action="switch">日本語で見る</button><button type="button" data-suggestion-action="dismiss">今はしない</button></div></div>';
     suggestion.addEventListener("click", (event) => {
       const action = event.target.closest("[data-suggestion-action]")?.dataset.suggestionAction;
       if (action === "switch") setLang(preferred);
       if (action === "dismiss") dismissSuggestion();
     });
+    suggestion.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") dismissSuggestion();
+    });
     document.body.appendChild(suggestion);
+    document.documentElement.classList.add("plans-language-suggestion-open");
+    suggestion.querySelector('[data-suggestion-action="switch"]')?.focus();
   }
 
   function applyLanguage() {

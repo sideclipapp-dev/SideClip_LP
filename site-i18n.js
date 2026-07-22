@@ -1,7 +1,5 @@
 (function () {
   const STORAGE_KEY = "sideclip_language_v1";
-  const SUGGESTION_DISMISSED_KEY = "sideclip_language_suggestion_dismissed_v1";
-  const SUPPORTED_LANGS = new Set(["ja", "en"]);
   const LANGUAGE_SWITCH_ENABLED = true;
   const EN_ASSET_VERSION = "20260713-native-copy-v2";
   const EN_ASSETS = {
@@ -22,16 +20,6 @@
     return value.startsWith("en") ? "en" : "ja";
   }
 
-  function getStoredLang() {
-    try {
-      const saved = window.localStorage.getItem(STORAGE_KEY);
-      if (SUPPORTED_LANGS.has(saved)) return saved;
-    } catch (_) {
-      /* ignore */
-    }
-    return "";
-  }
-
   function getBrowserLang() {
     const primaryLanguage = navigator.languages && navigator.languages.length
       ? navigator.languages[0]
@@ -46,10 +34,6 @@
 
   function detectInitialLang() {
     return LANGUAGE_SWITCH_ENABLED ? getPathLang() : "ja";
-  }
-
-  function getPreferredLang() {
-    return getStoredLang() || getBrowserLang();
   }
 
   let currentLang = detectInitialLang();
@@ -1111,39 +1095,33 @@
     }
   }
 
-  function languageSuggestionDismissed() {
-    try {
-      return window.sessionStorage.getItem(SUGGESTION_DISMISSED_KEY) === "1";
-    } catch (_) {
-      return false;
-    }
-  }
-
   function dismissLanguageSuggestion() {
-    try {
-      window.sessionStorage.setItem(SUGGESTION_DISMISSED_KEY, "1");
-    } catch (_) {
-      /* ignore */
-    }
     document.querySelector("[data-language-suggestion]")?.remove();
+    document.documentElement.classList.remove("language-suggestion-open");
   }
 
   function ensureLanguageSuggestion() {
-    if (!LANGUAGE_SWITCH_ENABLED || languageSuggestionDismissed()) return;
-    const preferred = getPreferredLang();
+    if (!LANGUAGE_SWITCH_ENABLED) return;
+    const preferred = getBrowserLang();
     if (preferred === currentLang || document.querySelector("[data-language-suggestion]")) return;
 
     const suggestion = document.createElement("aside");
     suggestion.className = "language-suggestion";
     suggestion.dataset.languageSuggestion = "";
-    suggestion.setAttribute("role", "region");
-    suggestion.setAttribute("aria-live", "polite");
+    suggestion.setAttribute("role", "dialog");
+    suggestion.setAttribute("aria-modal", "true");
+    suggestion.setAttribute("aria-labelledby", "language-suggestion-title");
     suggestion.innerHTML = preferred === "en"
-      ? '<p>View this page in English?</p><div><button type="button" class="language-suggestion__primary" data-language-suggestion-accept>View in English</button><button type="button" class="language-suggestion__dismiss" data-language-suggestion-dismiss>Not now</button></div>'
-      : '<p>このページを日本語で表示しますか？</p><div><button type="button" class="language-suggestion__primary" data-language-suggestion-accept>日本語で見る</button><button type="button" class="language-suggestion__dismiss" data-language-suggestion-dismiss>今はしない</button></div>';
+      ? '<div class="language-suggestion__card"><h2 id="language-suggestion-title">View this page in English?</h2><p>Your browser is set to English.</p><div class="language-suggestion__actions"><button type="button" class="language-suggestion__primary" data-language-suggestion-accept>View in English</button><button type="button" class="language-suggestion__dismiss" data-language-suggestion-dismiss>Not now</button></div></div>'
+      : '<div class="language-suggestion__card"><h2 id="language-suggestion-title">日本語で表示しますか？</h2><p>ブラウザの言語設定が日本語になっています。</p><div class="language-suggestion__actions"><button type="button" class="language-suggestion__primary" data-language-suggestion-accept>日本語で見る</button><button type="button" class="language-suggestion__dismiss" data-language-suggestion-dismiss>今はしない</button></div></div>';
     suggestion.querySelector("[data-language-suggestion-accept]")?.addEventListener("click", () => setLang(preferred));
     suggestion.querySelector("[data-language-suggestion-dismiss]")?.addEventListener("click", dismissLanguageSuggestion);
+    suggestion.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") dismissLanguageSuggestion();
+    });
     document.body.appendChild(suggestion);
+    document.documentElement.classList.add("language-suggestion-open");
+    suggestion.querySelector("[data-language-suggestion-accept]")?.focus();
   }
 
   function initLanguageControls(root) {
