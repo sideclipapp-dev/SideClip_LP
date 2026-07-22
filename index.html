@@ -51,18 +51,29 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D3JVLNHHMQ"></script>
     <script>
-      var COOKIE_CONSENT_BANNER_ENABLED = false; // 海外向け公開時に true に変更
+      var COOKIE_CONSENT_BANNER_ENABLED = true;
+      var COOKIE_CONSENT_KEY = 'sideclip_cookie_consent_v1';
+      var savedCookieConsent = null;
+      try {
+        savedCookieConsent = localStorage.getItem(COOKIE_CONSENT_KEY);
+      } catch (_) {
+        /* Continue with denied analytics when storage is unavailable. */
+      }
+      var defaultAnalyticsConsent = !COOKIE_CONSENT_BANNER_ENABLED || savedCookieConsent === 'accepted'
+        ? 'granted'
+        : 'denied';
 
       window.dataLayer = window.dataLayer || [];
       function gtag() {dataLayer.push(arguments);}
-      gtag('js', new Date());
 
       gtag('consent', 'default', {
-        analytics_storage: COOKIE_CONSENT_BANNER_ENABLED ? 'denied' : 'granted',
+        analytics_storage: defaultAnalyticsConsent,
         ad_storage: 'denied',
         ad_user_data: 'denied',
-        ad_personalization: 'denied'
+        ad_personalization: 'denied',
+        wait_for_update: 500
       });
+      gtag('js', new Date());
 
       var initialSiteLanguage = window.location.pathname === '/ja' || window.location.pathname.indexOf('/ja/') === 0
         ? 'ja'
@@ -72,9 +83,9 @@
       gtag('set', 'user_properties', { site_language: initialSiteLanguage });
       gtag('config', 'G-D3JVLNHHMQ', { site_language: initialSiteLanguage });
     </script>
-    <link rel="stylesheet" href="/styles.css?v=20260722-static-seo" />
-    <script src="/site-i18n.js?v=20260722-static-seo" defer></script>
-    <script src="/app.js?v=20260722-static-seo" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=20260722-global-ga" />
+    <script src="/site-i18n.js?v=20260722-global-ga" defer></script>
+    <script src="/app.js?v=20260722-global-ga" defer></script>
   </head>
   <body data-i18n-page="landing">
     <!-- landing-static:start -->
@@ -802,12 +813,12 @@
       class="cookie-banner"
       role="dialog"
       aria-live="polite"
-      aria-label="Cookie同意バナー"
+      aria-label="Cookie consent banner"
       hidden
     >
       <div class="cookie-banner__inner">
       <p class="cookie-banner__text">
-        サイト改善のため、アクセス解析Cookieを使用します。
+        We use analytics cookies to improve this site.
       </p>
       <div class="cookie-banner__actions">
         <button
@@ -815,14 +826,14 @@
           class="cookie-banner__button cookie-banner__button--primary"
           type="button"
         >
-          同意する
+          Accept
         </button>
         <button
           id="cookie-reject"
           class="cookie-banner__button cookie-banner__button--secondary"
           type="button"
         >
-          同意しない
+          Decline
         </button>
       </div>
       </div>
@@ -831,7 +842,7 @@
       (function() {
         if (!COOKIE_CONSENT_BANNER_ENABLED) return;
 
-        var CONSENT_KEY = 'sideclip_cookie_consent_v1';
+        var CONSENT_KEY = COOKIE_CONSENT_KEY;
         var banner = document.getElementById('cookie-banner');
         if (banner) banner.removeAttribute('hidden');
         var acceptButton = document.getElementById('cookie-accept');
@@ -867,7 +878,7 @@
           if (banner) banner.classList.add('is-visible');
         }
 
-        var savedChoice = localStorage.getItem(CONSENT_KEY);
+        var savedChoice = savedCookieConsent;
         if (savedChoice === 'accepted') {
           applyConsent(true);
           hideBanner();
@@ -880,7 +891,11 @@
 
         if (acceptButton) {
           acceptButton.addEventListener('click', function() {
-            localStorage.setItem(CONSENT_KEY, 'accepted');
+            try {
+              localStorage.setItem(CONSENT_KEY, 'accepted');
+            } catch (_) {
+              /* Keep the accepted state for this page when storage is unavailable. */
+            }
             applyConsent(true);
             trackConsentChoice('accepted');
             if (typeof gtag === 'function') {
@@ -896,7 +911,11 @@
 
         if (rejectButton) {
           rejectButton.addEventListener('click', function() {
-            localStorage.setItem(CONSENT_KEY, 'rejected');
+            try {
+              localStorage.setItem(CONSENT_KEY, 'rejected');
+            } catch (_) {
+              /* Keep the rejected state for this page when storage is unavailable. */
+            }
             applyConsent(false);
             trackConsentChoice('rejected');
             hideBanner();

@@ -1,4 +1,12 @@
 (function () {
+  if (typeof window.gtag !== "function" && !window.__sideclipAnalyticsLoading) {
+    window.__sideclipAnalyticsLoading = true;
+    const analyticsScript = document.createElement("script");
+    analyticsScript.src = "/site-analytics.js?v=20260722-global-ga";
+    analyticsScript.defer = true;
+    document.head.appendChild(analyticsScript);
+  }
+
   const STORAGE_KEY = "sideclip_language_v1";
   const LANGUAGE_SWITCH_ENABLED = true;
   const EN_ASSET_VERSION = "20260713-native-copy-v2";

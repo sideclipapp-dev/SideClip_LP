@@ -1848,11 +1848,15 @@
     const links = document.querySelectorAll("[data-download-link]");
     links.forEach((link) => {
       link.addEventListener("click", () => {
-        trackCtaClick({
+        const trackingData = {
           ctaId: link.dataset.ctaId || "mac_download",
           ctaText: (link.textContent || "").trim(),
           section: link.dataset.ctaSection || "download"
+        };
+        trackCtaClick({
+          ...trackingData
         });
+        trackMacDownload({ ...trackingData, linkUrl: link.href });
       });
     });
   }
@@ -1869,6 +1873,20 @@
       section: section || "unknown",
       page_path: location.pathname,
       site_language: window.SideClipI18n?.getLang?.() || document.documentElement.lang || "ja"
+    });
+  }
+
+  function trackMacDownload({ ctaId, ctaText, section, linkUrl }) {
+    if (typeof gtag !== "function") return;
+    gtag("event", "mac_download", {
+      cta_id: ctaId || "mac_download",
+      cta_text: ctaText || "",
+      section: section || "download",
+      file_name: "SideClip-latest-arm64.dmg",
+      link_url: linkUrl || MAC_DOWNLOAD_URL,
+      page_path: location.pathname,
+      site_language: window.SideClipI18n?.getLang?.() || document.documentElement.lang || "en",
+      transport_type: "beacon"
     });
   }
 

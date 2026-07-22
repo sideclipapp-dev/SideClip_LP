@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "prerender": "node scripts/prerender-landing.mjs",
-    "check": "node --check app.js && node --check site-i18n.js && node --check plans/plans-i18n.js && node scripts/prerender-landing.mjs --check && node scripts/check-static-landing.mjs"
+    "check": "node --check app.js && node --check site-i18n.js && node --check site-analytics.js && node --check plans/plans-i18n.js && node scripts/prerender-landing.mjs --check && node scripts/check-static-landing.mjs"
   },
   "devDependencies": {
     "jsdom": "29.1.1"
