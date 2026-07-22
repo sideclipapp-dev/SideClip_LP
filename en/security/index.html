@@ -1,39 +1,39 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex,follow" />
-    <meta http-equiv="refresh" content="0; url=/ja/security/" />
-    <script>window.location.replace(`/ja/security/${window.location.search}${window.location.hash}`);</script>
-    <title>SideClip | セキュリティ対策の詳細</title>
+    <meta http-equiv="refresh" content="0; url=/security/" />
+    <script>window.location.replace(`/security/${window.location.search}${window.location.hash}`);</script>
+    <title>SideClip | Security Details</title>
     <meta
       name="description"
-      content="SideClipのローカル同期におけるHTTPS通信・トークン認証（QRコード）などのセキュリティ対策について説明します。"
+      content="Security details for SideClip local sync, including HTTPS communication and QR-code token authentication."
     />
-    <link rel="canonical" href="https://sideclip.app/ja/security/" />
+    <link rel="canonical" href="https://sideclip.app/security/" />
     <link rel="alternate" hreflang="ja" href="https://sideclip.app/ja/security/" />
     <link rel="alternate" hreflang="en" href="https://sideclip.app/security/" />
     <link rel="alternate" hreflang="x-default" href="https://sideclip.app/security/" />
-    <meta property="og:locale" content="ja_JP" />
-    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ja_JP" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="SideClip" />
-    <meta property="og:title" content="SideClip | セキュリティ対策の詳細" />
-    <meta property="og:description" content="SideClipのローカル同期におけるHTTPS通信・トークン認証（QRコード）などのセキュリティ対策について説明します。" />
-    <meta property="og:url" content="https://sideclip.app/ja/security/" />
-    <meta property="og:image" content="https://sideclip.app/assets/ogp-1200x630.jpg" />
+    <meta property="og:title" content="SideClip | Security Details" />
+    <meta property="og:description" content="Security details for SideClip local sync, including HTTPS communication and QR-code token authentication." />
+    <meta property="og:url" content="https://sideclip.app/security/" />
+    <meta property="og:image" content="https://sideclip.app/assets/i18n/en/ogp-1200x630.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="SideClipのセキュリティ設計" />
+    <meta property="og:image:alt" content="SideClip security design" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="SideClip | セキュリティ対策の詳細" />
-    <meta name="twitter:description" content="HTTPS通信とQRコードによるトークン認証など、SideClipのローカル同期の安全設計を説明します。" />
-    <meta name="twitter:image" content="https://sideclip.app/assets/ogp-1200x630.jpg" />
+    <meta name="twitter:title" content="SideClip | Security Details" />
+    <meta name="twitter:description" content="Learn how SideClip protects local sync with HTTPS and QR-code token authentication." />
+    <meta name="twitter:image" content="https://sideclip.app/assets/i18n/en/ogp-1200x630.jpg" />
     <link rel="icon" href="/favicon-sc.ico?v=20260702-sc-refresh" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-sc-32.png?v=20260702-sc-refresh" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-sc-16.png?v=20260702-sc-refresh" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon-sc.png?v=20260702-sc-refresh" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-sc-32.png?v=20260702-sc-refresh" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-sc-16.png?v=20260702-sc-refresh" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon-sc.png?v=20260702-sc-refresh" />
     <link rel="stylesheet" href="/styles.css?v=20260722-language-urls" />
     <script src="/site-i18n.js?v=20260722-language-urls" defer></script>
   </head>
@@ -48,7 +48,7 @@
               Macとスマホをつなぐ前に、誰がアクセスできるかを確かめる。通信は暗号化し、許可された端末だけで使えるようにしています。
             </p>
           </div>
-          <a href="./index.html" class="doc-page__top-return">トップへ戻る</a>
+          <a href="/en/" class="doc-page__top-return">トップへ戻る</a>
         </header>
 
         <section class="security-overview" aria-labelledby="security-overview-heading">
@@ -112,7 +112,7 @@
           </div>
           <figure class="doc-page__security-figure">
             <img
-              src="./assets/security-qr-pairing.png"
+              src="/assets/security-qr-pairing.png"
               alt="MacとスマートフォンがQRコードによる認証を経由し、HTTPSで暗号化された通信で接続するイメージ図"
               width="1600"
               height="797"
@@ -129,7 +129,7 @@
             </div>
             <figure class="doc-page__security-figure">
               <img
-                src="./assets/security-shared-wifi.png"
+                src="/assets/security-shared-wifi.png"
                 alt="トークン共有または認証OFFのとき、同じWi-Fi上のノートPC・スマートフォン・タブレットなど複数端末から同じサービスに接続できるイメージ図"
                 width="800"
                 height="533"

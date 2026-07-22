@@ -1,19 +1,20 @@
 (function () {
   const STORAGE_KEY = "sideclip_language_v1";
+  const SUGGESTION_DISMISSED_KEY = "sideclip_language_suggestion_dismissed_v1";
   const SUPPORTED_LANGS = new Set(["ja", "en"]);
   const LANGUAGE_SWITCH_ENABLED = true;
   const EN_ASSET_VERSION = "20260713-native-copy-v2";
   const EN_ASSETS = {
-    heroPhone: `./assets/hero-phone-en.png?v=${EN_ASSET_VERSION}`,
-    stepAdd: `./assets/step-add-en.png?v=${EN_ASSET_VERSION}`,
-    stepTap: `./assets/step-tap-en.png?v=${EN_ASSET_VERSION}`,
-    featureHistory: `./assets/feature-panel-history-en-v2.png?v=${EN_ASSET_VERSION}`,
-    featureFavorite: `./assets/feature-panel-favorite-en-v2.png?v=${EN_ASSET_VERSION}`,
-    featureScan: `./assets/feature-panel-scan-en-v2.png?v=${EN_ASSET_VERSION}`,
-    featureSearch: `./assets/feature-panel-search-en-v2.png?v=${EN_ASSET_VERSION}`,
-    featureTodo: `./assets/feature-panel-todo-en-v2.png?v=${EN_ASSET_VERSION}`,
-    usageScenes: `./assets/usage-scenes-en-v2.png?v=${EN_ASSET_VERSION}`,
-    clipboardDifference: `./assets/clipboard-difference-en.png?v=${EN_ASSET_VERSION}`
+    heroPhone: `/assets/hero-phone-en.png?v=${EN_ASSET_VERSION}`,
+    stepAdd: `/assets/step-add-en.png?v=${EN_ASSET_VERSION}`,
+    stepTap: `/assets/step-tap-en.png?v=${EN_ASSET_VERSION}`,
+    featureHistory: `/assets/feature-panel-history-en-v2.png?v=${EN_ASSET_VERSION}`,
+    featureFavorite: `/assets/feature-panel-favorite-en-v2.png?v=${EN_ASSET_VERSION}`,
+    featureScan: `/assets/feature-panel-scan-en-v2.png?v=${EN_ASSET_VERSION}`,
+    featureSearch: `/assets/feature-panel-search-en-v2.png?v=${EN_ASSET_VERSION}`,
+    featureTodo: `/assets/feature-panel-todo-en-v2.png?v=${EN_ASSET_VERSION}`,
+    usageScenes: `/assets/usage-scenes-en-v2.png?v=${EN_ASSET_VERSION}`,
+    clipboardDifference: `/assets/clipboard-difference-en.png?v=${EN_ASSET_VERSION}`
   };
 
   function normalizeLang(lang) {
@@ -21,20 +22,34 @@
     return value.startsWith("en") ? "en" : "ja";
   }
 
-  function detectInitialLang() {
-    if (!LANGUAGE_SWITCH_ENABLED) return "ja";
-
+  function getStoredLang() {
     try {
       const saved = window.localStorage.getItem(STORAGE_KEY);
       if (SUPPORTED_LANGS.has(saved)) return saved;
     } catch (_) {
       /* ignore */
     }
+    return "";
+  }
 
+  function getBrowserLang() {
     const primaryLanguage = navigator.languages && navigator.languages.length
       ? navigator.languages[0]
       : navigator.language || "";
     return String(primaryLanguage).toLowerCase().startsWith("ja") ? "ja" : "en";
+  }
+
+  function getPathLang() {
+    const path = window.location.pathname.toLowerCase();
+    return path === "/ja" || path.startsWith("/ja/") ? "ja" : "en";
+  }
+
+  function detectInitialLang() {
+    return LANGUAGE_SWITCH_ENABLED ? getPathLang() : "ja";
+  }
+
+  function getPreferredLang() {
+    return getStoredLang() || getBrowserLang();
   }
 
   let currentLang = detectInitialLang();
@@ -401,7 +416,7 @@
           </div>
           <figure class="doc-page__security-figure">
             <img
-              src="./assets/security-qr-pairing-en.png?v=20260712-security-en-images"
+              src="/assets/security-qr-pairing-en.png?v=20260712-security-en-images"
               alt="Diagram showing a Mac and smartphone connecting through QR-code authentication and encrypted HTTPS communication"
               width="1600"
               height="797"
@@ -418,7 +433,7 @@
             </div>
             <figure class="doc-page__security-figure">
               <img
-                src="./assets/security-shared-wifi-en.png?v=20260712-security-en-images"
+                src="/assets/security-shared-wifi-en.png?v=20260712-security-en-images"
                 alt="Diagram showing multiple laptops, phones, and tablets on the same Wi-Fi connecting when a token is shared or authentication is turned off"
                 width="800"
                 height="533"
@@ -899,6 +914,27 @@
     return "landing";
   }
 
+  function localizedPagePath(lang, pageOverride) {
+    const page = pageOverride || getPageKey();
+    const englishPaths = {
+      landing: "/",
+      privacy: "/privacy/",
+      terms: "/terms/",
+      security: "/security/",
+      legal: "/legal/",
+      tokushoho: "/tokushoho/"
+    };
+    const japanesePaths = {
+      landing: "/ja/",
+      privacy: "/ja/privacy/",
+      terms: "/ja/terms/",
+      security: "/ja/security/",
+      legal: "/ja/legal/",
+      tokushoho: "/ja/tokushoho/"
+    };
+    return (lang === "en" ? englishPaths : japanesePaths)[page] || (lang === "en" ? "/" : "/ja/");
+  }
+
   function getOriginalStore(el) {
     if (!el.__sideclipI18nOriginals) {
       Object.defineProperty(el, "__sideclipI18nOriginals", {
@@ -998,6 +1034,118 @@
     });
   }
 
+  function updateLocalizedLinks(page) {
+    const linkTargets = currentLang === "en"
+      ? {
+          "./index.html": "/",
+          "/ja/": "/",
+          "./security.html": "/security/",
+          "/security.html": "/security/",
+          "/ja/security/": "/security/",
+          "/en/security/": "/security/",
+          "./privacy.html": "/privacy/",
+          "/privacy.html": "/privacy/",
+          "/ja/privacy/": "/privacy/",
+          "/en/privacy/": "/privacy/",
+          "./terms.html": "/terms/",
+          "/terms.html": "/terms/",
+          "/ja/terms/": "/terms/",
+          "/en/terms/": "/terms/",
+          "./legal.html": "/legal/",
+          "/legal.html": "/legal/",
+          "/ja/legal/": "/legal/",
+          "/en/legal/": "/legal/",
+          "./tokushoho.html": "/tokushoho/",
+          "/tokushoho.html": "/tokushoho/",
+          "/ja/tokushoho/": "/tokushoho/",
+          "/en/tokushoho/": "/tokushoho/",
+          "./plans/": "/plans/",
+          "/ja/plans": "/plans/",
+          "/ja/plans/": "/plans/",
+          "/en/plans": "/plans/",
+          "/en/plans/": "/plans/"
+        }
+      : {
+          "./index.html": "/ja/",
+          "/": "/ja/",
+          "./security.html": "/ja/security/",
+          "/security.html": "/ja/security/",
+          "/security/": "/ja/security/",
+          "/en/security/": "/ja/security/",
+          "./privacy.html": "/ja/privacy/",
+          "/privacy.html": "/ja/privacy/",
+          "/privacy/": "/ja/privacy/",
+          "/en/privacy/": "/ja/privacy/",
+          "./terms.html": "/ja/terms/",
+          "/terms.html": "/ja/terms/",
+          "/terms/": "/ja/terms/",
+          "/en/terms/": "/ja/terms/",
+          "./legal.html": "/ja/legal/",
+          "/legal.html": "/ja/legal/",
+          "/legal/": "/ja/legal/",
+          "/en/legal/": "/ja/legal/",
+          "./tokushoho.html": "/ja/tokushoho/",
+          "/tokushoho.html": "/ja/tokushoho/",
+          "/tokushoho/": "/ja/tokushoho/",
+          "/en/tokushoho/": "/ja/tokushoho/",
+          "/plans": "/ja/plans/",
+          "/plans/": "/ja/plans/",
+          "/en/plans": "/ja/plans/",
+          "/en/plans/": "/ja/plans/"
+        };
+
+    document.querySelectorAll("a[href]").forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href || href.startsWith("#") || href.startsWith("http") || href.startsWith("mailto:")) return;
+      const hashIndex = href.indexOf("#");
+      const path = hashIndex >= 0 ? href.slice(0, hashIndex) : href;
+      const hash = hashIndex >= 0 ? href.slice(hashIndex) : "";
+      const localized = linkTargets[path];
+      if (localized) link.setAttribute("href", `${localized}${hash}`);
+    });
+
+    if (page === "landing") {
+      document.querySelectorAll('a[href="./security.html"], a[href="/security.html"]').forEach((link) => {
+        link.setAttribute("href", currentLang === "en" ? "/security/" : "/ja/security/");
+      });
+    }
+  }
+
+  function languageSuggestionDismissed() {
+    try {
+      return window.sessionStorage.getItem(SUGGESTION_DISMISSED_KEY) === "1";
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function dismissLanguageSuggestion() {
+    try {
+      window.sessionStorage.setItem(SUGGESTION_DISMISSED_KEY, "1");
+    } catch (_) {
+      /* ignore */
+    }
+    document.querySelector("[data-language-suggestion]")?.remove();
+  }
+
+  function ensureLanguageSuggestion() {
+    if (!LANGUAGE_SWITCH_ENABLED || languageSuggestionDismissed()) return;
+    const preferred = getPreferredLang();
+    if (preferred === currentLang || document.querySelector("[data-language-suggestion]")) return;
+
+    const suggestion = document.createElement("aside");
+    suggestion.className = "language-suggestion";
+    suggestion.dataset.languageSuggestion = "";
+    suggestion.setAttribute("role", "region");
+    suggestion.setAttribute("aria-live", "polite");
+    suggestion.innerHTML = preferred === "en"
+      ? '<p>View this page in English?</p><div><button type="button" class="language-suggestion__primary" data-language-suggestion-accept>View in English</button><button type="button" class="language-suggestion__dismiss" data-language-suggestion-dismiss>Not now</button></div>'
+      : '<p>このページを日本語で表示しますか？</p><div><button type="button" class="language-suggestion__primary" data-language-suggestion-accept>日本語で見る</button><button type="button" class="language-suggestion__dismiss" data-language-suggestion-dismiss>今はしない</button></div>';
+    suggestion.querySelector("[data-language-suggestion-accept]")?.addEventListener("click", () => setLang(preferred));
+    suggestion.querySelector("[data-language-suggestion-dismiss]")?.addEventListener("click", dismissLanguageSuggestion);
+    document.body.appendChild(suggestion);
+  }
+
   function initLanguageControls(root) {
     const scope = root || document;
     scope.querySelectorAll("[data-language-option]").forEach((button) => {
@@ -1061,6 +1209,7 @@
       applyLandingTranslations(currentLang);
     }
 
+    updateLocalizedLinks(page);
     initLanguageControls(document);
   }
 
@@ -1082,17 +1231,16 @@
 
   function setLang(lang) {
     const next = normalizeLang(lang);
-    const changed = next !== currentLang;
-    currentLang = next;
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
     } catch (_) {
       /* ignore */
     }
-    applyPageTranslations();
-    if (changed) trackLanguageView(next, "switch");
-    window.dispatchEvent(new Event("resize"));
-    document.dispatchEvent(new CustomEvent("sideclip:languagechange", { detail: { lang: next } }));
+    dismissLanguageSuggestion();
+    if (next === currentLang) return;
+    trackLanguageView(next, "switch");
+    const target = localizedPagePath(next);
+    window.location.assign(`${target}${window.location.search}${window.location.hash}`);
   }
 
   window.SideClipI18n = {
@@ -1108,5 +1256,6 @@
     if (articleTranslations[getPageKey()]) ensureDocLanguageSwitch();
     applyPageTranslations();
     trackLanguageView(currentLang, "initial");
+    ensureLanguageSuggestion();
   });
 })();

@@ -1,5 +1,6 @@
 (function () {
   const STORAGE_KEY = "sideclip_language_v1";
+  const SUGGESTION_DISMISSED_KEY = "sideclip_language_suggestion_dismissed_v1";
   const STYLE_ID = "sideclip-plans-i18n-style";
   const originalText = new WeakMap();
   let currentLang = "ja";
@@ -116,17 +117,33 @@
     return String(value || "").toLowerCase().startsWith("en") ? "en" : "ja";
   }
 
-  function initialLang() {
+  function storedLang() {
     try {
       const saved = window.localStorage.getItem(STORAGE_KEY);
-      if (saved === "ja" || saved === "en") return saved;
+      return saved === "ja" || saved === "en" ? saved : "";
     } catch (_) {
-      /* ignore */
+      return "";
     }
+  }
+
+  function browserLang() {
     const primaryLanguage = navigator.languages && navigator.languages.length
       ? navigator.languages[0]
       : navigator.language || "";
     return String(primaryLanguage).toLowerCase().startsWith("ja") ? "ja" : "en";
+  }
+
+  function initialLang() {
+    const path = window.location.pathname.toLowerCase();
+    return path === "/ja" || path.startsWith("/ja/") ? "ja" : "en";
+  }
+
+  function preferredLang() {
+    return storedLang() || browserLang();
+  }
+
+  function localizedPlansPath(lang) {
+    return lang === "en" ? "/plans/" : "/ja/plans/";
   }
 
   function ensureStyles() {
@@ -139,7 +156,12 @@
       .plans-language-switch button.is-active { background:#0071e3; color:#fff; }
       .plans-language-switch button:focus-visible { outline:2px solid #0071e3; outline-offset:2px; }
       .plans-language-switch + .plans-top-return-link { margin-left:8px; }
-      @media (max-width:560px) { .plans-language-switch button { min-width:31px; padding:5px 6px; } }
+      .plans-language-suggestion { position:fixed; right:20px; bottom:20px; z-index:1000; display:grid; grid-template-columns:1fr auto; gap:12px 16px; align-items:center; width:min(390px,calc(100vw - 32px)); padding:16px; border:1px solid rgba(29,29,31,.14); border-radius:8px; background:#fff; box-shadow:0 12px 36px rgba(0,0,0,.16); color:#1d1d1f; font:600 14px/1.45 system-ui,sans-serif; }
+      .plans-language-suggestion p { margin:0; }
+      .plans-language-suggestion__actions { display:flex; gap:8px; grid-column:1/-1; }
+      .plans-language-suggestion button { padding:9px 13px; border:1px solid rgba(29,29,31,.14); border-radius:7px; background:#fff; color:#1d1d1f; font:700 13px/1.2 system-ui,sans-serif; cursor:pointer; }
+      .plans-language-suggestion button[data-suggestion-action="switch"] { border-color:#0071e3; background:#0071e3; color:#fff; }
+      @media (max-width:560px) { .plans-language-switch button { min-width:31px; padding:5px 6px; } .plans-language-suggestion { right:16px; bottom:16px; } }
     `;
     document.head.appendChild(style);
   }
@@ -199,6 +221,16 @@
     }
   }
 
+  function updateLocalizedLinks() {
+    const homePath = currentLang === "en" ? "/" : "/ja/";
+    document.querySelectorAll("header a[href], .plans-top-return-link").forEach((link) => {
+      const href = link.getAttribute("href") || "";
+      if (link.classList.contains("plans-top-return-link") || href === "/" || href === "/ja/" || href === "/en/") {
+        link.setAttribute("href", homePath);
+      }
+    });
+  }
+
   function updateControls() {
     document.querySelectorAll("[data-plan-lang]").forEach((button) => {
       const active = button.dataset.planLang === currentLang;
@@ -208,6 +240,42 @@
     document.querySelector(".plans-language-switch")?.setAttribute("aria-label", currentLang === "en" ? "Language selector" : "言語切替");
   }
 
+  function suggestionDismissed() {
+    try {
+      return window.sessionStorage.getItem(SUGGESTION_DISMISSED_KEY) === "1";
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function dismissSuggestion() {
+    try {
+      window.sessionStorage.setItem(SUGGESTION_DISMISSED_KEY, "1");
+    } catch (_) {
+      /* ignore */
+    }
+    document.querySelector(".plans-language-suggestion")?.remove();
+  }
+
+  function ensureLanguageSuggestion() {
+    if (document.querySelector(".plans-language-suggestion") || suggestionDismissed()) return;
+    const preferred = preferredLang();
+    if (preferred === currentLang) return;
+
+    const suggestion = document.createElement("aside");
+    suggestion.className = "plans-language-suggestion";
+    suggestion.setAttribute("aria-live", "polite");
+    suggestion.innerHTML = preferred === "en"
+      ? '<p>View this page in English?</p><div class="plans-language-suggestion__actions"><button type="button" data-suggestion-action="switch">View in English</button><button type="button" data-suggestion-action="dismiss">Not now</button></div>'
+      : '<p>日本語で表示しますか？</p><div class="plans-language-suggestion__actions"><button type="button" data-suggestion-action="switch">日本語で表示</button><button type="button" data-suggestion-action="dismiss">今はしない</button></div>';
+    suggestion.addEventListener("click", (event) => {
+      const action = event.target.closest("[data-suggestion-action]")?.dataset.suggestionAction;
+      if (action === "switch") setLang(preferred);
+      if (action === "dismiss") dismissSuggestion();
+    });
+    document.body.appendChild(suggestion);
+  }
+
   function applyLanguage() {
     if (applying) return;
     applying = true;
@@ -215,23 +283,30 @@
     ensureSwitch();
     applyText();
     applyMeta();
+    updateLocalizedLinks();
     updateControls();
     applying = false;
   }
 
   function setLang(lang) {
-    currentLang = normalizeLang(lang);
+    const nextLang = normalizeLang(lang);
     try {
-      window.localStorage.setItem(STORAGE_KEY, currentLang);
+      window.localStorage.setItem(STORAGE_KEY, nextLang);
     } catch (_) {
       /* ignore */
     }
-    applyLanguage();
+    dismissSuggestion();
+    if (nextLang === currentLang) {
+      applyLanguage();
+      return;
+    }
+    window.location.assign(`${localizedPlansPath(nextLang)}${window.location.search}${window.location.hash}`);
   }
 
   currentLang = initialLang();
   window.setTimeout(() => {
     applyLanguage();
+    ensureLanguageSuggestion();
     let count = 0;
     const observer = new MutationObserver(() => {
       if (applying) return;

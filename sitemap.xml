@@ -1,13 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://sideclip.app/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sideclip.app/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sideclip.app/ja/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sideclip.app/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://sideclip.app/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sideclip.app/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sideclip.app/ja/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sideclip.app/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://sideclip.app/plans/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sideclip.app/plans/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sideclip.app/ja/plans/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sideclip.app/plans/" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sideclip.app/ja/plans/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sideclip.app/plans/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sideclip.app/ja/plans/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sideclip.app/plans/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sideclip.app/security/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sideclip.app/security/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sideclip.app/ja/security/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sideclip.app/security/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sideclip.app/ja/security/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sideclip.app/security/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sideclip.app/ja/security/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sideclip.app/security/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sideclip.app/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sideclip.app/privacy/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sideclip.app/ja/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sideclip.app/privacy/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sideclip.app/ja/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sideclip.app/privacy/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sideclip.app/ja/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sideclip.app/privacy/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sideclip.app/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sideclip.app/terms/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sideclip.app/ja/terms/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sideclip.app/terms/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sideclip.app/ja/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sideclip.app/terms/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sideclip.app/ja/terms/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sideclip.app/terms/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sideclip.app/legal/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sideclip.app/legal/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sideclip.app/ja/legal/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sideclip.app/legal/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://sideclip.app/ja/legal/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sideclip.app/legal/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sideclip.app/ja/legal/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sideclip.app/legal/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://sideclip.app/tokushoho/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sideclip.app/tokushoho/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sideclip.app/ja/tokushoho/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sideclip.app/tokushoho/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://sideclip.app/ja/tokushoho/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sideclip.app/tokushoho/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sideclip.app/ja/tokushoho/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sideclip.app/tokushoho/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>

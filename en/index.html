@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="refresh" content="0; url=/" />
+    <script>window.location.replace(`/${window.location.search}${window.location.hash}`);</script>
     <title>SideClip | Take your Mac's clipboard off-screen</title>
     <meta
       name="description"
@@ -64,9 +67,9 @@
         ad_personalization: 'denied'
       });
 
-      var initialSiteLanguage = window.location.pathname === '/ja' || window.location.pathname.indexOf('/ja/') === 0
-        ? 'ja'
-        : 'en';
+      var initialSiteLanguage = window.location.pathname === '/en' || window.location.pathname.indexOf('/en/') === 0
+        ? 'en'
+        : 'ja';
 
       gtag('set', { site_language: initialSiteLanguage });
       gtag('set', 'user_properties', { site_language: initialSiteLanguage });
