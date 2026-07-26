@@ -1,9 +1,19 @@
 (function () {
   const ASSET_VERSION = "20260701-screenshot-pro-note";
-  const CONCEPT_VIDEO_YT_ID = "rCiLdIpRr5I";
+  const CONCEPT_VIDEO_YT_IDS = {
+    ja: "rCiLdIpRr5I",
+    en: "bu5zO823Pow"
+  };
   const BENEFITS_VIDEO_YT_ID = "3m6aWg6LDFY";
   const FEATURE_SCREENSHOT_VIDEO_YT_ID = "pfBsk3Iwi4E";
   const MAC_DOWNLOAD_URL = "https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg";
+
+  function getConceptVideoId() {
+    const lang = window.SideClipI18n?.getLang?.() || document.documentElement.lang || "en";
+    return String(lang).toLowerCase().startsWith("ja")
+      ? CONCEPT_VIDEO_YT_IDS.ja
+      : CONCEPT_VIDEO_YT_IDS.en;
+  }
 
   // Visual assets are centralized so replacement only needs this block.
   const syncDataLineRail = `
@@ -769,7 +779,7 @@
               <button type="button" class="concept-video__facade" data-cta-id="concept_video_play" data-cta-section="concept_video" aria-label="SideClipの基本機能を紹介するデモ動画をYouTubeで再生する">
                 <img
                   class="concept-video__poster"
-                  src="https://i.ytimg.com/vi/${CONCEPT_VIDEO_YT_ID}/maxresdefault.jpg"
+                  src="https://i.ytimg.com/vi/${getConceptVideoId()}/maxresdefault.jpg"
                   alt=""
                   width="1280"
                   height="720"
@@ -1578,7 +1588,7 @@
   }
 
   function initConceptVideoEmbed() {
-    initYoutubePosterEmbed(document.querySelector(".concept-video__embed--poster"), CONCEPT_VIDEO_YT_ID, {
+    initYoutubePosterEmbed(document.querySelector(".concept-video__embed--poster"), getConceptVideoId(), {
       posterModifierClass: "concept-video__embed--poster",
       iframeTitle: "SideClip 基本機能のデモ動画",
       iframeTitleEn: "SideClip core feature demo",
