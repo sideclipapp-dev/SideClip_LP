@@ -1,5 +1,5 @@
 (function () {
-  const ASSET_VERSION = "20260701-screenshot-pro-note";
+  const ASSET_VERSION = "20260730-ja-redesign";
   const CONCEPT_VIDEO_YT_IDS = {
     ja: "rCiLdIpRr5I",
     en: "bu5zO823Pow"
@@ -8,8 +8,16 @@
   const FEATURE_SCREENSHOT_VIDEO_YT_ID = "pfBsk3Iwi4E";
   const MAC_DOWNLOAD_URL = "https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg";
 
+  function getLandingLang() {
+    return window.SideClipI18n?.getLang?.() || document.documentElement.lang || "en";
+  }
+
+  function isJapaneseLanding() {
+    return String(getLandingLang()).toLowerCase().startsWith("ja");
+  }
+
   function getConceptVideoId() {
-    const lang = window.SideClipI18n?.getLang?.() || document.documentElement.lang || "en";
+    const lang = getLandingLang();
     return String(lang).toLowerCase().startsWith("ja")
       ? CONCEPT_VIDEO_YT_IDS.ja
       : CONCEPT_VIDEO_YT_IDS.en;
@@ -28,25 +36,45 @@
     </div>`;
 
   const ASSETS = {
-    heroMain: `/assets/hero_blank_clean.png?v=${ASSET_VERSION}`,
+    heroMain: isJapaneseLanding()
+      ? `/assets/optimized-ja/hero-background.jpg?v=${ASSET_VERSION}`
+      : `/assets/hero_blank_clean.png?v=${ASSET_VERSION}`,
     heroPhone: `/assets/hero_phone_v2_web.png?v=${ASSET_VERSION}`,
     heroMainFallback: `/assets/hero-banner.jpg?v=${ASSET_VERSION}`,
     stepCopy: `/assets/step-copy.png?v=${ASSET_VERSION}`,
     stepAdd: `/assets/step-add.png?v=${ASSET_VERSION}`,
     stepTap: `/assets/step-tap.png?v=${ASSET_VERSION}`,
     stepPaste: `/assets/step-paste.png?v=${ASSET_VERSION}`,
-    featureHistory: `/assets/feature-panel-history.jpg?v=${ASSET_VERSION}`,
-    featureFavorite: `/assets/feature-panel-favorite.jpg?v=${ASSET_VERSION}`,
-    featureSearch: `/assets/feature-panel-search.png?v=${ASSET_VERSION}`,
-    featureTodo: `/assets/feature-panel-todo.jpg?v=${ASSET_VERSION}`,
-    featureScan: `/assets/feature-panel-scan.jpg?v=${ASSET_VERSION}`,
+    featureHistory: isJapaneseLanding()
+      ? `/assets/optimized-ja/feature-history.jpg?v=${ASSET_VERSION}`
+      : `/assets/feature-panel-history.jpg?v=${ASSET_VERSION}`,
+    featureFavorite: isJapaneseLanding()
+      ? `/assets/optimized-ja/feature-favorite.jpg?v=${ASSET_VERSION}`
+      : `/assets/feature-panel-favorite.jpg?v=${ASSET_VERSION}`,
+    featureSearch: isJapaneseLanding()
+      ? `/assets/optimized-ja/feature-search.jpg?v=${ASSET_VERSION}`
+      : `/assets/feature-panel-search.png?v=${ASSET_VERSION}`,
+    featureTodo: isJapaneseLanding()
+      ? `/assets/optimized-ja/feature-todo.jpg?v=${ASSET_VERSION}`
+      : `/assets/feature-panel-todo.jpg?v=${ASSET_VERSION}`,
+    featureScan: isJapaneseLanding()
+      ? `/assets/optimized-ja/feature-scan.jpg?v=${ASSET_VERSION}`
+      : `/assets/feature-panel-scan.jpg?v=${ASSET_VERSION}`,
     usageScenes: `/assets/具体シーン.png?v=${ASSET_VERSION}`,
     clipboardDifference: `/assets/違い.jpeg?v=${ASSET_VERSION}`,
-    flowIconMac: `/assets/flow-icon-mac.png?v=${ASSET_VERSION}`,
-    flowIconPhone: `/assets/flow-icon-phone.png?v=${ASSET_VERSION}`,
-    flowIconTap: `/assets/flow-icon-tap.png?v=${ASSET_VERSION}`,
+    flowIconMac: isJapaneseLanding()
+      ? `/assets/optimized-ja/flow-icon-mac.png?v=${ASSET_VERSION}`
+      : `/assets/flow-icon-mac.png?v=${ASSET_VERSION}`,
+    flowIconPhone: isJapaneseLanding()
+      ? `/assets/optimized-ja/flow-icon-phone.png?v=${ASSET_VERSION}`
+      : `/assets/flow-icon-phone.png?v=${ASSET_VERSION}`,
+    flowIconTap: isJapaneseLanding()
+      ? `/assets/optimized-ja/flow-icon-tap.png?v=${ASSET_VERSION}`
+      : `/assets/flow-icon-tap.png?v=${ASSET_VERSION}`,
     flowIconTapHeroFill: `/assets/flow-icon-tap-hero-fill.png?v=${ASSET_VERSION}`,
-    flowIconCheck: `/assets/flow-icon-check.png?v=${ASSET_VERSION}`,
+    flowIconCheck: isJapaneseLanding()
+      ? `/assets/optimized-ja/flow-icon-check.png?v=${ASSET_VERSION}`
+      : `/assets/flow-icon-check.png?v=${ASSET_VERSION}`,
     heroIconSceneResearch: `/assets/hero_icon_scene_research.png?v=${ASSET_VERSION}`,
     heroIconSceneChat: `/assets/hero_icon_scene_chat.png?v=${ASSET_VERSION}`,
     heroIconSceneIdea: `/assets/hero_icon_scene_idea.png?v=${ASSET_VERSION}`,
@@ -176,6 +204,28 @@
     },
   ];
 
+  const tapFlowStepsJa = [
+    {
+      number: "01",
+      title: "Macで<br />コピー",
+      iconSrc: ASSETS.flowIconMac,
+      alt: "Macでコピーする",
+    },
+    {
+      number: "02",
+      title: "スマホに<br />自動表示",
+      iconSrc: ASSETS.flowIconPhone,
+      alt: "コピーした内容がスマホへ自動表示される",
+      labelAccent: true,
+    },
+    {
+      number: "03",
+      title: "タップして<br />Macへペースト",
+      iconSrc: ASSETS.flowIconTap,
+      alt: "スマホのカードをタップしてMacへペーストする",
+    },
+  ];
+
   /** Tap to Paste セクション用（スクリーンショット4枚・従来レイアウト） */
   const tapPasteSteps = [
     {
@@ -230,21 +280,21 @@
 
   const features = [
     {
-      eyebrow: "History",
+      eyebrow: "残す",
       title: "コピー履歴を、手元に。",
       image: ASSETS.featureHistory,
       alt: "クリップボード履歴画面",
       text: "テキスト、URL、画像を自動保存。<br />必要なカードをスマホ側ですぐ見つけられます。",
     },
     {
-      eyebrow: "Favorite",
+      eyebrow: "残す",
       title: "大事なものだけ、残す。",
       image: ASSETS.featureFavorite,
       alt: "お気に入り保存画面",
       text: "よく使う定型文やリンクを保存。<br />一度まとめれば、次から探す時間を減らせます。",
     },
     {
-      eyebrow: "Screenshot",
+      eyebrow: "残す",
       title: "Macの画面も、カードに。",
       image: ASSETS.featureScan,
       alt: "MacをキャプチャするSCAN画面",
@@ -258,14 +308,14 @@
       },
     },
     {
-      eyebrow: "Search",
+      eyebrow: "見つける",
       title: "増えた履歴も、すぐ見つかる。",
       image: ASSETS.featureSearch,
       alt: "検索でコピー履歴やスクショを探す画面",
       text: "日付の期間・キーワード・画像内の文字まで検索。<br />あいまいな表現でも、目当てのカードに戻れます。<br /><small>画像内テキスト検索はProプラン以上で利用可能</small>",
     },
     {
-      eyebrow: "Todo",
+      eyebrow: "再利用する",
       title: "忘れる前にコピーするだけ。",
       image: ASSETS.featureTodo,
       alt: "Todoモード画面",
@@ -279,12 +329,13 @@
   ];
 
   function renderMiniFlow() {
-    return tapFlowSteps
+    const steps = isJapaneseLanding() ? tapFlowStepsJa : tapFlowSteps;
+    return steps
       .map((step, index) => {
         const labelClass = step.labelAccent ? " step-card__label--accent" : "";
         const plusClass = step.plusBadge ? " step-card__icon-ring--plus" : "";
         const iconInner = step.iconSrc
-          ? `<img class="flow-step-icon-img" src="${step.iconSrc}" alt="${step.alt}" width="56" height="56" loading="eager" decoding="async" />`
+          ? `<img class="flow-step-icon-img" src="${step.iconSrc}" alt="${step.alt}" width="56" height="56" loading="${isJapaneseLanding() ? "lazy" : "eager"}" decoding="async" />`
           : `<span class="flow-icon flow-icon--svg flow-icon--tap-step ${step.flowIconExtra || ""}" aria-hidden="true">${step.svg}</span>`;
         const item = `
           <li class="step-card step-card--infographic mini-flow__step interactive-card" data-flow-index="${index}">
@@ -297,7 +348,7 @@
             </div>
           </li>`;
         const arrow =
-          index < tapFlowSteps.length - 1
+          index < steps.length - 1
             ? `<li class="flow-arrow" aria-hidden="true"><span class="flow-arrow__glyph">→</span></li>`
             : "";
         return item + arrow;
@@ -311,7 +362,7 @@
         (step, index) => `
           <li class="step-card interactive-card" data-step-index="${index}">
             <h3><span>${step.number}</span>${step.title}</h3>
-            <img src="${step.image}" alt="${step.alt}" />
+            <img src="${step.image}" alt="${step.alt}" loading="lazy" decoding="async" />
           </li>
         `
       )
@@ -408,6 +459,7 @@
   }
 
   function renderApp() {
+    const isJapanese = isJapaneseLanding();
     return `
       <main class="page-shell">
         <header class="hero__header">
@@ -419,8 +471,24 @@
               <span lang="en">Clipboard app</span>
             </p>
           </div>
+          ${isJapanese ? `
+          <nav class="ja-desktop-nav" aria-label="主要メニュー">
+            <a href="#concept-video">デモ</a>
+            <a href="#features-title">主な機能</a>
+            <a href="/plans">料金</a>
+          </nav>
+          ` : ""}
           <div class="hero__header-actions">
             ${renderLanguageSwitch()}
+            ${isJapanese ? `
+            <a
+              class="ja-header-download"
+              href="${MAC_DOWNLOAD_URL}"
+              data-download-link
+              data-cta-id="header_download"
+              data-cta-section="header"
+            >無料ダウンロード</a>
+            ` : ""}
             <button
               type="button"
               class="hero__menu-button"
@@ -477,11 +545,17 @@
                   <p class="hero__banner-eyebrow hero__banner-overlay-line hero__banner-overlay-line--eyebrow">
                     SideClip for Mac
                   </p>
+                  ${isJapanese ? `
+                  <h1 id="hero-title" class="hero__banner-overlay-lead hero__banner-overlay-line hero__banner-overlay-line--lead">
+                    コピー履歴を、<br />Macから<span class="hero__banner-accent">スマホ</span>へ。
+                  </h1>
+                  ` : `
                   <p class="hero__banner-overlay-lead hero__banner-overlay-line hero__banner-overlay-line--lead">
                     コピー履歴を、<br />Macの<span class="hero__banner-accent">外</span>へ。
                   </p>
+                  `}
                   <p class="hero__banner-overlay-sub hero__banner-overlay-line hero__banner-overlay-line--sub">
-                    スマホを横に置くだけ。<br />コピーしたものが、いつも視界に。
+                    Macでコピーしたテキストや画像が、<br />横のスマホへ自動で並びます。
                   </p>
                   <div class="hero__banner-actions" aria-label="ヒーロー操作">
                     <a
@@ -495,39 +569,70 @@
                       Macで無料ダウンロード
                     </a>
                   </div>
-                  <p class="hero__banner-note">Apple Silicon搭載Macに対応</p>
+                  <p class="hero__banner-note">macOS 26以降・Apple Silicon搭載Macに対応</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
+        ${isJapanese ? `
+        <div class="ja-mobile-hero-cta" aria-label="SideClipを始める">
+          <a
+            href="${MAC_DOWNLOAD_URL}"
+            data-download-link
+            data-cta-id="mobile_hero_download"
+            data-cta-section="hero"
+          >Macで無料ダウンロード</a>
+          <p>アカウント不要・Freeプランあり</p>
+        </div>
+        ` : ""}
 
         <div class="section-drawer" id="section-drawer" aria-hidden="true">
           <button type="button" class="section-drawer__backdrop" aria-label="メニューを閉じる" data-section-menu-close></button>
           <nav class="section-drawer__panel" aria-label="ページメニュー">
-            <a href="#hero-title" data-section-menu-link>トップ</a>
-            <a href="#concept-video" data-section-menu-link>コンセプト動画</a>
-            <a href="#tap-title" data-section-menu-link>使い方</a>
-            <a href="#benefits-title" data-section-menu-link>メリット</a>
-            <a href="#clipboard-shift-title" data-section-menu-link>他のツールとの違い</a>
-            <a href="#features-title" data-section-menu-link>主な機能</a>
-            <a href="#usage-scenes-title" data-section-menu-link>使用シーン</a>
-            <a href="#local-title" data-section-menu-link>ローカル同期</a>
-            <a href="#faq" data-section-menu-link>FAQ</a>
-            <a href="#download" data-section-menu-link>ダウンロード</a>
-            <a href="/plans">料金プラン</a>
-            <a href="#site-legal-footer" data-section-menu-link>ポリシー・規約</a>
+            ${isJapanese ? `
+              <a href="#hero-title" data-section-menu-link>トップ</a>
+              <a href="#concept-video" data-section-menu-link>製品デモ</a>
+              <a href="#features-title" data-section-menu-link>主な機能</a>
+              <a href="#usage-scenes-title" data-section-menu-link>使用シーン</a>
+              <a href="#local-title" data-section-menu-link>ローカル同期</a>
+              <a href="/plans">料金プラン</a>
+              <a href="#faq" data-section-menu-link>FAQ</a>
+              <a href="#download" data-section-menu-link>ダウンロード</a>
+            ` : `
+              <a href="#hero-title" data-section-menu-link>トップ</a>
+              <a href="#concept-video" data-section-menu-link>コンセプト動画</a>
+              <a href="#tap-title" data-section-menu-link>使い方</a>
+              <a href="#benefits-title" data-section-menu-link>メリット</a>
+              <a href="#clipboard-shift-title" data-section-menu-link>他のツールとの違い</a>
+              <a href="#features-title" data-section-menu-link>主な機能</a>
+              <a href="#usage-scenes-title" data-section-menu-link>使用シーン</a>
+              <a href="#local-title" data-section-menu-link>ローカル同期</a>
+              <a href="#faq" data-section-menu-link>FAQ</a>
+              <a href="#download" data-section-menu-link>ダウンロード</a>
+              <a href="/plans">料金プラン</a>
+              <a href="#site-legal-footer" data-section-menu-link>ポリシー・規約</a>
+            `}
           </nav>
         </div>
 
         <div class="content-overlay">
         <div class="hero__content">
           <div class="reveal__head">
-            <h2 class="hero__banner-copy">Macの横に、<br />コピーの置き場所を。</h2>
+            <h2 class="hero__banner-copy">コピーして、選んで、<br />すぐ貼れる。</h2>
           </div>
           <div class="reveal__rest">
-          <p class="hero__hook">もう一度使いたいテキストや画像が、視界の中に残っている。<br />探さず、手元から貼り付けられます。</p>
+          <p class="hero__hook">Macでコピーすると、スマホにカードが自動追加。<br />必要なカードをタップすれば、Macへそのままペーストできます。</p>
           <div class="hero__infographic-card">
+            ${isJapanese ? `
+            <h2 class="hero__infographic-title">
+              <span class="tap-infographic__title-stack">
+                <span class="tap-infographic__title-line tap-infographic__title-line--primary">
+                  3ステップで、すぐ使えます。
+                </span>
+              </span>
+            </h2>
+            ` : `
             <h1 id="hero-title" class="hero__infographic-title">
               <span class="tap-infographic__title-stack">
                 <span class="tap-infographic__title-line tap-infographic__title-line--primary">
@@ -535,6 +640,7 @@
                 </span>
               </span>
             </h1>
+            `}
             <div class="hero-flow-sync" id="hero-flow-sync" data-hero-flow-step="0" aria-hidden="true">
               <div class="hero-flow-sync__frame">
                 <img
@@ -659,6 +765,7 @@
                     width="176"
                     height="176"
                     alt=""
+                    loading="lazy"
                     decoding="async"
                   />
                 </span>
@@ -675,6 +782,7 @@
                     width="176"
                     height="176"
                     alt=""
+                    loading="lazy"
                     decoding="async"
                   />
                 </span>
@@ -691,6 +799,7 @@
                     width="176"
                     height="176"
                     alt=""
+                    loading="lazy"
                     decoding="async"
                   />
                 </span>
@@ -711,6 +820,7 @@
                   width="176"
                   height="176"
                   alt=""
+                  loading="lazy"
                   decoding="async"
                 />
               </span>
@@ -727,12 +837,13 @@
                   width="176"
                   height="176"
                   alt=""
+                  loading="lazy"
                   decoding="async"
                 />
               </span>
               <div class="hero-highlight-card__body">
-                <p class="hero-highlight-card__title">設定いらずでシンプル</p>
-                <p class="hero-highlight-card__text">アカウント登録・ログイン不要。スマホアプリも不要です。</p>
+                <p class="hero-highlight-card__title">アカウント・ログイン不要</p>
+                <p class="hero-highlight-card__text">Macへインストールしたら、すぐに試せます。</p>
               </div>
             </li>
             <li class="hero-highlight-card">
@@ -743,19 +854,20 @@
                   width="176"
                   height="176"
                   alt=""
+                  loading="lazy"
                   decoding="async"
                 />
               </span>
               <div class="hero-highlight-card__body">
-                <p class="hero-highlight-card__title">接続はQRコードで簡単</p>
-                <p class="hero-highlight-card__text">スマホのカメラで読み込むだけ。すぐにつながります。</p>
+                <p class="hero-highlight-card__title">QRコードでかんたん接続</p>
+                <p class="hero-highlight-card__text">スマホアプリは不要。ブラウザからつながります。</p>
               </div>
             </li>
           </ul>
 
           <ul class="hero-kpis" aria-label="SideClipで得られる効果">
-            <li>Mac専用アプリ</li>
-            <li>MacとiPhone/iPad/Android端末とつながる</li>
+            <li>Macアプリ＋スマホブラウザで利用</li>
+            <li>iPhone・iPad・Androidに対応</li>
           </ul>
           <a class="download-button" href="${MAC_DOWNLOAD_URL}" data-download-link data-cta-id="hero_download" data-cta-section="hero" aria-label="SideClipをMacで無料ダウンロード">
             <!-- ${icon.download} -->
@@ -797,6 +909,7 @@
           </div>
         </section>
 
+        ${isJapanese ? "" : `
         <section class="tap-section" aria-labelledby="tap-title">
           <div class="tap-section__reveal reveal">
             <div class="section-copy section-copy--tap">
@@ -819,18 +932,18 @@
             </div>
           </div>
         </section>
+        `}
 
         <section class="benefits" aria-labelledby="benefits-title">
           <div class="benefits__reveal reveal">
             <div class="section-copy">
               <div class="reveal__head">
-                <h2 id="benefits-title">作業の流れを、止めない。</h2>
+                <h2 id="benefits-title">スクショを、<br />デスクトップにためない。</h2>
               </div>
               <div class="reveal__rest">
                 <p>
-                  コピーしたものは、Macの横に。<br />
-                  探す時間も、呼び出す動きも、<br />
-                  少しずつ減らします。
+                  Macのスクショをスマホから撮影。<br />
+                  カードとして整理し、必要な時にすぐ再利用できます。
                 </p>
               </div>
             </div>
@@ -867,11 +980,13 @@
                 </div>
               </div>
             </div>
+            ${isJapanese ? "" : `
             <div class="reveal__rest">
             <div class="benefit-grid">
               ${renderBenefits()}
             </div>
             </div>
+            `}
           </div>
         </section>
 
@@ -880,17 +995,16 @@
             <div class="reveal__head">
               <p class="clipboard-shift__eyebrow">Clipboard Shift</p>
               <h2 id="clipboard-shift-title" class="clipboard-shift__title">
-                呼び出さない。<br />
-                横に置く。
+                履歴を、作業画面に<br />
+                重ねない。
               </h2>
               <p class="clipboard-shift__lead">
-                コピー履歴をMacの中で探すのではなく、<br />
-                横のスマホに表示。<br />
-                視線の移動を小さくして、<br />
-                作業の流れを保ちます。
+                クリップボードパネルを開く代わりに、<br />
+                履歴を横のスマホへ常時表示します。
               </p>
             </div>
             <div class="reveal__rest">
+            ${isJapanese ? "" : `
             <figure class="clipboard-shift__figure">
               <button
                 type="button"
@@ -911,6 +1025,7 @@
                 />
               </button>
             </figure>
+            `}
             <div class="clipboard-shift__prose">
               <div class="clipboard-shift__compare">
                 <div class="clipboard-shift__compare-block clipboard-shift__compare-block--others">
@@ -943,11 +1058,10 @@
           <div class="features__reveal reveal">
             <div class="reveal__head">
               <p class="features__eyebrow">Core Features</p>
-              <h2 id="features-title">よく使うものが、<br />手元に残る。</h2>
+              <h2 id="features-title">残す。見つける。<br />すぐ使う。</h2>
               <p class="features__lead">
-                コピー履歴、スクショ、お気に入り。<br />
-                作業に戻るためのものだけを、<br />
-                スマホに整えます。
+                コピー履歴やスクショを保存し、検索して再利用。<br />
+                必要なものへ、スマホからすぐ戻れます。
               </p>
             </div>
             <div class="reveal__rest">
@@ -962,13 +1076,14 @@
           <div class="usage-scenes__reveal reveal">
             <div class="reveal__head">
               <p class="usage-scenes__eyebrow">Use Cases</p>
-              <h2 id="usage-scenes-title">仕事にも、創作にも、<br />学びにも。</h2>
+              <h2 id="usage-scenes-title">こんな作業で、<br />すぐ効く。</h2>
               <p class="usage-scenes__lead">
-                よく使うテキストや画像を、Macの横へ。<br />
-                小さなコピペを、静かに速くします。
+                繰り返し使うテキストや画像を、Macの横へ。<br />
+                毎日の小さなコピペを短くします。
               </p>
             </div>
             <div class="reveal__rest">
+            ${isJapanese ? "" : `
             <figure class="usage-scenes__figure">
               <button
                 type="button"
@@ -989,6 +1104,7 @@
                 />
               </button>
             </figure>
+            `}
             <div class="usage-scenes__cases">
               <article class="usage-scenes__case">
                 <p class="usage-scenes__case-badge">
@@ -1078,6 +1194,41 @@
             </div>
           </div>
         </section>
+
+        ${isJapanese ? `
+        <section class="ja-pricing reveal" id="pricing-preview" aria-labelledby="pricing-preview-title">
+          <div class="ja-pricing__inner">
+            <div class="reveal__head ja-pricing__head">
+              <p class="ja-pricing__eyebrow">Plans</p>
+              <h2 id="pricing-preview-title">まずは無料。<br /><span class="ja-pricing__headline-line">必要になったら、<wbr />アップグレード。</span></h2>
+              <p>Freeプランはアカウント不要。有料プランは初回30日無料で、変更・解約はSideClipアプリ内から行えます。</p>
+            </div>
+            <div class="reveal__rest">
+              <div class="ja-pricing__grid">
+                <article class="ja-pricing__card">
+                  <p class="ja-pricing__label">まず試す</p>
+                  <h3>Free</h3>
+                  <p class="ja-pricing__price">¥0</p>
+                  <p class="ja-pricing__summary">コピー・スクショ履歴など、基本機能をすぐに体験できます。</p>
+                </article>
+                <article class="ja-pricing__card ja-pricing__card--recommended">
+                  <p class="ja-pricing__label">日常的に使う</p>
+                  <h3>Pro</h3>
+                  <p class="ja-pricing__price">¥300<span>/月</span></p>
+                  <p class="ja-pricing__summary">Todo、画像編集、クイックペーストなど、仕事向けの機能を追加します。</p>
+                </article>
+                <article class="ja-pricing__card">
+                  <p class="ja-pricing__label">履歴を資産として残す</p>
+                  <h3>Ultra</h3>
+                  <p class="ja-pricing__price">¥480<span>/月</span></p>
+                  <p class="ja-pricing__summary">無制限保存、CSV、バックアップと復元など、全機能を利用できます。</p>
+                </article>
+              </div>
+              <a class="ja-pricing__link" href="/plans">プランの違いを詳しく見る</a>
+            </div>
+          </div>
+        </section>
+        ` : ""}
 
         <section class="faq reveal" id="faq" aria-labelledby="faq-title">
           <div class="faq__inner">
@@ -1200,12 +1351,13 @@
           <div class="final-cta__copy">
             <div class="reveal__head">
               <p class="final-cta__eyebrow">Download</p>
-              <h2 id="cta-title">コピーの置き場所を、<br />Macの横に。</h2>
+              <h2 id="cta-title">${isJapanese ? "SideClipを、<br />あなたのMacで。" : "コピーの置き場所を、<br />Macの横に。"}</h2>
             </div>
             <div class="reveal__rest">
               <p>
-                Apple Silicon搭載Macで無料で始められます。<br />
-                ダウンロード後、SideClipアプリ内からプランを選べます。
+                ${isJapanese
+                  ? "アカウント登録なしで、Freeプランから始められます。"
+                  : "Apple Silicon搭載Macで無料で始められます。<br />ダウンロード後、SideClipアプリ内からプランを選べます。"}
               </p>
             </div>
           </div>
@@ -1214,17 +1366,29 @@
               <!-- ${icon.download} -->
               Macで無料ダウンロード
             </a>
-            <p>Apple Silicon搭載のMacに対応</p>
-            <nav class="cta-links" aria-label="補助リンク">
-              <a class="is-primary" href="#concept-video">コンセプト動画</a>
-              <a href="#features-title">SideClipの主な機能</a>
-              <a href="#usage-scenes-title">具体的な使用シーン</a>
-              <a href="#local-title">ローカル同期</a>
-              <a href="/plans">料金・プラン比較</a>
-            </nav>
-            <ul class="trust-list" aria-label="利用条件">
-              ${renderTrustItems()}
-            </ul>
+            <p>${isJapanese ? "macOS 26以降・Apple Silicon搭載Macに対応" : "Apple Silicon搭載のMacに対応"}</p>
+            ${isJapanese ? `
+              <nav class="cta-links cta-links--ja" aria-label="補助リンク">
+                <a href="#concept-video">製品デモ</a>
+                <a href="/plans">料金プラン</a>
+                <a href="./security.html">セキュリティ</a>
+              </nav>
+              <ul class="trust-list trust-list--ja" aria-label="利用条件">
+                <li>${icon.checkCircle}アカウント・ログイン不要</li>
+                <li>${icon.lock}コピー履歴はMac内に保存</li>
+              </ul>
+            ` : `
+              <nav class="cta-links" aria-label="補助リンク">
+                <a class="is-primary" href="#concept-video">コンセプト動画</a>
+                <a href="#features-title">SideClipの主な機能</a>
+                <a href="#usage-scenes-title">具体的な使用シーン</a>
+                <a href="#local-title">ローカル同期</a>
+                <a href="/plans">料金・プラン比較</a>
+              </nav>
+              <ul class="trust-list" aria-label="利用条件">
+                ${renderTrustItems()}
+              </ul>
+            `}
           </div>
         </section>
         </div>
@@ -1328,6 +1492,7 @@
     const syncRoot = document.getElementById("hero-flow-sync");
     const pathToPhone = syncRoot?.querySelector(".hero-flow-sync__path--to-phone");
     const pathToMac = syncRoot?.querySelector(".hero-flow-sync__path--to-mac");
+    const pasteStepIndex = flowItems.length === 3 ? 2 : 3;
     const ARROW_ANIM_MS = 1120;
 
     function triggerFlowPathAnim(path) {
@@ -1353,7 +1518,7 @@
       active = (active + 1) % Math.max(flowItems.length, 1);
       setActive(active);
       if (prev === 0 && active === 1) triggerFlowPathAnim(pathToPhone);
-      if (prev === 2 && active === 3) triggerFlowPathAnim(pathToMac);
+      if (prev === pasteStepIndex - 1 && active === pasteStepIndex) triggerFlowPathAnim(pathToMac);
     }, 1700);
   }
 

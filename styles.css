@@ -6103,3 +6103,629 @@ html[lang="en"] .site-footer__japan-legal:hover {
     white-space: nowrap;
   }
 }
+
+/* 2026-07 Japanese landing page information-design refresh.
+   English keeps the existing presentation while the Japanese page is
+   shorter, immediately readable, and keeps a download path in view. */
+.ja-desktop-nav,
+.ja-header-download,
+.ja-mobile-hero-cta {
+  display: none;
+}
+
+html[lang="ja"] {
+  scroll-padding-top: 76px;
+}
+
+html[lang="ja"] :is(#concept-video, #features-title, #usage-scenes-title, #local-title, #pricing-preview, #faq, #download) {
+  scroll-margin-top: 116px;
+}
+
+html[lang="ja"] :where(a, button, summary):focus-visible {
+  outline: 3px solid rgba(0, 113, 227, 0.38);
+  outline-offset: 3px;
+}
+
+html[lang="ja"].reveal-enabled .reveal:not(.is-visible) .reveal__head,
+html[lang="ja"].reveal-enabled .reveal:not(.is-visible) .reveal__rest,
+html[lang="ja"] .usage-scenes__case {
+  opacity: 1;
+  transform: none;
+}
+
+html[lang="ja"] .hero-scene-card {
+  display: none;
+}
+
+html[lang="ja"] .hero__content {
+  padding-top: 52px;
+  padding-bottom: 48px;
+}
+
+html[lang="ja"] .hero__banner-copy {
+  width: min(100%, 720px);
+  margin-bottom: 18px;
+  font-size: 3rem;
+}
+
+html[lang="ja"] .hero__hook {
+  max-width: 660px;
+  margin-bottom: 12px;
+  color: #4b5563;
+  font-size: 1.05rem;
+}
+
+html[lang="ja"] .hero__infographic-card {
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
+
+html[lang="ja"] .hero-highlight-row {
+  margin-top: 4px;
+  margin-bottom: 18px;
+}
+
+html[lang="ja"] .hero-highlight-card {
+  padding: 14px;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+html[lang="ja"] .hero-highlight-card__title {
+  font-size: 0.9rem;
+  letter-spacing: 0;
+}
+
+html[lang="ja"] .hero-highlight-card__text {
+  color: #4b5563;
+  font-size: 0.8rem;
+  letter-spacing: 0;
+}
+
+html[lang="ja"] .hero-kpis {
+  margin-top: 12px;
+}
+
+html[lang="ja"] .hero__content .download-button,
+html[lang="ja"] .hero__content .os-note {
+  display: none;
+}
+
+html[lang="ja"] .concept-video,
+html[lang="ja"] .benefits,
+html[lang="ja"] .clipboard-shift,
+html[lang="ja"] .features,
+html[lang="ja"] .usage-scenes,
+html[lang="ja"] .local-sync,
+html[lang="ja"] .faq,
+html[lang="ja"] .final-cta {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+html[lang="ja"] .concept-video {
+  background: #f5f7fa;
+}
+
+html[lang="ja"] .benefits {
+  background: #fff;
+}
+
+html[lang="ja"] .clipboard-shift {
+  background: #f5f7fa;
+}
+
+html[lang="ja"] .features {
+  background: #fff;
+}
+
+html[lang="ja"] .usage-scenes {
+  background: #eef6ff;
+}
+
+html[lang="ja"] .local-sync {
+  background: #fff;
+}
+
+html[lang="ja"] :is(
+  .concept-video__copy h2,
+  .benefits .section-copy h2,
+  .benefits-video-copy h3,
+  .clipboard-shift__title,
+  .features h2,
+  .usage-scenes h2,
+  .local-sync__heading,
+  .faq__title,
+  .final-cta h2,
+  .ja-pricing h2
+) {
+  font-size: 3.25rem;
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+html[lang="ja"] :is(
+  .concept-video__copy p,
+  .benefits .section-copy p,
+  .benefits-video-copy__text,
+  .clipboard-shift__lead,
+  .features__lead,
+  .usage-scenes__lead,
+  .local-sync__lead,
+  .faq__lead,
+  .ja-pricing__head > p:last-child
+) {
+  color: #4b5563;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+html[lang="ja"] .concept-video__visual,
+html[lang="ja"] .benefits-video {
+  border-radius: 8px;
+  box-shadow: 0 16px 36px rgba(7, 29, 69, 0.12);
+}
+
+html[lang="ja"] .benefits-video-showcase {
+  margin-top: 40px;
+}
+
+html[lang="ja"] .clipboard-shift__prose {
+  margin-top: 34px;
+}
+
+html[lang="ja"] .clipboard-shift__compare-block--sideclip {
+  border-color: rgba(0, 113, 227, 0.38);
+  box-shadow: inset 4px 0 0 #0071e3;
+}
+
+html[lang="ja"] .feature-grid {
+  margin-top: 40px;
+}
+
+html[lang="ja"] .feature-card {
+  border: 1px solid rgba(29, 29, 31, 0.08);
+  border-radius: 8px;
+  background: #f7f8fa;
+}
+
+html[lang="ja"] .feature-card__eyebrow {
+  display: inline-flex;
+  align-self: flex-start;
+  justify-self: start;
+  width: fit-content;
+  min-height: 26px;
+  margin-bottom: 12px;
+  padding: 0 10px;
+  align-items: center;
+  border-radius: 999px;
+  background: #e8f3ff;
+  color: #006fd6;
+  font-size: 0.72rem;
+  letter-spacing: 0;
+}
+
+html[lang="ja"] .feature-card p,
+html[lang="ja"] .usage-scenes__case-text,
+html[lang="ja"] .local-sync__point p,
+html[lang="ja"] .clipboard-shift__prose p,
+html[lang="ja"] .clipboard-shift__bullets {
+  color: #4b5563;
+}
+
+html[lang="ja"] .feature-card__panel img {
+  max-height: 430px;
+  object-fit: cover;
+  object-position: top;
+}
+
+html[lang="ja"] .usage-scenes__cases {
+  margin-top: 34px;
+}
+
+html[lang="ja"] .usage-scenes__case {
+  border-color: rgba(0, 113, 227, 0.12);
+}
+
+html[lang="ja"] .local-sync__detail-link a {
+  display: inline-flex;
+  min-height: 44px;
+  padding: 0 18px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 113, 227, 0.24);
+  border-radius: 999px;
+  background: #f7fbff;
+}
+
+.ja-pricing {
+  padding: 80px var(--section-pad-x);
+  background: #f5f7fa;
+}
+
+.ja-pricing__inner {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+}
+
+.ja-pricing__head {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ja-pricing__eyebrow {
+  margin: 0 0 12px;
+  color: #6e6e73;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ja-pricing h2 {
+  margin: 0;
+  color: #1d1d1f;
+  font-weight: 800;
+  text-wrap: balance;
+}
+
+.ja-pricing__headline-line {
+  white-space: nowrap;
+}
+
+.ja-pricing__head > p:last-child {
+  max-width: 650px;
+  margin: 20px auto 0;
+  font-weight: 600;
+}
+
+.ja-pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.ja-pricing__card {
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid rgba(29, 29, 31, 0.1);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.ja-pricing__card--recommended {
+  border-color: #0071e3;
+  box-shadow: inset 0 4px 0 #0071e3;
+}
+
+.ja-pricing__label {
+  min-height: 1.45em;
+  margin: 0 0 8px;
+  color: #6e6e73;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.ja-pricing__card h3 {
+  margin: 0;
+  color: #071d45;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.ja-pricing__price {
+  margin: 20px 0 14px;
+  color: #1d1d1f;
+  font-size: 2.3rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.ja-pricing__price span {
+  margin-left: 2px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #6e6e73;
+}
+
+.ja-pricing__summary {
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.ja-pricing__link {
+  display: flex;
+  width: fit-content;
+  min-height: 48px;
+  margin: 28px auto 0;
+  padding: 0 22px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #0071e3;
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+html[lang="ja"] .faq__inner {
+  max-width: 980px;
+}
+
+html[lang="ja"] .final-cta {
+  background: #eef6ff;
+}
+
+html[lang="ja"] .cta-links--ja {
+  margin-top: 18px;
+}
+
+html[lang="ja"] .cta-links--ja a {
+  min-height: 36px;
+  padding-inline: 13px;
+  background: #fff;
+  color: #1a4e86;
+  font-size: 0.78rem;
+}
+
+html[lang="ja"] .trust-list--ja {
+  gap: 8px;
+  align-items: flex-start;
+  margin-top: 18px;
+}
+
+html[lang="ja"] .trust-list--ja li {
+  font-size: 0.76rem;
+}
+
+html[lang="ja"] .trust-list--ja svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (min-width: 900px) {
+  html[lang="ja"] .hero__header-brand {
+    flex: 0 1 auto;
+  }
+
+  html[lang="ja"] .ja-desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-left: auto;
+    margin-right: 18px;
+  }
+
+  html[lang="ja"] .ja-desktop-nav a {
+    color: #324968;
+    font-size: 0.86rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  html[lang="ja"] .ja-desktop-nav a:hover {
+    color: #0071e3;
+  }
+
+  html[lang="ja"] .ja-header-download {
+    display: inline-flex;
+    min-height: 36px;
+    padding: 0 16px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #0071e3;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 899px) {
+  html[lang="ja"] .hero__menu-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  html[lang="ja"] .language-switch {
+    height: 42px;
+    padding: 3px;
+  }
+
+  html[lang="ja"] .language-switch__option {
+    width: 38px;
+    height: 34px;
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 680px) {
+  html[lang="ja"] {
+    --header-height: 60px;
+    scroll-padding-top: 70px;
+  }
+
+  html[lang="ja"] :is(#concept-video, #features-title, #usage-scenes-title, #local-title, #pricing-preview, #faq, #download) {
+    scroll-margin-top: 92px;
+  }
+
+  html[lang="ja"] .hero__header {
+    min-height: var(--header-height);
+  }
+
+  html[lang="ja"] .hero__header-actions {
+    gap: 5px;
+  }
+
+  html[lang="ja"] .hero__banner-overlay {
+    max-width: 58%;
+    padding-left: 18px;
+  }
+
+  html[lang="ja"] .hero__banner-overlay-lead {
+    font-size: 1.2rem;
+  }
+
+  html[lang="ja"] .hero__banner-overlay-sub {
+    width: 13.5em;
+    max-width: 46vw;
+    font-size: 0.7rem;
+    line-height: 1.5;
+  }
+
+  html[lang="ja"] .ja-mobile-hero-cta {
+    position: relative;
+    z-index: 4;
+    display: grid;
+    gap: 7px;
+    padding: 16px 24px 18px;
+    background: #fff;
+    text-align: center;
+  }
+
+  html[lang="ja"] .ja-mobile-hero-cta a {
+    display: flex;
+    width: min(100%, 320px);
+    min-height: 48px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #0071e3;
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  html[lang="ja"] .ja-mobile-hero-cta p {
+    margin: 0;
+    color: #6e6e73;
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+
+  html[lang="ja"] .hero__content {
+    padding: 42px 22px 44px;
+  }
+
+  html[lang="ja"] .hero__banner-copy {
+    margin-bottom: 14px;
+    font-size: 2rem;
+  }
+
+  html[lang="ja"] .hero__hook {
+    max-width: 25em;
+    font-size: 0.9rem;
+  }
+
+  html[lang="ja"] .hero__infographic-card {
+    margin: 24px auto;
+  }
+
+  html[lang="ja"] .hero-highlight-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  html[lang="ja"] .hero-highlight-card {
+    min-height: 80px;
+    padding: 10px 12px;
+  }
+
+  html[lang="ja"] .hero-highlight-card__icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  html[lang="ja"] .concept-video,
+  html[lang="ja"] .benefits,
+  html[lang="ja"] .clipboard-shift,
+  html[lang="ja"] .features,
+  html[lang="ja"] .usage-scenes,
+  html[lang="ja"] .local-sync,
+  html[lang="ja"] .faq,
+  html[lang="ja"] .final-cta,
+  html[lang="ja"] .ja-pricing {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  html[lang="ja"] :is(
+    .concept-video__copy h2,
+    .benefits .section-copy h2,
+    .benefits-video-copy h3,
+    .clipboard-shift__title,
+    .features h2,
+    .usage-scenes h2,
+    .local-sync__heading,
+    .faq__title,
+    .final-cta h2,
+    .ja-pricing h2
+  ) {
+    font-size: 2rem;
+    line-height: 1.18;
+  }
+
+  html[lang="ja"] :is(
+    .concept-video__copy p,
+    .benefits .section-copy p,
+    .benefits-video-copy__text,
+    .clipboard-shift__lead,
+    .features__lead,
+    .usage-scenes__lead,
+    .local-sync__lead,
+    .faq__lead,
+    .ja-pricing__head > p:last-child
+  ) {
+    font-size: 0.9rem;
+  }
+
+  html[lang="ja"] .benefits-video-showcase {
+    margin-top: 30px;
+  }
+
+  html[lang="ja"] .clipboard-shift__compare,
+  html[lang="ja"] .usage-scenes__cases,
+  html[lang="ja"] .local-sync__points,
+  .ja-pricing__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ja-pricing__headline-line {
+    white-space: normal;
+  }
+
+  html[lang="ja"] .feature-card__panel img {
+    max-height: 250px;
+  }
+
+  .ja-pricing__grid {
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .ja-pricing__card {
+    padding: 22px;
+  }
+
+  html[lang="ja"] .final-cta__copy p {
+    max-width: 28em;
+  }
+
+  html[lang="ja"] .final-cta__action {
+    margin-top: 26px;
+  }
+
+  html[lang="ja"] .trust-list--ja {
+    align-items: center;
+  }
+}

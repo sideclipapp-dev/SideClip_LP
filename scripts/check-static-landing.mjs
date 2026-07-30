@@ -12,7 +12,7 @@ const checks = [
   {
     file: "ja/index.html",
     lang: "ja",
-    required: ["コピー。表示。タップ。ペースト。", "Macで無料ダウンロード", "料金プラン"]
+    required: ["コピー履歴を、", "Macで無料ダウンロード", "料金プラン"]
   }
 ];
 
