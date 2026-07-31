@@ -24,6 +24,9 @@ for (const check of checks) {
   if (!html.includes('id="root" data-static-landing=""')) {
     throw new Error(`${check.file} does not contain the prerendered landing root.`);
   }
+  if (!html.includes('/regional-pricing.js')) {
+    throw new Error(`${check.file} does not load regional pricing.`);
+  }
   for (const text of check.required) {
     if (!html.includes(text)) {
       throw new Error(`${check.file} is missing prerendered text: ${text}`);

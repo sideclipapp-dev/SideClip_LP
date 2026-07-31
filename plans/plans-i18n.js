@@ -7,6 +7,12 @@
     document.head.appendChild(analyticsScript);
   }
 
+  if (!window.SideClipRegionalPricing && !document.querySelector('script[src^="/regional-pricing.js"]')) {
+    const pricingScript = document.createElement("script");
+    pricingScript.src = "/regional-pricing.js?v=20260801-regional-pricing";
+    document.head.appendChild(pricingScript);
+  }
+
   const STORAGE_KEY = "sideclip_language_v1";
   const STYLE_ID = "sideclip-plans-i18n-style";
   const originalText = new WeakMap();
@@ -182,7 +188,7 @@
   function applyText() {
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode(node) {
-        return node.parentElement && !node.parentElement.closest("script, style") ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        return node.parentElement && !node.parentElement.closest("script, style, [data-regional-price]") ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
       }
     });
     const nodes = [];
@@ -277,6 +283,7 @@
     applyMeta();
     updateLocalizedLinks();
     updateControls();
+    window.SideClipRegionalPricing?.apply?.();
     applying = false;
   }
 

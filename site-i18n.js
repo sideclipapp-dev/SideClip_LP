@@ -1224,6 +1224,7 @@
 
     updateLocalizedLinks(page);
     initLanguageControls(document);
+    window.SideClipRegionalPricing?.apply?.();
   }
 
   function trackLanguageView(lang, source) {
