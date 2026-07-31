@@ -6432,12 +6432,18 @@ html[lang="ja"] .local-sync__detail-link a {
 }
 
 .ja-pricing__daily {
-  min-height: 1.5em;
+  min-height: 3em;
   margin: 8px 0 14px;
   color: #0071e3;
   font-size: 0.78rem;
   font-weight: 700;
   line-height: 1.5;
+}
+
+.ja-pricing__daily span {
+  display: block;
+  color: #6e6e73;
+  font-weight: 600;
 }
 
 .ja-pricing__daily--empty {
