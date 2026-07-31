@@ -7,7 +7,7 @@ const checks = [
   {
     file: "index.html",
     lang: "en",
-    required: ["Copy. See it. Tap. Paste.", "Download free for Mac", "Plans &amp; pricing"]
+    required: ["Three steps. Ready to paste.", "Download free for Mac", "Plans &amp; pricing"]
   },
   {
     file: "ja/index.html",

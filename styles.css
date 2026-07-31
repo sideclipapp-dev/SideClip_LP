@@ -6104,130 +6104,128 @@ html[lang="en"] .site-footer__japan-legal:hover {
   }
 }
 
-/* 2026-07 Japanese landing page information-design refresh.
-   English keeps the existing presentation while the Japanese page is
-   shorter, immediately readable, and keeps a download path in view. */
+/* 2026-08 streamlined landing-page information design. */
 .ja-desktop-nav,
 .ja-header-download,
 .ja-mobile-hero-cta {
   display: none;
 }
 
-html[lang="ja"] {
+html.landing-refresh {
   scroll-padding-top: 76px;
 }
 
-html[lang="ja"] :is(#concept-video, #features-title, #usage-scenes-title, #local-title, #pricing-preview, #faq, #download) {
+html.landing-refresh :is(#concept-video, #features-title, #usage-scenes-title, #local-title, #pricing-preview, #faq, #download) {
   scroll-margin-top: 116px;
 }
 
-html[lang="ja"] :where(a, button, summary):focus-visible {
+html.landing-refresh :where(a, button, summary):focus-visible {
   outline: 3px solid rgba(0, 113, 227, 0.38);
   outline-offset: 3px;
 }
 
-html[lang="ja"].reveal-enabled .reveal:not(.is-visible) .reveal__head,
-html[lang="ja"].reveal-enabled .reveal:not(.is-visible) .reveal__rest,
-html[lang="ja"] .usage-scenes__case {
+html.landing-refresh.reveal-enabled .reveal:not(.is-visible) .reveal__head,
+html.landing-refresh.reveal-enabled .reveal:not(.is-visible) .reveal__rest,
+html.landing-refresh .usage-scenes__case {
   opacity: 1;
   transform: none;
 }
 
-html[lang="ja"] .hero-scene-card {
+html.landing-refresh .hero-scene-card {
   display: none;
 }
 
-html[lang="ja"] .hero__content {
+html.landing-refresh .hero__content {
   padding-top: 52px;
   padding-bottom: 48px;
 }
 
-html[lang="ja"] .hero__banner-copy {
+html.landing-refresh .hero__banner-copy {
   width: min(100%, 720px);
   margin-bottom: 18px;
   font-size: 3rem;
 }
 
-html[lang="ja"] .hero__hook {
+html.landing-refresh .hero__hook {
   max-width: 660px;
   margin-bottom: 12px;
   color: #4b5563;
   font-size: 1.05rem;
 }
 
-html[lang="ja"] .hero__infographic-card {
+html.landing-refresh .hero__infographic-card {
   margin-top: 28px;
   margin-bottom: 28px;
 }
 
-html[lang="ja"] .hero-highlight-row {
+html.landing-refresh .hero-highlight-row {
   margin-top: 4px;
   margin-bottom: 18px;
 }
 
-html[lang="ja"] .hero-highlight-card {
+html.landing-refresh .hero-highlight-card {
   padding: 14px;
   border-radius: 8px;
   box-shadow: none;
 }
 
-html[lang="ja"] .hero-highlight-card__title {
+html.landing-refresh .hero-highlight-card__title {
   font-size: 0.9rem;
   letter-spacing: 0;
 }
 
-html[lang="ja"] .hero-highlight-card__text {
+html.landing-refresh .hero-highlight-card__text {
   color: #4b5563;
   font-size: 0.8rem;
   letter-spacing: 0;
 }
 
-html[lang="ja"] .hero-kpis {
+html.landing-refresh .hero-kpis {
   margin-top: 12px;
 }
 
-html[lang="ja"] .hero__content .download-button,
-html[lang="ja"] .hero__content .os-note {
+html.landing-refresh .hero__content .download-button,
+html.landing-refresh .hero__content .os-note {
   display: none;
 }
 
-html[lang="ja"] .concept-video,
-html[lang="ja"] .benefits,
-html[lang="ja"] .clipboard-shift,
-html[lang="ja"] .features,
-html[lang="ja"] .usage-scenes,
-html[lang="ja"] .local-sync,
-html[lang="ja"] .faq,
-html[lang="ja"] .final-cta {
+html.landing-refresh .concept-video,
+html.landing-refresh .benefits,
+html.landing-refresh .clipboard-shift,
+html.landing-refresh .features,
+html.landing-refresh .usage-scenes,
+html.landing-refresh .local-sync,
+html.landing-refresh .faq,
+html.landing-refresh .final-cta {
   padding-top: 80px;
   padding-bottom: 80px;
 }
 
-html[lang="ja"] .concept-video {
+html.landing-refresh .concept-video {
   background: #f5f7fa;
 }
 
-html[lang="ja"] .benefits {
+html.landing-refresh .benefits {
   background: #fff;
 }
 
-html[lang="ja"] .clipboard-shift {
+html.landing-refresh .clipboard-shift {
   background: #f5f7fa;
 }
 
-html[lang="ja"] .features {
+html.landing-refresh .features {
   background: #fff;
 }
 
-html[lang="ja"] .usage-scenes {
+html.landing-refresh .usage-scenes {
   background: #eef6ff;
 }
 
-html[lang="ja"] .local-sync {
+html.landing-refresh .local-sync {
   background: #fff;
 }
 
-html[lang="ja"] :is(
+html.landing-refresh :is(
   .concept-video__copy h2,
   .benefits .section-copy h2,
   .benefits-video-copy h3,
@@ -6244,7 +6242,7 @@ html[lang="ja"] :is(
   letter-spacing: 0;
 }
 
-html[lang="ja"] :is(
+html.landing-refresh :is(
   .concept-video__copy p,
   .benefits .section-copy p,
   .benefits-video-copy__text,
@@ -6260,36 +6258,36 @@ html[lang="ja"] :is(
   line-height: 1.75;
 }
 
-html[lang="ja"] .concept-video__visual,
-html[lang="ja"] .benefits-video {
+html.landing-refresh .concept-video__visual,
+html.landing-refresh .benefits-video {
   border-radius: 8px;
   box-shadow: 0 16px 36px rgba(7, 29, 69, 0.12);
 }
 
-html[lang="ja"] .benefits-video-showcase {
+html.landing-refresh .benefits-video-showcase {
   margin-top: 40px;
 }
 
-html[lang="ja"] .clipboard-shift__prose {
+html.landing-refresh .clipboard-shift__prose {
   margin-top: 34px;
 }
 
-html[lang="ja"] .clipboard-shift__compare-block--sideclip {
+html.landing-refresh .clipboard-shift__compare-block--sideclip {
   border-color: rgba(0, 113, 227, 0.38);
   box-shadow: inset 4px 0 0 #0071e3;
 }
 
-html[lang="ja"] .feature-grid {
+html.landing-refresh .feature-grid {
   margin-top: 40px;
 }
 
-html[lang="ja"] .feature-card {
+html.landing-refresh .feature-card {
   border: 1px solid rgba(29, 29, 31, 0.08);
   border-radius: 8px;
   background: #f7f8fa;
 }
 
-html[lang="ja"] .feature-card__eyebrow {
+html.landing-refresh .feature-card__eyebrow {
   display: inline-flex;
   align-self: flex-start;
   justify-self: start;
@@ -6305,29 +6303,29 @@ html[lang="ja"] .feature-card__eyebrow {
   letter-spacing: 0;
 }
 
-html[lang="ja"] .feature-card p,
-html[lang="ja"] .usage-scenes__case-text,
-html[lang="ja"] .local-sync__point p,
-html[lang="ja"] .clipboard-shift__prose p,
-html[lang="ja"] .clipboard-shift__bullets {
+html.landing-refresh .feature-card p,
+html.landing-refresh .usage-scenes__case-text,
+html.landing-refresh .local-sync__point p,
+html.landing-refresh .clipboard-shift__prose p,
+html.landing-refresh .clipboard-shift__bullets {
   color: #4b5563;
 }
 
-html[lang="ja"] .feature-card__panel img {
+html.landing-refresh .feature-card__panel img {
   max-height: 430px;
   object-fit: cover;
   object-position: top;
 }
 
-html[lang="ja"] .usage-scenes__cases {
+html.landing-refresh .usage-scenes__cases {
   margin-top: 34px;
 }
 
-html[lang="ja"] .usage-scenes__case {
+html.landing-refresh .usage-scenes__case {
   border-color: rgba(0, 113, 227, 0.12);
 }
 
-html[lang="ja"] .local-sync__detail-link a {
+html.landing-refresh .local-sync__detail-link a {
   display: inline-flex;
   min-height: 44px;
   padding: 0 18px;
@@ -6481,19 +6479,19 @@ html[lang="ja"] .local-sync__detail-link a {
   text-decoration: none;
 }
 
-html[lang="ja"] .faq__inner {
+html.landing-refresh .faq__inner {
   max-width: 980px;
 }
 
-html[lang="ja"] .final-cta {
+html.landing-refresh .final-cta {
   background: #eef6ff;
 }
 
-html[lang="ja"] .cta-links--ja {
+html.landing-refresh .cta-links--ja {
   margin-top: 18px;
 }
 
-html[lang="ja"] .cta-links--ja a {
+html.landing-refresh .cta-links--ja a {
   min-height: 36px;
   padding-inline: 13px;
   background: #fff;
@@ -6501,27 +6499,27 @@ html[lang="ja"] .cta-links--ja a {
   font-size: 0.78rem;
 }
 
-html[lang="ja"] .trust-list--ja {
+html.landing-refresh .trust-list--ja {
   gap: 8px;
   align-items: flex-start;
   margin-top: 18px;
 }
 
-html[lang="ja"] .trust-list--ja li {
+html.landing-refresh .trust-list--ja li {
   font-size: 0.76rem;
 }
 
-html[lang="ja"] .trust-list--ja svg {
+html.landing-refresh .trust-list--ja svg {
   width: 18px;
   height: 18px;
 }
 
 @media (min-width: 900px) {
-  html[lang="ja"] .hero__header-brand {
+  html.landing-refresh .hero__header-brand {
     flex: 0 1 auto;
   }
 
-  html[lang="ja"] .ja-desktop-nav {
+  html.landing-refresh .ja-desktop-nav {
     display: flex;
     align-items: center;
     gap: 28px;
@@ -6529,18 +6527,18 @@ html[lang="ja"] .trust-list--ja svg {
     margin-right: 18px;
   }
 
-  html[lang="ja"] .ja-desktop-nav a {
+  html.landing-refresh .ja-desktop-nav a {
     color: #324968;
     font-size: 0.86rem;
     font-weight: 700;
     text-decoration: none;
   }
 
-  html[lang="ja"] .ja-desktop-nav a:hover {
+  html.landing-refresh .ja-desktop-nav a:hover {
     color: #0071e3;
   }
 
-  html[lang="ja"] .ja-header-download {
+  html.landing-refresh .ja-header-download {
     display: inline-flex;
     min-height: 36px;
     padding: 0 16px;
@@ -6557,17 +6555,17 @@ html[lang="ja"] .trust-list--ja svg {
 }
 
 @media (max-width: 899px) {
-  html[lang="ja"] .hero__menu-button {
+  html.landing-refresh .hero__menu-button {
     width: 44px;
     height: 44px;
   }
 
-  html[lang="ja"] .language-switch {
+  html.landing-refresh .language-switch {
     height: 42px;
     padding: 3px;
   }
 
-  html[lang="ja"] .language-switch__option {
+  html.landing-refresh .language-switch__option {
     width: 38px;
     height: 34px;
     font-size: 0.72rem;
@@ -6575,40 +6573,62 @@ html[lang="ja"] .trust-list--ja svg {
 }
 
 @media (max-width: 680px) {
-  html[lang="ja"] {
+  html.landing-refresh {
     --header-height: 60px;
     scroll-padding-top: 70px;
   }
 
-  html[lang="ja"] :is(#concept-video, #features-title, #usage-scenes-title, #local-title, #pricing-preview, #faq, #download) {
+  html.landing-refresh :is(#concept-video, #features-title, #usage-scenes-title, #local-title, #pricing-preview, #faq, #download) {
     scroll-margin-top: 92px;
   }
 
-  html[lang="ja"] .hero__header {
+  html.landing-refresh .hero__header {
     min-height: var(--header-height);
   }
 
-  html[lang="ja"] .hero__header-actions {
+  html.landing-refresh .hero__header-actions {
     gap: 5px;
   }
 
-  html[lang="ja"] .hero__banner-overlay {
+  html.landing-refresh .hero__banner-overlay {
     max-width: 58%;
     padding-left: 18px;
   }
 
-  html[lang="ja"] .hero__banner-overlay-lead {
+  html.landing-refresh .hero__banner-overlay-lead {
     font-size: 1.2rem;
   }
 
-  html[lang="ja"] .hero__banner-overlay-sub {
+  html.landing-refresh .hero__banner-overlay-sub {
     width: 13.5em;
     max-width: 46vw;
     font-size: 0.7rem;
     line-height: 1.5;
   }
 
-  html[lang="ja"] .ja-mobile-hero-cta {
+  html[lang="en"].landing-refresh .hero__banner-eyebrow {
+    display: none;
+  }
+
+  html[lang="en"].landing-refresh .hero__banner-overlay {
+    justify-content: flex-start;
+    gap: 5px;
+    padding-top: 8px;
+  }
+
+  html[lang="en"].landing-refresh .hero__banner-overlay-lead {
+    font-size: 1.05rem;
+    line-height: 1.15;
+  }
+
+  html[lang="en"].landing-refresh .hero__banner-overlay-sub {
+    width: 16.5em;
+    max-width: 48vw;
+    font-size: 0.62rem;
+    line-height: 1.35;
+  }
+
+  html.landing-refresh .ja-mobile-hero-cta {
     position: relative;
     z-index: 4;
     display: grid;
@@ -6618,7 +6638,7 @@ html[lang="ja"] .trust-list--ja svg {
     text-align: center;
   }
 
-  html[lang="ja"] .ja-mobile-hero-cta a {
+  html.landing-refresh .ja-mobile-hero-cta a {
     display: flex;
     width: min(100%, 320px);
     min-height: 48px;
@@ -6633,60 +6653,60 @@ html[lang="ja"] .trust-list--ja svg {
     text-decoration: none;
   }
 
-  html[lang="ja"] .ja-mobile-hero-cta p {
+  html.landing-refresh .ja-mobile-hero-cta p {
     margin: 0;
     color: #6e6e73;
     font-size: 0.72rem;
     font-weight: 600;
   }
 
-  html[lang="ja"] .hero__content {
+  html.landing-refresh .hero__content {
     padding: 42px 22px 44px;
   }
 
-  html[lang="ja"] .hero__banner-copy {
+  html.landing-refresh .hero__banner-copy {
     margin-bottom: 14px;
     font-size: 2rem;
   }
 
-  html[lang="ja"] .hero__hook {
+  html.landing-refresh .hero__hook {
     max-width: 25em;
     font-size: 0.9rem;
   }
 
-  html[lang="ja"] .hero__infographic-card {
+  html.landing-refresh .hero__infographic-card {
     margin: 24px auto;
   }
 
-  html[lang="ja"] .hero-highlight-row {
+  html.landing-refresh .hero-highlight-row {
     grid-template-columns: 1fr;
     gap: 8px;
   }
 
-  html[lang="ja"] .hero-highlight-card {
+  html.landing-refresh .hero-highlight-card {
     min-height: 80px;
     padding: 10px 12px;
   }
 
-  html[lang="ja"] .hero-highlight-card__icon {
+  html.landing-refresh .hero-highlight-card__icon {
     width: 44px;
     height: 44px;
   }
 
-  html[lang="ja"] .concept-video,
-  html[lang="ja"] .benefits,
-  html[lang="ja"] .clipboard-shift,
-  html[lang="ja"] .features,
-  html[lang="ja"] .usage-scenes,
-  html[lang="ja"] .local-sync,
-  html[lang="ja"] .faq,
-  html[lang="ja"] .final-cta,
-  html[lang="ja"] .ja-pricing {
+  html.landing-refresh .concept-video,
+  html.landing-refresh .benefits,
+  html.landing-refresh .clipboard-shift,
+  html.landing-refresh .features,
+  html.landing-refresh .usage-scenes,
+  html.landing-refresh .local-sync,
+  html.landing-refresh .faq,
+  html.landing-refresh .final-cta,
+  html.landing-refresh .ja-pricing {
     padding-top: 56px;
     padding-bottom: 56px;
   }
 
-  html[lang="ja"] :is(
+  html.landing-refresh :is(
     .concept-video__copy h2,
     .benefits .section-copy h2,
     .benefits-video-copy h3,
@@ -6702,7 +6722,7 @@ html[lang="ja"] .trust-list--ja svg {
     line-height: 1.18;
   }
 
-  html[lang="ja"] :is(
+  html.landing-refresh :is(
     .concept-video__copy p,
     .benefits .section-copy p,
     .benefits-video-copy__text,
@@ -6716,13 +6736,13 @@ html[lang="ja"] .trust-list--ja svg {
     font-size: 0.9rem;
   }
 
-  html[lang="ja"] .benefits-video-showcase {
+  html.landing-refresh .benefits-video-showcase {
     margin-top: 30px;
   }
 
-  html[lang="ja"] .clipboard-shift__compare,
-  html[lang="ja"] .usage-scenes__cases,
-  html[lang="ja"] .local-sync__points,
+  html.landing-refresh .clipboard-shift__compare,
+  html.landing-refresh .usage-scenes__cases,
+  html.landing-refresh .local-sync__points,
   .ja-pricing__grid {
     grid-template-columns: 1fr;
   }
@@ -6731,7 +6751,7 @@ html[lang="ja"] .trust-list--ja svg {
     white-space: normal;
   }
 
-  html[lang="ja"] .feature-card__panel img {
+  html.landing-refresh .feature-card__panel img {
     max-height: 250px;
   }
 
@@ -6744,15 +6764,15 @@ html[lang="ja"] .trust-list--ja svg {
     padding: 22px;
   }
 
-  html[lang="ja"] .final-cta__copy p {
+  html.landing-refresh .final-cta__copy p {
     max-width: 28em;
   }
 
-  html[lang="ja"] .final-cta__action {
+  html.landing-refresh .final-cta__action {
     margin-top: 26px;
   }
 
-  html[lang="ja"] .trust-list--ja {
+  html.landing-refresh .trust-list--ja {
     align-items: center;
   }
 }

@@ -38,7 +38,7 @@
   const ASSETS = {
     heroMain: isJapaneseLanding()
       ? `/assets/optimized-ja/hero-background.jpg?v=${ASSET_VERSION}`
-      : `/assets/hero_blank_clean.png?v=${ASSET_VERSION}`,
+      : `/assets/optimized-en/hero-background.jpg?v=${ASSET_VERSION}`,
     heroPhone: `/assets/hero_phone_v2_web.png?v=${ASSET_VERSION}`,
     heroMainFallback: `/assets/hero-banner.jpg?v=${ASSET_VERSION}`,
     stepCopy: `/assets/step-copy.png?v=${ASSET_VERSION}`,
@@ -47,23 +47,23 @@
     stepPaste: `/assets/step-paste.png?v=${ASSET_VERSION}`,
     featureHistory: isJapaneseLanding()
       ? `/assets/optimized-ja/feature-history.jpg?v=${ASSET_VERSION}`
-      : `/assets/feature-panel-history.jpg?v=${ASSET_VERSION}`,
+      : `/assets/optimized-en/feature-history.jpg?v=${ASSET_VERSION}`,
     featureFavorite: isJapaneseLanding()
       ? `/assets/optimized-ja/feature-favorite.jpg?v=${ASSET_VERSION}`
-      : `/assets/feature-panel-favorite.jpg?v=${ASSET_VERSION}`,
+      : `/assets/optimized-en/feature-favorite.jpg?v=${ASSET_VERSION}`,
     featureSearch: isJapaneseLanding()
       ? `/assets/optimized-ja/feature-search.jpg?v=${ASSET_VERSION}`
-      : `/assets/feature-panel-search.png?v=${ASSET_VERSION}`,
+      : `/assets/optimized-en/feature-search.jpg?v=${ASSET_VERSION}`,
     featureTodo: isJapaneseLanding()
       ? `/assets/optimized-ja/feature-todo.jpg?v=${ASSET_VERSION}`
-      : `/assets/feature-panel-todo.jpg?v=${ASSET_VERSION}`,
+      : `/assets/optimized-en/feature-todo.jpg?v=${ASSET_VERSION}`,
     featureScan: isJapaneseLanding()
       ? `/assets/optimized-ja/feature-scan.jpg?v=${ASSET_VERSION}`
-      : `/assets/feature-panel-scan.jpg?v=${ASSET_VERSION}`,
+      : `/assets/optimized-en/feature-scan.jpg?v=${ASSET_VERSION}`,
     usageScenes: `/assets/具体シーン.png?v=${ASSET_VERSION}`,
     clipboardDifference: isJapaneseLanding()
       ? `/assets/optimized-ja/clipboard-difference.jpg?v=${ASSET_VERSION}`
-      : `/assets/違い.jpeg?v=${ASSET_VERSION}`,
+      : `/assets/optimized-en/clipboard-difference.jpg?v=${ASSET_VERSION}`,
     flowIconMac: isJapaneseLanding()
       ? `/assets/optimized-ja/flow-icon-mac.png?v=${ASSET_VERSION}`
       : `/assets/flow-icon-mac.png?v=${ASSET_VERSION}`,
@@ -177,32 +177,25 @@
     `,
   };
 
-  /** ヒーロー mini-flow と Tap セクションの4ステップで共通（ラベル・アイコン・アニメ連動を同期） */
-  const tapFlowSteps = [
+  const tapFlowStepsEn = [
     {
       number: "01",
-      title: "Macで<br />コピー",
+      title: "Copy on<br />Mac",
       iconSrc: ASSETS.flowIconMac,
-      alt: "Macでコピーするステップ",
+      alt: "Copy on Mac",
     },
     {
       number: "02",
-      title: "スマホに<br />表示",
+      title: "Added to<br />your phone",
       iconSrc: ASSETS.flowIconPhone,
-      alt: "スマホへコピー内容が自動追加されるステップ",
+      alt: "Copied content is added to your phone",
       labelAccent: true,
     },
     {
       number: "03",
-      title: "スマホを<br />タップ",
+      title: "Tap to paste<br />on Mac",
       iconSrc: ASSETS.flowIconTap,
-      alt: "スマホ画面をタップするステップ",
-    },
-    {
-      number: "04",
-      title: "Macへ<br />ペースト",
-      iconSrc: ASSETS.flowIconCheck,
-      alt: "Macへ即座にペーストされるステップ",
+      alt: "Tap a phone card to paste on Mac",
     },
   ];
 
@@ -331,13 +324,13 @@
   ];
 
   function renderMiniFlow() {
-    const steps = isJapaneseLanding() ? tapFlowStepsJa : tapFlowSteps;
+    const steps = isJapaneseLanding() ? tapFlowStepsJa : tapFlowStepsEn;
     return steps
       .map((step, index) => {
         const labelClass = step.labelAccent ? " step-card__label--accent" : "";
         const plusClass = step.plusBadge ? " step-card__icon-ring--plus" : "";
         const iconInner = step.iconSrc
-          ? `<img class="flow-step-icon-img" src="${step.iconSrc}" alt="${step.alt}" width="56" height="56" loading="${isJapaneseLanding() ? "lazy" : "eager"}" decoding="async" />`
+          ? `<img class="flow-step-icon-img" src="${step.iconSrc}" alt="${step.alt}" width="56" height="56" loading="lazy" decoding="async" />`
           : `<span class="flow-icon flow-icon--svg flow-icon--tap-step ${step.flowIconExtra || ""}" aria-hidden="true">${step.svg}</span>`;
         const item = `
           <li class="step-card step-card--infographic mini-flow__step interactive-card" data-flow-index="${index}">
@@ -498,16 +491,13 @@
               <span lang="en">Clipboard app</span>
             </p>
           </div>
-          ${isJapanese ? `
           <nav class="ja-desktop-nav" aria-label="主要メニュー">
             <a href="#concept-video">デモ</a>
             <a href="#features-title">主な機能</a>
             <a href="/plans">料金</a>
           </nav>
-          ` : ""}
           <div class="hero__header-actions">
             ${renderLanguageSwitch()}
-            ${isJapanese ? `
             <a
               class="ja-header-download"
               href="${MAC_DOWNLOAD_URL}"
@@ -515,7 +505,6 @@
               data-cta-id="header_download"
               data-cta-section="header"
             >無料ダウンロード</a>
-            ` : ""}
             <button
               type="button"
               class="hero__menu-button"
@@ -572,15 +561,9 @@
                   <p class="hero__banner-eyebrow hero__banner-overlay-line hero__banner-overlay-line--eyebrow">
                     SideClip for Mac
                   </p>
-                  ${isJapanese ? `
                   <h1 id="hero-title" class="hero__banner-overlay-lead hero__banner-overlay-line hero__banner-overlay-line--lead">
                     コピー履歴を、<br />Macから<span class="hero__banner-accent">スマホ</span>へ。
                   </h1>
-                  ` : `
-                  <p class="hero__banner-overlay-lead hero__banner-overlay-line hero__banner-overlay-line--lead">
-                    コピー履歴を、<br />Macの<span class="hero__banner-accent">外</span>へ。
-                  </p>
-                  `}
                   <p class="hero__banner-overlay-sub hero__banner-overlay-line hero__banner-overlay-line--sub">
                     Macでコピーしたテキストや画像が、<br />横のスマホへ自動で並びます。
                   </p>
@@ -602,7 +585,6 @@
             </div>
           </div>
         </section>
-        ${isJapanese ? `
         <div class="ja-mobile-hero-cta" aria-label="SideClipを始める">
           <a
             href="${MAC_DOWNLOAD_URL}"
@@ -612,7 +594,6 @@
           >Macで無料ダウンロード</a>
           <p>アカウント不要・Freeプランあり</p>
         </div>
-        ` : ""}
 
         <div class="section-drawer" id="section-drawer" aria-hidden="true">
           <button type="button" class="section-drawer__backdrop" aria-label="メニューを閉じる" data-section-menu-close></button>
@@ -628,17 +609,13 @@
               <a href="#download" data-section-menu-link>ダウンロード</a>
             ` : `
               <a href="#hero-title" data-section-menu-link>トップ</a>
-              <a href="#concept-video" data-section-menu-link>コンセプト動画</a>
-              <a href="#tap-title" data-section-menu-link>使い方</a>
-              <a href="#benefits-title" data-section-menu-link>メリット</a>
-              <a href="#clipboard-shift-title" data-section-menu-link>他のツールとの違い</a>
+              <a href="#concept-video" data-section-menu-link>Product demo</a>
               <a href="#features-title" data-section-menu-link>主な機能</a>
               <a href="#usage-scenes-title" data-section-menu-link>使用シーン</a>
               <a href="#local-title" data-section-menu-link>ローカル同期</a>
+              <a href="/plans">料金プラン</a>
               <a href="#faq" data-section-menu-link>FAQ</a>
               <a href="#download" data-section-menu-link>ダウンロード</a>
-              <a href="/plans">料金プラン</a>
-              <a href="#site-legal-footer" data-section-menu-link>ポリシー・規約</a>
             `}
           </nav>
         </div>
@@ -651,23 +628,13 @@
           <div class="reveal__rest">
           <p class="hero__hook">Macでコピーすると、スマホにカードが自動追加。<br />必要なカードをタップすれば、Macへそのままペーストできます。</p>
           <div class="hero__infographic-card">
-            ${isJapanese ? `
             <h2 class="hero__infographic-title">
               <span class="tap-infographic__title-stack">
                 <span class="tap-infographic__title-line tap-infographic__title-line--primary">
-                  3ステップで、すぐ使えます。
+                  ${isJapanese ? "3ステップで、すぐ使えます。" : "Three steps. Ready to paste."}
                 </span>
               </span>
             </h2>
-            ` : `
-            <h1 id="hero-title" class="hero__infographic-title">
-              <span class="tap-infographic__title-stack">
-                <span class="tap-infographic__title-line tap-infographic__title-line--primary">
-                  コピー。表示。タップ。ペースト。
-                </span>
-              </span>
-            </h1>
-            `}
             <div class="hero-flow-sync" id="hero-flow-sync" data-hero-flow-step="0" aria-hidden="true">
               <div class="hero-flow-sync__frame">
                 <img
@@ -936,31 +903,6 @@
           </div>
         </section>
 
-        ${isJapanese ? "" : `
-        <section class="tap-section" aria-labelledby="tap-title">
-          <div class="tap-section__reveal reveal">
-            <div class="section-copy section-copy--tap">
-              <div class="reveal__head">
-                <h2 id="tap-title">タップで、<br class="mobile-break" /><span>そのまま貼り付け。</span></h2>
-              </div>
-              <div class="reveal__rest">
-                <p>
-                  Macでコピーした内容が、スマホに並ぶ。<br class="desktop-break" />
-                  必要なカードに触れると、Macへ即ペースト。<br />
-                  作業中の画面から目を離さずに使えます。
-                  <br class="mobile-break" />
-                </p>
-              </div>
-            </div>
-            <div class="reveal__rest">
-            <ol class="steps" aria-label="Tap to Pasteの4ステップ">
-              ${renderSteps()}
-            </ol>
-            </div>
-          </div>
-        </section>
-        `}
-
         <section class="benefits" aria-labelledby="benefits-title">
           <div class="benefits__reveal reveal">
             <div class="section-copy">
@@ -1007,13 +949,6 @@
                 </div>
               </div>
             </div>
-            ${isJapanese ? "" : `
-            <div class="reveal__rest">
-            <div class="benefit-grid">
-              ${renderBenefits()}
-            </div>
-            </div>
-            `}
           </div>
         </section>
 
@@ -1031,7 +966,6 @@
               </p>
             </div>
             <div class="reveal__rest">
-            ${isJapanese ? "" : renderClipboardDifferenceFigure()}
             <div class="clipboard-shift__prose">
               <div class="clipboard-shift__compare">
                 <div class="clipboard-shift__compare-block clipboard-shift__compare-block--others">
@@ -1056,7 +990,7 @@
                 </div>
               </div>
             </div>
-            ${isJapanese ? renderClipboardDifferenceFigure() : ""}
+            ${renderClipboardDifferenceFigure()}
             </div>
           </div>
         </section>
@@ -1090,28 +1024,6 @@
               </p>
             </div>
             <div class="reveal__rest">
-            ${isJapanese ? "" : `
-            <figure class="usage-scenes__figure">
-              <button
-                type="button"
-                class="usage-scenes__panel feature-zoom-trigger"
-                data-feature-image-src="${ASSETS.usageScenes}"
-                data-feature-image-alt="SideClipの具体的な使用シーン"
-                aria-label="具体的な使用シーンの画像を拡大表示"
-              >
-                <img
-                  src="${ASSETS.usageScenes}"
-                  srcset="${ASSETS.usageScenes} 1x, ${ASSETS.usageScenes} 2x"
-                  sizes="(max-width: 1200px) 100vw, 1200px"
-                  width="1672"
-                  height="941"
-                  alt="SideClipの具体的な使用シーン"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </button>
-            </figure>
-            `}
             <div class="usage-scenes__cases">
               <article class="usage-scenes__case">
                 <p class="usage-scenes__case-badge">
@@ -1202,7 +1114,6 @@
           </div>
         </section>
 
-        ${isJapanese ? `
         <section class="ja-pricing reveal" id="pricing-preview" aria-labelledby="pricing-preview-title">
           <div class="ja-pricing__inner">
             <div class="reveal__head ja-pricing__head">
@@ -1239,7 +1150,6 @@
             </div>
           </div>
         </section>
-        ` : ""}
 
         <section class="faq reveal" id="faq" aria-labelledby="faq-title">
           <div class="faq__inner">
@@ -1362,13 +1272,11 @@
           <div class="final-cta__copy">
             <div class="reveal__head">
               <p class="final-cta__eyebrow">Download</p>
-              <h2 id="cta-title">${isJapanese ? "SideClipを、<br />あなたのMacで。" : "コピーの置き場所を、<br />Macの横に。"}</h2>
+              <h2 id="cta-title">SideClipを、<br />あなたのMacで。</h2>
             </div>
             <div class="reveal__rest">
               <p>
-                ${isJapanese
-                  ? "アカウント登録なしで、Freeプランから始められます。"
-                  : "Apple Silicon搭載Macで無料で始められます。<br />ダウンロード後、SideClipアプリ内からプランを選べます。"}
+                アカウント登録なしで、Freeプランから始められます。
               </p>
             </div>
           </div>
@@ -1377,8 +1285,7 @@
               <!-- ${icon.download} -->
               Macで無料ダウンロード
             </a>
-            <p>${isJapanese ? "macOS 26以降・Apple Silicon搭載Macに対応" : "Apple Silicon搭載のMacに対応"}</p>
-            ${isJapanese ? `
+            <p>macOS 26以降・Apple Silicon搭載Macに対応</p>
               <nav class="cta-links cta-links--ja" aria-label="補助リンク">
                 <a href="#concept-video">製品デモ</a>
                 <a href="/plans">料金プラン</a>
@@ -1388,18 +1295,6 @@
                 <li>${icon.checkCircle}アカウント・ログイン不要</li>
                 <li>${icon.lock}コピー履歴はMac内に保存</li>
               </ul>
-            ` : `
-              <nav class="cta-links" aria-label="補助リンク">
-                <a class="is-primary" href="#concept-video">コンセプト動画</a>
-                <a href="#features-title">SideClipの主な機能</a>
-                <a href="#usage-scenes-title">具体的な使用シーン</a>
-                <a href="#local-title">ローカル同期</a>
-                <a href="/plans">料金・プラン比較</a>
-              </nav>
-              <ul class="trust-list" aria-label="利用条件">
-                ${renderTrustItems()}
-              </ul>
-            `}
           </div>
         </section>
         </div>
