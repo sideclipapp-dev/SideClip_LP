@@ -12,6 +12,7 @@ const checkOnly = process.argv.includes("--check");
 
 const pages = [
   { file: "index.html", url: "https://sideclip.app/" },
+  { file: "en/index.html", url: "https://sideclip.app/en/" },
   { file: "ja/index.html", url: "https://sideclip.app/ja/" }
 ];
 
@@ -19,6 +20,10 @@ function replaceStaticLanding(html, rootHtml) {
   const start = html.indexOf(markerStart);
   const end = html.indexOf(markerEnd);
   if (start < 0 || end < 0 || end <= start) {
+    const emptyRoot = '<div id="root"></div>';
+    if (html.includes(emptyRoot)) {
+      return html.replace(emptyRoot, `${markerStart}\n    ${rootHtml}\n    ${markerEnd}`);
+    }
     throw new Error("Static landing markers are missing or out of order.");
   }
 
@@ -48,6 +53,7 @@ for (const page of pages) {
   root.innerHTML = renderer.render();
   root.dataset.staticLanding = "";
   dom.window.SideClipI18n?.applyPageTranslations?.("landing");
+  renderer.syncStructuredData?.(root);
   root.querySelectorAll("[data-language-bound]").forEach((element) => {
     element.removeAttribute("data-language-bound");
   });

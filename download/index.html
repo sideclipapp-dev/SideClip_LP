@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <title>Downloading SideClip</title>
+    <link rel="canonical" href="https://sideclip.app/download/" />
+    <link rel="icon" href="/favicon-sc.ico?v=20260702-sc-refresh" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-sc-32.png?v=20260702-sc-refresh" />
+    <style>
+      :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      * { box-sizing: border-box; }
+      body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px; background: #f5f7fa; color: #071d45; }
+      main { width: min(100%, 520px); padding: 40px; border: 1px solid rgba(7, 29, 69, .1); border-radius: 8px; background: #fff; text-align: center; box-shadow: 0 16px 44px rgba(7, 29, 69, .08); }
+      .brand { margin: 0 0 28px; font-size: 30px; font-weight: 800; letter-spacing: 0; }
+      .brand strong { color: #2d9aff; }
+      h1 { margin: 0; font-size: clamp(1.5rem, 4vw, 2rem); letter-spacing: 0; }
+      p { margin: 14px 0 0; color: #526177; line-height: 1.7; }
+      a { display: inline-flex; min-height: 48px; margin-top: 26px; padding: 0 22px; align-items: center; justify-content: center; border-radius: 999px; background: #0071e3; color: #fff; font-weight: 750; text-decoration: none; }
+      small { display: block; margin-top: 18px; color: #6e6e73; line-height: 1.55; }
+      @media (max-width: 520px) { main { padding: 32px 22px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="brand" aria-label="SideClip">Side<strong>Clip</strong></p>
+      <h1 data-title>Preparing your download…</h1>
+      <p data-copy>The SideClip installer will begin downloading shortly.</p>
+      <a data-download href="https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg">Download SideClip</a>
+      <small data-trust>Signed with Apple Developer ID and notarized by Apple.</small>
+    </main>
+    <script>
+      (function () {
+        var target = "https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg";
+        var isJapanese = (navigator.language || "").toLowerCase().startsWith("ja");
+        if (isJapanese) {
+          document.documentElement.lang = "ja";
+          document.title = "SideClipをダウンロード中";
+          document.querySelector("[data-title]").textContent = "ダウンロードを準備しています…";
+          document.querySelector("[data-copy]").textContent = "まもなくSideClipのインストーラーをダウンロードします。";
+          document.querySelector("[data-download]").textContent = "SideClipをダウンロード";
+          document.querySelector("[data-trust]").textContent = "Apple Developer ID署名・Apple公証済みです。";
+        }
+        window.setTimeout(function () { window.location.replace(target); }, 450);
+      })();
+    </script>
+  </body>
+</html>

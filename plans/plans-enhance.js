@@ -80,6 +80,12 @@
         .plans-pricing-summary {
           min-height: 0 !important;
         }
+
+        .plans-pricing-card {
+          height: auto !important;
+          min-height: 0 !important;
+          align-self: start;
+        }
       }
     `;
     document.head.appendChild(style);
@@ -103,6 +109,16 @@
     return Array.from(document.querySelectorAll("article")).find((article) => {
       const title = article.querySelector("h3");
       return title && title.textContent.trim() === planName;
+    });
+  }
+
+  function labelPlanCards() {
+    ["Free", "Pro", "Ultra"].forEach((planName) => {
+      const card = findPlanCard(planName);
+      if (!card) return;
+      card.classList.add("plans-pricing-card");
+      card.dataset.planTier = planName.toLowerCase();
+      card.id = `plan-${planName.toLowerCase()}`;
     });
   }
 
@@ -440,6 +456,7 @@
   function enhancePlansPage() {
     ensureStyles();
     addTopReturnLink();
+    labelPlanCards();
     addQuickPasteBullets();
     addUltraConvenienceBullet();
     updatePlanWording();

@@ -2,14 +2,14 @@
   if (typeof window.gtag !== "function" && !window.__sideclipAnalyticsLoading) {
     window.__sideclipAnalyticsLoading = true;
     const analyticsScript = document.createElement("script");
-    analyticsScript.src = "/site-analytics.js?v=20260722-global-ga";
+    analyticsScript.src = "/site-analytics.js?v=20260801-conversion-seo";
     analyticsScript.defer = true;
     document.head.appendChild(analyticsScript);
   }
 
   if (!window.SideClipRegionalPricing && !document.querySelector('script[src^="/regional-pricing.js"]')) {
     const pricingScript = document.createElement("script");
-    pricingScript.src = "/regional-pricing.js?v=20260801-regional-pricing";
+    pricingScript.src = "/regional-pricing.js?v=20260801-conversion-seo";
     document.head.appendChild(pricingScript);
   }
 

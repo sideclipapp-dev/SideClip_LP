@@ -160,9 +160,14 @@
   }
 
   function marketNotice(lang) {
+    if (catalog.currency === "JPY") {
+      return lang === "ja"
+        ? "日本からのアクセスには日本円（JPY）価格を表示しています。最終的な通貨と金額はSideClipアプリ内でご確認ください。"
+        : "Prices for access from Japan are shown in Japanese yen (JPY). Confirm the final currency and amount in the SideClip app.";
+    }
     return lang === "ja"
-      ? "表示価格はアクセス地域に基づきます。最終的な通貨と金額はSideClipアプリ内でご確認ください。"
-      : "Prices are based on your access region. Confirm the final currency and amount in the SideClip app.";
+      ? "日本以外からのアクセスには米ドル（USD）価格を表示しています。最終的な通貨と金額はSideClipアプリ内でご確認ください。"
+      : "Prices for access outside Japan are shown in US dollars (USD). Confirm the final currency and amount in the SideClip app.";
   }
 
   function landingMonthly(plan, lang) {

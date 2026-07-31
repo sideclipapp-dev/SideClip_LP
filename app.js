@@ -1,12 +1,12 @@
 (function () {
-  const ASSET_VERSION = "20260730-ja-redesign";
+  const ASSET_VERSION = "20260801-conversion-seo";
   const CONCEPT_VIDEO_YT_IDS = {
     ja: "rCiLdIpRr5I",
     en: "bu5zO823Pow"
   };
   const BENEFITS_VIDEO_YT_ID = "3m6aWg6LDFY";
   const FEATURE_SCREENSHOT_VIDEO_YT_ID = "pfBsk3Iwi4E";
-  const MAC_DOWNLOAD_URL = "https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg";
+  const MAC_DOWNLOAD_URL = "/download/";
 
   function getLandingLang() {
     return window.SideClipI18n?.getLang?.() || document.documentElement.lang || "en";
@@ -87,6 +87,39 @@
     heroFlowMacLaptop: `/assets/hero_flow_mac_laptop.png?v=${ASSET_VERSION}`,
     heroFlowPhoneClipboard: `/assets/hero_flow_phone_clipboard.png?v=${ASSET_VERSION}`,
   };
+
+  function modernImageSources(src, widths) {
+    const [pathname] = src.split("?");
+    const base = pathname.replace(/\.[a-z0-9]+$/i, "");
+    return {
+      avif: widths.map((width) => `${base}-${width}.avif?v=${ASSET_VERSION} ${width}w`).join(", "),
+      webp: widths.map((width) => `${base}-${width}.webp?v=${ASSET_VERSION} ${width}w`).join(", "),
+    };
+  }
+
+  function renderModernPicture({ src, widths, sizes, className = "", alt = "", width, height, loading, fetchpriority, onerror }) {
+    const sources = modernImageSources(src, widths);
+    const attributes = [
+      className ? `class="${className}"` : "",
+      `src="${src}"`,
+      sizes ? `sizes="${sizes}"` : "",
+      width ? `width="${width}"` : "",
+      height ? `height="${height}"` : "",
+      `alt="${alt}"`,
+      loading ? `loading="${loading}"` : "",
+      `decoding="async"`,
+      fetchpriority ? `fetchpriority="${fetchpriority}"` : "",
+      onerror ? `onerror="${onerror}"` : "",
+    ].filter(Boolean).join(" ");
+
+    return `
+      <picture>
+        <source type="image/avif" srcset="${sources.avif}" sizes="${sizes}" />
+        <source type="image/webp" srcset="${sources.webp}" sizes="${sizes}" />
+        <img ${attributes} />
+      </picture>
+    `;
+  }
 
   function renderLanguageSwitch() {
     if (window.SideClipI18n && typeof window.SideClipI18n.renderSwitch === "function") {
@@ -390,16 +423,15 @@
           data-feature-image-alt="呼び出すクリップボードと横に置くクリップボードの違い"
           aria-label="呼び出すクリップボードと横に置くクリップボードの違いの画像を拡大表示"
         >
-          <img
-            src="${ASSETS.clipboardDifference}"
-            srcset="${ASSETS.clipboardDifference} 1x, ${ASSETS.clipboardDifference} 2x"
-            sizes="(max-width: 1200px) 100vw, 1200px"
-            width="2752"
-            height="1536"
-            alt="呼び出すクリップボードと横に置くクリップボードの違い"
-            loading="lazy"
-            decoding="async"
-          />
+          ${renderModernPicture({
+            src: ASSETS.clipboardDifference,
+            widths: [640, 1200],
+            sizes: "(max-width: 680px) 100vw, 1200px",
+            width: 1200,
+            height: 669,
+            alt: "呼び出すクリップボードと横に置くクリップボードの違い",
+            loading: "lazy",
+          })}
         </button>
       </figure>
     `;
@@ -423,15 +455,14 @@
               data-feature-image-alt="${feature.alt}"
               aria-label="${feature.title}の画像を拡大表示"
             >
-              <img
-                class="feature-card__image"
-                src="${feature.image}"
-                srcset="${feature.image} 1x, ${feature.image} 2x"
-                sizes="${imageSizes}"
-                alt="${feature.alt}"
-                loading="lazy"
-                decoding="async"
-              />
+              ${renderModernPicture({
+                src: feature.image,
+                widths: [640, 1200],
+                sizes: imageSizes,
+                className: "feature-card__image",
+                alt: feature.alt,
+                loading: "lazy",
+              })}
             </button>
             ${feature.video ? `
             <button
@@ -476,6 +507,80 @@
         `
       )
       .join("");
+  }
+
+  function structuredOffer(name, price, priceCurrency, billingPeriod) {
+    return {
+      "@type": "Offer",
+      name,
+      price: String(price),
+      priceCurrency,
+      url: isJapaneseLanding() ? "https://sideclip.app/ja/plans/" : "https://sideclip.app/plans/",
+      description: billingPeriod,
+      availability: "https://schema.org/InStock",
+    };
+  }
+
+  function structuredText(element) {
+    if (!element) return "";
+    const clone = element.cloneNode(true);
+    clone.querySelectorAll("br, p, li, dt, dd").forEach((node) => node.append(" "));
+    return (clone.textContent || "").replace(/\s+/g, " ").trim();
+  }
+
+  function syncStructuredData(root = document.querySelector("#root")) {
+    if (!root) return;
+    root.querySelectorAll("script[data-sideclip-structured-data]").forEach((script) => script.remove());
+
+    const isJapanese = isJapaneseLanding();
+    const priceCurrency = isJapanese ? "JPY" : "USD";
+    const monthlyPrices = isJapanese
+      ? { pro: 300, ultra: 480 }
+      : { pro: 2.99, ultra: 4.99 };
+    const faqEntities = Array.from(root.querySelectorAll(".faq__item")).map((item) => ({
+      "@type": "Question",
+      name: structuredText(item.querySelector(".faq__summary")),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: structuredText(item.querySelector(".faq__answer")),
+      },
+    })).filter((item) => item.name && item.acceptedAnswer.text);
+
+    const softwareApplication = {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "@id": "https://sideclip.app/#software",
+      name: "SideClip",
+      applicationCategory: "ProductivityApplication",
+      applicationSubCategory: "Clipboard manager",
+      operatingSystem: "macOS 26 or later on Apple Silicon",
+      softwareRequirements: "Apple Silicon Mac and a phone or tablet connected to the same Wi-Fi network",
+      description: isJapanese
+        ? "Macのコピー履歴をスマホやタブレットに常時表示し、必要なカードをタップしてMacへペーストできるクリップボードアプリです。"
+        : "A Mac clipboard app that keeps copied text and images visible on a phone or tablet, ready to paste back into your Mac.",
+      url: isJapanese ? "https://sideclip.app/ja/" : "https://sideclip.app/",
+      downloadUrl: "https://sideclip.app/download/",
+      image: isJapanese
+        ? "https://sideclip.app/assets/ogp-1200x630.jpg"
+        : "https://sideclip.app/assets/i18n/en/ogp-1200x630.jpg",
+      inLanguage: isJapanese ? "ja" : "en",
+      offers: [
+        structuredOffer("SideClip Free", 0, priceCurrency, isJapanese ? "無料" : "Free forever"),
+        structuredOffer("SideClip Pro", monthlyPrices.pro, priceCurrency, isJapanese ? "月額プラン" : "Monthly subscription"),
+        structuredOffer("SideClip Ultra", monthlyPrices.ultra, priceCurrency, isJapanese ? "月額プラン" : "Monthly subscription"),
+      ],
+    };
+
+    [
+      softwareApplication,
+      { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqEntities },
+    ].forEach((data, index) => {
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.dataset.sideclipStructuredData = index === 0 ? "software" : "faq";
+      script.textContent = JSON.stringify(data);
+      root.appendChild(script);
+    });
   }
 
   function renderApp() {
@@ -524,18 +629,17 @@
             <div class="hero__banner-stack">
               <div class="hero__banner-motion">
                 <div class="hero__visual-wrap">
-                  <img
-                    class="hero__visual"
-                    src="${ASSETS.heroMain}"
-                    srcset="${ASSETS.heroMain} 1x, ${ASSETS.heroMain} 2x"
-                    width="2172"
-                    height="724"
-                    sizes="(max-width: 2172px) 100vw, 2172px"
-                    alt="MacとスマホでSideClipを使うイメージ"
-                    fetchpriority="high"
-                    decoding="async"
-                    onerror="this.onerror=null;this.src='${ASSETS.heroMainFallback}';"
-                  />
+                  ${renderModernPicture({
+                    src: ASSETS.heroMain,
+                    widths: [800, 1600],
+                    sizes: "100vw",
+                    className: "hero__visual",
+                    width: 1600,
+                    height: 533,
+                    alt: "MacとスマホでSideClipを使うイメージ",
+                    fetchpriority: "high",
+                    onerror: `this.onerror=null;this.src='${ASSETS.heroMainFallback}';`,
+                  })}
                   <div class="hero__visual-layers" aria-hidden="true">
                     <div class="hero__sync-graphic" aria-hidden="true">
                       <div
@@ -868,6 +972,7 @@
             Macで無料ダウンロード
           </a>
           <p class="os-note">Apple Silicon搭載のMacに対応</p>
+          <p class="download-security-note">Apple Developer ID署名・Apple公証済み</p>
           </div>
         </div>
         <section id="concept-video" class="concept-video reveal" aria-labelledby="concept-video-title">
@@ -1123,30 +1228,32 @@
             </div>
             <div class="reveal__rest">
               <div class="ja-pricing__grid">
-                <article class="ja-pricing__card">
+                <article class="ja-pricing__card" data-plan-tier="free">
                   <p class="ja-pricing__label">まず試す</p>
                   <h3>Free</h3>
                   <p class="ja-pricing__price">¥0</p>
                   <p class="ja-pricing__daily ja-pricing__daily--empty" aria-hidden="true">&nbsp;</p>
                   <p class="ja-pricing__summary">コピー・スクショ履歴など、基本機能をすぐに体験できます。</p>
                 </article>
-                <article class="ja-pricing__card ja-pricing__card--recommended">
+                <article class="ja-pricing__card ja-pricing__card--recommended" data-plan-tier="pro">
                   <p class="ja-pricing__label">日常的に使う</p>
                   <h3>Pro</h3>
                   <p class="ja-pricing__price">¥300<span>/月</span></p>
                   <p class="ja-pricing__daily">年額プラン ¥2,400<span>月あたり¥200・1日あたり約7円※</span></p>
                   <p class="ja-pricing__summary">Todo、画像編集、クイックペーストなど、仕事向けの機能を追加します。</p>
+                  <a class="ja-pricing__card-link" href="/plans#comparison-heading" data-plan-interest="pro">Proの機能を見る →</a>
                 </article>
-                <article class="ja-pricing__card">
+                <article class="ja-pricing__card" data-plan-tier="ultra">
                   <p class="ja-pricing__label">履歴を資産として残す</p>
                   <h3>Ultra</h3>
                   <p class="ja-pricing__price">¥480<span>/月</span></p>
                   <p class="ja-pricing__daily">年額プラン ¥3,600<span>月あたり¥300・1日あたり約10円※</span></p>
                   <p class="ja-pricing__summary">無制限保存、CSV、バックアップと復元など、全機能を利用できます。</p>
+                  <a class="ja-pricing__card-link" href="/plans#comparison-heading" data-plan-interest="ultra">Ultraの機能を見る →</a>
                 </article>
               </div>
               <p class="ja-pricing__billing-note">※1日あたりの金額は年額料金を365日で換算しています。実際の請求は年額です。</p>
-              <a class="ja-pricing__link" href="/plans">プランの違いを詳しく見る</a>
+              <a class="ja-pricing__link" href="/plans" data-plan-comparison-link>プランの違いを詳しく見る</a>
             </div>
           </div>
         </section>
@@ -1285,7 +1392,8 @@
               <!-- ${icon.download} -->
               Macで無料ダウンロード
             </a>
-            <p>macOS 26以降・Apple Silicon搭載Macに対応</p>
+            <p class="final-cta__requirements">macOS 26以降・Apple Silicon搭載Macに対応</p>
+            <p class="final-cta__security">Apple Developer ID署名・Apple公証済み</p>
               <nav class="cta-links cta-links--ja" aria-label="補助リンク">
                 <a href="#concept-video">製品デモ</a>
                 <a href="/plans">料金プラン</a>
@@ -1294,6 +1402,7 @@
               <ul class="trust-list trust-list--ja" aria-label="利用条件">
                 <li>${icon.checkCircle}アカウント・ログイン不要</li>
                 <li>${icon.lock}コピー履歴はMac内に保存</li>
+                <li>${icon.card}有料プランは月額・年額から選択</li>
               </ul>
           </div>
         </section>
@@ -1942,6 +2051,66 @@
     });
   }
 
+  function initPlanTracking() {
+    document.querySelectorAll("[data-plan-interest]").forEach((link) => {
+      link.addEventListener("click", () => {
+        const planTier = link.dataset.planInterest || "unknown";
+        trackAnalyticsEvent("plan_interest", {
+          plan_tier: planTier,
+          interaction_type: "details_link",
+          link_url: link.href,
+        });
+      });
+    });
+
+    document.querySelectorAll('a[href^="/plans"], a[href^="/ja/plans"]').forEach((link) => {
+      link.addEventListener("click", () => {
+        const section = link.closest(".ja-pricing__grid, .ja-pricing")
+          ? "pricing_preview"
+          : link.closest(".faq__item")
+            ? "faq"
+            : link.closest("header, nav")
+              ? "navigation"
+              : link.closest("footer, .final-cta")
+                ? "footer"
+                : "content";
+        trackAnalyticsEvent("plan_comparison_click", {
+          link_url: link.href,
+          section,
+          plan_tier: link.dataset.planInterest || "all",
+        });
+      });
+    });
+  }
+
+  function initScrollDepthTracking() {
+    const thresholds = [50, 90];
+    const reached = new Set();
+    let ticking = false;
+
+    function checkDepth() {
+      ticking = false;
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const percent = scrollable <= 0 ? 100 : Math.round((window.scrollY / scrollable) * 100);
+      thresholds.forEach((threshold) => {
+        if (percent < threshold || reached.has(threshold)) return;
+        reached.add(threshold);
+        trackAnalyticsEvent(`scroll_${threshold}`, { percent_scrolled: threshold });
+        trackAnalyticsEvent("scroll_depth", { percent_scrolled: threshold });
+      });
+      if (reached.size === thresholds.length) window.removeEventListener("scroll", onScroll);
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(checkDepth);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    checkDepth();
+  }
+
   function scrollToPageTop({ smooth = false } = {}) {
     window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
   }
@@ -1957,6 +2126,16 @@
     });
   }
 
+  function trackAnalyticsEvent(eventName, parameters = {}) {
+    if (typeof gtag !== "function") return;
+    gtag("event", eventName, {
+      ...parameters,
+      page_path: location.pathname,
+      site_language: window.SideClipI18n?.getLang?.() || document.documentElement.lang || "en",
+      transport_type: "beacon",
+    });
+  }
+
   function trackMacDownload({ ctaId, ctaText, section, linkUrl }) {
     if (typeof gtag !== "function") return;
     gtag("event", "mac_download", {
@@ -1969,6 +2148,18 @@
       site_language: window.SideClipI18n?.getLang?.() || document.documentElement.lang || "en",
       transport_type: "beacon"
     });
+
+    const conversionEvent = section === "hero"
+      ? "hero_download"
+      : section === "final_cta"
+        ? "final_cta_download"
+        : "";
+    if (conversionEvent) {
+      trackAnalyticsEvent(conversionEvent, {
+        cta_id: ctaId || "mac_download",
+        link_url: linkUrl || MAC_DOWNLOAD_URL,
+      });
+    }
   }
 
   function alignTargetTopWithViewport(target, { smooth = false } = {}) {
@@ -2205,6 +2396,7 @@
     if (!root) return;
     if (!root.hasChildNodes()) root.innerHTML = renderApp();
     window.SideClipI18n?.applyPageTranslations?.("landing");
+    syncStructuredData(root);
     initReveal();
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(initHeroFlowSyncDashLengths);
@@ -2221,6 +2413,8 @@
     initFeatureScreenshotVideoLightbox();
     initFeatureImageLightbox();
     initDownloadLinkTracking();
+    initPlanTracking();
+    initScrollDepthTracking();
     initCtaNavHashLinks();
     initSectionDrawer();
     initSyncLineRailLayout();
@@ -2228,7 +2422,7 @@
     initHashScroll();
   }
 
-  window.SideClipLandingPrerender = { render: renderApp };
+  window.SideClipLandingPrerender = { render: renderApp, syncStructuredData };
 
   if (!window.__SIDECLIP_PRERENDER__) {
     document.addEventListener("DOMContentLoaded", mount);

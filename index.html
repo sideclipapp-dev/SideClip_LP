@@ -36,7 +36,7 @@
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:alt" content="SideClip keeps your Mac clipboard history visible on your phone" />
 
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="SideClip | Take your Mac's clipboard off-screen" />
     <meta
       name="twitter:description"
@@ -44,7 +44,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://sideclip.app/assets/i18n/en/ogp-summary-square-1200.jpg"
+      content="https://sideclip.app/assets/i18n/en/ogp-1200x630.jpg"
     />
     <meta name="twitter:url" content="https://sideclip.app/" />
 
@@ -83,10 +83,10 @@
       gtag('set', 'user_properties', { site_language: initialSiteLanguage });
       gtag('config', 'G-D3JVLNHHMQ', { site_language: initialSiteLanguage });
     </script>
-    <link rel="stylesheet" href="/styles.css?v=20260801-streamlined-en-v2" />
-    <script src="/site-i18n.js?v=20260801-streamlined-en-v2" defer></script>
-    <script src="/app.js?v=20260801-streamlined-en" defer></script>
-    <script src="/regional-pricing.js?v=20260801-regional-pricing" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=20260801-conversion-seo" />
+    <script src="/site-i18n.js?v=20260801-conversion-seo" defer></script>
+    <script src="/app.js?v=20260801-conversion-seo" defer></script>
+    <script src="/regional-pricing.js?v=20260801-conversion-seo" defer></script>
   </head>
   <body data-i18n-page="landing">
     <!-- landing-static:start -->
@@ -113,7 +113,7 @@
         <button type="button" class="language-switch__option is-active" data-language-option="en" aria-label="View in English" aria-pressed="true">EN</button>
       </div>
 
-            <a class="ja-header-download" href="https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg" data-download-link="" data-cta-id="header_download" data-cta-section="header">Free download</a>
+            <a class="ja-header-download" href="/download/" data-download-link="" data-cta-id="header_download" data-cta-section="header">Free download</a>
             <button type="button" class="hero__menu-button" aria-label="Open section menu" aria-controls="section-drawer" aria-expanded="false" data-section-menu-trigger="">
               <span></span>
               <span></span>
@@ -126,7 +126,13 @@
             <div class="hero__banner-stack">
               <div class="hero__banner-motion">
                 <div class="hero__visual-wrap">
-                  <img class="hero__visual" src="/assets/optimized-en/hero-background.jpg?v=20260730-ja-redesign" srcset="/assets/optimized-en/hero-background.jpg?v=20260730-ja-redesign 1x, /assets/optimized-en/hero-background.jpg?v=20260730-ja-redesign 2x" width="2172" height="724" sizes="(max-width: 2172px) 100vw, 2172px" alt="Using SideClip with a Mac and phone" fetchpriority="high" decoding="async" onerror="this.onerror=null;this.src='/assets/hero-banner.jpg?v=20260730-ja-redesign';">
+
+      <picture>
+        <source type="image/avif" srcset="/assets/optimized-en/hero-background-800.avif?v=20260801-conversion-seo 800w, /assets/optimized-en/hero-background-1600.avif?v=20260801-conversion-seo 1600w" sizes="100vw">
+        <source type="image/webp" srcset="/assets/optimized-en/hero-background-800.webp?v=20260801-conversion-seo 800w, /assets/optimized-en/hero-background-1600.webp?v=20260801-conversion-seo 1600w" sizes="100vw">
+        <img class="hero__visual" src="/assets/optimized-en/hero-background.jpg?v=20260801-conversion-seo" sizes="100vw" width="1600" height="533" alt="Using SideClip with a Mac and phone" decoding="async" fetchpriority="high" onerror="this.onerror=null;this.src='/assets/hero-banner.jpg?v=20260801-conversion-seo';">
+      </picture>
+
                   <div class="hero__visual-layers" aria-hidden="true">
                     <div class="hero__sync-graphic" aria-hidden="true">
                       <div class="sync-graphic__row hero__sync-row" style="--sync-line-left: 45.5px; --sync-line-w: 189.96px;">
@@ -152,7 +158,7 @@
                   <h1 id="hero-title" class="hero__banner-overlay-lead hero__banner-overlay-line hero__banner-overlay-line--lead">Your Mac's clipboard<br>history, on your<br>phone.</h1>
                   <p class="hero__banner-overlay-sub hero__banner-overlay-line hero__banner-overlay-line--sub">Copy text or images on your Mac.<br>They are added automatically to your phone.</p>
                   <div class="hero__banner-actions" aria-label="Hero actions">
-                    <a class="hero__banner-primary" href="https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg" data-download-link="" data-cta-id="hero_banner_download" data-cta-section="hero" aria-label="Download SideClip free for Mac">Download free for Mac</a>
+                    <a class="hero__banner-primary" href="/download/" data-download-link="" data-cta-id="hero_banner_download" data-cta-section="hero" aria-label="Download SideClip free for Mac">Download free for Mac</a>
                   </div>
                   <p class="hero__banner-note">macOS 26 or later · Apple Silicon Mac</p>
                 </div>
@@ -161,7 +167,7 @@
           </div>
         </section>
         <div class="ja-mobile-hero-cta" aria-label="Get SideClip">
-          <a href="https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg" data-download-link="" data-cta-id="mobile_hero_download" data-cta-section="hero">Download free for Mac</a>
+          <a href="/download/" data-download-link="" data-cta-id="mobile_hero_download" data-cta-section="hero">Download free for Mac</a>
           <p>No account required · Free plan available</p>
         </div>
 
@@ -196,7 +202,7 @@
             </h2>
             <div class="hero-flow-sync" id="hero-flow-sync" data-hero-flow-step="0" aria-hidden="true">
               <div class="hero-flow-sync__frame">
-                <img class="hero-flow-sync__base" src="/assets/hero_flow_devices_only.png?v=20260730-ja-redesign" width="835" height="386" alt="" loading="lazy" decoding="async">
+                <img class="hero-flow-sync__base" src="/assets/hero_flow_devices_only.png?v=20260801-conversion-seo" width="835" height="386" alt="" loading="lazy" decoding="async">
                 <svg class="hero-flow-sync__overlay" viewBox="84 178 835 386" preserveAspectRatio="xMidYMid meet" focusable="false">
                   <defs>
                     <marker id="heroFlowSyncArrowhead" markerWidth="44" markerHeight="44" refX="12.667" refY="22" orient="auto" markerUnits="userSpaceOnUse" overflow="visible">
@@ -204,10 +210,10 @@
                     </marker>
                   </defs>
                   <rect class="hero-flow-sync__mac-mask" x="86" y="180" width="485" height="381" rx="0"></rect>
-                  <image class="hero-flow-sync__mac-raster" href="/assets/hero_flow_mac_laptop.png?v=20260730-ja-redesign" x="90" y="184" width="477" height="373" preserveAspectRatio="xMidYMid meet"></image>
+                  <image class="hero-flow-sync__mac-raster" href="/assets/hero_flow_mac_laptop.png?v=20260801-conversion-seo" x="90" y="184" width="477" height="373" preserveAspectRatio="xMidYMid meet"></image>
                   <rect class="hero-flow-sync__phone-mask" x="732" y="163" width="186" height="391" rx="0"></rect>
-                  <image class="hero-flow-sync__phone-raster" href="/assets/hero_flow_phone_clipboard.png?v=20260730-ja-redesign" x="737" y="169" width="175" height="318" preserveAspectRatio="xMidYMid meet"></image>
-                  <image class="hero-flow-sync__tap-hit" href="/assets/flow-icon-tap-hero-fill.png?v=20260730-ja-redesign" x="750" y="350" width="180" height="180" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></image>
+                  <image class="hero-flow-sync__phone-raster" href="/assets/hero_flow_phone_clipboard.png?v=20260801-conversion-seo" x="737" y="169" width="175" height="318" preserveAspectRatio="xMidYMid meet"></image>
+                  <image class="hero-flow-sync__tap-hit" href="/assets/flow-icon-tap-hero-fill.png?v=20260801-conversion-seo" x="750" y="350" width="180" height="180" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></image>
                   <path class="hero-flow-sync__path hero-flow-sync__path--to-phone" marker-end="url(#heroFlowSyncArrowhead)" d="M 433 274 C 548 192 702 173 776 253"></path>
                   <path class="hero-flow-sync__path hero-flow-sync__path--to-mac" marker-end="url(#heroFlowSyncArrowhead)" d="M 799.8 413 C 632 506 415 396 313 344"></path>
                   <text class="hero-flow-sync__cap-label hero-flow-sync__cap-label--copy" x="432" y="284" text-anchor="end" dominant-baseline="middle" aria-hidden="true">
@@ -225,7 +231,7 @@
             <div class="step-card__inner">
               <span class="step-card__num" aria-hidden="true">01</span>
               <div class="step-card__icon-ring">
-                <img class="flow-step-icon-img" src="/assets/flow-icon-mac.png?v=20260730-ja-redesign" alt="Copy on Mac" width="56" height="56" loading="lazy" decoding="async">
+                <img class="flow-step-icon-img" src="/assets/flow-icon-mac.png?v=20260801-conversion-seo" alt="Copy on Mac" width="56" height="56" loading="lazy" decoding="async">
               </div>
               <p class="step-card__label">Copy on<br>Mac</p>
             </div>
@@ -234,7 +240,7 @@
             <div class="step-card__inner">
               <span class="step-card__num" aria-hidden="true">02</span>
               <div class="step-card__icon-ring">
-                <img class="flow-step-icon-img" src="/assets/flow-icon-phone.png?v=20260730-ja-redesign" alt="Copied content shown on the phone" width="56" height="56" loading="lazy" decoding="async">
+                <img class="flow-step-icon-img" src="/assets/flow-icon-phone.png?v=20260801-conversion-seo" alt="Copied content shown on the phone" width="56" height="56" loading="lazy" decoding="async">
               </div>
               <p class="step-card__label step-card__label--accent">Added to<br>your phone</p>
             </div>
@@ -243,7 +249,7 @@
             <div class="step-card__inner">
               <span class="step-card__num" aria-hidden="true">03</span>
               <div class="step-card__icon-ring">
-                <img class="flow-step-icon-img" src="/assets/flow-icon-tap.png?v=20260730-ja-redesign" alt="Tap a phone card to paste on Mac" width="56" height="56" loading="lazy" decoding="async">
+                <img class="flow-step-icon-img" src="/assets/flow-icon-tap.png?v=20260801-conversion-seo" alt="Tap a phone card to paste on Mac" width="56" height="56" loading="lazy" decoding="async">
               </div>
               <p class="step-card__label">Tap to paste<br>on Mac</p>
             </div>
@@ -256,7 +262,7 @@
             <ul class="hero-scene-card__list">
               <li class="hero-scene-card__item">
                 <span class="hero-scene-card__icon" aria-hidden="true">
-                  <img src="/assets/hero_icon_scene_research.png?v=20260730-ja-redesign" srcset="/assets/hero_icon_scene_research.png?v=20260730-ja-redesign 1x, /assets/hero_icon_scene_research.png?v=20260730-ja-redesign 2x" width="176" height="176" alt="" loading="lazy" decoding="async">
+                  <img src="/assets/hero_icon_scene_research.png?v=20260801-conversion-seo" srcset="/assets/hero_icon_scene_research.png?v=20260801-conversion-seo 1x, /assets/hero_icon_scene_research.png?v=20260801-conversion-seo 2x" width="176" height="176" alt="" loading="lazy" decoding="async">
                 </span>
                 <div class="hero-scene-card__body">
                   <p class="hero-scene-card__item-title">Research &amp; documents</p>
@@ -265,7 +271,7 @@
               </li>
               <li class="hero-scene-card__item">
                 <span class="hero-scene-card__icon" aria-hidden="true">
-                  <img src="/assets/hero_icon_scene_chat.png?v=20260730-ja-redesign" srcset="/assets/hero_icon_scene_chat.png?v=20260730-ja-redesign 1x, /assets/hero_icon_scene_chat.png?v=20260730-ja-redesign 2x" width="176" height="176" alt="" loading="lazy" decoding="async">
+                  <img src="/assets/hero_icon_scene_chat.png?v=20260801-conversion-seo" srcset="/assets/hero_icon_scene_chat.png?v=20260801-conversion-seo 1x, /assets/hero_icon_scene_chat.png?v=20260801-conversion-seo 2x" width="176" height="176" alt="" loading="lazy" decoding="async">
                 </span>
                 <div class="hero-scene-card__body">
                   <p class="hero-scene-card__item-title">Chat &amp; email</p>
@@ -274,7 +280,7 @@
               </li>
               <li class="hero-scene-card__item">
                 <span class="hero-scene-card__icon" aria-hidden="true">
-                  <img src="/assets/hero_icon_scene_idea.png?v=20260730-ja-redesign" srcset="/assets/hero_icon_scene_idea.png?v=20260730-ja-redesign 1x, /assets/hero_icon_scene_idea.png?v=20260730-ja-redesign 2x" width="176" height="176" alt="" loading="lazy" decoding="async">
+                  <img src="/assets/hero_icon_scene_idea.png?v=20260801-conversion-seo" srcset="/assets/hero_icon_scene_idea.png?v=20260801-conversion-seo 1x, /assets/hero_icon_scene_idea.png?v=20260801-conversion-seo 2x" width="176" height="176" alt="" loading="lazy" decoding="async">
                 </span>
                 <div class="hero-scene-card__body">
                   <p class="hero-scene-card__item-title">Ideas &amp; notes</p>
@@ -287,7 +293,7 @@
           <ul class="hero-highlight-row" aria-label="SideClip reassurance points">
             <li class="hero-highlight-card">
               <span class="hero-highlight-card__icon" aria-hidden="true">
-                <img src="/assets/hero_icon_highlight_lock.png?v=20260730-ja-redesign" srcset="/assets/hero_icon_highlight_lock.png?v=20260730-ja-redesign 1x, /assets/hero_icon_highlight_lock.png?v=20260730-ja-redesign 2x" width="176" height="176" alt="" loading="lazy" decoding="async">
+                <img src="/assets/hero_icon_highlight_lock.png?v=20260801-conversion-seo" srcset="/assets/hero_icon_highlight_lock.png?v=20260801-conversion-seo 1x, /assets/hero_icon_highlight_lock.png?v=20260801-conversion-seo 2x" width="176" height="176" alt="" loading="lazy" decoding="async">
               </span>
               <div class="hero-highlight-card__body">
                 <p class="hero-highlight-card__title">Private local sync</p>
@@ -296,7 +302,7 @@
             </li>
             <li class="hero-highlight-card">
               <span class="hero-highlight-card__icon" aria-hidden="true">
-                <img src="/assets/hero_icon_highlight_bolt.png?v=20260730-ja-redesign" srcset="/assets/hero_icon_highlight_bolt.png?v=20260730-ja-redesign 1x, /assets/hero_icon_highlight_bolt.png?v=20260730-ja-redesign 2x" width="176" height="176" alt="" loading="lazy" decoding="async">
+                <img src="/assets/hero_icon_highlight_bolt.png?v=20260801-conversion-seo" srcset="/assets/hero_icon_highlight_bolt.png?v=20260801-conversion-seo 1x, /assets/hero_icon_highlight_bolt.png?v=20260801-conversion-seo 2x" width="176" height="176" alt="" loading="lazy" decoding="async">
               </span>
               <div class="hero-highlight-card__body">
                 <p class="hero-highlight-card__title">No account or login</p>
@@ -305,7 +311,7 @@
             </li>
             <li class="hero-highlight-card">
               <span class="hero-highlight-card__icon" aria-hidden="true">
-                <img src="/assets/hero_icon_highlight_qr.png?v=20260730-ja-redesign" srcset="/assets/hero_icon_highlight_qr.png?v=20260730-ja-redesign 1x, /assets/hero_icon_highlight_qr.png?v=20260730-ja-redesign 2x" width="176" height="176" alt="" loading="lazy" decoding="async">
+                <img src="/assets/hero_icon_highlight_qr.png?v=20260801-conversion-seo" srcset="/assets/hero_icon_highlight_qr.png?v=20260801-conversion-seo 1x, /assets/hero_icon_highlight_qr.png?v=20260801-conversion-seo 2x" width="176" height="176" alt="" loading="lazy" decoding="async">
               </span>
               <div class="hero-highlight-card__body">
                 <p class="hero-highlight-card__title">Easy QR pairing</p>
@@ -318,8 +324,9 @@
             <li>Mac app + phone browser</li>
             <li>Works with iPhone, iPad, and Android</li>
           </ul>
-          <a class="download-button" href="https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg" data-download-link="" data-cta-id="hero_download" data-cta-section="hero" aria-label="Download SideClip free for Mac">Download free for Mac</a>
+          <a class="download-button" href="/download/" data-download-link="" data-cta-id="hero_download" data-cta-section="hero" aria-label="Download SideClip free for Mac">Download free for Mac</a>
           <p class="os-note">macOS 26 or later · Apple Silicon Mac</p>
+          <p class="download-security-note">Signed with Apple Developer ID · Notarized by Apple</p>
           </div>
         </div>
         <section id="concept-video" class="concept-video reveal" aria-labelledby="concept-video-title">
@@ -411,7 +418,13 @@
 
       <figure class="clipboard-shift__figure">
         <button type="button" class="clipboard-shift__panel feature-zoom-trigger" data-feature-image-src="/assets/optimized-en/clipboard-difference.jpg?v=20260801-streamlined-en" data-feature-image-alt="Difference between opening a clipboard panel and keeping history beside your Mac" aria-label="Zoom image showing the difference between opening a clipboard panel and keeping history beside your Mac">
-          <img src="/assets/optimized-en/clipboard-difference.jpg?v=20260801-streamlined-en" srcset="/assets/optimized-en/clipboard-difference.jpg?v=20260801-streamlined-en 1x, /assets/optimized-en/clipboard-difference.jpg?v=20260801-streamlined-en 2x" sizes="(max-width: 1200px) 100vw, 1200px" width="2752" height="1536" alt="Difference between opening a clipboard panel and keeping history beside your Mac" loading="lazy" decoding="async">
+
+      <picture>
+        <source type="image/avif" srcset="/assets/optimized-en/clipboard-difference-640.avif?v=20260801-conversion-seo 640w, /assets/optimized-en/clipboard-difference-1200.avif?v=20260801-conversion-seo 1200w" sizes="(max-width: 680px) 100vw, 1200px">
+        <source type="image/webp" srcset="/assets/optimized-en/clipboard-difference-640.webp?v=20260801-conversion-seo 640w, /assets/optimized-en/clipboard-difference-1200.webp?v=20260801-conversion-seo 1200w" sizes="(max-width: 680px) 100vw, 1200px">
+        <img src="/assets/optimized-en/clipboard-difference.jpg?v=20260801-streamlined-en" sizes="(max-width: 680px) 100vw, 1200px" width="1200" height="669" alt="Difference between opening a clipboard panel and keeping history beside your Mac" loading="lazy" decoding="async" srcset="/assets/optimized-en/clipboard-difference.jpg?v=20260801-streamlined-en 1x, /assets/optimized-en/clipboard-difference.jpg?v=20260801-streamlined-en 2x">
+      </picture>
+
         </button>
       </figure>
 
@@ -434,7 +447,13 @@
             <h3>Your clipboard history, always at hand.</h3>
             <p class="feature-card__copy">Text, URLs, and images are saved automatically.<br>Find the card you need from your phone.</p>
             <button type="button" class="feature-card__panel feature-zoom-trigger" data-feature-image-src="/assets/optimized-en/feature-history.jpg?v=20260801-streamlined-en" data-feature-image-alt="Clipboard history screen" aria-label="Zoom image of the clipboard history screen">
-              <img class="feature-card__image" src="/assets/optimized-en/feature-history.jpg?v=20260801-streamlined-en" srcset="/assets/optimized-en/feature-history.jpg?v=20260801-streamlined-en 1x, /assets/optimized-en/feature-history.jpg?v=20260801-streamlined-en 2x" sizes="(max-width: 680px) 100vw, 50vw" alt="Clipboard history screen" loading="lazy" decoding="async">
+
+      <picture>
+        <source type="image/avif" srcset="/assets/optimized-en/feature-history-640.avif?v=20260801-conversion-seo 640w, /assets/optimized-en/feature-history-1200.avif?v=20260801-conversion-seo 1200w" sizes="(max-width: 680px) 100vw, 50vw">
+        <source type="image/webp" srcset="/assets/optimized-en/feature-history-640.webp?v=20260801-conversion-seo 640w, /assets/optimized-en/feature-history-1200.webp?v=20260801-conversion-seo 1200w" sizes="(max-width: 680px) 100vw, 50vw">
+        <img class="feature-card__image" src="/assets/optimized-en/feature-history.jpg?v=20260801-streamlined-en" sizes="(max-width: 680px) 100vw, 50vw" alt="Clipboard history screen" loading="lazy" decoding="async" srcset="/assets/optimized-en/feature-history.jpg?v=20260801-streamlined-en 1x, /assets/optimized-en/feature-history.jpg?v=20260801-streamlined-en 2x">
+      </picture>
+
             </button>
 
           </article>
@@ -444,7 +463,13 @@
             <h3>Save only what matters.</h3>
             <p class="feature-card__copy">Keep reusable snippets and links.<br>Set them aside once and stop searching later.</p>
             <button type="button" class="feature-card__panel feature-zoom-trigger" data-feature-image-src="/assets/optimized-en/feature-favorite.jpg?v=20260801-streamlined-en" data-feature-image-alt="Favorites screen" aria-label="Zoom image of the favorites screen">
-              <img class="feature-card__image" src="/assets/optimized-en/feature-favorite.jpg?v=20260801-streamlined-en" srcset="/assets/optimized-en/feature-favorite.jpg?v=20260801-streamlined-en 1x, /assets/optimized-en/feature-favorite.jpg?v=20260801-streamlined-en 2x" sizes="(max-width: 680px) 100vw, 50vw" alt="Favorites screen" loading="lazy" decoding="async">
+
+      <picture>
+        <source type="image/avif" srcset="/assets/optimized-en/feature-favorite-640.avif?v=20260801-conversion-seo 640w, /assets/optimized-en/feature-favorite-1200.avif?v=20260801-conversion-seo 1200w" sizes="(max-width: 680px) 100vw, 50vw">
+        <source type="image/webp" srcset="/assets/optimized-en/feature-favorite-640.webp?v=20260801-conversion-seo 640w, /assets/optimized-en/feature-favorite-1200.webp?v=20260801-conversion-seo 1200w" sizes="(max-width: 680px) 100vw, 50vw">
+        <img class="feature-card__image" src="/assets/optimized-en/feature-favorite.jpg?v=20260801-streamlined-en" sizes="(max-width: 680px) 100vw, 50vw" alt="Favorites screen" loading="lazy" decoding="async" srcset="/assets/optimized-en/feature-favorite.jpg?v=20260801-streamlined-en 1x, /assets/optimized-en/feature-favorite.jpg?v=20260801-streamlined-en 2x">
+      </picture>
+
             </button>
 
           </article>
@@ -454,7 +479,13 @@
             <h3>Mac screenshots become cards.</h3>
             <p class="feature-card__copy">Start a Mac screenshot from your phone.<br>Mark it up, crop it, and save it directly in your history.<br><small>Markup and cropping are available on Pro and above.</small></p>
             <button type="button" class="feature-card__panel feature-zoom-trigger" data-feature-image-src="/assets/optimized-en/feature-scan.jpg?v=20260801-streamlined-en" data-feature-image-alt="Screenshot capture screen" aria-label="Zoom image of the screenshot capture screen">
-              <img class="feature-card__image" src="/assets/optimized-en/feature-scan.jpg?v=20260801-streamlined-en" srcset="/assets/optimized-en/feature-scan.jpg?v=20260801-streamlined-en 1x, /assets/optimized-en/feature-scan.jpg?v=20260801-streamlined-en 2x" sizes="(max-width: 680px) 100vw, 980px" alt="Screenshot capture screen" loading="lazy" decoding="async">
+
+      <picture>
+        <source type="image/avif" srcset="/assets/optimized-en/feature-scan-640.avif?v=20260801-conversion-seo 640w, /assets/optimized-en/feature-scan-1200.avif?v=20260801-conversion-seo 1200w" sizes="(max-width: 680px) 100vw, 980px">
+        <source type="image/webp" srcset="/assets/optimized-en/feature-scan-640.webp?v=20260801-conversion-seo 640w, /assets/optimized-en/feature-scan-1200.webp?v=20260801-conversion-seo 1200w" sizes="(max-width: 680px) 100vw, 980px">
+        <img class="feature-card__image" src="/assets/optimized-en/feature-scan.jpg?v=20260801-streamlined-en" sizes="(max-width: 680px) 100vw, 980px" alt="Screenshot capture screen" loading="lazy" decoding="async" srcset="/assets/optimized-en/feature-scan.jpg?v=20260801-streamlined-en 1x, /assets/optimized-en/feature-scan.jpg?v=20260801-streamlined-en 2x">
+      </picture>
+
             </button>
 
             <button type="button" class="feature-card__video-trigger" data-youtube-id="pfBsk3Iwi4E" data-video-title="SideClip pen and crop demo video" data-cta-id="feature_screenshot_video_play" data-cta-section="feature_screenshot_video" aria-label="Play the pen and crop demo video">
@@ -475,7 +506,13 @@
             <h3>Find old cards fast.</h3>
             <p class="feature-card__copy">Search by date range, keyword, and text inside images.<br>Fuzzy search helps you find the right card, even with an approximate keyword.<br><small>Text search inside images is available on Pro and above.</small></p>
             <button type="button" class="feature-card__panel feature-zoom-trigger" data-feature-image-src="/assets/optimized-en/feature-search.jpg?v=20260801-streamlined-en" data-feature-image-alt="Search screen for copy and screenshot history" aria-label="Zoom image of the search screen">
-              <img class="feature-card__image" src="/assets/optimized-en/feature-search.jpg?v=20260801-streamlined-en" srcset="/assets/optimized-en/feature-search.jpg?v=20260801-streamlined-en 1x, /assets/optimized-en/feature-search.jpg?v=20260801-streamlined-en 2x" sizes="(max-width: 680px) 100vw, 50vw" alt="Search screen for copy and screenshot history" loading="lazy" decoding="async">
+
+      <picture>
+        <source type="image/avif" srcset="/assets/optimized-en/feature-search-640.avif?v=20260801-conversion-seo 640w, /assets/optimized-en/feature-search-1200.avif?v=20260801-conversion-seo 1200w" sizes="(max-width: 680px) 100vw, 50vw">
+        <source type="image/webp" srcset="/assets/optimized-en/feature-search-640.webp?v=20260801-conversion-seo 640w, /assets/optimized-en/feature-search-1200.webp?v=20260801-conversion-seo 1200w" sizes="(max-width: 680px) 100vw, 50vw">
+        <img class="feature-card__image" src="/assets/optimized-en/feature-search.jpg?v=20260801-streamlined-en" sizes="(max-width: 680px) 100vw, 50vw" alt="Search screen for copy and screenshot history" loading="lazy" decoding="async" srcset="/assets/optimized-en/feature-search.jpg?v=20260801-streamlined-en 1x, /assets/optimized-en/feature-search.jpg?v=20260801-streamlined-en 2x">
+      </picture>
+
             </button>
 
           </article>
@@ -485,7 +522,13 @@
             <h3>Turn items you need later into Todo cards.</h3>
             <p class="feature-card__copy">Copy something on your Mac and turn it into a Todo card right away.<br>Swipe a card to move it to Todo.<br><small>Available on Pro and above.</small></p>
             <button type="button" class="feature-card__panel feature-zoom-trigger" data-feature-image-src="/assets/optimized-en/feature-todo.jpg?v=20260801-streamlined-en" data-feature-image-alt="Todo mode screen" aria-label="Zoom image of the Todo mode screen">
-              <img class="feature-card__image" src="/assets/optimized-en/feature-todo.jpg?v=20260801-streamlined-en" srcset="/assets/optimized-en/feature-todo.jpg?v=20260801-streamlined-en 1x, /assets/optimized-en/feature-todo.jpg?v=20260801-streamlined-en 2x" sizes="(max-width: 680px) 100vw, 50vw" alt="Todo mode screen" loading="lazy" decoding="async">
+
+      <picture>
+        <source type="image/avif" srcset="/assets/optimized-en/feature-todo-640.avif?v=20260801-conversion-seo 640w, /assets/optimized-en/feature-todo-1200.avif?v=20260801-conversion-seo 1200w" sizes="(max-width: 680px) 100vw, 50vw">
+        <source type="image/webp" srcset="/assets/optimized-en/feature-todo-640.webp?v=20260801-conversion-seo 640w, /assets/optimized-en/feature-todo-1200.webp?v=20260801-conversion-seo 1200w" sizes="(max-width: 680px) 100vw, 50vw">
+        <img class="feature-card__image" src="/assets/optimized-en/feature-todo.jpg?v=20260801-streamlined-en" sizes="(max-width: 680px) 100vw, 50vw" alt="Todo mode screen" loading="lazy" decoding="async" srcset="/assets/optimized-en/feature-todo.jpg?v=20260801-streamlined-en 1x, /assets/optimized-en/feature-todo.jpg?v=20260801-streamlined-en 2x">
+      </picture>
+
             </button>
 
           </article>
@@ -614,34 +657,36 @@
             <div class="reveal__head ja-pricing__head">
               <p class="ja-pricing__eyebrow">Plans</p>
               <h2 id="pricing-preview-title">Start free.<br><span class="ja-pricing__headline-line">Upgrade when you need more.</span></h2>
-              <p>No account is required for Free. Paid plans include a 30-day free trial, and you can change or cancel in the SideClip app.</p>
+              <p>No account is required for Free. Paid plans are available monthly or annually, include a 30-day free trial, and can be changed or canceled in the SideClip app.</p>
             </div>
             <div class="reveal__rest">
               <div class="ja-pricing__grid">
-                <article class="ja-pricing__card">
+                <article class="ja-pricing__card" data-plan-tier="free">
                   <p class="ja-pricing__label">Try it first</p>
                   <h3>Free</h3>
                   <p class="ja-pricing__price">JPY 0</p>
                   <p class="ja-pricing__daily ja-pricing__daily--empty" aria-hidden="true">&nbsp;</p>
                   <p class="ja-pricing__summary">Try core features including clipboard and screenshot history.</p>
                 </article>
-                <article class="ja-pricing__card ja-pricing__card--recommended">
+                <article class="ja-pricing__card ja-pricing__card--recommended" data-plan-tier="pro">
                   <p class="ja-pricing__label">For everyday use</p>
                   <h3>Pro</h3>
                   <p class="ja-pricing__price">JPY 300<span>/month</span></p>
                   <p class="ja-pricing__daily">Annual plan JPY 2,400<span>JPY 200/month · about JPY 7/day*</span></p>
                   <p class="ja-pricing__summary">Add Todo, image editing, Quick Paste, and other professional features.</p>
+                  <a class="ja-pricing__card-link" href="/plans#comparison-heading" data-plan-interest="pro">Explore Pro features →</a>
                 </article>
-                <article class="ja-pricing__card">
+                <article class="ja-pricing__card" data-plan-tier="ultra">
                   <p class="ja-pricing__label">For keeping a long-term archive</p>
                   <h3>Ultra</h3>
                   <p class="ja-pricing__price">JPY 480<span>/month</span></p>
                   <p class="ja-pricing__daily">Annual plan JPY 3,600<span>JPY 300/month · about JPY 10/day*</span></p>
                   <p class="ja-pricing__summary">Unlock unlimited storage, CSV export, backup and restore, and every SideClip feature.</p>
+                  <a class="ja-pricing__card-link" href="/plans#comparison-heading" data-plan-interest="ultra">Explore Ultra features →</a>
                 </article>
               </div>
               <p class="ja-pricing__billing-note">*Daily equivalents are calculated by dividing the annual price by 365. Annual plans are billed yearly.</p>
-              <a class="ja-pricing__link" href="/plans">Compare plans in detail</a>
+              <a class="ja-pricing__link" href="/plans" data-plan-comparison-link="">Compare plans in detail</a>
             </div>
           </div>
         </section>
@@ -705,8 +750,9 @@
             </div>
           </div>
           <div class="reveal__rest final-cta__action">
-            <a class="download-button download-button--light" href="https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg" data-download-link="" data-cta-id="final_download" data-cta-section="final_cta" aria-label="Download SideClip free for Mac">Download free for Mac</a>
-            <p>macOS 26 or later · Apple Silicon Mac</p>
+            <a class="download-button download-button--light" href="/download/" data-download-link="" data-cta-id="final_download" data-cta-section="final_cta" aria-label="Download SideClip free for Mac">Download free for Mac</a>
+            <p class="final-cta__requirements">macOS 26 or later · Apple Silicon Mac</p>
+            <p class="final-cta__security">Signed with Apple Developer ID · Notarized by Apple</p>
               <nav class="cta-links cta-links--ja" aria-label="Supporting links">
                 <a href="#concept-video">Product demo</a>
                 <a href="/plans">Plans &amp; pricing</a>
@@ -715,6 +761,7 @@
               <ul class="trust-list trust-list--ja" aria-label="Usage conditions">
                 <li>No account or login required</li>
                 <li>Clipboard history stays on your Mac</li>
+                <li>Choose monthly or annual billing</li>
               </ul>
           </div>
         </section>
@@ -747,7 +794,7 @@
           <p class="site-footer__copyright">© 2026 SideClip. All rights reserved.</p>
         </footer>
       </main>
-    </div>
+    <script type="application/ld+json" data-sideclip-structured-data="software">{"@context":"https://schema.org","@type":"SoftwareApplication","@id":"https://sideclip.app/#software","name":"SideClip","applicationCategory":"ProductivityApplication","applicationSubCategory":"Clipboard manager","operatingSystem":"macOS 26 or later on Apple Silicon","softwareRequirements":"Apple Silicon Mac and a phone or tablet connected to the same Wi-Fi network","description":"A Mac clipboard app that keeps copied text and images visible on a phone or tablet, ready to paste back into your Mac.","url":"https://sideclip.app/","downloadUrl":"https://sideclip.app/download/","image":"https://sideclip.app/assets/i18n/en/ogp-1200x630.jpg","inLanguage":"en","offers":[{"@type":"Offer","name":"SideClip Free","price":"0","priceCurrency":"USD","url":"https://sideclip.app/plans/","description":"Free forever","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"SideClip Pro","price":"2.99","priceCurrency":"USD","url":"https://sideclip.app/plans/","description":"Monthly subscription","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"SideClip Ultra","price":"4.99","priceCurrency":"USD","url":"https://sideclip.app/plans/","description":"Monthly subscription","availability":"https://schema.org/InStock"}]}</script><script type="application/ld+json" data-sideclip-structured-data="faq">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What OS and devices are supported?","acceptedAnswer":{"@type":"Answer","text":"Mac: Developed and tested on Apple Silicon Macs running macOS 26 or later. Phones and tablets: In principle, SideClip works on iOS, Android, iPadOS, and other devices that can run a web browser. Performance may vary depending on the device. Tested with Safari and Chrome. For security, please use the latest browser version."}},{"@type":"Question","name":"Can I use it for free? How are paid plans different?","acceptedAnswer":{"@type":"Answer","text":"The Free plan lets you use the basic features at no cost. We recommend testing SideClip in your own environment before choosing a paid plan. Pro and Ultra unlock more convenient features. See plans and pricing in detail →"}},{"@type":"Question","name":"How much do the plans cost?","acceptedAnswer":{"@type":"Answer","text":"Paid plans help fund ongoing app improvements and new feature development. If the Free plan works well for you, please consider a paid plan for a more capable experience. Free plan Free Try SideClip and confirm it works in your environment. Pro plan JPY 300/month or JPY 2,400/year The annual plan works out to about JPY 7/day. Ultra plan JPY 480/month or JPY 3,600/year The annual plan works out to about JPY 10/day. See plans and pricing in detail →"}},{"@type":"Question","name":"Are there limits on saved data types or sizes?","acceptedAnswer":{"@type":"Answer","text":"Yes. To keep clipboard history from growing too large and to prevent sluggish behavior, SideClip applies the following limits. These may change in app updates. Plain text: up to 50 KB per copy Images such as JPG, PNG, and TIFF: up to 10 MB per image Other files: only a link to the file on your Mac is copied. The link stops working if the file is moved."}},{"@type":"Question","name":"Is there a card save limit?","acceptedAnswer":{"@type":"Answer","text":"Yes. Save limits differ by plan. After installing the app, check the Plan menu shown on the phone-side screen for details. When the limit is exceeded, older data is deleted automatically. Data saved to Favorite is not deleted automatically."}},{"@type":"Question","name":"Can I use SideClip on a phone tethering Wi-Fi network?","acceptedAnswer":{"@type":"Answer","text":"Yes, but copy-paste updates may be a little slower because tethered Wi-Fi can be slow. A faster Wi-Fi network will generally make SideClip quicker and more comfortable to use."}}]}</script></div>
     <!-- landing-static:end -->
     <div
       id="cookie-banner"

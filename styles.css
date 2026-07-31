@@ -773,6 +773,13 @@ img {
   pointer-events: none;
 }
 
+.hero__visual-wrap > picture,
+.feature-card__panel picture,
+.clipboard-shift__panel picture {
+  display: block;
+  width: 100%;
+}
+
 .hero__visual-layers {
   position: absolute;
   inset: 0;
@@ -1654,6 +1661,16 @@ img {
   color: #4d5b74;
   font-size: var(--fs-caption);
   font-weight: var(--heading-weight);
+  text-align: center;
+}
+
+.download-security-note {
+  width: min(100%, 320px);
+  margin: 5px auto 0;
+  color: #5f6f88;
+  font-size: 0.72rem;
+  font-weight: 650;
+  line-height: 1.45;
   text-align: center;
 }
 
@@ -4930,6 +4947,12 @@ html[lang="en"] .site-footer__japan-legal:hover {
   color: #6e6e73;
 }
 
+.final-cta__action .final-cta__security {
+  margin-top: 4px;
+  color: #526177;
+  font-size: 0.72rem;
+}
+
 .cta-links {
   display: flex;
   flex-wrap: wrap;
@@ -6456,6 +6479,23 @@ html.landing-refresh .local-sync__detail-link a {
   line-height: 1.7;
 }
 
+.ja-pricing__card-link {
+  display: inline-flex;
+  min-height: 44px;
+  margin-top: 14px;
+  align-items: center;
+  color: #0071e3;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.ja-pricing__card-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
 .ja-pricing__billing-note {
   margin: 10px 0 0;
   color: #6e6e73;
@@ -6762,6 +6802,15 @@ html.landing-refresh .trust-list--ja svg {
 
   .ja-pricing__card {
     padding: 22px;
+    align-self: start;
+  }
+
+  .ja-pricing__daily--empty {
+    display: none;
+  }
+
+  .ja-pricing__card-link {
+    margin-top: 10px;
   }
 
   html.landing-refresh .final-cta__copy p {
