@@ -61,7 +61,9 @@
       ? `/assets/optimized-ja/feature-scan.jpg?v=${ASSET_VERSION}`
       : `/assets/feature-panel-scan.jpg?v=${ASSET_VERSION}`,
     usageScenes: `/assets/具体シーン.png?v=${ASSET_VERSION}`,
-    clipboardDifference: `/assets/違い.jpeg?v=${ASSET_VERSION}`,
+    clipboardDifference: isJapaneseLanding()
+      ? `/assets/optimized-ja/clipboard-difference.jpg?v=${ASSET_VERSION}`
+      : `/assets/違い.jpeg?v=${ASSET_VERSION}`,
     flowIconMac: isJapaneseLanding()
       ? `/assets/optimized-ja/flow-icon-mac.png?v=${ASSET_VERSION}`
       : `/assets/flow-icon-mac.png?v=${ASSET_VERSION}`,
@@ -383,6 +385,31 @@
         `
       )
       .join("");
+  }
+
+  function renderClipboardDifferenceFigure() {
+    return `
+      <figure class="clipboard-shift__figure">
+        <button
+          type="button"
+          class="clipboard-shift__panel feature-zoom-trigger"
+          data-feature-image-src="${ASSETS.clipboardDifference}"
+          data-feature-image-alt="呼び出すクリップボードと横に置くクリップボードの違い"
+          aria-label="呼び出すクリップボードと横に置くクリップボードの違いの画像を拡大表示"
+        >
+          <img
+            src="${ASSETS.clipboardDifference}"
+            srcset="${ASSETS.clipboardDifference} 1x, ${ASSETS.clipboardDifference} 2x"
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            width="2752"
+            height="1536"
+            alt="呼び出すクリップボードと横に置くクリップボードの違い"
+            loading="lazy"
+            decoding="async"
+          />
+        </button>
+      </figure>
+    `;
   }
 
   function renderFeatures() {
@@ -1004,28 +1031,7 @@
               </p>
             </div>
             <div class="reveal__rest">
-            ${isJapanese ? "" : `
-            <figure class="clipboard-shift__figure">
-              <button
-                type="button"
-                class="clipboard-shift__panel feature-zoom-trigger"
-                data-feature-image-src="${ASSETS.clipboardDifference}"
-                data-feature-image-alt="呼び出すクリップボードと横に置くクリップボードの違い"
-                aria-label="呼び出すクリップボードと横に置くクリップボードの違いの画像を拡大表示"
-              >
-                <img
-                  src="${ASSETS.clipboardDifference}"
-                  srcset="${ASSETS.clipboardDifference} 1x, ${ASSETS.clipboardDifference} 2x"
-                  sizes="(max-width: 1200px) 100vw, 1200px"
-                  width="2752"
-                  height="1536"
-                  alt="呼び出すクリップボードと横に置くクリップボードの違い"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </button>
-            </figure>
-            `}
+            ${isJapanese ? "" : renderClipboardDifferenceFigure()}
             <div class="clipboard-shift__prose">
               <div class="clipboard-shift__compare">
                 <div class="clipboard-shift__compare-block clipboard-shift__compare-block--others">
@@ -1050,6 +1056,7 @@
                 </div>
               </div>
             </div>
+            ${isJapanese ? renderClipboardDifferenceFigure() : ""}
             </div>
           </div>
         </section>
