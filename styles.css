@@ -6417,7 +6417,7 @@ html[lang="ja"] .local-sync__detail-link a {
 }
 
 .ja-pricing__price {
-  margin: 20px 0 14px;
+  margin: 20px 0 0;
   color: #1d1d1f;
   font-size: 2.3rem;
   font-weight: 800;
@@ -6431,12 +6431,33 @@ html[lang="ja"] .local-sync__detail-link a {
   color: #6e6e73;
 }
 
+.ja-pricing__daily {
+  min-height: 1.5em;
+  margin: 8px 0 14px;
+  color: #0071e3;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.ja-pricing__daily--empty {
+  visibility: hidden;
+}
+
 .ja-pricing__summary {
   margin: 0;
   color: #4b5563;
   font-size: 0.9rem;
   font-weight: 600;
   line-height: 1.7;
+}
+
+.ja-pricing__billing-note {
+  margin: 10px 0 0;
+  color: #6e6e73;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  text-align: right;
 }
 
 .ja-pricing__link {

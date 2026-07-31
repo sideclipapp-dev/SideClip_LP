@@ -1216,21 +1216,25 @@
                   <p class="ja-pricing__label">まず試す</p>
                   <h3>Free</h3>
                   <p class="ja-pricing__price">¥0</p>
+                  <p class="ja-pricing__daily ja-pricing__daily--empty" aria-hidden="true">&nbsp;</p>
                   <p class="ja-pricing__summary">コピー・スクショ履歴など、基本機能をすぐに体験できます。</p>
                 </article>
                 <article class="ja-pricing__card ja-pricing__card--recommended">
                   <p class="ja-pricing__label">日常的に使う</p>
                   <h3>Pro</h3>
                   <p class="ja-pricing__price">¥300<span>/月</span></p>
+                  <p class="ja-pricing__daily">年額プランなら1日あたり約7円</p>
                   <p class="ja-pricing__summary">Todo、画像編集、クイックペーストなど、仕事向けの機能を追加します。</p>
                 </article>
                 <article class="ja-pricing__card">
                   <p class="ja-pricing__label">履歴を資産として残す</p>
                   <h3>Ultra</h3>
                   <p class="ja-pricing__price">¥480<span>/月</span></p>
+                  <p class="ja-pricing__daily">年額プランなら1日あたり約10円</p>
                   <p class="ja-pricing__summary">無制限保存、CSV、バックアップと復元など、全機能を利用できます。</p>
                 </article>
               </div>
+              <p class="ja-pricing__billing-note">※1日あたりの金額は年額料金を365日で換算しています。実際の請求は年額です。</p>
               <a class="ja-pricing__link" href="/plans">プランの違いを詳しく見る</a>
             </div>
           </div>
