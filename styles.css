@@ -527,6 +527,12 @@ img {
   }
 }
 
+@media (max-width: 350px) {
+  .hero__tagline {
+    display: none;
+  }
+}
+
 .hero__banner {
   position: fixed;
   top: var(--header-height);
@@ -6675,19 +6681,27 @@ html.landing-refresh .trust-list--ja svg {
   }
 
   html.landing-refresh .hero__banner-overlay {
-    max-width: 58%;
-    padding-left: 18px;
+    justify-content: center;
+    gap: 5px;
+    max-width: 56%;
+    padding: 6px 8px 6px 18px;
+  }
+
+  html.landing-refresh .hero__banner-eyebrow {
+    display: none;
   }
 
   html.landing-refresh .hero__banner-overlay-lead {
-    font-size: 1.2rem;
+    font-size: clamp(1.05rem, 4.8vw, 1.2rem);
+    line-height: 1.12;
   }
 
   html.landing-refresh .hero__banner-overlay-sub {
-    width: 13.5em;
-    max-width: 46vw;
-    font-size: 0.7rem;
-    line-height: 1.5;
+    width: auto;
+    max-width: none;
+    font-size: clamp(0.625rem, 2.65vw, 0.7rem);
+    line-height: 1.45;
+    white-space: nowrap;
   }
 
   html[lang="en"].landing-refresh .hero__banner-eyebrow {

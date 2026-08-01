@@ -676,7 +676,7 @@
                     コピー履歴を、<br />Macから<span class="hero__banner-accent">スマホ</span>へ。
                   </h1>
                   <p class="hero__banner-overlay-sub hero__banner-overlay-line hero__banner-overlay-line--sub">
-                    Macでコピーしたテキストや画像が、<br />横のスマホへ自動で並びます。
+                    コピーしたテキストや画像が、<br />スマホへ自動で並びます。
                   </p>
                   <div class="hero__banner-actions" aria-label="ヒーロー操作">
                     <a
