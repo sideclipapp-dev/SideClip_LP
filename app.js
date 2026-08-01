@@ -673,7 +673,7 @@
                     SideClip for Mac
                   </p>
                   <h1 id="hero-title" class="hero__banner-overlay-lead hero__banner-overlay-line hero__banner-overlay-line--lead">
-                    コピー履歴を、<br />Macから<span class="hero__banner-accent">スマホ</span>へ。
+                    Macのコピー履歴を<br />画面の<span class="hero__banner-accent">「外」</span>へ。
                   </h1>
                   <p class="hero__banner-overlay-sub hero__banner-overlay-line hero__banner-overlay-line--sub">
                     コピーしたテキストや画像が、<br />スマホへ自動で並びます。
