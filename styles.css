@@ -6172,6 +6172,10 @@ html.landing-refresh .hero-scene-card {
   display: none;
 }
 
+html.landing-refresh .content-overlay {
+  background: #fff;
+}
+
 html.landing-refresh .hero__content {
   padding-top: 52px;
   padding-bottom: 48px;
