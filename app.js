@@ -340,14 +340,14 @@
       title: "増えた履歴も、すぐ見つかる。",
       image: ASSETS.featureSearch,
       alt: "検索でコピー履歴やスクショを探す画面",
-      text: "日付の期間・キーワード・画像内の文字まで検索。<br />あいまいな表現でも、目当てのカードに戻れます。<br /><small>画像内テキスト検索はProプラン以上で利用可能</small>",
+      text: "期間・キーワード・画像内の文字から検索。<br />うろ覚えの言葉でも、目当てのカードを見つけられます。<br /><small>画像内テキスト検索はProプラン以上で利用可能</small>",
     },
     {
       eyebrow: "再利用する",
-      title: "忘れる前にコピーするだけ。",
+      title: "コピーした内容を、すぐTodoに。",
       image: ASSETS.featureTodo,
       alt: "Todoモード画面",
-      text: "Macでコピー→すぐTodo。<br />カードをスワイプするだけでTodo化<br /><small>Proプラン以上で利用可能</small>",
+      text: "Macでコピーした内容を、スマホで右へスワイプ。<br />すぐTodoカードにできます。<br /><small>Proプラン以上で利用可能</small>",
     },
   ];
 
@@ -1214,8 +1214,8 @@
                   <p>スマホやタブレットとは、同じWi-Fi内で直接つながります。</p>
                 </article>
                 <article class="local-sync__point">
-                  <h3>速くてプライベート</h3>
-                  <p>サーバーを挟まないため、反映が速く、データも外へ出にくい設計です。</p>
+                  <h3>外部サーバーを経由しない</h3>
+                  <p>同じWi-Fi内で直接同期し、コピー履歴はMac内に保存します。</p>
                 </article>
               </div>
               <p class="local-sync__detail-link">
@@ -1283,7 +1283,7 @@
                     <ul class="faq__bullets">
                       <li>
                         <strong>Mac：</strong><br />
-                        macOS 26以上のM系（Apple Silicon）で開発・動作確認をしております。
+                        macOS 26以降を搭載したApple Silicon Macで開発・動作確認しています。
                       </li>
                       <li>
                         <strong>スマホ・タブレット：</strong><br />
@@ -1319,14 +1319,14 @@
                       <div class="faq__plan">
                         <dt>Proプラン</dt>
                         <dd>
-                          <span class="faq__plan-price">月額300円（1日あたり10円）</span><br />
+                          <span class="faq__plan-price">月額300円／年額2,400円</span><br />
                           Freeプランでは物足りない方へ。保存上限の増加やTodo機能など便利な機能が解放されます。
                         </dd>
                       </div>
                       <div class="faq__plan">
                         <dt>Ultraプラン</dt>
                         <dd>
-                          <span class="faq__plan-price">月額480円（1日あたり16円）</span><br />
+                          <span class="faq__plan-price">月額480円／年額3,600円</span><br />
                           全機能解放・今後の新機能や改善のアップデートを最優先に提供します。
                         </dd>
                       </div>
@@ -1366,13 +1366,10 @@
                   </div>
                 </details>
                 <details class="faq__item">
-                  <summary class="faq__summary">スマホテザリングのWi-Fiでも使えますか？</summary>
+                  <summary class="faq__summary">スマホのテザリングでも使えますか？</summary>
                   <div class="faq__answer">
                     <p>
-                      使えますが、Wi-Fi通信の速度が遅いため、コピペの反映が少し遅くなります。
-                    </p>
-                    <p>
-                      通信速度の早いWi-Fiネットワークの方が動作が早く、快適にご利用いただけます。
+                      テザリング環境でも利用できます。通信状況によっては、コピーやペーストの反映が遅くなる場合があります。
                     </p>
                   </div>
                 </details>
