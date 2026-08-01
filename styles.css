@@ -2472,6 +2472,10 @@ img {
   text-wrap: balance;
 }
 
+.clipboard-shift__title-break-mobile {
+  display: none;
+}
+
 .clipboard-shift__lead {
   max-width: 650px;
   margin: 20px auto 0;
@@ -5593,6 +5597,10 @@ html[lang="en"] .site-footer__japan-legal:hover {
     max-width: 10em;
     font-size: 2rem;
     line-height: 1.18;
+  }
+
+  .clipboard-shift__title-break-mobile {
+    display: block;
   }
 
   .clipboard-shift__lead {

@@ -50,7 +50,7 @@
 
   const landingEntries = [
     ["html", ".hero__banner-overlay-lead", "Your Mac's clipboard<br />history, on your<br />phone."],
-    ["html", ".hero__banner-overlay-sub", "Copy text or images on your Mac.<br />They are added automatically to your phone."],
+    ["html", ".hero__banner-overlay-sub", "Set your phone beside your Mac.<br />Everything you copy stays in sight."],
     ["text", ".hero__banner-primary", "Download free for Mac"],
     ["text", ".hero__banner-note", "macOS 26 or later · Apple Silicon Mac"],
     ["html", ".hero__banner-copy", "Copy. Choose.<br />Paste."],
@@ -148,7 +148,7 @@
     ["text", ".benefit-item:nth-child(4) h3", "Local sync"],
     ["html", ".benefit-item:nth-child(4) p", "Devices connect on the same Wi-Fi,<br />without sending history to our cloud."],
     ["text", ".clipboard-shift__eyebrow", "Clipboard Shift"],
-    ["html", "#clipboard-shift-title", "Keep clipboard history<br />off your workspace."],
+    ["html", "#clipboard-shift-title", "A place for clipboard history,<br />beside your Mac."],
     ["html", ".clipboard-shift__lead", "Instead of opening another panel,<br />keep your clipboard history visible on the phone beside your Mac."],
     ["attr", ".clipboard-shift__panel", "data-feature-image-alt", "Difference between opening a clipboard panel and keeping history beside your Mac"],
     ["attr", ".clipboard-shift__panel", "data-feature-image-src", EN_ASSETS.clipboardDifference],

@@ -676,7 +676,7 @@
                     Macのコピー履歴を<br />画面の<span class="hero__banner-accent">「外」</span>へ。
                   </h1>
                   <p class="hero__banner-overlay-sub hero__banner-overlay-line hero__banner-overlay-line--sub">
-                    コピーしたテキストや画像が、<br />スマホへ自動で並びます。
+                    スマホを横に置くだけ。<br />コピーしたものが、いつも視界に。
                   </p>
                   <div class="hero__banner-actions" aria-label="ヒーロー操作">
                     <a
@@ -1069,8 +1069,8 @@
             <div class="reveal__head">
               <p class="clipboard-shift__eyebrow">Clipboard Shift</p>
               <h2 id="clipboard-shift-title" class="clipboard-shift__title">
-                履歴を、作業画面に<br />
-                重ねない。
+                Macの横に、<br />
+                コピー履歴の<br class="clipboard-shift__title-break-mobile" />置き場を。
               </h2>
               <p class="clipboard-shift__lead">
                 クリップボードパネルを開く代わりに、<br />
