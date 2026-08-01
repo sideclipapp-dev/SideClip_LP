@@ -6758,6 +6758,10 @@ html.landing-refresh .trust-list--ja svg {
     font-weight: 600;
   }
 
+  html.landing-refresh .content-overlay {
+    background: #fff;
+  }
+
   html.landing-refresh .hero__content {
     padding: 42px 22px 44px;
   }
