@@ -282,7 +282,12 @@
 
       const monthly = money(catalog.prices[`${plan}_monthly`], lang);
       const yearly = money(catalog.prices[`${plan}_yearly`], lang);
-      setText(planBlock.querySelector(".faq__plan-price"), lang === "ja" ? `${monthly}/月 または ${yearly}/年` : `${monthly}/month or ${yearly}/year`);
+      setHtml(
+        planBlock.querySelector(".faq__plan-price"),
+        lang === "ja"
+          ? `月額プラン：${monthly}<br />年額プラン：${yearly}`
+          : `Monthly plan: ${monthly}<br />Annual plan: ${yearly}`,
+      );
 
       const dd = planBlock.querySelector("dd");
       const trailingText = dd && Array.from(dd.childNodes).find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());

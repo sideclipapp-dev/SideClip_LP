@@ -1319,14 +1319,14 @@
                       <div class="faq__plan">
                         <dt>Proプラン</dt>
                         <dd>
-                          <span class="faq__plan-price">月額300円／年額2,400円</span><br />
+                          <span class="faq__plan-price">月額プラン：¥300<br />年額プラン：¥2,400</span><br />
                           Freeプランでは物足りない方へ。保存上限の増加やTodo機能など便利な機能が解放されます。
                         </dd>
                       </div>
                       <div class="faq__plan">
                         <dt>Ultraプラン</dt>
                         <dd>
-                          <span class="faq__plan-price">月額480円／年額3,600円</span><br />
+                          <span class="faq__plan-price">月額プラン：¥480<br />年額プラン：¥3,600</span><br />
                           全機能解放・今後の新機能や改善のアップデートを最優先に提供します。
                         </dd>
                       </div>
