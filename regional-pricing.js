@@ -3,7 +3,9 @@
 
   const BILLING_MARKET_URL = "https://sideclip-billing.sideclip-app.workers.dev/api/billing-market?client=sideclip-lp";
   const CACHE_KEY = "sideclip_lp_billing_market_v1";
-  const CACHE_TTL_MS = 5 * 60 * 1000;
+  const LEGACY_PREFERENCE_KEY = "sideclip_lp_billing_market_preference_v1";
+  const PENDING_STYLE_ID = "sideclip-regional-pricing-pending-style";
+  const CACHE_TTL_MS = 60 * 60 * 1000;
   const CATALOGS = {
     jp: {
       market: "jp",
@@ -21,6 +23,72 @@
   let resolvePromise = null;
   let observerQueued = false;
   let trackedMarket = "";
+  let structuredMarket = "";
+  let resolutionSource = "pending";
+
+  document.documentElement.classList.add("pricing-region-pending");
+
+  function ensurePendingStyles() {
+    if (document.getElementById(PENDING_STYLE_ID)) return;
+    const style = document.createElement("style");
+    style.id = PENDING_STYLE_ID;
+    style.textContent = `
+      @keyframes sideclip-price-pending { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+      html.pricing-region-pending .ja-pricing__price,
+      html.pricing-region-pending .ja-pricing__daily:not(.ja-pricing__daily--empty),
+      html.pricing-region-pending .faq__plan-price,
+      html.pricing-region-pending [data-plan-tier] span.text-3xl,
+      html.pricing-region-pending [data-plan-tier] > p.text-sc-primary,
+      html.pricing-region-pending table tbody tr:first-child td {
+        position: relative;
+        color: transparent !important;
+        text-shadow: none !important;
+      }
+      html.pricing-region-pending .ja-pricing__price *,
+      html.pricing-region-pending .ja-pricing__daily *,
+      html.pricing-region-pending [data-plan-tier] span.text-3xl * {
+        color: transparent !important;
+      }
+      html.pricing-region-pending .ja-pricing__price::after,
+      html.pricing-region-pending .ja-pricing__daily:not(.ja-pricing__daily--empty)::after,
+      html.pricing-region-pending .faq__plan-price::after,
+      html.pricing-region-pending [data-plan-tier] span.text-3xl::after,
+      html.pricing-region-pending [data-plan-tier] > p.text-sc-primary::after,
+      html.pricing-region-pending table tbody tr:first-child td::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: min(82%, 9rem);
+        height: .78em;
+        border-radius: 5px;
+        background: linear-gradient(90deg, #edf1f5 20%, #f8fafc 45%, #edf1f5 70%);
+        background-size: 220% 100%;
+        transform: translateY(-50%);
+        animation: sideclip-price-pending 1.15s linear infinite;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html.pricing-region-pending .ja-pricing__price::after,
+        html.pricing-region-pending .ja-pricing__daily:not(.ja-pricing__daily--empty)::after,
+        html.pricing-region-pending .faq__plan-price::after,
+        html.pricing-region-pending [data-plan-tier] span.text-3xl::after,
+        html.pricing-region-pending [data-plan-tier] > p.text-sc-primary::after,
+        html.pricing-region-pending table tbody tr:first-child td::after { animation: none; }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function clearLegacyPreference() {
+    try {
+      window.localStorage.removeItem(LEGACY_PREFERENCE_KEY);
+    } catch (_) {
+      /* Ignore storage restrictions; the legacy preference is no longer read. */
+    }
+  }
+
+  ensurePendingStyles();
+  clearLegacyPreference();
 
   function pageLanguage() {
     return String(document.documentElement.lang || "en").toLowerCase().startsWith("ja") ? "ja" : "en";
@@ -40,21 +108,28 @@
     }
   }
 
-  function readCache() {
+  function readCache(allowStale = false) {
     try {
-      const value = JSON.parse(window.sessionStorage.getItem(CACHE_KEY) || "null");
-      if (!value || Date.now() - Number(value.savedAt || 0) > CACHE_TTL_MS) return null;
-      return value.market === "global" ? CATALOGS.global : CATALOGS.jp;
+      const value = JSON.parse(window.localStorage.getItem(CACHE_KEY) || "null");
+      if (!value || (!allowStale && Date.now() - Number(value.savedAt || 0) > CACHE_TTL_MS)) return null;
+      const base = value.market === "global" ? CATALOGS.global : CATALOGS.jp;
+      return value.catalog && value.catalog.currency === base.currency
+        ? { market: base.market, currency: base.currency, prices: { ...base.prices, ...value.catalog.prices } }
+        : base;
     } catch (_) {
       return null;
     }
   }
 
-  function writeCache(market) {
+  function writeCache(resolvedCatalog) {
     try {
-      window.sessionStorage.setItem(CACHE_KEY, JSON.stringify({ market, savedAt: Date.now() }));
+      window.localStorage.setItem(CACHE_KEY, JSON.stringify({
+        market: resolvedCatalog.market,
+        catalog: resolvedCatalog,
+        savedAt: Date.now()
+      }));
     } catch (_) {
-      /* Pricing still works when session storage is unavailable. */
+      /* Pricing still works when local storage is unavailable. */
     }
   }
 
@@ -80,9 +155,16 @@
 
     resolvePromise = (async () => {
       const override = localOverride();
-      if (override) return CATALOGS[override];
+      if (override) {
+        resolutionSource = "local_override";
+        writeCache(CATALOGS[override]);
+        return CATALOGS[override];
+      }
       const cached = readCache();
-      if (cached) return cached;
+      if (cached) {
+        resolutionSource = "cache_fresh";
+        return cached;
+      }
 
       try {
         const response = await fetch(BILLING_MARKET_URL, {
@@ -92,10 +174,19 @@
           headers: { Accept: "application/json" }
         });
         if (!response.ok) throw new Error(`Billing market request failed: ${response.status}`);
-        const resolved = catalogFromResponse(await response.json());
-        writeCache(resolved.market);
+        const data = await response.json();
+        const resolved = catalogFromResponse(data);
+        const apiSource = String(data?.billing_country_source || "").replace(/[^a-z0-9_-]/gi, "").toLowerCase();
+        resolutionSource = apiSource ? `api_${apiSource}` : "api";
+        writeCache(resolved);
         return resolved;
       } catch (_) {
+        const stale = readCache(true);
+        if (stale) {
+          resolutionSource = "cache_stale";
+          return stale;
+        }
+        resolutionSource = "timezone_fallback";
         return CATALOGS[fallbackMarket()];
       }
     })();
@@ -246,6 +337,13 @@
 
     const freeCard = findPlanCard(pricingSection, "Free");
     setText(freeCard?.querySelector("span.text-3xl"), lang === "ja" ? (catalog.currency === "USD" ? "$0" : "¥0") : (catalog.currency === "USD" ? "$0" : "JPY 0"));
+    const freeAnnualLine = Array.from(freeCard?.querySelectorAll("p") || []).find((element) => element.className.includes("text-sc-primary") && /(?:年額|year|JPY|\$)/i.test(element.textContent));
+    setText(
+      freeAnnualLine,
+      lang === "ja"
+        ? (catalog.currency === "USD" ? "年額 $0" : "年額 ¥0")
+        : (catalog.currency === "USD" ? "$0/year" : "JPY 0/year")
+    );
 
     ["pro", "ultra"].forEach((plan) => {
       const card = findPlanCard(pricingSection, plan === "pro" ? "Pro" : "Ultra");
@@ -278,7 +376,7 @@
       const proYearly = money(catalog.prices.pro_yearly, lang);
       const ultraMonthly = money(catalog.prices.ultra_monthly, lang);
       const ultraYearly = money(catalog.prices.ultra_yearly, lang);
-      setText(cells[0], lang === "ja" ? "¥0" : catalog.currency === "USD" ? "$0" : "JPY 0");
+      setText(cells[0], catalog.currency === "USD" ? "$0" : lang === "ja" ? "¥0" : "JPY 0");
       setText(cells[1], lang === "ja" ? `${proMonthly}/月\n${proYearly}/年` : `${proMonthly}/month\n${proYearly}/year`);
       setText(cells[2], lang === "ja" ? `${ultraMonthly}/月\n${ultraYearly}/年` : `${ultraMonthly}/month\n${ultraYearly}/year`);
     }
@@ -289,9 +387,12 @@
     window.gtag("event", "pricing_market_view", {
       billing_market: catalog.market,
       billing_currency: catalog.currency,
+      pricing_resolution_source: resolutionSource,
       page_path: window.location.pathname,
       transport_type: "beacon"
     });
+    window.gtag("set", { billing_market: catalog.market, billing_currency: catalog.currency });
+    window.gtag("set", "user_properties", { billing_market: catalog.market, billing_currency: catalog.currency });
     trackedMarket = catalog.market;
   }
 
@@ -301,12 +402,29 @@
     document.documentElement.dataset.billingMarket = catalog.market;
     updateLanding(lang);
     updatePlansPage(lang);
+    const nextStructuredMarket = `${lang}:${catalog.market}`;
+    if (structuredMarket !== nextStructuredMarket) {
+      window.SideClipLandingPrerender?.syncStructuredData?.(document.querySelector("#root"));
+      structuredMarket = nextStructuredMarket;
+    }
+    document.documentElement.classList.remove("pricing-region-pending");
+    document.querySelectorAll("[data-regional-pricing-region]").forEach((region) => region.setAttribute("aria-busy", "false"));
     trackMarket();
   }
 
-  window.SideClipRegionalPricing = { apply, getMarket: () => catalog?.market || null };
+  window.SideClipRegionalPricing = {
+    apply,
+    getMarket: () => catalog?.market || null,
+    getResolutionSource: () => resolutionSource
+  };
 
   function activate() {
+    const landingPricing = document.querySelector(".ja-pricing");
+    const plansPricing = document.getElementById("pricing-heading")?.closest("section");
+    [landingPricing, plansPricing].filter(Boolean).forEach((region) => {
+      region.dataset.regionalPricingRegion = "";
+      region.setAttribute("aria-busy", "true");
+    });
     apply();
     const observer = new MutationObserver(() => {
       if (observerQueued) return;
@@ -321,13 +439,7 @@
   }
 
   function start() {
-    const isPlansPage = window.location.pathname === "/plans" || window.location.pathname.startsWith("/plans/")
-      || window.location.pathname === "/ja/plans" || window.location.pathname.startsWith("/ja/plans/");
-    if (isPlansPage) {
-      window.setTimeout(activate, 1650);
-    } else {
-      activate();
-    }
+    activate();
   }
 
   if (document.readyState === "loading") {

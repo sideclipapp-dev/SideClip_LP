@@ -2,6 +2,24 @@
   const ENHANCE_STYLE_ID = "sideclip-plan-enhance-style";
   const CHECK_ICON =
     '<svg class="mt-0.5 h-4 w-4 shrink-0 text-sc-primary" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+  const TEXT_ALIASES = new Map([
+    ["Freeの全機能", "Everything in Free"],
+    ["クイックペースト（最新1〜9をショートカットでペースト）", "Quick Paste (paste recent cards 1–9 with shortcuts)"],
+    ["クイックペースト", "Quick Paste"],
+    ["コピーして翻訳", "Copy and translate"],
+    ["その他 便利機能", "Other useful features"],
+    ["画像内テキスト抽出", "Extract text from images"],
+    ["Appleリマインダー連携", "Apple Reminders integration"],
+    ["Todo管理", "Todo management"],
+    ["画像トリミング", "Image cropping"],
+    ["画像内テキスト表示", "View text detected in images"]
+  ]);
+
+  function includesLocalizedText(root, text) {
+    const content = root?.textContent || "";
+    const alias = TEXT_ALIASES.get(text);
+    return content.includes(text) || (alias ? content.includes(alias) : false);
+  }
 
   function ensureStyles() {
     if (document.getElementById(ENHANCE_STYLE_ID)) return;
@@ -136,7 +154,7 @@
   }
 
   function addPlanBullet(card, text, afterText) {
-    if (!card || card.textContent.includes(text)) return;
+    if (!card || includesLocalizedText(card, text)) return;
 
     const list = card.querySelector("ul");
     if (!list) return;
@@ -144,7 +162,7 @@
     const item = createPlanBullet(text);
 
     const afterItem = afterText
-      ? Array.from(list.children).find((child) => child.textContent.includes(afterText))
+      ? Array.from(list.children).find((child) => includesLocalizedText(child, afterText))
       : null;
     if (afterItem && afterItem.nextSibling) {
       list.insertBefore(item, afterItem.nextSibling);
@@ -154,7 +172,7 @@
   }
 
   function addPlanBulletAtStart(card, text) {
-    if (!card || card.textContent.includes(text)) return;
+    if (!card || includesLocalizedText(card, text)) return;
 
     const list = card.querySelector("ul");
     if (!list) return;
@@ -176,7 +194,7 @@
 
   function addUltraConvenienceBullet() {
     const ultraCard = findPlanCard("Ultra");
-    if (!ultraCard || ultraCard.textContent.includes("その他 便利機能")) return;
+    if (!ultraCard || includesLocalizedText(ultraCard, "その他 便利機能")) return;
 
     const list = ultraCard.querySelector("ul");
     if (!list) return;
@@ -207,8 +225,8 @@
     if (!list) return;
 
     const items = Array.from(list.children);
-    const movingItem = items.find((item) => item.textContent.includes(movingText));
-    const targetItem = items.find((item) => item.textContent.includes(targetText));
+    const movingItem = items.find((item) => includesLocalizedText(item, movingText));
+    const targetItem = items.find((item) => includesLocalizedText(item, targetText));
     if (!movingItem || !targetItem || movingItem.nextElementSibling === targetItem) return;
 
     list.insertBefore(movingItem, targetItem);
@@ -219,7 +237,7 @@
     if (!list) return;
 
     Array.from(list.children).forEach((item) => {
-      if (item.textContent.includes(text)) item.remove();
+      if (includesLocalizedText(item, text)) item.remove();
     });
   }
 
@@ -391,8 +409,8 @@
 
   function moveTranslateRowAfterTodo(tbody) {
     const rows = Array.from(tbody.querySelectorAll("tr"));
-    const todoRow = rows.find((row) => firstCellText(row) === "Todo管理");
-    const translateRow = rows.find((row) => firstCellText(row) === "コピーして翻訳");
+    const todoRow = rows.find((row) => ["Todo管理", "Todo management"].includes(firstCellText(row)));
+    const translateRow = rows.find((row) => ["コピーして翻訳", "Copy and translate"].includes(firstCellText(row)));
     if (!todoRow || !translateRow || translateRow.previousElementSibling === todoRow) return;
 
     if (todoRow.nextSibling) {
@@ -404,8 +422,8 @@
 
   function moveQuickPasteRowBeforeTranslate(tbody) {
     const rows = Array.from(tbody.querySelectorAll("tr"));
-    const translateRow = rows.find((row) => firstCellText(row) === "コピーして翻訳");
-    const quickPasteRow = rows.find((row) => firstCellText(row) === "クイックペースト");
+    const translateRow = rows.find((row) => ["コピーして翻訳", "Copy and translate"].includes(firstCellText(row)));
+    const quickPasteRow = rows.find((row) => ["クイックペースト", "Quick Paste"].includes(firstCellText(row)));
     if (!translateRow || !quickPasteRow || quickPasteRow.nextElementSibling === translateRow) return;
 
     tbody.insertBefore(quickPasteRow, translateRow);
@@ -418,9 +436,9 @@
     updateExistingRows(tbody);
     moveTranslateRowAfterTodo(tbody);
 
-    if (!tbody.textContent.includes("クイックペースト")) {
+    if (!includesLocalizedText(tbody, "クイックペースト")) {
       const rows = Array.from(tbody.querySelectorAll("tr"));
-      const translateRow = rows.find((row) => firstCellText(row) === "コピーして翻訳");
+      const translateRow = rows.find((row) => ["コピーして翻訳", "Copy and translate"].includes(firstCellText(row)));
       const quickPasteRow = addComparisonRow(
         tbody,
         {
@@ -436,10 +454,10 @@
     }
     moveQuickPasteRowBeforeTranslate(tbody);
 
-    if (!tbody.textContent.includes("画像内テキスト抽出")) {
+    if (!includesLocalizedText(tbody, "画像内テキスト抽出")) {
       const rows = Array.from(tbody.querySelectorAll("tr"));
       const afterRow =
-        rows.find((row) => firstCellText(row) === "画像内テキスト表示") || rows[rows.length - 1];
+        rows.find((row) => ["画像内テキスト表示", "View text detected in images"].includes(firstCellText(row))) || rows[rows.length - 1];
       addComparisonRow(
         tbody,
         {

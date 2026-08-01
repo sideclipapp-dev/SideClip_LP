@@ -83,10 +83,11 @@
       gtag('set', 'user_properties', { site_language: initialSiteLanguage });
       gtag('config', 'G-D3JVLNHHMQ', { site_language: initialSiteLanguage });
     </script>
-    <link rel="stylesheet" href="/styles.css?v=20260801-conversion-seo" />
-    <script src="/site-i18n.js?v=20260801-conversion-seo" defer></script>
-    <script src="/app.js?v=20260801-conversion-seo" defer></script>
-    <script src="/regional-pricing.js?v=20260801-conversion-seo" defer></script>
+    <script>document.documentElement.classList.add('pricing-region-pending');window.setTimeout(function(){document.documentElement.classList.remove('pricing-region-pending');},4000);</script>
+    <link rel="stylesheet" href="/styles.css?v=20260801-region-locked" />
+    <script src="/site-i18n.js?v=20260801-global-review" defer></script>
+    <script src="/app.js?v=20260801-region-locked" defer></script>
+    <script src="/regional-pricing.js?v=20260801-region-locked" defer></script>
   </head>
   <body data-i18n-page="landing">
     <!-- landing-static:start -->
@@ -664,23 +665,23 @@
                 <article class="ja-pricing__card" data-plan-tier="free">
                   <p class="ja-pricing__label">Try it first</p>
                   <h3>Free</h3>
-                  <p class="ja-pricing__price">JPY 0</p>
+                  <p class="ja-pricing__price">$0</p>
                   <p class="ja-pricing__daily ja-pricing__daily--empty" aria-hidden="true">&nbsp;</p>
                   <p class="ja-pricing__summary">Try core features including clipboard and screenshot history.</p>
                 </article>
                 <article class="ja-pricing__card ja-pricing__card--recommended" data-plan-tier="pro">
                   <p class="ja-pricing__label">For everyday use</p>
                   <h3>Pro</h3>
-                  <p class="ja-pricing__price">JPY 300<span>/month</span></p>
-                  <p class="ja-pricing__daily">Annual plan JPY 2,400<span>JPY 200/month · about JPY 7/day*</span></p>
+                  <p class="ja-pricing__price">$2.99<span>/month</span></p>
+                  <p class="ja-pricing__daily">Annual plan $23.99<span>about $2.00/month · about $0.07/day*</span></p>
                   <p class="ja-pricing__summary">Add Todo, image editing, Quick Paste, and other professional features.</p>
                   <a class="ja-pricing__card-link" href="/plans#comparison-heading" data-plan-interest="pro">Explore Pro features →</a>
                 </article>
                 <article class="ja-pricing__card" data-plan-tier="ultra">
                   <p class="ja-pricing__label">For keeping a long-term archive</p>
                   <h3>Ultra</h3>
-                  <p class="ja-pricing__price">JPY 480<span>/month</span></p>
-                  <p class="ja-pricing__daily">Annual plan JPY 3,600<span>JPY 300/month · about JPY 10/day*</span></p>
+                  <p class="ja-pricing__price">$4.99<span>/month</span></p>
+                  <p class="ja-pricing__daily">Annual plan $39.99<span>about $3.33/month · about $0.11/day*</span></p>
                   <p class="ja-pricing__summary">Unlock unlimited storage, CSV export, backup and restore, and every SideClip feature.</p>
                   <a class="ja-pricing__card-link" href="/plans#comparison-heading" data-plan-interest="ultra">Explore Ultra features →</a>
                 </article>
@@ -713,7 +714,7 @@
                 </details>
                 <details class="faq__item">
                   <summary class="faq__summary">How much do the plans cost?</summary>
-                  <div class="faq__answer"><p>Paid plans help fund ongoing app improvements and new feature development.<br>If the Free plan works well for you, please consider a paid plan for a more capable experience.</p><dl class="faq__plans"><div class="faq__plan"><dt>Free plan</dt><dd><span class="faq__plan-price">Free</span><br>Try SideClip and confirm it works in your environment.</dd></div><div class="faq__plan"><dt>Pro plan</dt><dd><span class="faq__plan-price">JPY 300/month or JPY 2,400/year</span><br>The annual plan works out to about JPY 7/day.</dd></div><div class="faq__plan"><dt>Ultra plan</dt><dd><span class="faq__plan-price">JPY 480/month or JPY 3,600/year</span><br>The annual plan works out to about JPY 10/day.</dd></div></dl><p class="faq__plans-more"><a href="/plans">See plans and pricing in detail →</a></p></div>
+                  <div class="faq__answer"><p>Paid plans help fund ongoing app improvements and new feature development.<br>If the Free plan works well for you, please consider a paid plan for a more capable experience.</p><dl class="faq__plans"><div class="faq__plan"><dt>Free plan</dt><dd><span class="faq__plan-price">Free</span><br>Try SideClip and confirm it works in your environment.</dd></div><div class="faq__plan"><dt>Pro plan</dt><dd><span class="faq__plan-price">$2.99/month or $23.99/year</span><br>The annual plan works out to about $0.07/day.</dd></div><div class="faq__plan"><dt>Ultra plan</dt><dd><span class="faq__plan-price">$4.99/month or $39.99/year</span><br>The annual plan works out to about $0.11/day.</dd></div></dl><p class="faq__plans-more"><a href="/plans">See plans and pricing in detail →</a></p></div>
                 </details>
               </div>
             </div>
@@ -794,7 +795,7 @@
           <p class="site-footer__copyright">© 2026 SideClip. All rights reserved.</p>
         </footer>
       </main>
-    <script type="application/ld+json" data-sideclip-structured-data="software">{"@context":"https://schema.org","@type":"SoftwareApplication","@id":"https://sideclip.app/#software","name":"SideClip","applicationCategory":"ProductivityApplication","applicationSubCategory":"Clipboard manager","operatingSystem":"macOS 26 or later on Apple Silicon","softwareRequirements":"Apple Silicon Mac and a phone or tablet connected to the same Wi-Fi network","description":"A Mac clipboard app that keeps copied text and images visible on a phone or tablet, ready to paste back into your Mac.","url":"https://sideclip.app/","downloadUrl":"https://sideclip.app/download/","image":"https://sideclip.app/assets/i18n/en/ogp-1200x630.jpg","inLanguage":"en","offers":[{"@type":"Offer","name":"SideClip Free","price":"0","priceCurrency":"USD","url":"https://sideclip.app/plans/","description":"Free forever","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"SideClip Pro","price":"2.99","priceCurrency":"USD","url":"https://sideclip.app/plans/","description":"Monthly subscription","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"SideClip Ultra","price":"4.99","priceCurrency":"USD","url":"https://sideclip.app/plans/","description":"Monthly subscription","availability":"https://schema.org/InStock"}]}</script><script type="application/ld+json" data-sideclip-structured-data="faq">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What OS and devices are supported?","acceptedAnswer":{"@type":"Answer","text":"Mac: Developed and tested on Apple Silicon Macs running macOS 26 or later. Phones and tablets: In principle, SideClip works on iOS, Android, iPadOS, and other devices that can run a web browser. Performance may vary depending on the device. Tested with Safari and Chrome. For security, please use the latest browser version."}},{"@type":"Question","name":"Can I use it for free? How are paid plans different?","acceptedAnswer":{"@type":"Answer","text":"The Free plan lets you use the basic features at no cost. We recommend testing SideClip in your own environment before choosing a paid plan. Pro and Ultra unlock more convenient features. See plans and pricing in detail →"}},{"@type":"Question","name":"How much do the plans cost?","acceptedAnswer":{"@type":"Answer","text":"Paid plans help fund ongoing app improvements and new feature development. If the Free plan works well for you, please consider a paid plan for a more capable experience. Free plan Free Try SideClip and confirm it works in your environment. Pro plan JPY 300/month or JPY 2,400/year The annual plan works out to about JPY 7/day. Ultra plan JPY 480/month or JPY 3,600/year The annual plan works out to about JPY 10/day. See plans and pricing in detail →"}},{"@type":"Question","name":"Are there limits on saved data types or sizes?","acceptedAnswer":{"@type":"Answer","text":"Yes. To keep clipboard history from growing too large and to prevent sluggish behavior, SideClip applies the following limits. These may change in app updates. Plain text: up to 50 KB per copy Images such as JPG, PNG, and TIFF: up to 10 MB per image Other files: only a link to the file on your Mac is copied. The link stops working if the file is moved."}},{"@type":"Question","name":"Is there a card save limit?","acceptedAnswer":{"@type":"Answer","text":"Yes. Save limits differ by plan. After installing the app, check the Plan menu shown on the phone-side screen for details. When the limit is exceeded, older data is deleted automatically. Data saved to Favorite is not deleted automatically."}},{"@type":"Question","name":"Can I use SideClip on a phone tethering Wi-Fi network?","acceptedAnswer":{"@type":"Answer","text":"Yes, but copy-paste updates may be a little slower because tethered Wi-Fi can be slow. A faster Wi-Fi network will generally make SideClip quicker and more comfortable to use."}}]}</script></div>
+    <script type="application/ld+json" data-sideclip-structured-data="software">{"@context":"https://schema.org","@type":"SoftwareApplication","@id":"https://sideclip.app/#software","name":"SideClip","applicationCategory":"ProductivityApplication","applicationSubCategory":"Clipboard manager","operatingSystem":"macOS 26 or later on Apple Silicon","softwareRequirements":"Apple Silicon Mac and a phone or tablet connected to the same Wi-Fi network","description":"A Mac clipboard app that keeps copied text and images visible on a phone or tablet, ready to paste back into your Mac.","url":"https://sideclip.app/","downloadUrl":"https://sideclip.app/download/","image":"https://sideclip.app/assets/i18n/en/ogp-1200x630.jpg","inLanguage":"en","offers":[{"@type":"Offer","name":"SideClip Free (Japan)","price":"0","priceCurrency":"JPY","url":"https://sideclip.app/plans/","description":"Free forever","availability":"https://schema.org/InStock","eligibleRegion":{"@type":"Country","name":"JP"}},{"@type":"Offer","name":"SideClip Pro (Japan)","price":"300","priceCurrency":"JPY","url":"https://sideclip.app/plans/","description":"Monthly subscription","availability":"https://schema.org/InStock","eligibleRegion":{"@type":"Country","name":"JP"}},{"@type":"Offer","name":"SideClip Ultra (Japan)","price":"480","priceCurrency":"JPY","url":"https://sideclip.app/plans/","description":"Monthly subscription","availability":"https://schema.org/InStock","eligibleRegion":{"@type":"Country","name":"JP"}},{"@type":"Offer","name":"SideClip Free (Outside Japan)","price":"0","priceCurrency":"USD","url":"https://sideclip.app/plans/","description":"Free forever","availability":"https://schema.org/InStock","ineligibleRegion":{"@type":"Country","name":"JP"}},{"@type":"Offer","name":"SideClip Pro (Outside Japan)","price":"2.99","priceCurrency":"USD","url":"https://sideclip.app/plans/","description":"Monthly subscription","availability":"https://schema.org/InStock","ineligibleRegion":{"@type":"Country","name":"JP"}},{"@type":"Offer","name":"SideClip Ultra (Outside Japan)","price":"4.99","priceCurrency":"USD","url":"https://sideclip.app/plans/","description":"Monthly subscription","availability":"https://schema.org/InStock","ineligibleRegion":{"@type":"Country","name":"JP"}}]}</script><script type="application/ld+json" data-sideclip-structured-data="faq">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What OS and devices are supported?","acceptedAnswer":{"@type":"Answer","text":"Mac: Developed and tested on Apple Silicon Macs running macOS 26 or later. Phones and tablets: In principle, SideClip works on iOS, Android, iPadOS, and other devices that can run a web browser. Performance may vary depending on the device. Tested with Safari and Chrome. For security, please use the latest browser version."}},{"@type":"Question","name":"Can I use it for free? How are paid plans different?","acceptedAnswer":{"@type":"Answer","text":"The Free plan lets you use the basic features at no cost. We recommend testing SideClip in your own environment before choosing a paid plan. Pro and Ultra unlock more convenient features. See plans and pricing in detail →"}},{"@type":"Question","name":"How much do the plans cost?","acceptedAnswer":{"@type":"Answer","text":"Paid plans help fund ongoing app improvements and new feature development. If the Free plan works well for you, please consider a paid plan for a more capable experience. Free plan Free Try SideClip and confirm it works in your environment. Pro plan $2.99/month or $23.99/year The annual plan works out to about $0.07/day. Ultra plan $4.99/month or $39.99/year The annual plan works out to about $0.11/day. See plans and pricing in detail →"}},{"@type":"Question","name":"Are there limits on saved data types or sizes?","acceptedAnswer":{"@type":"Answer","text":"Yes. To keep clipboard history from growing too large and to prevent sluggish behavior, SideClip applies the following limits. These may change in app updates. Plain text: up to 50 KB per copy Images such as JPG, PNG, and TIFF: up to 10 MB per image Other files: only a link to the file on your Mac is copied. The link stops working if the file is moved."}},{"@type":"Question","name":"Is there a card save limit?","acceptedAnswer":{"@type":"Answer","text":"Yes. Save limits differ by plan. After installing the app, check the Plan menu shown on the phone-side screen for details. When the limit is exceeded, older data is deleted automatically. Data saved to Favorite is not deleted automatically."}},{"@type":"Question","name":"Can I use SideClip on a phone tethering Wi-Fi network?","acceptedAnswer":{"@type":"Answer","text":"Yes, but copy-paste updates may be a little slower because tethered Wi-Fi can be slow. A faster Wi-Fi network will generally make SideClip quicker and more comfortable to use."}}]}</script></div>
     <!-- landing-static:end -->
     <div
       id="cookie-banner"
@@ -866,6 +867,16 @@
           if (banner) banner.classList.add('is-visible');
         }
 
+        function showBannerWhenLanguageReady() {
+          var browserLanguage = String((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase().indexOf('ja') === 0 ? 'ja' : 'en';
+          var pageLanguage = location.pathname === '/ja' || location.pathname.indexOf('/ja/') === 0 ? 'ja' : 'en';
+          if (window.__sideclipLanguageSuggestionOpen || (browserLanguage !== pageLanguage && !window.__sideclipLanguageSuggestionHandled)) {
+            document.addEventListener('sideclip:language-suggestion-closed', showBanner, { once: true });
+            return;
+          }
+          showBanner();
+        }
+
         var savedChoice = savedCookieConsent;
         if (savedChoice === 'accepted') {
           applyConsent(true);
@@ -874,7 +885,7 @@
           applyConsent(false);
           hideBanner();
         } else {
-          showBanner();
+          showBannerWhenLanguageReady();
         }
 
         if (acceptButton) {

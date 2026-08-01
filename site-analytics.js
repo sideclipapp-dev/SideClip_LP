@@ -6,6 +6,9 @@
   const consentKey = "sideclip_cookie_consent_v1";
   const path = window.location.pathname.toLowerCase();
   const siteLanguage = path === "/ja" || path.startsWith("/ja/") ? "ja" : "en";
+  const primaryBrowserLanguage = navigator.languages?.[0] || navigator.language || "";
+  const browserLanguage = String(primaryBrowserLanguage).toLowerCase().startsWith("ja") ? "ja" : "en";
+  const languageSuggestionExpected = browserLanguage !== siteLanguage;
   let savedConsent = null;
 
   try {
@@ -59,6 +62,10 @@
 
   function showConsentBanner() {
     if (siteLanguage !== "en" || savedConsent || document.querySelector("[data-site-analytics-consent]")) return;
+    if (window.__sideclipLanguageSuggestionOpen || (languageSuggestionExpected && !window.__sideclipLanguageSuggestionHandled)) {
+      document.addEventListener("sideclip:language-suggestion-closed", showConsentBanner, { once: true });
+      return;
+    }
 
     const style = document.createElement("style");
     style.textContent = `

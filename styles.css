@@ -6438,6 +6438,7 @@ html.landing-refresh .local-sync__detail-link a {
 }
 
 .ja-pricing__price {
+  position: relative;
   margin: 20px 0 0;
   color: #1d1d1f;
   font-size: 2.3rem;
@@ -6453,6 +6454,7 @@ html.landing-refresh .local-sync__detail-link a {
 }
 
 .ja-pricing__daily {
+  position: relative;
   min-height: 3em;
   margin: 8px 0 14px;
   color: #0071e3;
@@ -6502,6 +6504,48 @@ html.landing-refresh .local-sync__detail-link a {
   font-size: 0.72rem;
   line-height: 1.6;
   text-align: right;
+}
+
+@keyframes sideclip-price-pending {
+  from { background-position: 100% 0; }
+  to { background-position: -100% 0; }
+}
+
+html.pricing-region-pending .ja-pricing__price,
+html.pricing-region-pending .ja-pricing__daily:not(.ja-pricing__daily--empty),
+html.pricing-region-pending .faq__plan-price {
+  position: relative;
+  color: transparent !important;
+  text-shadow: none !important;
+}
+
+html.pricing-region-pending .ja-pricing__price *,
+html.pricing-region-pending .ja-pricing__daily * {
+  color: transparent !important;
+}
+
+html.pricing-region-pending .ja-pricing__price::after,
+html.pricing-region-pending .ja-pricing__daily:not(.ja-pricing__daily--empty)::after,
+html.pricing-region-pending .faq__plan-price::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: min(82%, 9rem);
+  height: .78em;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #edf1f5 20%, #f8fafc 45%, #edf1f5 70%);
+  background-size: 220% 100%;
+  transform: translateY(-50%);
+  animation: sideclip-price-pending 1.15s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.pricing-region-pending .ja-pricing__price::after,
+  html.pricing-region-pending .ja-pricing__daily:not(.ja-pricing__daily--empty)::after,
+  html.pricing-region-pending .faq__plan-price::after {
+    animation: none;
+  }
 }
 
 .ja-pricing__link {

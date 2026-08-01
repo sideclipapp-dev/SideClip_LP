@@ -2,8 +2,11 @@
   "name": "sideclip-lp",
   "private": true,
   "scripts": {
-    "prerender": "node scripts/prerender-landing.mjs",
-    "check": "node --check app.js && node --check site-i18n.js && node --check site-analytics.js && node --check regional-pricing.js && node --check plans/plans-i18n.js && node scripts/prerender-landing.mjs --check && node scripts/check-static-landing.mjs"
+    "prerender": "node scripts/prerender-landing.mjs && node scripts/prerender-plans.mjs",
+    "prerender:plans": "node scripts/prerender-plans.mjs",
+    "check:regional": "node scripts/check-regional-matrix.mjs",
+    "check:billing-live": "node scripts/check-live-billing-market.mjs",
+    "check": "node --check app.js && node --check site-i18n.js && node --check site-analytics.js && node --check regional-pricing.js && node --check plans/plans-i18n.js && node --check scripts/prerender-plans.mjs && node --check scripts/check-regional-matrix.mjs && node --check scripts/check-live-billing-market.mjs && node scripts/prerender-landing.mjs --check && node scripts/prerender-plans.mjs --check && node scripts/check-static-landing.mjs && node scripts/check-regional-matrix.mjs"
   },
   "devDependencies": {
     "jsdom": "29.1.1"

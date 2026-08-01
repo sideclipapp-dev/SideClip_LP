@@ -1,15 +1,15 @@
 (function () {
-  if (typeof window.gtag !== "function" && !window.__sideclipAnalyticsLoading) {
+  if (typeof window.gtag !== "function" && !window.__sideclipAnalyticsLoading && !document.querySelector('script[src^="/site-analytics.js"]')) {
     window.__sideclipAnalyticsLoading = true;
     const analyticsScript = document.createElement("script");
-    analyticsScript.src = "/site-analytics.js?v=20260801-conversion-seo";
+    analyticsScript.src = "/site-analytics.js?v=20260801-global-review";
     analyticsScript.defer = true;
     document.head.appendChild(analyticsScript);
   }
 
   if (!window.SideClipRegionalPricing && !document.querySelector('script[src^="/regional-pricing.js"]')) {
     const pricingScript = document.createElement("script");
-    pricingScript.src = "/regional-pricing.js?v=20260801-conversion-seo";
+    pricingScript.src = "/regional-pricing.js?v=20260801-region-locked";
     document.head.appendChild(pricingScript);
   }
 
@@ -39,13 +39,22 @@
     ["おすすめ", "Recommended"],
     ["日常的に使う人へ", "For everyday use"],
     ["月額", "per month"],
-    ["¥300/月", "JPY 300"],
-    ["¥480/月", "JPY 480"],
-    ["¥2,400/年", "JPY 2,400/year"],
-    ["¥3,600/年", "JPY 3,600/year"],
-    ["年額 ¥0", "JPY 0/year"],
-    ["年額 ¥2,400（月あたり¥200）", "JPY 2,400/year (JPY 200/month)"],
-    ["年額 ¥3,600（月あたり¥300）", "JPY 3,600/year (JPY 300/month)"],
+    ["¥0", "$0"],
+    ["¥300/月", "$2.99"],
+    ["¥480/月", "$4.99"],
+    ["¥2,400/年", "$23.99/year"],
+    ["¥3,600/年", "$39.99/year"],
+    ["年額 ¥0", "$0/year"],
+    ["年額 ¥2,400（月あたり¥200）", "$23.99/year (about $2.00/month)"],
+    ["年額 ¥3,600（月あたり¥300）", "$39.99/year (about $3.33/month)"],
+    ["¥300/月\n¥2,400/年", "$2.99/month\n$23.99/year"],
+    ["¥480/月\n¥3,600/年", "$4.99/month\n$39.99/year"],
+    ["JPY 0", "$0"],
+    ["JPY 0/year", "$0/year"],
+    ["JPY 300", "$2.99"],
+    ["JPY 480", "$4.99"],
+    ["JPY 2,400/year (JPY 200/month)", "$23.99/year (about $2.00/month)"],
+    ["JPY 3,600/year (JPY 300/month)", "$39.99/year (about $3.33/month)"],
     ["プロフェッショナルに向けの便利な機能が解放されます。", "Unlock productivity features for professional workflows."],
     ["詳細はページ下部の", "See the"],
     ["比較表", "comparison table"],
@@ -169,18 +178,29 @@
     document.head.appendChild(style);
   }
 
+  function bindSwitch(controls) {
+    if (!controls || controls.dataset.languageBound === "1") return;
+    controls.dataset.languageBound = "1";
+    controls.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-plan-lang]");
+      if (button) setLang(button.dataset.planLang);
+    });
+  }
+
   function ensureSwitch() {
     const headerInner = document.querySelector("header > div");
-    if (!headerInner || headerInner.querySelector(".plans-language-switch")) return;
+    if (!headerInner) return;
+    const existing = headerInner.querySelector(".plans-language-switch");
+    if (existing) {
+      bindSwitch(existing);
+      return;
+    }
     const controls = document.createElement("div");
     controls.className = "plans-language-switch";
     controls.setAttribute("role", "group");
     controls.setAttribute("aria-label", "言語切替");
     controls.innerHTML = '<button type="button" data-plan-lang="ja" aria-label="日本語で表示">JP</button><button type="button" data-plan-lang="en" aria-label="Show in English">EN</button>';
-    controls.addEventListener("click", (event) => {
-      const button = event.target.closest("[data-plan-lang]");
-      if (button) setLang(button.dataset.planLang);
-    });
+    bindSwitch(controls);
     const returnLink = headerInner.querySelector(".plans-top-return-link");
     headerInner.insertBefore(controls, returnLink || headerInner.lastElementChild);
   }
@@ -243,9 +263,24 @@
     document.querySelector(".plans-language-switch")?.setAttribute("aria-label", currentLang === "en" ? "Language selector" : "言語切替");
   }
 
+  let suggestionPreviousFocus = null;
+
+  function restoreSuggestionContext() {
+    document.querySelectorAll("[data-language-suggestion-inert]").forEach((element) => {
+      element.inert = false;
+      element.removeAttribute("data-language-suggestion-inert");
+    });
+    suggestionPreviousFocus?.focus?.();
+    suggestionPreviousFocus = null;
+  }
+
   function dismissSuggestion() {
     document.querySelector(".plans-language-suggestion")?.remove();
     document.documentElement.classList.remove("plans-language-suggestion-open");
+    restoreSuggestionContext();
+    window.__sideclipLanguageSuggestionOpen = false;
+    window.__sideclipLanguageSuggestionHandled = true;
+    document.dispatchEvent(new CustomEvent("sideclip:language-suggestion-closed"));
   }
 
   function ensureLanguageSuggestion() {
@@ -268,9 +303,30 @@
     });
     suggestion.addEventListener("keydown", (event) => {
       if (event.key === "Escape") dismissSuggestion();
+      if (event.key !== "Tab") return;
+      const focusable = Array.from(suggestion.querySelectorAll("button:not([disabled])"));
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     });
+    suggestionPreviousFocus = document.activeElement;
     document.body.appendChild(suggestion);
+    Array.from(document.body.children).forEach((element) => {
+      if (element === suggestion || element.tagName === "SCRIPT") return;
+      element.inert = true;
+      element.setAttribute("data-language-suggestion-inert", "");
+    });
     document.documentElement.classList.add("plans-language-suggestion-open");
+    window.__sideclipLanguageSuggestionOpen = true;
+    window.__sideclipLanguageSuggestionHandled = false;
+    document.dispatchEvent(new CustomEvent("sideclip:language-suggestion-open"));
     suggestion.querySelector('[data-suggestion-action="switch"]')?.focus();
   }
 
@@ -302,8 +358,7 @@
     window.location.assign(`${localizedPlansPath(nextLang)}${window.location.search}${window.location.hash}`);
   }
 
-  currentLang = initialLang();
-  window.setTimeout(() => {
+  function start() {
     applyLanguage();
     ensureLanguageSuggestion();
     let count = 0;
@@ -315,5 +370,12 @@
     });
     observer.observe(document.body, { childList: true, subtree: true, characterData: true });
     window.setTimeout(() => observer.disconnect(), 7000);
-  }, 1500);
+  }
+
+  currentLang = initialLang();
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start, { once: true });
+  } else {
+    start();
+  }
 })();

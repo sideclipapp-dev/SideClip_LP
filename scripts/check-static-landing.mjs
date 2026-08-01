@@ -32,6 +32,9 @@ for (const check of checks) {
   if (!html.includes('/regional-pricing.js')) {
     throw new Error(`${check.file} does not load regional pricing.`);
   }
+  if (!html.includes("classList.add('pricing-region-pending')") || !html.includes("classList.remove('pricing-region-pending')")) {
+    throw new Error(`${check.file} does not protect regional pricing from a currency flash.`);
+  }
   if (!html.includes('name="twitter:card" content="summary_large_image"')) {
     throw new Error(`${check.file} does not use a large social card.`);
   }
@@ -42,7 +45,20 @@ for (const check of checks) {
   }
 }
 
-const planAssetVersion = "20260801-conversion-seo";
+for (const file of ["index.html", "en/index.html"]) {
+  const html = await readFile(path.join(repoRoot, file), "utf8");
+  if (html.includes("JPY 300") || html.includes("JPY 480") || html.includes("¥300/月") || html.includes("¥480/月")) {
+    throw new Error(`${file} contains a static Japanese-yen paid price.`);
+  }
+  if (!html.includes("$2.99") || !html.includes("$4.99")) {
+    throw new Error(`${file} is missing static USD display prices.`);
+  }
+  for (const marker of ['"priceCurrency":"USD"', '"priceCurrency":"JPY"', '"eligibleRegion"', '"ineligibleRegion"']) {
+    if (!html.includes(marker)) throw new Error(`${file} is missing region-qualified structured pricing: ${marker}`);
+  }
+}
+
+const planAssetVersion = "20260801-global-review";
 for (const file of ["plans/index.html", "ja/plans/index.html", "en/plans/index.html"]) {
   const html = await readFile(path.join(repoRoot, file), "utf8");
   for (const script of ["plans-enhance-20260702-order.js", "plans-i18n.js"]) {
@@ -50,6 +66,27 @@ for (const file of ["plans/index.html", "ja/plans/index.html", "en/plans/index.h
       throw new Error(`${file} does not load ${script} with the current asset version.`);
     }
   }
+  if (html.includes('script src="/_next/') || html.includes("self.__next_f")) {
+    throw new Error(`${file} still contains the Next.js hydration runtime.`);
+  }
+  for (const marker of ['data-sideclip-structured-data="plans"', '"priceCurrency":"USD"', '"priceCurrency":"JPY"', '"eligibleRegion"', '"ineligibleRegion"']) {
+    if (!html.includes(marker)) throw new Error(`${file} is missing region-qualified plan structured data: ${marker}`);
+  }
+}
+
+for (const file of ["plans/index.html", "en/plans/index.html"]) {
+  const html = await readFile(path.join(repoRoot, file), "utf8");
+  if (!html.includes('lang="en"') || !html.includes("Plans and recommendations") || !html.includes("$2.99") || !html.includes("$4.99")) {
+    throw new Error(`${file} is missing static English plan content or USD prices.`);
+  }
+  if (html.includes("JPY 300") || html.includes("¥300/月")) {
+    throw new Error(`${file} contains a static Japanese-yen paid price.`);
+  }
+}
+
+const japanesePlans = await readFile(path.join(repoRoot, "ja/plans/index.html"), "utf8");
+if (!japanesePlans.includes('lang="ja"') || !japanesePlans.includes("料金とおすすめ") || !japanesePlans.includes("¥300")) {
+  throw new Error("ja/plans/index.html is missing static Japanese plan content or JPY prices.");
 }
 
 const downloadHtml = await readFile(path.join(repoRoot, "download/index.html"), "utf8");

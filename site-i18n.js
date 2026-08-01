@@ -2,7 +2,7 @@
   if (typeof window.gtag !== "function" && !window.__sideclipAnalyticsLoading) {
     window.__sideclipAnalyticsLoading = true;
     const analyticsScript = document.createElement("script");
-    analyticsScript.src = "/site-analytics.js?v=20260722-global-ga";
+    analyticsScript.src = "/site-analytics.js?v=20260801-global-review";
     analyticsScript.defer = true;
     document.head.appendChild(analyticsScript);
   }
@@ -254,16 +254,16 @@
     ["html", "#pricing-preview-title", "Start free.<br /><span class=\"ja-pricing__headline-line\">Upgrade when you need more.</span>"],
     ["text", ".ja-pricing__head > p:last-child", "No account is required for Free. Paid plans are available monthly or annually, include a 30-day free trial, and can be changed or canceled in the SideClip app."],
     ["text", ".ja-pricing__card:nth-child(1) .ja-pricing__label", "Try it first"],
-    ["html", ".ja-pricing__card:nth-child(1) .ja-pricing__price", "JPY 0"],
+    ["html", ".ja-pricing__card:nth-child(1) .ja-pricing__price", "$0"],
     ["text", ".ja-pricing__card:nth-child(1) .ja-pricing__summary", "Try core features including clipboard and screenshot history."],
     ["text", ".ja-pricing__card:nth-child(2) .ja-pricing__label", "For everyday use"],
-    ["html", ".ja-pricing__card:nth-child(2) .ja-pricing__price", "JPY 300<span>/month</span>"],
-    ["html", ".ja-pricing__card:nth-child(2) .ja-pricing__daily", "Annual plan JPY 2,400<span>JPY 200/month · about JPY 7/day*</span>"],
+    ["html", ".ja-pricing__card:nth-child(2) .ja-pricing__price", "$2.99<span>/month</span>"],
+    ["html", ".ja-pricing__card:nth-child(2) .ja-pricing__daily", "Annual plan $23.99<span>about $2.00/month · about $0.07/day*</span>"],
     ["text", ".ja-pricing__card:nth-child(2) .ja-pricing__summary", "Add Todo, image editing, Quick Paste, and other professional features."],
     ["text", ".ja-pricing__card:nth-child(2) .ja-pricing__card-link", "Explore Pro features →"],
     ["text", ".ja-pricing__card:nth-child(3) .ja-pricing__label", "For keeping a long-term archive"],
-    ["html", ".ja-pricing__card:nth-child(3) .ja-pricing__price", "JPY 480<span>/month</span>"],
-    ["html", ".ja-pricing__card:nth-child(3) .ja-pricing__daily", "Annual plan JPY 3,600<span>JPY 300/month · about JPY 10/day*</span>"],
+    ["html", ".ja-pricing__card:nth-child(3) .ja-pricing__price", "$4.99<span>/month</span>"],
+    ["html", ".ja-pricing__card:nth-child(3) .ja-pricing__daily", "Annual plan $39.99<span>about $3.33/month · about $0.11/day*</span>"],
     ["text", ".ja-pricing__card:nth-child(3) .ja-pricing__summary", "Unlock unlimited storage, CSV export, backup and restore, and every SideClip feature."],
     ["text", ".ja-pricing__card:nth-child(3) .ja-pricing__card-link", "Explore Ultra features →"],
     ["text", ".ja-pricing__billing-note", "*Daily equivalents are calculated by dividing the annual price by 365. Annual plans are billed yearly."],
@@ -277,7 +277,7 @@
     ["text", ".faq__item:nth-of-type(2) .faq__summary", "Can I use it for free? How are paid plans different?"],
     ["html", ".faq__item:nth-of-type(2) .faq__answer", "<p>The Free plan lets you use the basic features at no cost.<br />We recommend testing SideClip in your own environment before choosing a paid plan.</p><p>Pro and Ultra unlock more convenient features.</p><p class=\"faq__plans-more\"><a href=\"/plans\">See plans and pricing in detail →</a></p>"],
     ["text", ".faq__item:nth-of-type(3) .faq__summary", "How much do the plans cost?"],
-    ["html", ".faq__item:nth-of-type(3) .faq__answer", "<p>Paid plans help fund ongoing app improvements and new feature development.<br />If the Free plan works well for you, please consider a paid plan for a more capable experience.</p><dl class=\"faq__plans\"><div class=\"faq__plan\"><dt>Free plan</dt><dd><span class=\"faq__plan-price\">Free</span><br />Try SideClip and confirm it works in your environment.</dd></div><div class=\"faq__plan\"><dt>Pro plan</dt><dd><span class=\"faq__plan-price\">JPY 300/month or JPY 2,400/year</span><br />The annual plan works out to about JPY 7/day.</dd></div><div class=\"faq__plan\"><dt>Ultra plan</dt><dd><span class=\"faq__plan-price\">JPY 480/month or JPY 3,600/year</span><br />The annual plan works out to about JPY 10/day.</dd></div></dl><p class=\"faq__plans-more\"><a href=\"/plans\">See plans and pricing in detail →</a></p>"],
+    ["html", ".faq__item:nth-of-type(3) .faq__answer", "<p>Paid plans help fund ongoing app improvements and new feature development.<br />If the Free plan works well for you, please consider a paid plan for a more capable experience.</p><dl class=\"faq__plans\"><div class=\"faq__plan\"><dt>Free plan</dt><dd><span class=\"faq__plan-price\">Free</span><br />Try SideClip and confirm it works in your environment.</dd></div><div class=\"faq__plan\"><dt>Pro plan</dt><dd><span class=\"faq__plan-price\">$2.99/month or $23.99/year</span><br />The annual plan works out to about $0.07/day.</dd></div><div class=\"faq__plan\"><dt>Ultra plan</dt><dd><span class=\"faq__plan-price\">$4.99/month or $39.99/year</span><br />The annual plan works out to about $0.11/day.</dd></div></dl><p class=\"faq__plans-more\"><a href=\"/plans\">See plans and pricing in detail →</a></p>"],
     ["text", ".faq__group:nth-child(2) .faq__group-title", "Usage and limits"],
     ["text", ".faq__group:nth-child(2) .faq__item:nth-of-type(1) .faq__summary", "Are there limits on saved data types or sizes?"],
     ["html", ".faq__group:nth-child(2) .faq__item:nth-of-type(1) .faq__answer", "<p>Yes. To keep clipboard history from growing too large and to prevent sluggish behavior, SideClip applies the following limits. These may change in app updates.</p><ul class=\"faq__bullets\"><li>Plain text: up to 50 KB per copy</li><li>Images such as JPG, PNG, and TIFF: up to 10 MB per image</li><li>Other files: only a link to the file on your Mac is copied. The link stops working if the file is moved.</li></ul>"],
@@ -1135,9 +1135,24 @@
     }
   }
 
+  let languageSuggestionPreviousFocus = null;
+
+  function restoreLanguageSuggestionContext() {
+    document.querySelectorAll("[data-language-suggestion-inert]").forEach((element) => {
+      element.inert = false;
+      element.removeAttribute("data-language-suggestion-inert");
+    });
+    languageSuggestionPreviousFocus?.focus?.();
+    languageSuggestionPreviousFocus = null;
+  }
+
   function dismissLanguageSuggestion() {
     document.querySelector("[data-language-suggestion]")?.remove();
     document.documentElement.classList.remove("language-suggestion-open");
+    restoreLanguageSuggestionContext();
+    window.__sideclipLanguageSuggestionOpen = false;
+    window.__sideclipLanguageSuggestionHandled = true;
+    document.dispatchEvent(new CustomEvent("sideclip:language-suggestion-closed"));
   }
 
   function ensureLanguageSuggestion() {
@@ -1158,9 +1173,30 @@
     suggestion.querySelector("[data-language-suggestion-dismiss]")?.addEventListener("click", dismissLanguageSuggestion);
     suggestion.addEventListener("keydown", (event) => {
       if (event.key === "Escape") dismissLanguageSuggestion();
+      if (event.key !== "Tab") return;
+      const focusable = Array.from(suggestion.querySelectorAll("button:not([disabled])"));
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     });
+    languageSuggestionPreviousFocus = document.activeElement;
     document.body.appendChild(suggestion);
+    Array.from(document.body.children).forEach((element) => {
+      if (element === suggestion || element.tagName === "SCRIPT") return;
+      element.inert = true;
+      element.setAttribute("data-language-suggestion-inert", "");
+    });
     document.documentElement.classList.add("language-suggestion-open");
+    window.__sideclipLanguageSuggestionOpen = true;
+    window.__sideclipLanguageSuggestionHandled = false;
+    document.dispatchEvent(new CustomEvent("sideclip:language-suggestion-open"));
     suggestion.querySelector("[data-language-suggestion-accept]")?.focus();
   }
 

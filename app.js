@@ -509,16 +509,22 @@
       .join("");
   }
 
-  function structuredOffer(name, price, priceCurrency, billingPeriod) {
-    return {
+  function structuredOffer(name, price, priceCurrency, billingPeriod, market) {
+    const offer = {
       "@type": "Offer",
-      name,
+      name: `${name} (${market === "jp" ? "Japan" : "Outside Japan"})`,
       price: String(price),
       priceCurrency,
       url: isJapaneseLanding() ? "https://sideclip.app/ja/plans/" : "https://sideclip.app/plans/",
       description: billingPeriod,
       availability: "https://schema.org/InStock",
     };
+    if (market === "jp") {
+      offer.eligibleRegion = { "@type": "Country", name: "JP" };
+    } else {
+      offer.ineligibleRegion = { "@type": "Country", name: "JP" };
+    }
+    return offer;
   }
 
   function structuredText(element) {
@@ -533,10 +539,8 @@
     root.querySelectorAll("script[data-sideclip-structured-data]").forEach((script) => script.remove());
 
     const isJapanese = isJapaneseLanding();
-    const priceCurrency = isJapanese ? "JPY" : "USD";
-    const monthlyPrices = isJapanese
-      ? { pro: 300, ultra: 480 }
-      : { pro: 2.99, ultra: 4.99 };
+    const freeDescription = isJapanese ? "無料" : "Free forever";
+    const monthlyDescription = isJapanese ? "月額プラン" : "Monthly subscription";
     const faqEntities = Array.from(root.querySelectorAll(".faq__item")).map((item) => ({
       "@type": "Question",
       name: structuredText(item.querySelector(".faq__summary")),
@@ -565,9 +569,12 @@
         : "https://sideclip.app/assets/i18n/en/ogp-1200x630.jpg",
       inLanguage: isJapanese ? "ja" : "en",
       offers: [
-        structuredOffer("SideClip Free", 0, priceCurrency, isJapanese ? "無料" : "Free forever"),
-        structuredOffer("SideClip Pro", monthlyPrices.pro, priceCurrency, isJapanese ? "月額プラン" : "Monthly subscription"),
-        structuredOffer("SideClip Ultra", monthlyPrices.ultra, priceCurrency, isJapanese ? "月額プラン" : "Monthly subscription"),
+        structuredOffer("SideClip Free", 0, "JPY", freeDescription, "jp"),
+        structuredOffer("SideClip Pro", 300, "JPY", monthlyDescription, "jp"),
+        structuredOffer("SideClip Ultra", 480, "JPY", monthlyDescription, "jp"),
+        structuredOffer("SideClip Free", 0, "USD", freeDescription, "global"),
+        structuredOffer("SideClip Pro", 2.99, "USD", monthlyDescription, "global"),
+        structuredOffer("SideClip Ultra", 4.99, "USD", monthlyDescription, "global"),
       ],
     };
 
