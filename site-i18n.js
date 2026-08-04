@@ -2,7 +2,7 @@
   if (typeof window.gtag !== "function" && !window.__sideclipAnalyticsLoading) {
     window.__sideclipAnalyticsLoading = true;
     const analyticsScript = document.createElement("script");
-    analyticsScript.src = "/site-analytics.js?v=20260801-global-review";
+    analyticsScript.src = "/site-analytics.js?v=20260804-consent-disabled";
     analyticsScript.defer = true;
     document.head.appendChild(analyticsScript);
   }

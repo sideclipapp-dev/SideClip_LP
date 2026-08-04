@@ -38,11 +38,22 @@ for (const check of checks) {
   if (!html.includes('name="twitter:card" content="summary_large_image"')) {
     throw new Error(`${check.file} does not use a large social card.`);
   }
+  if (!html.includes("var COOKIE_CONSENT_BANNER_ENABLED = false;")) {
+    throw new Error(`${check.file} must keep the analytics consent banner disabled.`);
+  }
   for (const text of check.required) {
     if (!html.includes(text)) {
       throw new Error(`${check.file} is missing prerendered text: ${text}`);
     }
   }
+}
+
+const siteAnalytics = await readFile(path.join(repoRoot, "site-analytics.js"), "utf8");
+if (!siteAnalytics.includes('analytics_storage: "granted"')) {
+  throw new Error("site-analytics.js must enable analytics without a consent prompt.");
+}
+if (siteAnalytics.includes("data-site-analytics-consent") || siteAnalytics.includes("showConsentBanner")) {
+  throw new Error("site-analytics.js must not create an analytics consent prompt.");
 }
 
 for (const file of ["index.html", "en/index.html"]) {
