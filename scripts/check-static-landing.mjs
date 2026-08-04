@@ -104,5 +104,27 @@ const downloadHtml = await readFile(path.join(repoRoot, "download/index.html"), 
 if (!downloadHtml.includes("SideClip-latest-arm64.dmg") || !downloadHtml.includes("noindex,follow")) {
   throw new Error("download/index.html is missing the installer target or redirect-page metadata.");
 }
+for (const marker of [
+  "G-D3JVLNHHMQ",
+  'analytics_storage: "granted"',
+  'gtag("event", "download_redirect"',
+  "download_source",
+  "event_callback: redirectToInstaller",
+]) {
+  if (!downloadHtml.includes(marker)) {
+    throw new Error(`download/index.html is missing canonical redirect tracking: ${marker}`);
+  }
+}
+
+const appJs = await readFile(path.join(repoRoot, "app.js"), "utf8");
+for (const marker of [
+  'downloadUrl.searchParams.set("source", "lp")',
+  'downloadUrl.searchParams.set("cta_id", trackingData.ctaId)',
+  'downloadUrl.searchParams.set("section", trackingData.section)',
+]) {
+  if (!appJs.includes(marker)) {
+    throw new Error(`app.js is missing download redirect attribution: ${marker}`);
+  }
+}
 
 console.log("Static English and Japanese landing content, structured data, and responsive media are present.");

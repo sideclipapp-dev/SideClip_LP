@@ -8,6 +8,19 @@
     <link rel="canonical" href="https://sideclip.app/download/" />
     <link rel="icon" href="/favicon-sc.ico?v=20260702-sc-refresh" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-sc-32.png?v=20260702-sc-refresh" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D3JVLNHHMQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("consent", "default", {
+        analytics_storage: "granted",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied"
+      });
+      gtag("js", new Date());
+      gtag("config", "G-D3JVLNHHMQ", { send_page_view: false });
+    </script>
     <style>
       :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
       * { box-sizing: border-box; }
@@ -34,6 +47,20 @@
       (function () {
         var target = "https://github.com/sideclipapp-dev/SideClip-Releases/releases/latest/download/SideClip-latest-arm64.dmg";
         var isJapanese = (navigator.language || "").toLowerCase().startsWith("ja");
+        var query = new URLSearchParams(window.location.search);
+        var hasRedirected = false;
+
+        function cleanTrackingValue(value, fallback) {
+          var clean = String(value || "").trim().toLowerCase();
+          return /^[a-z0-9_-]{1,64}$/.test(clean) ? clean : fallback;
+        }
+
+        function redirectToInstaller() {
+          if (hasRedirected) return;
+          hasRedirected = true;
+          window.location.replace(target);
+        }
+
         if (isJapanese) {
           document.documentElement.lang = "ja";
           document.title = "SideClipをダウンロード中";
@@ -42,7 +69,20 @@
           document.querySelector("[data-download]").textContent = "SideClipをダウンロード";
           document.querySelector("[data-trust]").textContent = "Apple Developer ID署名・Apple公証済みです。";
         }
-        window.setTimeout(function () { window.location.replace(target); }, 450);
+
+        gtag("event", "download_redirect", {
+          cta_id: cleanTrackingValue(query.get("cta_id"), "direct_download"),
+          section: cleanTrackingValue(query.get("section"), "direct"),
+          download_source: cleanTrackingValue(query.get("source"), "direct"),
+          file_name: "SideClip-latest-arm64.dmg",
+          link_url: target,
+          page_path: window.location.pathname,
+          site_language: isJapanese ? "ja" : "en",
+          transport_type: "beacon",
+          event_callback: redirectToInstaller,
+          event_timeout: 1200
+        });
+        window.setTimeout(redirectToInstaller, 1500);
       })();
     </script>
   </body>

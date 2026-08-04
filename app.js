@@ -2041,12 +2041,20 @@
   function initDownloadLinkTracking() {
     const links = document.querySelectorAll("[data-download-link]");
     links.forEach((link) => {
+      const trackingData = {
+        ctaId: link.dataset.ctaId || "mac_download",
+        ctaText: (link.textContent || "").trim(),
+        section: link.dataset.ctaSection || "download"
+      };
+      const downloadUrl = new URL(link.getAttribute("href") || MAC_DOWNLOAD_URL, window.location.origin);
+      if (downloadUrl.origin === window.location.origin && downloadUrl.pathname === "/download/") {
+        downloadUrl.searchParams.set("source", "lp");
+        downloadUrl.searchParams.set("cta_id", trackingData.ctaId);
+        downloadUrl.searchParams.set("section", trackingData.section);
+        link.href = `${downloadUrl.pathname}${downloadUrl.search}${downloadUrl.hash}`;
+      }
+
       link.addEventListener("click", () => {
-        const trackingData = {
-          ctaId: link.dataset.ctaId || "mac_download",
-          ctaText: (link.textContent || "").trim(),
-          section: link.dataset.ctaSection || "download"
-        };
         trackCtaClick({
           ...trackingData
         });
