@@ -417,12 +417,22 @@
   function renderClipboardDifferenceFigure() {
     return `
       <figure class="clipboard-shift__figure">
+        <figcaption class="clipboard-shift__figure-legend">
+          <span class="clipboard-shift__figure-legend-item clipboard-shift__figure-legend-item--before">
+            <span class="clipboard-shift__figure-legend-kicker">Before</span>
+            <span class="clipboard-shift__figure-legend-copy">画面内へ呼び出す</span>
+          </span>
+          <span class="clipboard-shift__figure-legend-item clipboard-shift__figure-legend-item--after">
+            <span class="clipboard-shift__figure-legend-kicker">After</span>
+            <span class="clipboard-shift__figure-legend-copy">Macの横に置く</span>
+          </span>
+        </figcaption>
         <button
           type="button"
           class="clipboard-shift__panel feature-zoom-trigger"
           data-feature-image-src="${ASSETS.clipboardDifference}"
-          data-feature-image-alt="呼び出すクリップボードと横に置くクリップボードの違い"
-          aria-label="呼び出すクリップボードと横に置くクリップボードの違いの画像を拡大表示"
+          data-feature-image-alt="一般的なクリップボード管理とSideClipのBefore・After比較"
+          aria-label="一般的なクリップボード管理とSideClipのBefore・After比較画像を拡大表示"
         >
           ${renderModernPicture({
             src: ASSETS.clipboardDifference,
@@ -430,11 +440,58 @@
             sizes: "(max-width: 680px) 100vw, 1200px",
             width: 1200,
             height: 669,
-            alt: "呼び出すクリップボードと横に置くクリップボードの違い",
+            alt: "一般的なクリップボード管理とSideClipのBefore・After比較",
             loading: "lazy",
           })}
         </button>
       </figure>
+    `;
+  }
+
+  function renderClipboardShiftSection() {
+    return `
+      <section class="clipboard-shift" aria-labelledby="clipboard-shift-title">
+        <div class="clipboard-shift__reveal reveal">
+          <div class="reveal__head">
+            <p class="clipboard-shift__eyebrow">SideClip Difference</p>
+            <h2 id="clipboard-shift-title" class="clipboard-shift__title">
+              Macの横に、<br />
+              コピー履歴の<br class="clipboard-shift__title-break-mobile" />置き場を。
+            </h2>
+            <p class="clipboard-shift__lead">
+              一般的なクリップボード管理は、履歴をMac画面の中へ呼び出します。<br />
+              SideClipは、履歴そのものを横のスマホへ移します。
+            </p>
+          </div>
+          <div class="reveal__rest">
+            <div class="clipboard-shift__prose">
+              <div class="clipboard-shift__compare">
+                <div class="clipboard-shift__compare-block clipboard-shift__compare-block--others">
+                  <p class="clipboard-shift__prose-title">画面内で呼び出す</p>
+                  <ul class="clipboard-shift__bullets">
+                    <li>履歴パネルが作業画面に重なる。</li>
+                    <li>ペーストのたびに視線とポインターが移動する。</li>
+                    <li>ショートカットや設定を思い出す負担が残る。</li>
+                  </ul>
+                </div>
+                <div class="clipboard-shift__compare-block clipboard-shift__compare-block--sideclip">
+                  <p class="clipboard-shift__prose-title clipboard-shift__prose-title--sideclip">横に置く</p>
+                  <p class="clipboard-shift__emphasis">
+                    <span class="clipboard-shift__emphasis-lead">履歴は、Macの横に。</span><br />
+                    Macの作業を見たまま、スマホのカードをタップしてペースト。
+                  </p>
+                  <ul class="clipboard-shift__bullets clipboard-shift__bullets--sideclip">
+                    <li>コピー履歴はスマホ側に常時表示。</li>
+                    <li>カードをタップするとMacへすぐペースト。</li>
+                    <li>作業画面を隠さず、集中を保てる。</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            ${renderClipboardDifferenceFigure()}
+          </div>
+        </div>
+      </section>
     `;
   }
 
@@ -983,6 +1040,7 @@
           <p class="download-security-note">Apple Developer ID署名・Apple公証済み</p>
           </div>
         </div>
+        ${renderClipboardShiftSection()}
         <section id="concept-video" class="concept-video reveal" aria-labelledby="concept-video-title">
           <div class="concept-video__copy">
             <div class="reveal__head">
@@ -1062,49 +1120,6 @@
                   </button>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="clipboard-shift" aria-labelledby="clipboard-shift-title">
-          <div class="clipboard-shift__reveal reveal">
-            <div class="reveal__head">
-              <p class="clipboard-shift__eyebrow">Clipboard Shift</p>
-              <h2 id="clipboard-shift-title" class="clipboard-shift__title">
-                Macの横に、<br />
-                コピー履歴の<br class="clipboard-shift__title-break-mobile" />置き場を。
-              </h2>
-              <p class="clipboard-shift__lead">
-                クリップボードパネルを開く代わりに、<br />
-                履歴を横のスマホへ常時表示します。
-              </p>
-            </div>
-            <div class="reveal__rest">
-            <div class="clipboard-shift__prose">
-              <div class="clipboard-shift__compare">
-                <div class="clipboard-shift__compare-block clipboard-shift__compare-block--others">
-                  <p class="clipboard-shift__prose-title">画面内で呼び出す</p>
-                  <ul class="clipboard-shift__bullets">
-                    <li>履歴パネルが作業画面に重なる。</li>
-                    <li>ペーストのたびに視線とポインターが移動する。</li>
-                    <li>ショートカットや設定を思い出す負担が残る。</li>
-                  </ul>
-                </div>
-                <div class="clipboard-shift__compare-block clipboard-shift__compare-block--sideclip">
-                  <p class="clipboard-shift__prose-title clipboard-shift__prose-title--sideclip">横に置く</p>
-                  <p class="clipboard-shift__emphasis">
-                    <span class="clipboard-shift__emphasis-lead">履歴は、Macの横に。</span><br />
-                    Macの作業を見たまま、スマホのカードをタップしてペースト。
-                  </p>
-                  <ul class="clipboard-shift__bullets clipboard-shift__bullets--sideclip">
-                    <li>コピー履歴はスマホ側に常時表示。</li>
-                    <li>カードをタップするとMacへすぐペースト。</li>
-                    <li>作業画面を隠さず、集中を保てる。</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            ${renderClipboardDifferenceFigure()}
             </div>
           </div>
         </section>

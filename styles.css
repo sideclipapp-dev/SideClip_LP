@@ -2522,6 +2522,57 @@ img {
   box-shadow: 0 22px 44px rgba(0, 0, 0, 0.1);
 }
 
+.clipboard-shift__figure-legend {
+  display: grid;
+  grid-template-columns: 46.25% 53.75%;
+  margin: 0;
+  border-bottom: 1px solid rgba(29, 29, 31, 0.08);
+  background: #fff;
+}
+
+.clipboard-shift__figure-legend-item {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+}
+
+.clipboard-shift__figure-legend-item + .clipboard-shift__figure-legend-item {
+  border-left: 1px solid rgba(29, 29, 31, 0.08);
+}
+
+.clipboard-shift__figure-legend-kicker {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #eef0f3;
+  color: #6e6e73;
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.clipboard-shift__figure-legend-item--after .clipboard-shift__figure-legend-kicker {
+  background: #e8f3ff;
+  color: #0071e3;
+}
+
+.clipboard-shift__figure-legend-copy {
+  min-width: 0;
+  color: #1d1d1f;
+  font-size: 0.86rem;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.clipboard-shift__figure-legend-item--after .clipboard-shift__figure-legend-copy {
+  color: #006fd6;
+}
+
 .clipboard-shift__panel {
   display: block;
   width: 100%;
@@ -5638,6 +5689,17 @@ html[lang="en"] .site-footer__japan-legal:hover {
     width: min(100%, 342px);
     margin-top: 30px;
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .clipboard-shift__figure-legend-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .clipboard-shift__figure-legend-copy {
+    font-size: 0.72rem;
   }
 
   .clipboard-shift__prose {
