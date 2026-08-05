@@ -1276,8 +1276,24 @@
                   <a class="ja-pricing__card-link" href="/plans#comparison-heading" data-plan-interest="ultra">Ultraの機能を見る →</a>
                 </article>
               </div>
+              <div class="ja-pricing__action">
+                <div class="ja-pricing__action-copy">
+                  <p class="ja-pricing__action-kicker">迷ったら、まずFreeから。</p>
+                  <p>アカウント登録なし。Macへインストールして、すぐに試せます。</p>
+                </div>
+                <div class="ja-pricing__action-links">
+                  <a
+                    class="ja-pricing__action-download"
+                    href="${MAC_DOWNLOAD_URL}"
+                    data-download-link
+                    data-cta-id="pricing_download"
+                    data-cta-section="pricing_preview"
+                    aria-label="SideClipをMacで無料ダウンロード"
+                  >Macで無料ダウンロード</a>
+                  <a class="ja-pricing__link" href="/plans" data-plan-comparison-link>プランの機能を比較する</a>
+                </div>
+              </div>
               <p class="ja-pricing__billing-note">※1日あたりの金額は年額料金を365日で換算しています。実際の請求は年額です。</p>
-              <a class="ja-pricing__link" href="/plans" data-plan-comparison-link>プランの違いを詳しく見る</a>
             </div>
           </div>
         </section>
