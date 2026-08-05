@@ -6358,6 +6358,13 @@ html.landing-refresh .feature-card__panel img {
   object-position: top;
 }
 
+html.landing-refresh .feature-card--wide.feature-card--has-video .feature-card__panel img {
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center top;
+}
+
 html.landing-refresh .usage-scenes__cases {
   margin-top: 34px;
 }
