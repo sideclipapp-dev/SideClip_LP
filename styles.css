@@ -2367,6 +2367,31 @@ img {
   letter-spacing: 0;
 }
 
+.benefits-video-copy__continuation {
+  margin: 20px 0 0;
+}
+
+.benefits-video-copy__continuation a {
+  color: #0071e3;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.55;
+  text-decoration: none;
+}
+
+.benefits-video-copy__continuation a:hover {
+  color: var(--blue-strong);
+}
+
+.benefits-video-copy__continuation-tail {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+#screenshot-editing {
+  scroll-margin-top: 96px;
+}
+
 .benefits-video {
   width: 100%;
   margin: 0;

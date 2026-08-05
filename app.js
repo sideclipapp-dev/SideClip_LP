@@ -322,11 +322,12 @@
       text: "よく使う定型文やリンクを保存。<br />一度まとめれば、次から探す時間を減らせます。",
     },
     {
-      eyebrow: "残す",
-      title: "Macの画面も、カードに。",
+      eyebrow: "編集する",
+      title: "撮ったスクショを、その場で整える。",
       image: ASSETS.featureScan,
       alt: "MacをキャプチャするSCAN画面",
-      text: "スマホからMacのスクショを起動。<br />撮った画像はペン入れ・トリミングして、そのまま履歴に残せます。<br /><small>ペン入れ・トリミングはProプラン以上で利用可能</small>",
+      text: "不要な部分をトリミングし、伝えたい箇所にペン入れ。<br />編集した画像はそのまま履歴に残し、必要なときにMacへ戻せます。<br /><small>ペン入れ・トリミングはProプラン以上で利用可能</small>",
+      anchorId: "screenshot-editing",
       wide: true,
       video: {
         id: FEATURE_SCREENSHOT_VIDEO_YT_ID,
@@ -444,7 +445,7 @@
           const cardClass = `${feature.wide ? " feature-card--wide" : ""}${feature.video ? " feature-card--has-video" : ""}`;
           const imageSizes = feature.wide ? "(max-width: 680px) 100vw, 980px" : "(max-width: 680px) 100vw, 50vw";
           return `
-          <article class="feature-card${cardClass} interactive-card">
+          <article class="feature-card${cardClass} interactive-card"${feature.anchorId ? ` id="${feature.anchorId}"` : ""}>
             <p class="feature-card__eyebrow">${feature.eyebrow}</p>
             <h3>${feature.title}</h3>
             <p class="feature-card__copy">${feature.text}</p>
@@ -1023,21 +1024,22 @@
               </div>
               <div class="reveal__rest">
                 <p>
-                  Macのスクショをスマホから撮影。<br />
-                  カードとして整理し、必要な時にすぐ再利用できます。
+                  スマホのSCANボタンをタップするだけで、Macのスクショを撮影。<br />
+                  撮った画像はSideClipのカードになり、デスクトップを散らかしません。
                 </p>
               </div>
             </div>
             <div class="reveal__rest benefits-video-showcase">
               <div class="benefits-video-copy">
                 <p class="benefits-video-copy__eyebrow">Screenshot Demo</p>
-                <h3>スクショを、<br />カードで残す。</h3>
+                <h3>SCANを、<br />1タップ。</h3>
                 <p class="benefits-video-copy__text">
-                  スクショボタンですぐ撮影。連続で撮ったスクショもカードリストに整理され、必要な時にペーストできます。<br />
+                  スマホのSCANボタンをタップすると、Macのスクショをすぐ撮影。連続で撮った画像も、SideClipのカードとして自動で並びます。
                 </p>
                 <p class="benefits-video-copy__text">
-                  保存先はSideClipフォルダなので、デスクトップがスクショ画像で埋もれません。<br />よく使うスクショはカードをスワイプしてお気に入りへ。
+                  保存先はSideClipフォルダ。デスクトップをスクショで埋めず、必要な画像をカードからすぐ再利用できます。
                 </p>
+                <p class="benefits-video-copy__continuation"><a href="#screenshot-editing">撮ったスクショは、トリミングや<span class="benefits-video-copy__continuation-tail">ペン入れにも対応&nbsp;<span aria-hidden="true">→</span></span></a></p>
               </div>
               <div class="benefits-video" aria-label="スクショ機能の紹介動画（YouTube）">
                 <div class="benefits-video__embed benefits-video__embed--poster">
