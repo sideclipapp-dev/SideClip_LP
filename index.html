@@ -84,9 +84,9 @@
       gtag('config', 'G-D3JVLNHHMQ', { site_language: initialSiteLanguage });
     </script>
     <script>document.documentElement.classList.add('pricing-region-pending');window.setTimeout(function(){document.documentElement.classList.remove('pricing-region-pending');},4000);</script>
-    <link rel="stylesheet" href="/styles.css?v=20260806-pricing-action-v1" />
-    <script src="/site-i18n.js?v=20260806-pricing-action-v1" defer></script>
-    <script src="/app.js?v=20260806-pricing-action-v1" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=20260808-download-trust-v1" />
+    <script src="/site-i18n.js?v=20260808-download-trust-v1" defer></script>
+    <script src="/app.js?v=20260808-download-trust-v1" defer></script>
     <script src="/regional-pricing.js?v=20260801-faq-billing" defer></script>
   </head>
   <body data-i18n-page="landing">
@@ -149,7 +149,7 @@
     </div>
                       </div>
                     </div>
-                    <img class="hero__visual-layer hero__visual-layer--phone" src="/assets/hero-phone-en.png?v=20260801-streamlined-en" srcset="/assets/hero-phone-en.png?v=20260801-streamlined-en 1x, /assets/hero-phone-en.png?v=20260801-streamlined-en 2x" width="1024" height="1536" sizes="(max-width: 2172px) 36vw, 780px" alt="" decoding="async">
+                    <img class="hero__visual-layer hero__visual-layer--phone" src="/assets/optimized-en/hero-phone-1024.png?v=20260806-responsive-phone-v1" srcset="/assets/optimized-en/hero-phone-512.png?v=20260806-responsive-phone-v1 341w, /assets/optimized-en/hero-phone-1024.png?v=20260806-responsive-phone-v1 682w" width="682" height="1024" sizes="(max-width: 2172px) 36vw, 780px" alt="" decoding="async">
                   </div>
                 </div>
                 <div class="hero__banner-overlay" aria-label="SideClip overview">
@@ -198,7 +198,7 @@
           <div class="hero__infographic-card">
             <h2 class="hero__infographic-title">
               <span class="tap-infographic__title-stack">
-                <span class="tap-infographic__title-line tap-infographic__title-line--primary">Three steps. Ready to paste.</span>
+                <span class="tap-infographic__title-line tap-infographic__title-line--primary">Connect once.<br>Then paste in three steps.</span>
               </span>
             </h2>
             <div class="hero-flow-sync" id="hero-flow-sync" data-hero-flow-step="0" aria-hidden="true">
@@ -291,14 +291,19 @@
             </ul>
           </div>
 
-          <ul class="hero-highlight-row" aria-label="SideClip reassurance points">
+          <section class="trust-summary" aria-labelledby="trust-summary-title">
+            <div class="trust-summary__head">
+              <p class="trust-summary__eyebrow">Trust &amp; Safety</p>
+              <h2 id="trust-summary-title">Four facts before you start.</h2>
+            </div>
+          <ul class="hero-highlight-row" aria-label="Four facts about SideClip security and setup">
             <li class="hero-highlight-card">
               <span class="hero-highlight-card__icon" aria-hidden="true">
                 <img src="/assets/hero_icon_highlight_lock.png?v=20260801-conversion-seo" srcset="/assets/hero_icon_highlight_lock.png?v=20260801-conversion-seo 1x, /assets/hero_icon_highlight_lock.png?v=20260801-conversion-seo 2x" width="176" height="176" alt="" loading="lazy" decoding="async">
               </span>
               <div class="hero-highlight-card__body">
-                <p class="hero-highlight-card__title">Private local sync</p>
-                <p class="hero-highlight-card__text">Your data stays on your Mac.<br>Your clipboard stays private.</p>
+                <p class="hero-highlight-card__title">History stays on your Mac</p>
+                <p class="hero-highlight-card__text">Your clipboard history is not sent to SideClip cloud storage.</p>
               </div>
             </li>
             <li class="hero-highlight-card">
@@ -306,8 +311,8 @@
                 <img src="/assets/hero_icon_highlight_bolt.png?v=20260801-conversion-seo" srcset="/assets/hero_icon_highlight_bolt.png?v=20260801-conversion-seo 1x, /assets/hero_icon_highlight_bolt.png?v=20260801-conversion-seo 2x" width="176" height="176" alt="" loading="lazy" decoding="async">
               </span>
               <div class="hero-highlight-card__body">
-                <p class="hero-highlight-card__title">No account or login</p>
-                <p class="hero-highlight-card__text">Install SideClip on your Mac and start right away.</p>
+                <p class="hero-highlight-card__title">No account required</p>
+                <p class="hero-highlight-card__text">No email address, password, or login is required.</p>
               </div>
             </li>
             <li class="hero-highlight-card">
@@ -315,11 +320,23 @@
                 <img src="/assets/hero_icon_highlight_qr.png?v=20260801-conversion-seo" srcset="/assets/hero_icon_highlight_qr.png?v=20260801-conversion-seo 1x, /assets/hero_icon_highlight_qr.png?v=20260801-conversion-seo 2x" width="176" height="176" alt="" loading="lazy" decoding="async">
               </span>
               <div class="hero-highlight-card__body">
-                <p class="hero-highlight-card__title">Easy QR pairing</p>
-                <p class="hero-highlight-card__text">No phone app required. Connect from your browser.</p>
+                <p class="hero-highlight-card__title">Only QR-paired devices connect</p>
+                <p class="hero-highlight-card__text">Even on the same Wi-Fi, only paired devices can connect.</p>
+              </div>
+            </li>
+            <li class="hero-highlight-card">
+              <span class="hero-highlight-card__icon hero-highlight-card__icon--notarized" aria-hidden="true">
+
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 2.6 2.7L16.5 8"></path></svg>
+
+              </span>
+              <div class="hero-highlight-card__body">
+                <p class="hero-highlight-card__title">Signed and notarized by Apple</p>
+                <p class="hero-highlight-card__text">The DMG is distributed with Apple Developer ID signing and Apple notarization.</p>
               </div>
             </li>
           </ul>
+          </section>
 
           <ul class="hero-kpis" aria-label="What SideClip helps you do">
             <li>Mac app + phone browser</li>
@@ -327,7 +344,6 @@
           </ul>
           <a class="download-button" href="/download/" data-download-link="" data-cta-id="hero_download" data-cta-section="hero" aria-label="Download SideClip free for Mac">Download free for Mac</a>
           <p class="os-note">macOS 26 or later · Apple Silicon Mac</p>
-          <p class="download-security-note">Signed with Apple Developer ID · Notarized by Apple</p>
           </div>
         </div>
 
@@ -409,12 +425,48 @@
               </button>
             </div>
           </div>
+
+      <div class="reveal__rest concept-video__chapters" aria-label="Product demo chapters">
+        <p class="concept-video__chapters-title">Jump to a feature</p>
+        <div class="concept-video__chapter-list">
+      <button type="button" class="concept-video__chapter" data-concept-video-seconds="0" data-concept-video-label="Copy &amp; paste" aria-label="Play Copy &amp; paste from 0:00">
+        <span class="concept-video__chapter-time">0:00</span>
+        <span class="concept-video__chapter-label">Copy &amp; paste</span>
+      </button>
+
+      <button type="button" class="concept-video__chapter" data-concept-video-seconds="24" data-concept-video-label="Screenshots" aria-label="Play Screenshots from 0:24">
+        <span class="concept-video__chapter-time">0:24</span>
+        <span class="concept-video__chapter-label">Screenshots</span>
+      </button>
+
+      <button type="button" class="concept-video__chapter" data-concept-video-seconds="44" data-concept-video-label="Favorites" aria-label="Play Favorites from 0:44">
+        <span class="concept-video__chapter-time">0:44</span>
+        <span class="concept-video__chapter-label">Favorites</span>
+      </button>
+
+      <button type="button" class="concept-video__chapter" data-concept-video-seconds="64" data-concept-video-label="Todo" aria-label="Play Todo from 1:04">
+        <span class="concept-video__chapter-time">1:04</span>
+        <span class="concept-video__chapter-label">Todo</span>
+      </button>
+
+      <button type="button" class="concept-video__chapter" data-concept-video-seconds="94" data-concept-video-label="Quick Paste &amp; data" aria-label="Play Quick Paste &amp; data from 1:34">
+        <span class="concept-video__chapter-time">1:34</span>
+        <span class="concept-video__chapter-label">Quick Paste &amp; data</span>
+      </button>
+    </div>
+      </div>
+
+          <div class="reveal__rest concept-video__cta">
+            <a href="/download/" data-download-link="" data-cta-id="concept_video_download" data-cta-section="concept_video" aria-label="Download SideClip free for Mac">Download free for Mac</a>
+            <p>No account required. Start with the Free plan.</p>
+          </div>
         </section>
 
         <section class="benefits" aria-labelledby="benefits-title">
           <div class="benefits__reveal reveal">
             <div class="section-copy">
               <div class="reveal__head">
+                <p class="screenshot-flow-label"><span class="screenshot-flow-label__text">Capture with SCAN</span></p>
                 <h2 id="benefits-title">Keep screenshots<br>off your desktop.</h2>
               </div>
               <div class="reveal__rest">
@@ -427,7 +479,7 @@
                 <h3>One tap<br>to capture.</h3>
                 <p class="benefits-video-copy__text">Tap SCAN on your phone to capture your Mac screen instantly. Consecutive shots line up automatically as SideClip cards.</p>
                 <p class="benefits-video-copy__text">Screenshots are stored in the SideClip folder, keeping your desktop clear and each image ready to reuse.</p>
-                <p class="benefits-video-copy__continuation"><a href="#screenshot-editing">Crop or mark up your screenshot<span class="benefits-video-copy__continuation-tail">&nbsp;after capture&nbsp;<span aria-hidden="true">→</span></span></a></p>
+                <p class="benefits-video-copy__continuation"><a href="#screenshot-editing">Next, crop or mark up<span class="benefits-video-copy__continuation-tail">&nbsp;your screenshot&nbsp;<span aria-hidden="true">→</span></span></a></p>
               </div>
               <div class="benefits-video" aria-label="Screenshot feature demo on YouTube">
                 <div class="benefits-video__embed benefits-video__embed--poster">
@@ -488,7 +540,7 @@
           </article>
 
           <article class="feature-card feature-card--wide feature-card--has-video interactive-card" id="screenshot-editing">
-            <p class="feature-card__eyebrow">Edit</p>
+            <p class="feature-card__eyebrow screenshot-flow-label screenshot-flow-label--feature"><span class="screenshot-flow-label__text">Crop &amp; mark up</span></p>
             <h3>Clean up screenshots on the spot.</h3>
             <p class="feature-card__copy">Crop away what you do not need and mark up the parts that matter.<br>The edited image stays in your history, ready to send back to your Mac.<br><small>Markup and cropping are available on Pro and above.</small></p>
             <button type="button" class="feature-card__panel feature-zoom-trigger" data-feature-image-src="/assets/optimized-en/feature-scan.jpg?v=20260801-streamlined-en" data-feature-image-alt="Screenshot capture screen" aria-label="Zoom image of the screenshot capture screen">
@@ -653,8 +705,8 @@
                   <p>Phones and tablets connect directly inside the same local network.</p>
                 </article>
                 <article class="local-sync__point">
-                  <h3>No external relay server</h3>
-                  <p>Devices sync directly over the same Wi-Fi, and clipboard history is stored on your Mac.</p>
+                  <h3>Only paired devices connect</h3>
+                  <p>Only phones and tablets paired with the QR code can connect to SideClip.</p>
                 </article>
               </div>
               <p class="local-sync__detail-link">
@@ -708,7 +760,7 @@
                   <a class="ja-pricing__link" href="/plans" data-plan-comparison-link="">Compare plan features</a>
                 </div>
               </div>
-              <p class="ja-pricing__billing-note">*Daily equivalents are calculated by dividing the annual price by 365. Annual plans are billed yearly.</p>
+              <p class="ja-pricing__billing-note"><span>*Daily prices are annual prices divided by 365. Annual plans are billed yearly.</span><span>See the FAQ for pricing details.</span></p>
             </div>
           </div>
         </section>
@@ -765,7 +817,7 @@
           <div class="final-cta__copy">
             <div class="reveal__head">
               <p class="final-cta__eyebrow">Download</p>
-              <h2 id="cta-title">Bring SideClip<br>to your Mac.</h2>
+              <h2 id="cta-title">Put your clipboard history<br>beside your Mac.</h2>
             </div>
             <div class="reveal__rest">
               <p>Start with the Free plan. No account required.</p>
@@ -802,6 +854,26 @@
             <p id="feature-video-lightbox-title" class="feature-video-lightbox__title">Pen and crop demo video</p>
             <div class="feature-video-lightbox__frame"></div>
             <a class="feature-video-lightbox__fallback" href="https://www.youtube.com/watch?v=pfBsk3Iwi4E" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          </div>
+        </div>
+
+        <div class="mobile-download-dialog" id="mobile-download-dialog" aria-hidden="true">
+          <div class="mobile-download-dialog__panel" role="dialog" aria-modal="true" aria-labelledby="mobile-download-dialog-title" aria-describedby="mobile-download-dialog-description">
+            <button type="button" class="mobile-download-dialog__close" aria-label="Close download instructions">×</button>
+            <span class="mobile-download-dialog__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 3v11m0 0 4-4m-4 4-4-4M5 18h14"></path>
+      </svg>
+    </span>
+            <p class="mobile-download-dialog__eyebrow">Download for Mac</p>
+            <h2 id="mobile-download-dialog-title">Continue on your Mac</h2>
+            <p id="mobile-download-dialog-description" class="mobile-download-dialog__description">SideClip is a Mac app. Open the link below on your Mac to download it for free.</p>
+            <code class="mobile-download-dialog__url">sideclip.app/download/</code>
+            <div class="mobile-download-dialog__actions">
+              <button type="button" class="mobile-download-dialog__button mobile-download-dialog__button--primary" data-mobile-download-share="">Share to your Mac</button>
+              <button type="button" class="mobile-download-dialog__button mobile-download-dialog__button--secondary" data-mobile-download-copy="">Copy link</button>
+            </div>
+            <p class="mobile-download-dialog__status" data-mobile-download-status="" aria-live="polite"></p>
           </div>
         </div>
 

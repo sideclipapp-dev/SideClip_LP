@@ -1,8 +1,25 @@
 (function () {
   const ASSET_VERSION = "20260801-conversion-seo";
+  const HERO_PHONE_ASSET_VERSION = "20260806-responsive-phone-v1";
   const CONCEPT_VIDEO_YT_IDS = {
     ja: "rCiLdIpRr5I",
     en: "bu5zO823Pow"
+  };
+  const CONCEPT_VIDEO_CHAPTERS = {
+    ja: [
+      { seconds: 0, time: "0:00", label: "コピー＆ペースト" },
+      { seconds: 30, time: "0:30", label: "SCANでスクショ" },
+      { seconds: 52, time: "0:52", label: "Favorite整理" },
+      { seconds: 74, time: "1:14", label: "Todo管理" },
+      { seconds: 108, time: "1:48", label: "Quick Paste・データ管理" }
+    ],
+    en: [
+      { seconds: 0, time: "0:00", label: "Copy & paste" },
+      { seconds: 24, time: "0:24", label: "Screenshots" },
+      { seconds: 44, time: "0:44", label: "Favorites" },
+      { seconds: 64, time: "1:04", label: "Todo" },
+      { seconds: 94, time: "1:34", label: "Quick Paste & data" }
+    ]
   };
   const BENEFITS_VIDEO_YT_ID = "3m6aWg6LDFY";
   const FEATURE_SCREENSHOT_VIDEO_YT_ID = "pfBsk3Iwi4E";
@@ -23,6 +40,36 @@
       : CONCEPT_VIDEO_YT_IDS.en;
   }
 
+  function getConceptVideoChapters() {
+    return isJapaneseLanding()
+      ? CONCEPT_VIDEO_CHAPTERS.ja
+      : CONCEPT_VIDEO_CHAPTERS.en;
+  }
+
+  function renderConceptVideoChapters() {
+    const isJapanese = isJapaneseLanding();
+    const title = isJapanese ? "見たい機能から再生" : "Jump to a feature";
+    const ariaLabel = isJapanese ? "製品デモのチャプター" : "Product demo chapters";
+    const buttons = getConceptVideoChapters().map((chapter) => `
+      <button
+        type="button"
+        class="concept-video__chapter"
+        data-concept-video-seconds="${chapter.seconds}"
+        data-concept-video-label="${chapter.label}"
+        aria-label="${chapter.time} ${chapter.label}から再生"
+      >
+        <span class="concept-video__chapter-time">${chapter.time}</span>
+        <span class="concept-video__chapter-label">${chapter.label}</span>
+      </button>
+    `).join("");
+    return `
+      <div class="reveal__rest concept-video__chapters" aria-label="${ariaLabel}">
+        <p class="concept-video__chapters-title">${title}</p>
+        <div class="concept-video__chapter-list">${buttons}</div>
+      </div>
+    `;
+  }
+
   // Visual assets are centralized so replacement only needs this block.
   const syncDataLineRail = `
     <div class="sync-line-rail" aria-hidden="true">
@@ -39,7 +86,12 @@
     heroMain: isJapaneseLanding()
       ? `/assets/optimized-ja/hero-background.jpg?v=${ASSET_VERSION}`
       : `/assets/optimized-en/hero-background.jpg?v=${ASSET_VERSION}`,
-    heroPhone: `/assets/hero_phone_v2_web.png?v=${ASSET_VERSION}`,
+    heroPhone: isJapaneseLanding()
+      ? `/assets/optimized-ja/hero-phone-1024.png?v=${HERO_PHONE_ASSET_VERSION}`
+      : `/assets/optimized-en/hero-phone-1024.png?v=${HERO_PHONE_ASSET_VERSION}`,
+    heroPhoneSrcset: isJapaneseLanding()
+      ? `/assets/optimized-ja/hero-phone-512.png?v=${HERO_PHONE_ASSET_VERSION} 341w, /assets/optimized-ja/hero-phone-1024.png?v=${HERO_PHONE_ASSET_VERSION} 682w`
+      : `/assets/optimized-en/hero-phone-512.png?v=${HERO_PHONE_ASSET_VERSION} 341w, /assets/optimized-en/hero-phone-1024.png?v=${HERO_PHONE_ASSET_VERSION} 682w`,
     heroMainFallback: `/assets/hero-banner.jpg?v=${ASSET_VERSION}`,
     stepCopy: `/assets/step-copy.png?v=${ASSET_VERSION}`,
     stepAdd: `/assets/step-add.png?v=${ASSET_VERSION}`,
@@ -501,9 +553,12 @@
         (feature) => {
           const cardClass = `${feature.wide ? " feature-card--wide" : ""}${feature.video ? " feature-card--has-video" : ""}`;
           const imageSizes = feature.wide ? "(max-width: 680px) 100vw, 980px" : "(max-width: 680px) 100vw, 50vw";
+          const eyebrow = feature.anchorId === "screenshot-editing"
+            ? `<p class="feature-card__eyebrow screenshot-flow-label screenshot-flow-label--feature"><span class="screenshot-flow-label__text">整える</span></p>`
+            : `<p class="feature-card__eyebrow">${feature.eyebrow}</p>`;
           return `
           <article class="feature-card${cardClass} interactive-card"${feature.anchorId ? ` id="${feature.anchorId}"` : ""}>
-            <p class="feature-card__eyebrow">${feature.eyebrow}</p>
+            ${eyebrow}
             <h3>${feature.title}</h3>
             <p class="feature-card__copy">${feature.text}</p>
             <button
@@ -717,9 +772,9 @@
                     <img
                       class="hero__visual-layer hero__visual-layer--phone"
                       src="${ASSETS.heroPhone}"
-                      srcset="${ASSETS.heroPhone} 1x, ${ASSETS.heroPhone} 2x"
-                      width="1024"
-                      height="1536"
+                      srcset="${ASSETS.heroPhoneSrcset}"
+                      width="682"
+                      height="1024"
                       sizes="(max-width: 2172px) 36vw, 780px"
                       alt=""
                       decoding="async"
@@ -800,7 +855,7 @@
             <h2 class="hero__infographic-title">
               <span class="tap-infographic__title-stack">
                 <span class="tap-infographic__title-line tap-infographic__title-line--primary">
-                  ${isJapanese ? "3ステップで、すぐ使えます。" : "Three steps. Ready to paste."}
+                  ${isJapanese ? "一度つなげば、<br />3ステップですぐ使えます。" : "Connect once.<br />Then paste in three steps."}
                 </span>
               </span>
             </h2>
@@ -974,7 +1029,12 @@
             </ul>
           </div>
 
-          <ul class="hero-highlight-row" aria-label="SideClipの安心ポイント">
+          <section class="trust-summary" aria-labelledby="trust-summary-title">
+            <div class="trust-summary__head">
+              <p class="trust-summary__eyebrow">Trust &amp; Safety</p>
+              <h2 id="trust-summary-title">安心して試せる、4つの事実。</h2>
+            </div>
+          <ul class="hero-highlight-row" aria-label="SideClipを安心して試せる4つの事実">
             <li class="hero-highlight-card">
               <span class="hero-highlight-card__icon" aria-hidden="true">
                 <img
@@ -988,8 +1048,8 @@
                 />
               </span>
               <div class="hero-highlight-card__body">
-                <p class="hero-highlight-card__title">ローカル同期で安心</p>
-                <p class="hero-highlight-card__text">データはMac内で完結。<br />プライバシーも安心。</p>
+                <p class="hero-highlight-card__title">履歴データはMac内に保存</p>
+                <p class="hero-highlight-card__text">コピー履歴はSideClipのクラウドへ送信しません。</p>
               </div>
             </li>
             <li class="hero-highlight-card">
@@ -1005,8 +1065,8 @@
                 />
               </span>
               <div class="hero-highlight-card__body">
-                <p class="hero-highlight-card__title">アカウント・ログイン不要</p>
-                <p class="hero-highlight-card__text">Macへインストールしたら、すぐに試せます。</p>
+                <p class="hero-highlight-card__title">アカウント登録なしで開始</p>
+                <p class="hero-highlight-card__text">メールアドレスやパスワードの登録は不要です。</p>
               </div>
             </li>
             <li class="hero-highlight-card">
@@ -1022,11 +1082,21 @@
                 />
               </span>
               <div class="hero-highlight-card__body">
-                <p class="hero-highlight-card__title">QRコードでかんたん接続</p>
-                <p class="hero-highlight-card__text">スマホアプリは不要。ブラウザからつながります。</p>
+                <p class="hero-highlight-card__title">QR認証した端末だけ接続</p>
+                <p class="hero-highlight-card__text">同じWi-Fi内でも、認証した端末だけが接続できます。</p>
+              </div>
+            </li>
+            <li class="hero-highlight-card">
+              <span class="hero-highlight-card__icon hero-highlight-card__icon--notarized" aria-hidden="true">
+                ${icon.checkCircle}
+              </span>
+              <div class="hero-highlight-card__body">
+                <p class="hero-highlight-card__title">Apple署名・公証済み</p>
+                <p class="hero-highlight-card__text">Apple Developer ID署名とApple公証を完了したDMGを配布しています。</p>
               </div>
             </li>
           </ul>
+          </section>
 
           <ul class="hero-kpis" aria-label="SideClipで得られる効果">
             <li>Macアプリ＋スマホブラウザで利用</li>
@@ -1037,7 +1107,6 @@
             Macで無料ダウンロード
           </a>
           <p class="os-note">Apple Silicon搭載のMacに対応</p>
-          <p class="download-security-note">Apple Developer ID署名・Apple公証済み</p>
           </div>
         </div>
         ${renderClipboardShiftSection()}
@@ -1072,12 +1141,24 @@
               </button>
             </div>
           </div>
+          ${renderConceptVideoChapters()}
+          <div class="reveal__rest concept-video__cta">
+            <a
+              href="${MAC_DOWNLOAD_URL}"
+              data-download-link
+              data-cta-id="concept_video_download"
+              data-cta-section="concept_video"
+              aria-label="SideClipをMacで無料ダウンロード"
+            >Macで無料ダウンロード</a>
+            <p>アカウント不要・Freeプランですぐ試せます</p>
+          </div>
         </section>
 
         <section class="benefits" aria-labelledby="benefits-title">
           <div class="benefits__reveal reveal">
             <div class="section-copy">
               <div class="reveal__head">
+                <p class="screenshot-flow-label"><span class="screenshot-flow-label__text">SCANで撮る</span></p>
                 <h2 id="benefits-title">スクショを、<br />デスクトップにためない。</h2>
               </div>
               <div class="reveal__rest">
@@ -1097,7 +1178,7 @@
                 <p class="benefits-video-copy__text">
                   保存先はSideClipフォルダ。デスクトップをスクショで埋めず、必要な画像をカードからすぐ再利用できます。
                 </p>
-                <p class="benefits-video-copy__continuation"><a href="#screenshot-editing">撮ったスクショは、トリミングや<span class="benefits-video-copy__continuation-tail">ペン入れにも対応&nbsp;<span aria-hidden="true">→</span></span></a></p>
+                <p class="benefits-video-copy__continuation"><a href="#screenshot-editing">次は、トリミング・ペン入れで<span class="benefits-video-copy__continuation-tail">スクショを整える&nbsp;<span aria-hidden="true">→</span></span></a></p>
               </div>
               <div class="benefits-video" aria-label="スクショ機能の紹介動画（YouTube）">
                 <div class="benefits-video__embed benefits-video__embed--poster">
@@ -1231,8 +1312,8 @@
                   <p>スマホやタブレットとは、同じWi-Fi内で直接つながります。</p>
                 </article>
                 <article class="local-sync__point">
-                  <h3>外部サーバーを経由しない</h3>
-                  <p>同じWi-Fi内で直接同期し、コピー履歴はMac内に保存します。</p>
+                  <h3>QR認証した端末だけ</h3>
+                  <p>QRコードで認証したスマホやタブレットだけが接続できます。</p>
                 </article>
               </div>
               <p class="local-sync__detail-link">
@@ -1247,7 +1328,7 @@
           <div class="ja-pricing__inner">
             <div class="reveal__head ja-pricing__head">
               <p class="ja-pricing__eyebrow">Plans</p>
-              <h2 id="pricing-preview-title">まずは無料。<br /><span class="ja-pricing__headline-line">必要になったら、<wbr />アップグレード。</span></h2>
+              <h2 id="pricing-preview-title">まずは無料。<br /><span class="ja-pricing__headline-line">必要になったら、<span class="ja-pricing__nowrap">アップグレード。</span></span></h2>
               <p>Freeプランはアカウント不要。有料プランは初回30日無料で、変更・解約はSideClipアプリ内から行えます。</p>
             </div>
             <div class="reveal__rest">
@@ -1293,7 +1374,7 @@
                   <a class="ja-pricing__link" href="/plans" data-plan-comparison-link>プランの機能を比較する</a>
                 </div>
               </div>
-              <p class="ja-pricing__billing-note">※1日あたりの金額は年額料金を365日で換算しています。実際の請求は年額です。</p>
+              <p class="ja-pricing__billing-note"><span>※日額は年額料金÷365日の目安です。請求は年額です。</span><span>料金の詳細はFAQをご覧ください。</span></p>
             </div>
           </div>
         </section>
@@ -1416,7 +1497,7 @@
           <div class="final-cta__copy">
             <div class="reveal__head">
               <p class="final-cta__eyebrow">Download</p>
-              <h2 id="cta-title">SideClipを、<br />あなたのMacで。</h2>
+              <h2 id="cta-title">Macのコピー履歴を、<br />今日から画面の<span class="final-cta__mobile-break"><br /></span>「外」へ。</h2>
             </div>
             <div class="reveal__rest">
               <p>
@@ -1463,6 +1544,30 @@
             <p id="feature-video-lightbox-title" class="feature-video-lightbox__title">ペン入れ・トリミングのデモ動画</p>
             <div class="feature-video-lightbox__frame"></div>
             <a class="feature-video-lightbox__fallback" href="https://www.youtube.com/watch?v=${FEATURE_SCREENSHOT_VIDEO_YT_ID}" target="_blank" rel="noopener noreferrer">YouTubeで見る</a>
+          </div>
+        </div>
+
+        <div class="mobile-download-dialog" id="mobile-download-dialog" aria-hidden="true">
+          <div
+            class="mobile-download-dialog__panel"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="mobile-download-dialog-title"
+            aria-describedby="mobile-download-dialog-description"
+          >
+            <button type="button" class="mobile-download-dialog__close" aria-label="ダウンロード案内を閉じる">×</button>
+            <span class="mobile-download-dialog__icon" aria-hidden="true">${icon.download}</span>
+            <p class="mobile-download-dialog__eyebrow">Download for Mac</p>
+            <h2 id="mobile-download-dialog-title">Macでダウンロードを続ける</h2>
+            <p id="mobile-download-dialog-description" class="mobile-download-dialog__description">
+              SideClipはMac用アプリです。以下のリンクをMacで開くと、無料でダウンロードできます。
+            </p>
+            <code class="mobile-download-dialog__url">sideclip.app/download/</code>
+            <div class="mobile-download-dialog__actions">
+              <button type="button" class="mobile-download-dialog__button mobile-download-dialog__button--primary" data-mobile-download-share>Macへ共有する</button>
+              <button type="button" class="mobile-download-dialog__button mobile-download-dialog__button--secondary" data-mobile-download-copy>リンクをコピー</button>
+            </div>
+            <p class="mobile-download-dialog__status" data-mobile-download-status aria-live="polite"></p>
           </div>
         </div>
 
@@ -1733,7 +1838,7 @@
   }
 
   function initYoutubePosterEmbed(wrap, videoId, options) {
-    if (!wrap) return;
+    if (!wrap) return null;
 
     const {
       posterModifierClass,
@@ -1748,6 +1853,7 @@
 
     const embedParams = new URLSearchParams({
       autoplay: "1",
+      enablejsapi: "1",
       modestbranding: "1",
       rel: "0",
       playsinline: "1"
@@ -1757,23 +1863,59 @@
     if (canEmbedInline) {
       embedParams.set("origin", pageOrigin);
     }
-    const embedUrl = `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?${embedParams.toString()}`;
     const watchUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}`;
 
-    function loadIframe() {
+    function normalizeStartSeconds(value) {
+      const seconds = Number.parseInt(value, 10);
+      return Number.isFinite(seconds) && seconds > 0 ? seconds : 0;
+    }
+
+    function buildEmbedUrl(startSeconds = 0) {
+      const params = new URLSearchParams(embedParams);
+      const normalizedStart = normalizeStartSeconds(startSeconds);
+      if (normalizedStart) params.set("start", String(normalizedStart));
+      return `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?${params.toString()}`;
+    }
+
+    function buildWatchUrl(startSeconds = 0) {
+      const normalizedStart = normalizeStartSeconds(startSeconds);
+      return normalizedStart ? `${watchUrl}&t=${normalizedStart}s` : watchUrl;
+    }
+
+    function seekLoadedIframe(startSeconds) {
+      const iframe = wrap.querySelector("iframe");
+      if (!iframe?.contentWindow) return false;
+      const seconds = normalizeStartSeconds(startSeconds);
+      iframe.contentWindow.postMessage(JSON.stringify({
+        event: "command",
+        func: "seekTo",
+        args: [seconds, true]
+      }), "https://www.youtube.com");
+      iframe.contentWindow.postMessage(JSON.stringify({
+        event: "command",
+        func: "playVideo",
+        args: []
+      }), "https://www.youtube.com");
+      return true;
+    }
+
+    function loadIframe(startSeconds = 0) {
       const isEnglish = window.SideClipI18n?.getLang?.() === "en";
       if (!canEmbedInline) {
-        window.open(watchUrl, "_blank", "noopener,noreferrer");
+        window.open(buildWatchUrl(startSeconds), "_blank", "noopener,noreferrer");
         return;
       }
-      if (wrap.dataset.loaded === "1") return;
+      if (wrap.dataset.loaded === "1") {
+        seekLoadedIframe(startSeconds);
+        return;
+      }
       wrap.dataset.loaded = "1";
       wrap.classList.remove(posterModifierClass);
       wrap.innerHTML = "";
       const iframe = document.createElement("iframe");
       iframe.width = "560";
       iframe.height = "315";
-      iframe.src = embedUrl;
+      iframe.src = buildEmbedUrl(startSeconds);
       iframe.title = isEnglish ? iframeTitleEn : iframeTitle;
       iframe.setAttribute("frameborder", "0");
       iframe.allow =
@@ -1784,7 +1926,7 @@
 
       const fallback = document.createElement("a");
       fallback.className = "video-embed-fallback";
-      fallback.href = watchUrl;
+      fallback.href = buildWatchUrl(startSeconds);
       fallback.target = "_blank";
       fallback.rel = "noopener noreferrer";
       fallback.textContent = isEnglish ? "Watch on YouTube" : "YouTubeで見る";
@@ -1802,10 +1944,14 @@
     });
 
     onBeforeLoad.forEach((fn) => fn(loadIframe));
+    return {
+      loadIframe,
+      playAt: loadIframe
+    };
   }
 
   function initConceptVideoEmbed() {
-    initYoutubePosterEmbed(document.querySelector(".concept-video__embed--poster"), getConceptVideoId(), {
+    const player = initYoutubePosterEmbed(document.querySelector(".concept-video__embed--poster"), getConceptVideoId(), {
       posterModifierClass: "concept-video__embed--poster",
       iframeTitle: "SideClip 基本機能のデモ動画",
       iframeTitleEn: "SideClip core feature demo",
@@ -1824,6 +1970,21 @@
           });
         }
       ]
+    });
+
+    document.querySelectorAll("[data-concept-video-seconds]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const seconds = Number.parseInt(button.dataset.conceptVideoSeconds || "0", 10) || 0;
+        document.querySelectorAll("[data-concept-video-seconds]").forEach((item) => {
+          item.classList.toggle("is-active", item === button);
+        });
+        trackAnalyticsEvent("concept_video_chapter", {
+          chapter_label: button.dataset.conceptVideoLabel || "unknown",
+          chapter_seconds: seconds,
+          video_language: getLandingLang()
+        });
+        player?.playAt(seconds);
+      });
     });
   }
 
@@ -1982,7 +2143,7 @@
   function setPageInertState(enabled) {
     const page = document.querySelector("main.page-shell");
     if (!page) return;
-    const modalIds = new Set(["feature-lightbox", "feature-video-lightbox"]);
+    const modalIds = new Set(["feature-lightbox", "feature-video-lightbox", "mobile-download-dialog"]);
     [...page.children].forEach((child) => {
       const shouldKeepInteractive = modalIds.has(child.id);
       if (!enabled || shouldKeepInteractive) {
@@ -1991,6 +2152,141 @@
       }
       child.setAttribute("inert", "");
     });
+  }
+
+  function isMobileDownloadContext() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("mobile_download_preview") === "1") return true;
+    if (navigator.userAgentData?.mobile === true) return true;
+    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent || "")) return true;
+    return /Macintosh/i.test(navigator.userAgent || "") && Number(navigator.maxTouchPoints || 0) > 1;
+  }
+
+  function copyTextToClipboard(textToCopy) {
+    if (navigator.clipboard?.writeText) {
+      return navigator.clipboard.writeText(textToCopy);
+    }
+    return new Promise((resolve, reject) => {
+      const textarea = document.createElement("textarea");
+      textarea.value = textToCopy;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        if (!document.execCommand("copy")) throw new Error("copy command failed");
+        resolve();
+      } catch (error) {
+        reject(error);
+      } finally {
+        textarea.remove();
+      }
+    });
+  }
+
+  function initMobileDownloadDialog() {
+    const overlay = document.querySelector("#mobile-download-dialog");
+    if (!overlay) return null;
+    const panel = overlay.querySelector(".mobile-download-dialog__panel");
+    const closeButton = overlay.querySelector(".mobile-download-dialog__close");
+    const shareButton = overlay.querySelector("[data-mobile-download-share]");
+    const copyButton = overlay.querySelector("[data-mobile-download-copy]");
+    const status = overlay.querySelector("[data-mobile-download-status]");
+    const downloadPageUrl = "https://sideclip.app/download/";
+    let lastFocusedElement = null;
+    let sourceTrackingData = null;
+
+    function isEnglish() {
+      return window.SideClipI18n?.getLang?.() === "en";
+    }
+
+    function setStatus(jaText, enText) {
+      if (status) status.textContent = isEnglish() ? enText : jaText;
+    }
+
+    function closeDialog() {
+      overlay.classList.remove("is-open");
+      overlay.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("has-mobile-download-dialog");
+      setPageInertState(false);
+      if (status) status.textContent = "";
+      lastFocusedElement?.focus?.();
+      lastFocusedElement = null;
+      sourceTrackingData = null;
+    }
+
+    function openDialog(opener, trackingData) {
+      lastFocusedElement = opener || document.activeElement;
+      sourceTrackingData = trackingData || {};
+      if (status) status.textContent = "";
+      if (shareButton) shareButton.hidden = typeof navigator.share !== "function";
+      copyButton?.classList.toggle("mobile-download-dialog__button--primary", typeof navigator.share !== "function");
+      copyButton?.classList.toggle("mobile-download-dialog__button--secondary", typeof navigator.share === "function");
+      overlay.classList.add("is-open");
+      overlay.setAttribute("aria-hidden", "false");
+      document.body.classList.add("has-mobile-download-dialog");
+      setPageInertState(true);
+      (shareButton && !shareButton.hidden ? shareButton : copyButton)?.focus();
+      trackAnalyticsEvent("mobile_download_bridge_open", {
+        cta_id: sourceTrackingData.ctaId || "mac_download",
+        section: sourceTrackingData.section || "download",
+        landing_language: getLandingLang()
+      });
+    }
+
+    shareButton?.addEventListener("click", async () => {
+      try {
+        await navigator.share({
+          title: "SideClip for Mac",
+          text: isEnglish()
+            ? "Open this link on your Mac to download SideClip for free."
+            : "このリンクをMacで開くと、SideClipを無料でダウンロードできます。",
+          url: downloadPageUrl
+        });
+        setStatus("共有画面を開きました。", "The share sheet is open.");
+        trackAnalyticsEvent("mobile_download_share", {
+          cta_id: sourceTrackingData?.ctaId || "mac_download",
+          section: sourceTrackingData?.section || "download",
+          landing_language: getLandingLang()
+        });
+      } catch (error) {
+        if (error?.name !== "AbortError") {
+          setStatus("共有できませんでした。リンクをコピーしてください。", "Could not share. Please copy the link instead.");
+        }
+      }
+    });
+
+    copyButton?.addEventListener("click", async () => {
+      try {
+        await copyTextToClipboard(downloadPageUrl);
+        setStatus("リンクをコピーしました。Macへ送って開いてください。", "Link copied. Send it to your Mac and open it there.");
+        trackAnalyticsEvent("mobile_download_copy", {
+          cta_id: sourceTrackingData?.ctaId || "mac_download",
+          section: sourceTrackingData?.section || "download",
+          landing_language: getLandingLang()
+        });
+      } catch (_) {
+        setStatus("コピーできませんでした。表示されているURLをMacで開いてください。", "Could not copy. Open the displayed URL on your Mac.");
+      }
+    });
+
+    closeButton?.addEventListener("click", closeDialog);
+    overlay.addEventListener("click", (event) => {
+      if (event.target === overlay) closeDialog();
+    });
+    panel?.addEventListener("click", (event) => event.stopPropagation());
+    document.addEventListener("keydown", (event) => {
+      if (!overlay.classList.contains("is-open")) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeDialog();
+        return;
+      }
+      trapFocusInDialog(event, panel);
+    });
+
+    return { open: openDialog };
   }
 
   function initFeatureImageLightbox() {
@@ -2073,6 +2369,8 @@
 
   function initDownloadLinkTracking() {
     const links = document.querySelectorAll("[data-download-link]");
+    const mobileDownload = isMobileDownloadContext();
+    const mobileDialog = mobileDownload ? initMobileDownloadDialog() : null;
     links.forEach((link) => {
       const trackingData = {
         ctaId: link.dataset.ctaId || "mac_download",
@@ -2087,10 +2385,23 @@
         link.href = `${downloadUrl.pathname}${downloadUrl.search}${downloadUrl.hash}`;
       }
 
-      link.addEventListener("click", () => {
+      if (mobileDownload) {
+        link.textContent = isJapaneseLanding()
+          ? "Macへダウンロードリンクを送る"
+          : "Send the download link to your Mac";
+        link.setAttribute("aria-label", link.textContent);
+        trackingData.ctaText = link.textContent;
+      }
+
+      link.addEventListener("click", (event) => {
         trackCtaClick({
           ...trackingData
         });
+        if (mobileDownload && mobileDialog) {
+          event.preventDefault();
+          mobileDialog.open(link, trackingData);
+          return;
+        }
         trackMacDownload({ ...trackingData, linkUrl: link.href });
       });
     });

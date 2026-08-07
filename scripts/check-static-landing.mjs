@@ -7,17 +7,17 @@ const checks = [
   {
     file: "index.html",
     lang: "en",
-    required: ["Three steps. Ready to paste.", "Download free for Mac", "Plans &amp; pricing", "data-sideclip-structured-data=\"software\"", "/download/", "image/avif"]
+    required: ["Connect once.", "Then paste in three steps.", "Download free for Mac", "Signed and notarized by Apple", "Jump to a feature", "Continue on your Mac", "Plans &amp; pricing", "data-sideclip-structured-data=\"software\"", "/download/", "image/avif"]
   },
   {
     file: "en/index.html",
     lang: "en",
-    required: ["Three steps. Ready to paste.", "Download free for Mac", "Plans &amp; pricing", "data-sideclip-structured-data=\"faq\"", "/download/", "image/webp"]
+    required: ["Connect once.", "Then paste in three steps.", "Download free for Mac", "Signed and notarized by Apple", "Jump to a feature", "Continue on your Mac", "Plans &amp; pricing", "data-sideclip-structured-data=\"faq\"", "/download/", "image/webp"]
   },
   {
     file: "ja/index.html",
     lang: "ja",
-    required: ["コピー履歴を、", "Macで無料ダウンロード", "料金プラン", "data-sideclip-structured-data=\"software\"", "/download/", "image/avif"]
+    required: ["コピー履歴を、", "Macで無料ダウンロード", "Apple署名・公証済み", "見たい機能から再生", "Macでダウンロードを続ける", "料金プラン", "data-sideclip-structured-data=\"software\"", "/download/", "image/avif"]
   }
 ];
 
@@ -121,6 +121,10 @@ for (const marker of [
   'downloadUrl.searchParams.set("source", "lp")',
   'downloadUrl.searchParams.set("cta_id", trackingData.ctaId)',
   'downloadUrl.searchParams.set("section", trackingData.section)',
+  'trackAnalyticsEvent("mobile_download_bridge_open"',
+  'trackAnalyticsEvent("mobile_download_share"',
+  'trackAnalyticsEvent("mobile_download_copy"',
+  'trackAnalyticsEvent("concept_video_chapter"',
 ]) {
   if (!appJs.includes(marker)) {
     throw new Error(`app.js is missing download redirect attribution: ${marker}`);

@@ -314,9 +314,10 @@
     const note = document.querySelector(".ja-pricing__billing-note");
     if (note) {
       const calculation = lang === "ja"
-        ? "※1日あたりの金額は年額料金を365日で換算しています。実際の請求は年額です。"
-        : "*Daily equivalents are calculated by dividing the annual price by 365. Annual plans are billed yearly.";
-      setText(note, `${calculation} ${marketNotice(lang)}`);
+        ? "※日額は年額料金÷365日の目安です。請求は年額です。"
+        : "*Daily prices are annual prices divided by 365. Annual plans are billed yearly.";
+      const faqGuide = lang === "ja" ? "料金の詳細はFAQをご覧ください。" : "See the FAQ for pricing details.";
+      setHtml(note, `<span>${calculation}</span><span>${faqGuide} ${marketNotice(lang)}</span>`);
     }
     updateFaq(lang);
   }
