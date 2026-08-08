@@ -713,7 +713,8 @@
               <span>Side</span><strong>Clip</strong>
             </a>
             <p class="hero__tagline" title="Clipboard app for Mac" aria-hidden="true">
-              <span lang="en">Clipboard app</span>
+              <span class="hero__tagline-main" lang="en">Clipboard app</span>
+              <span class="hero__tagline-platform" lang="en">for Mac</span>
             </p>
           </div>
           <nav class="ja-desktop-nav" aria-label="主要メニュー">
@@ -1032,9 +1033,9 @@
           <section class="trust-summary" aria-labelledby="trust-summary-title">
             <div class="trust-summary__head">
               <p class="trust-summary__eyebrow">Trust &amp; Safety</p>
-              <h2 id="trust-summary-title">安心して試せる、4つの事実。</h2>
+              <h2 id="trust-summary-title">はじめる前に知っておきたい、4つの安心。</h2>
             </div>
-          <ul class="hero-highlight-row" aria-label="SideClipを安心して試せる4つの事実">
+          <ul class="hero-highlight-row" aria-label="SideClipをはじめる前に知っておきたい4つの安心">
             <li class="hero-highlight-card">
               <span class="hero-highlight-card__icon" aria-hidden="true">
                 <img

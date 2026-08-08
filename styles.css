@@ -507,6 +507,9 @@ img {
 
 /* ヘッダー内の補足（常に「Clipboard app for Mac」— app を省略しない） */
 .hero__tagline {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.28em;
   margin: 0;
   min-width: 0;
   flex: 1 1 auto;
@@ -516,30 +519,32 @@ img {
   letter-spacing: 0.02em;
   color: var(--muted);
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow: visible;
+  text-overflow: clip;
 }
 
 @media (max-width: 480px) {
   .hero__tagline {
+    flex: 0 0 66px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
     font-size: clamp(9px, 2.35vw, 11.5px);
+    line-height: 1.05;
     letter-spacing: 0.01em;
-  }
-}
-
-@media (max-width: 420px) {
-  .hero__tagline {
-    display: none;
+    white-space: normal;
   }
 
-  .hero__header-brand {
-    padding-right: 2px;
+  .hero__tagline > span {
+    display: block;
+    white-space: nowrap;
   }
 }
 
 @media (max-width: 350px) {
   .hero__tagline {
-    display: none;
+    flex-basis: 64px;
+    font-size: 8px;
   }
 }
 
@@ -7550,5 +7555,60 @@ html.landing-refresh .trust-list--ja svg {
 
   html.landing-refresh .trust-list--ja {
     align-items: center;
+  }
+}
+
+@media (max-width: 420px) {
+  html.landing-refresh .hero__header {
+    padding-inline: 12px;
+  }
+
+  html.landing-refresh .hero__header-brand {
+    gap: 6px;
+    padding-right: 0;
+  }
+
+  html.landing-refresh .language-switch {
+    height: 40px;
+    padding: 2px;
+  }
+
+  html.landing-refresh .language-switch__option {
+    width: 34px;
+    height: 34px;
+  }
+
+  html.landing-refresh .hero__menu-button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 350px) {
+  html.landing-refresh .hero__header .hero__brand {
+    font-size: 26px;
+  }
+
+  html.landing-refresh .hero__header-brand {
+    gap: 5px;
+  }
+
+  html.landing-refresh .hero__header-actions {
+    gap: 3px;
+  }
+
+  html.landing-refresh .language-switch {
+    height: 36px;
+  }
+
+  html.landing-refresh .language-switch__option {
+    width: 30px;
+    height: 30px;
+    font-size: 0.66rem;
+  }
+
+  html.landing-refresh .hero__menu-button {
+    width: 38px;
+    height: 38px;
   }
 }
