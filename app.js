@@ -848,6 +848,7 @@
         <div class="content-overlay">
         <div class="hero__content">
           <div class="reveal__head">
+            <p class="hero__content-eyebrow">How It Works</p>
             <h2 class="hero__banner-copy">コピーして、選んで、<br />すぐ貼れる。</h2>
           </div>
           <div class="reveal__rest">
@@ -1050,7 +1051,7 @@
               </span>
               <div class="hero-highlight-card__body">
                 <p class="hero-highlight-card__title">履歴データはMac内に保存</p>
-                <p class="hero-highlight-card__text">コピー履歴はSideClipのクラウドへ送信しません。</p>
+                <p class="hero-highlight-card__text">保存先はMac。クラウドには保管しません。</p>
               </div>
             </li>
             <li class="hero-highlight-card">
@@ -1067,7 +1068,7 @@
               </span>
               <div class="hero-highlight-card__body">
                 <p class="hero-highlight-card__title">アカウント登録なしで開始</p>
-                <p class="hero-highlight-card__text">メールアドレスやパスワードの登録は不要です。</p>
+                <p class="hero-highlight-card__text">メールアドレス・ログインは不要です。</p>
               </div>
             </li>
             <li class="hero-highlight-card">
@@ -1084,7 +1085,7 @@
               </span>
               <div class="hero-highlight-card__body">
                 <p class="hero-highlight-card__title">QR認証した端末だけ接続</p>
-                <p class="hero-highlight-card__text">同じWi-Fi内でも、認証した端末だけが接続できます。</p>
+                <p class="hero-highlight-card__text">同じWi-Fiでも、認証した端末だけ接続します。</p>
               </div>
             </li>
             <li class="hero-highlight-card">
@@ -1093,7 +1094,7 @@
               </span>
               <div class="hero-highlight-card__body">
                 <p class="hero-highlight-card__title">Apple署名・公証済み</p>
-                <p class="hero-highlight-card__text">Apple Developer ID署名とApple公証を完了したDMGを配布しています。</p>
+                <p class="hero-highlight-card__text">署名・公証済みのDMGを配布しています。</p>
               </div>
             </li>
           </ul>
@@ -1317,9 +1318,13 @@
                   <p>QRコードで認証したスマホやタブレットだけが接続できます。</p>
                 </article>
               </div>
-              <p class="local-sync__detail-link">
-                <a href="./security.html">セキュリティ対策の詳細を見る</a>
-              </p>
+              <div class="local-sync__detail-cta">
+                <div class="local-sync__detail-copy">
+                  <strong>接続とデータの守り方を詳しく確認</strong>
+                  <span>暗号化通信、QR認証、共有時の注意点をまとめています。</span>
+                </div>
+                <a href="./security.html">セキュリティの詳細を見る</a>
+              </div>
             </div>
             </div>
           </div>
@@ -1335,27 +1340,61 @@
             <div class="reveal__rest">
               <div class="ja-pricing__grid">
                 <article class="ja-pricing__card" data-plan-tier="free">
-                  <p class="ja-pricing__label">まず試す</p>
+                  <p class="ja-pricing__label">基本機能を試したい人へ</p>
                   <h3>Free</h3>
                   <p class="ja-pricing__price">¥0</p>
                   <p class="ja-pricing__daily ja-pricing__daily--empty" aria-hidden="true">&nbsp;</p>
-                  <p class="ja-pricing__summary">コピー・スクショ履歴など、基本機能をすぐに体験できます。</p>
+                  <p class="ja-pricing__summary">コピー・スクショ履歴を無料で試し、Mac環境での動作を確認したい人向け。</p>
+                  <div class="ja-pricing__card-actions">
+                    <a
+                      class="ja-pricing__card-cta"
+                      href="${MAC_DOWNLOAD_URL}"
+                      data-download-link
+                      data-cta-id="pricing_free_download"
+                      data-cta-section="pricing_preview"
+                      aria-label="FreeプランをMacで無料ダウンロード"
+                    >無料で始める</a>
+                  </div>
                 </article>
                 <article class="ja-pricing__card ja-pricing__card--recommended" data-plan-tier="pro">
-                  <p class="ja-pricing__label">日常的に使う</p>
+                  <p class="ja-pricing__label">仕事で毎日使いたい人へ</p>
                   <h3>Pro</h3>
                   <p class="ja-pricing__price">¥300<span>/月</span></p>
                   <p class="ja-pricing__daily">年額プラン ¥2,400<span>月あたり¥200・1日あたり約7円※</span></p>
-                  <p class="ja-pricing__summary">Todo、画像編集、クイックペーストなど、仕事向けの機能を追加します。</p>
-                  <a class="ja-pricing__card-link" href="/plans#comparison-heading" data-plan-interest="pro">Proの機能を見る →</a>
+                  <p class="ja-pricing__summary">Todo・画像編集・クイックペーストを使い、日々の作業を速くしたい人向け。</p>
+                  <div class="ja-pricing__card-actions">
+                    <a class="ja-pricing__card-link" href="/plans#comparison-heading" data-plan-interest="pro">Proの機能を見る →</a>
+                    <a
+                      class="ja-pricing__card-cta"
+                      href="${MAC_DOWNLOAD_URL}"
+                      data-download-link
+                      data-cta-id="pricing_pro_trial"
+                      data-cta-section="pricing_preview"
+                      data-plan-interest="pro"
+                      data-plan-interest-type="app_trial"
+                      aria-label="SideClipアプリでProプランを30日無料で試す"
+                    >アプリで30日無料</a>
+                  </div>
                 </article>
                 <article class="ja-pricing__card" data-plan-tier="ultra">
-                  <p class="ja-pricing__label">履歴を資産として残す</p>
+                  <p class="ja-pricing__label">履歴を長く残したい人へ</p>
                   <h3>Ultra</h3>
                   <p class="ja-pricing__price">¥480<span>/月</span></p>
                   <p class="ja-pricing__daily">年額プラン ¥3,600<span>月あたり¥300・1日あたり約10円※</span></p>
-                  <p class="ja-pricing__summary">無制限保存、CSV、バックアップと復元など、全機能を利用できます。</p>
-                  <a class="ja-pricing__card-link" href="/plans#comparison-heading" data-plan-interest="ultra">Ultraの機能を見る →</a>
+                  <p class="ja-pricing__summary">無制限保存・CSV・バックアップで、履歴を長く管理したい人向け。</p>
+                  <div class="ja-pricing__card-actions">
+                    <a class="ja-pricing__card-link" href="/plans#comparison-heading" data-plan-interest="ultra">Ultraの機能を見る →</a>
+                    <a
+                      class="ja-pricing__card-cta"
+                      href="${MAC_DOWNLOAD_URL}"
+                      data-download-link
+                      data-cta-id="pricing_ultra_trial"
+                      data-cta-section="pricing_preview"
+                      data-plan-interest="ultra"
+                      data-plan-interest-type="app_trial"
+                      aria-label="SideClipアプリでUltraプランを30日無料で試す"
+                    >アプリで30日無料</a>
+                  </div>
                 </article>
               </div>
               <div class="ja-pricing__action">
@@ -1520,7 +1559,6 @@
               </nav>
               <ul class="trust-list trust-list--ja" aria-label="利用条件">
                 <li>${icon.checkCircle}アカウント・ログイン不要</li>
-                <li>${icon.lock}コピー履歴はMac内に保存</li>
                 <li>${icon.card}有料プランは月額・年額から選択</li>
               </ul>
           </div>
@@ -2414,7 +2452,7 @@
         const planTier = link.dataset.planInterest || "unknown";
         trackAnalyticsEvent("plan_interest", {
           plan_tier: planTier,
-          interaction_type: "details_link",
+          interaction_type: link.dataset.planInterestType || "details_link",
           link_url: link.href,
         });
       });
@@ -2466,6 +2504,68 @@
 
     window.addEventListener("scroll", onScroll, { passive: true });
     checkDepth();
+  }
+
+  function initSectionViewTracking() {
+    if (!("IntersectionObserver" in window)) return;
+
+    const sections = [
+      ["#hero-title", "hero", 1],
+      [".hero__content", "how_it_works", 2],
+      [".trust-summary", "trust_summary", 3],
+      [".clipboard-shift", "why_sideclip", 4],
+      ["#concept-video", "product_demo", 5],
+      [".benefits", "screenshot", 6],
+      [".features", "core_features", 7],
+      [".usage-scenes", "use_cases", 8],
+      [".local-sync", "local_sync", 9],
+      [".ja-pricing", "pricing", 10],
+      [".faq", "faq", 11],
+      [".final-cta", "final_cta", 12],
+    ];
+    const funnelSteps = new Map([
+      ["hero", 1],
+      ["product_demo", 2],
+      ["pricing", 3],
+      ["final_cta", 4],
+    ]);
+    const observed = new Map();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const details = observed.get(entry.target);
+        if (!details) return;
+        observer.unobserve(entry.target);
+        observed.delete(entry.target);
+
+        const parameters = {
+          section_name: details.name,
+          section_order: details.order,
+          billing_market: document.documentElement.dataset.billingMarket || "unknown",
+        };
+        trackAnalyticsEvent("section_view", parameters);
+
+        const funnelStep = funnelSteps.get(details.name);
+        if (funnelStep) {
+          trackAnalyticsEvent("landing_funnel_step", {
+            funnel_step: details.name,
+            step_number: funnelStep,
+            billing_market: parameters.billing_market,
+          });
+        }
+      });
+    }, {
+      rootMargin: "0px 0px -38% 0px",
+      threshold: 0.2,
+    });
+
+    sections.forEach(([selector, name, order]) => {
+      const element = document.querySelector(selector);
+      if (!element || observed.has(element)) return;
+      observed.set(element, { name, order });
+      observer.observe(element);
+    });
   }
 
   function scrollToPageTop({ smooth = false } = {}) {
@@ -2772,6 +2872,7 @@
     initDownloadLinkTracking();
     initPlanTracking();
     initScrollDepthTracking();
+    initSectionViewTracking();
     initCtaNavHashLinks();
     initSectionDrawer();
     initSyncLineRailLayout();
