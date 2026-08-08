@@ -6724,7 +6724,48 @@ html.landing-refresh .final-cta {
 }
 
 html.landing-refresh .concept-video {
+  grid-template-rows: auto auto auto auto;
   background: #f5f7fa;
+}
+
+html.landing-refresh .concept-video__copy {
+  display: contents;
+}
+
+html.landing-refresh .concept-video__copy > .reveal__head {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  width: min(100%, 820px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+html.landing-refresh .concept-video__copy > .reveal__rest {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: center;
+}
+
+html.landing-refresh .concept-video__eyebrow,
+html.landing-refresh .concept-video__copy h2 {
+  text-align: center;
+}
+
+html.landing-refresh .concept-video__copy h2 {
+  margin-inline: auto;
+}
+
+html.landing-refresh .concept-video__visual {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+html.landing-refresh .concept-video__chapters {
+  grid-row: 3;
+}
+
+html.landing-refresh .concept-video__cta {
+  grid-row: 4;
 }
 
 html.landing-refresh .benefits {
@@ -7149,7 +7190,31 @@ html.landing-refresh .faq__inner {
 }
 
 html.landing-refresh .final-cta {
+  grid-template-columns: minmax(0, 760px);
+  justify-content: center;
+  text-align: center;
   background: #eef6ff;
+}
+
+html.landing-refresh .final-cta__copy {
+  grid-column: 1;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+html.landing-refresh .final-cta__eyebrow,
+html.landing-refresh .final-cta h2 {
+  text-align: center;
+}
+
+html.landing-refresh .final-cta__copy p {
+  margin-inline: auto;
+}
+
+html.landing-refresh .final-cta__action {
+  grid-column: 1;
+  justify-self: center;
+  margin-top: 30px;
 }
 
 html.landing-refresh .cta-links--ja {
@@ -7426,6 +7491,15 @@ html.landing-refresh .trust-list--ja svg {
     gap: 8px;
     width: min(100%, 320px);
     margin: 0 auto;
+  }
+
+  html.landing-refresh .concept-video__copy > .reveal__head,
+  html.landing-refresh .concept-video__copy > .reveal__rest,
+  html.landing-refresh .concept-video__visual,
+  html.landing-refresh .concept-video__chapters,
+  html.landing-refresh .concept-video__cta {
+    grid-column: 1;
+    grid-row: auto;
   }
 
   html.landing-refresh .concept-video__cta a {
