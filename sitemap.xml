@@ -113,4 +113,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
+  <url>
+    <loc>https://sideclip.app/ja/guides/</loc>
+    <lastmod>2026-10-10</lastmod>
+  </url>
+  <url>
+    <loc>https://sideclip.app/ja/guides/clipboard-history-on-phone/</loc>
+    <lastmod>2026-10-10</lastmod>
+  </url>
 </urlset>

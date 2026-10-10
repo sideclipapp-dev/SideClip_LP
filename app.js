@@ -721,6 +721,7 @@
             <a href="#concept-video">デモ</a>
             <a href="#features-title">主な機能</a>
             <a href="/plans">料金</a>
+            ${isJapanese ? '<a href="/ja/guides/">使い方</a>' : ''}
           </nav>
           <div class="hero__header-actions">
             ${renderLanguageSwitch()}
@@ -832,6 +833,7 @@
               <a href="/plans">料金プラン</a>
               <a href="#faq" data-section-menu-link>FAQ</a>
               <a href="#download" data-section-menu-link>ダウンロード</a>
+              <a href="/ja/guides/">使い方・活用ガイド</a>
             ` : `
               <a href="#hero-title" data-section-menu-link>トップ</a>
               <a href="#concept-video" data-section-menu-link>Product demo</a>
@@ -1617,6 +1619,7 @@
             <a href="./privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
             <span class="site-footer__sep" aria-hidden="true">·</span>
             <a class="site-footer__japan-legal" href="./tokushoho.html" target="_blank" rel="noopener noreferrer">特定商取引法に基づく表記</a>
+            ${isJapanese ? '<span class="site-footer__sep" aria-hidden="true">·</span><a href="/ja/guides/">使い方・活用ガイド</a>' : ''}
           </nav>
           <p class="site-footer__copyright">© 2026 SideClip. All rights reserved.</p>
         </footer>
