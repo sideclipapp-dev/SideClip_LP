@@ -336,6 +336,7 @@
     if (!inner) return;
     const isJapanese = currentLang === "ja";
     header.classList.toggle("plans-site-header", isJapanese);
+    inner.querySelector(":scope > div:first-child > a")?.classList.toggle("site-wordmark", isJapanese);
     if (!isJapanese) {
       inner.querySelector(".site-primary-nav")?.remove();
       document.querySelector(".site-page-links")?.remove();

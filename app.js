@@ -709,7 +709,7 @@
       <main class="page-shell">
         <header class="hero__header">
           <div class="hero__header-brand">
-            <a class="brand hero__brand" href="#" aria-label="SideClip（Macのクリップボードアプリ）">
+            <a class="brand hero__brand site-wordmark" href="#" aria-label="SideClip（Macのクリップボードアプリ）">
               <span>Side</span><strong>Clip</strong>
             </a>
             <p class="hero__tagline" title="Clipboard app for Mac" aria-hidden="true">
