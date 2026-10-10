@@ -330,6 +330,33 @@
     suggestion.querySelector('[data-suggestion-action="switch"]')?.focus();
   }
 
+  function ensureSiteNavigation() {
+    const header = document.querySelector("header");
+    const inner = header?.querySelector(":scope > div");
+    if (!inner) return;
+    const isJapanese = currentLang === "ja";
+    header.classList.toggle("plans-site-header", isJapanese);
+    if (!isJapanese) {
+      inner.querySelector(".site-primary-nav")?.remove();
+      document.querySelector(".site-page-links")?.remove();
+      return;
+    }
+    if (!inner.querySelector(".site-primary-nav")) {
+      const nav = document.createElement("nav");
+      nav.className = "site-primary-nav";
+      nav.setAttribute("aria-label", "主要メニュー");
+      nav.innerHTML = '<a href="/ja/">製品紹介</a><a href="/ja/guides/">使い方</a><a href="/ja/plans/" aria-current="page">料金プラン</a>';
+      inner.insertBefore(nav, inner.querySelector(".plans-language-switch"));
+    }
+    if (!document.querySelector(".site-page-links")) {
+      const nav = document.createElement("nav");
+      nav.className = "site-page-links";
+      nav.setAttribute("aria-label", "関連ページ");
+      nav.innerHTML = '<a href="/ja/">製品紹介</a><a href="/ja/guides/">使い方</a><a href="/ja/plans/" aria-current="page">料金プラン</a>';
+      document.querySelector("main")?.appendChild(nav);
+    }
+  }
+
   function applyLanguage() {
     if (applying) return;
     applying = true;
@@ -339,6 +366,7 @@
     applyMeta();
     updateLocalizedLinks();
     updateControls();
+    ensureSiteNavigation();
     window.SideClipRegionalPricing?.apply?.();
     applying = false;
   }

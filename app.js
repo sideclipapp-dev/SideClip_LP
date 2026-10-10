@@ -717,11 +717,16 @@
               <span class="hero__tagline-platform" lang="en">for Mac</span>
             </p>
           </div>
-          <nav class="ja-desktop-nav" aria-label="主要メニュー">
-            <a href="#concept-video">デモ</a>
-            <a href="#features-title">主な機能</a>
-            <a href="/plans">料金</a>
-            ${isJapanese ? '<a href="/ja/guides/">使い方</a>' : ''}
+          <nav class="${isJapanese ? 'site-primary-nav' : 'ja-desktop-nav'}" aria-label="主要メニュー">
+            ${isJapanese ? `
+              <a href="/ja/" aria-current="page">製品紹介</a>
+              <a href="/ja/guides/">使い方</a>
+              <a href="/ja/plans/">料金プラン</a>
+            ` : `
+              <a href="#concept-video">デモ</a>
+              <a href="#features-title">主な機能</a>
+              <a href="/plans">料金</a>
+            `}
           </nav>
           <div class="hero__header-actions">
             ${renderLanguageSwitch()}
@@ -1619,7 +1624,7 @@
             <a href="./privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
             <span class="site-footer__sep" aria-hidden="true">·</span>
             <a class="site-footer__japan-legal" href="./tokushoho.html" target="_blank" rel="noopener noreferrer">特定商取引法に基づく表記</a>
-            ${isJapanese ? '<span class="site-footer__sep" aria-hidden="true">·</span><a href="/ja/guides/">使い方・活用ガイド</a>' : ''}
+            ${isJapanese ? '<span class="site-footer__sep" aria-hidden="true">·</span><a href="/ja/">製品紹介</a><span class="site-footer__sep" aria-hidden="true">·</span><a href="/ja/guides/">使い方</a><span class="site-footer__sep" aria-hidden="true">·</span><a href="/ja/plans/">料金プラン</a>' : ''}
           </nav>
           <p class="site-footer__copyright">© 2026 SideClip. All rights reserved.</p>
         </footer>

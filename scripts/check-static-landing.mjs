@@ -69,10 +69,10 @@ for (const file of ["index.html", "en/index.html"]) {
   }
 }
 
-const planAssetVersion = "20260801-global-review";
+const planAssetVersions = { "plans-enhance-20260702-order.js": "20260801-global-review", "plans-i18n.js": "20261010-navigation-v2" };
 for (const file of ["plans/index.html", "ja/plans/index.html", "en/plans/index.html"]) {
   const html = await readFile(path.join(repoRoot, file), "utf8");
-  for (const script of ["plans-enhance-20260702-order.js", "plans-i18n.js"]) {
+  for (const [script, planAssetVersion] of Object.entries(planAssetVersions)) {
     if (!html.includes(`${script}?v=${planAssetVersion}`)) {
       throw new Error(`${file} does not load ${script} with the current asset version.`);
     }
